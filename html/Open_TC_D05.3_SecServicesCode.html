@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>html/Open_TC_D05.3_SecServicesCode</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="date" content="2007-11-28T10:13:08+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<!-- Page 1 -->
+<a name="1"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:13px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft11{font-size:19px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft12{font-size:27px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft13{font-size:17px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft14{font-size:17px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft15{font-size:10px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft16{font-size:14px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft17{font-size:17px;line-height:19px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft18{font-size:17px;line-height:19px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page1-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D05.3_SecServicesCode001.png" alt="background image"/>
+<p style="position:absolute;top:137px;left:92px;white-space:nowrap" class="ft10">&#160;</p>
+<p style="position:absolute;top:76px;left:91px;white-space:nowrap" class="ft11">&#160;</p>
+<p style="position:absolute;top:242px;left:113px;white-space:nowrap" class="ft12"><b>D05.3&#160;Selected&#160;Portions&#160;of&#160;the&#160;Source&#160;Code&#160;</b></p>
+<p style="position:absolute;top:273px;left:296px;white-space:nowrap" class="ft12"><b>Used&#160;to&#160;Build&#160;D05.2</b></p>
+<p style="position:absolute;top:351px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;number</b></p>
+<p style="position:absolute;top:351px;left:425px;white-space:nowrap" class="ft14">IST-027635</p>
+<p style="position:absolute;top:376px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;acronym</b></p>
+<p style="position:absolute;top:376px;left:425px;white-space:nowrap" class="ft14">Open_TC</p>
+<p style="position:absolute;top:402px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;title</b></p>
+<p style="position:absolute;top:402px;left:425px;white-space:nowrap" class="ft14">Open&#160;Trusted&#160;Computing</p>
+<p style="position:absolute;top:427px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;type</b></p>
+<p style="position:absolute;top:427px;left:425px;white-space:nowrap" class="ft14">Report&#160;(see&#160;p&#160;84/85 Annex&#160;1 -&#160;Nature)</p>
+<p style="position:absolute;top:470px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;reference&#160;number</b></p>
+<p style="position:absolute;top:470px;left:425px;white-space:nowrap" class="ft14">IST-027635/D05.3/Final</p>
+<p style="position:absolute;top:502px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;title</b></p>
+<p style="position:absolute;top:493px;left:425px;white-space:nowrap" class="ft17">Selected&#160;Portions&#160;of&#160;the&#160;Source&#160;Code&#160;Used&#160;to&#160;<br/>Build&#160;D05.2</p>
+<p style="position:absolute;top:534px;left:91px;white-space:nowrap" class="ft13"><b>WP&#160;contributing&#160;to&#160;the&#160;deliverable</b></p>
+<p style="position:absolute;top:534px;left:425px;white-space:nowrap" class="ft14">WP05</p>
+<p style="position:absolute;top:560px;left:91px;white-space:nowrap" class="ft13"><b>Due&#160;date</b></p>
+<p style="position:absolute;top:560px;left:425px;white-space:nowrap" class="ft14">Oct&#160;2007 -&#160;M24</p>
+<p style="position:absolute;top:585px;left:91px;white-space:nowrap" class="ft13"><b>Actual&#160;submission&#160;date</b></p>
+<p style="position:absolute;top:585px;left:425px;white-space:nowrap" class="ft14">November&#160;26, 2007</p>
+<p style="position:absolute;top:628px;left:91px;white-space:nowrap" class="ft13"><b>Responsible&#160;Organisation</b></p>
+<p style="position:absolute;top:628px;left:424px;white-space:nowrap" class="ft14">IAIK, RUB, HP</p>
+<p style="position:absolute;top:660px;left:91px;white-space:nowrap" class="ft13"><b>Authors</b></p>
+<p style="position:absolute;top:651px;left:424px;white-space:nowrap" class="ft17">IBM&#160;(Matthias&#160;Schunter), KUL&#160;(Dries&#160;<br/>Schellekens)</p>
+<p style="position:absolute;top:689px;left:91px;white-space:nowrap" class="ft13"><b>Abstract</b></p>
+<p style="position:absolute;top:689px;left:424px;white-space:nowrap" class="ft17">This&#160;CD&#160;contains&#160;source&#160;code&#160;of&#160;core&#160;<br/>component&#160;of&#160;the&#160;OpenTC&#160;2007&#160;<br/>demonstrator&#160;for&#160;“Corporate&#160;Computing&#160;at&#160;<br/>Home”. It&#160;is&#160;based&#160;on&#160;the&#160;research&#160;<br/>documented&#160;in&#160;Deliverable&#160;D05.1 ”Basic&#160;<br/>Security&#160;Services” and&#160;is&#160;accompanied&#160;by&#160;<br/>design&#160;documentation&#160;in&#160;Deliverable&#160;D05.3.</p>
+<p style="position:absolute;top:921px;left:91px;white-space:nowrap" class="ft13"><b>Keywords</b></p>
+<p style="position:absolute;top:902px;left:424px;white-space:nowrap" class="ft17">Security&#160;management, isolation&#160;policy, policy&#160;<br/>enforcement, corporate&#160;computing&#160;at&#160;home,&#160;<br/>2007 demonstrator, implementation, code</p>
+<p style="position:absolute;top:980px;left:92px;white-space:nowrap" class="ft13"><b>Dissemination&#160;level</b></p>
+<p style="position:absolute;top:980px;left:423px;white-space:nowrap" class="ft14">Public&#160;</p>
+<p style="position:absolute;top:1005px;left:92px;white-space:nowrap" class="ft13"><b>Revision</b></p>
+<p style="position:absolute;top:1005px;left:423px;white-space:nowrap" class="ft14">Final</p>
+<p style="position:absolute;top:1057px;left:90px;white-space:nowrap" class="ft13"><b>Instrument</b></p>
+<p style="position:absolute;top:1057px;left:271px;white-space:nowrap" class="ft14">IP</p>
+<p style="position:absolute;top:1047px;left:452px;white-space:nowrap" class="ft18"><b>Start&#160;date&#160;of&#160;the&#160;<br/>project</b></p>
+<p style="position:absolute;top:1057px;left:632px;white-space:nowrap" class="ft14">1</p>
+<p style="position:absolute;top:1057px;left:643px;white-space:nowrap" class="ft15">st</p>
+<p style="position:absolute;top:1057px;left:652px;white-space:nowrap" class="ft14">&#160;November&#160;2005</p>
+<p style="position:absolute;top:1086px;left:90px;white-space:nowrap" class="ft13"><b>Thematic&#160;Priority</b></p>
+<p style="position:absolute;top:1086px;left:271px;white-space:nowrap" class="ft14">IST</p>
+<p style="position:absolute;top:1086px;left:452px;white-space:nowrap" class="ft13"><b>Duration</b></p>
+<p style="position:absolute;top:1086px;left:632px;white-space:nowrap" class="ft14">42 months</p>
+<p style="position:absolute;top:75px;left:674px;white-space:nowrap" class="ft16">&#160;</p>
+</div>
+<!-- Page 2 -->
+<a name="2"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft29{font-size:26px;font-family:Helvetica;color:#000000;}
+	.ft210{font-size:21px;font-family:Helvetica;color:#000000;}
+	.ft211{font-size:15px;font-family:Times;color:#000000;}
+	.ft212{font-size:15px;line-height:17px;font-family:Times;color:#000000;}
+	.ft213{font-size:15px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+<div id="page2-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D05.3_SecServicesCode002.png" alt="background image"/>
+<p style="position:absolute;top:189px;left:345px;white-space:nowrap" class="ft29"><b>A</b></p>
+<p style="position:absolute;top:192px;left:365px;white-space:nowrap" class="ft210"><b>BSTRACT</b></p>
+<p style="position:absolute;top:230px;left:150px;white-space:nowrap" class="ft213">This&#160;CD&#160;contains&#160;source&#160;code&#160;of&#160;core&#160;component&#160;of&#160;the&#160;OpenTC&#160;2007&#160;demonstrator<br/>for&#160;“Corporate&#160;Computing&#160;at&#160;Home”.&#160;It&#160;is&#160;based&#160;on&#160;the&#160;research&#160;documented&#160;in&#160;Deliv-<br/>erable&#160;D05.1&#160;”Basic&#160;Security&#160;Services”&#160;and&#160;is&#160;accompanied&#160;by&#160;design&#160;documentation<br/>in&#160;Deliverable&#160;D05.3.</p>
+<p style="position:absolute;top:302px;left:172px;white-space:nowrap" class="ft211">The&#160;goal&#160;of&#160;these&#160;deliverable&#160;is&#160;to&#160;describe&#160;and&#160;explain&#160;the&#160;actual&#160;design&#160;and&#160;imple-</p>
+<p style="position:absolute;top:320px;left:150px;white-space:nowrap" class="ft212">mentation&#160;of&#160;our&#160;demonstrator.&#160;In&#160;particular&#160;how&#160;we&#160;addressed&#160;the&#160;security&#160;challenges<br/>identified&#160;in&#160;the&#160;given&#160;scenario.</p>
+<p style="position:absolute;top:1117px;left:404px;white-space:nowrap" class="ft211">2</p>
+</div>
+<!-- Page 3 -->
+<a name="3"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft314{font-size:22px;font-family:Times;color:#000000;}
+	.ft315{font-size:22px;font-family:Courier;color:#000000;}
+	.ft316{font-size:15px;font-family:WNYVFJ+CMSY10;color:#000000;}
+-->
+</style>
+<div id="page3-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D05.3_SecServicesCode003.png" alt="background image"/>
+<p style="position:absolute;top:189px;left:226px;white-space:nowrap" class="ft314"><b>1</b></p>
+<p style="position:absolute;top:189px;left:258px;white-space:nowrap" class="ft314"><b>Introduction</b></p>
+<p style="position:absolute;top:230px;left:226px;white-space:nowrap" class="ft312">This&#160;deliverable&#160;documents&#160;the&#160;current&#160;source&#160;code&#160;of&#160;the&#160;Workpackage&#160;5&#160;portions&#160;of<br/>the&#160;2007&#160;demonstrator.&#160;It&#160;includes&#160;the&#160;security&#160;services&#160;for&#160;Xen&#160;and&#160;L4,&#160;the&#160;networking<br/>for&#160;Xen,&#160;and&#160;the&#160;common&#160;public&#160;key&#160;infrastructure.</p>
+<p style="position:absolute;top:322px;left:226px;white-space:nowrap" class="ft314"><b>2</b></p>
+<p style="position:absolute;top:323px;left:258px;white-space:nowrap" class="ft315"><b>Xen&#160;Security&#160;Services/</b></p>
+<p style="position:absolute;top:322px;left:532px;white-space:nowrap" class="ft314"><b>:&#160;Xen&#160;Security&#160;Services</b></p>
+<p style="position:absolute;top:348px;left:258px;white-space:nowrap" class="ft314"><b>(IBM)</b></p>
+<p style="position:absolute;top:390px;left:226px;white-space:nowrap" class="ft312">This&#160;directory&#160;contains&#160;the&#160;source&#160;code&#160;of&#160;the&#160;security&#160;services&#160;for&#160;Xen.&#160;This&#160;includes<br/>integrity,&#160;network,&#160;and&#160;compartment&#160;management.&#160;This&#160;code&#160;is&#160;OpenTC&#160;Confidential.</p>
+<p style="position:absolute;top:463px;left:226px;white-space:nowrap" class="ft314"><b>3</b></p>
+<p style="position:absolute;top:464px;left:258px;white-space:nowrap" class="ft315"><b>vNET/</b></p>
+<p style="position:absolute;top:463px;left:323px;white-space:nowrap" class="ft314"><b>:&#160;Xen&#160;Virtual&#160;Networking&#160;(HPL)</b></p>
+<p style="position:absolute;top:504px;left:226px;white-space:nowrap" class="ft313">This&#160;directory&#160;contains&#160;the&#160;source&#160;code&#160;of&#160;the&#160;virtual&#160;networking&#160;for&#160;Xen.&#160;This&#160;includes<br/>the&#160;virtual&#160;switch&#160;code&#160;and&#160;virtual&#160;network&#160;management&#160;tools.&#160;This&#160;code&#160;is&#160;OpenTC<br/>Confidential.</p>
+<p style="position:absolute;top:595px;left:226px;white-space:nowrap" class="ft314"><b>4</b></p>
+<p style="position:absolute;top:596px;left:258px;white-space:nowrap" class="ft315"><b>L4&#160;Security&#160;Services</b></p>
+<p style="position:absolute;top:595px;left:507px;white-space:nowrap" class="ft314"><b>:&#160;Security&#160;Services&#160;for&#160;L4</b></p>
+<p style="position:absolute;top:622px;left:258px;white-space:nowrap" class="ft314"><b>(RUB)</b></p>
+<p style="position:absolute;top:663px;left:226px;white-space:nowrap" class="ft312">The&#160;L4&#160;Security&#160;Services&#160;directory&#160;contains&#160;the&#160;full&#160;source&#160;code&#160;of&#160;the&#160;L4&#160;Security<br/>Services&#160;including:</p>
+<p style="position:absolute;top:724px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:721px;left:263px;white-space:nowrap" class="ft311">Compartment&#160;Manager</p>
+<p style="position:absolute;top:761px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:757px;left:263px;white-space:nowrap" class="ft311">Integrity&#160;Manager</p>
+<p style="position:absolute;top:798px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:794px;left:263px;white-space:nowrap" class="ft311">Property&#160;Manager</p>
+<p style="position:absolute;top:835px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:831px;left:263px;white-space:nowrap" class="ft311">MicroGUI</p>
+<p style="position:absolute;top:871px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:868px;left:263px;white-space:nowrap" class="ft311">Storage&#160;Manager</p>
+<p style="position:absolute;top:908px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:905px;left:263px;white-space:nowrap" class="ft311">TPM&#160;Manager</p>
+<p style="position:absolute;top:945px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:941px;left:263px;white-space:nowrap" class="ft311">User&#160;Manager</p>
+<p style="position:absolute;top:982px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:978px;left:263px;white-space:nowrap" class="ft311">Trust&#160;Manager</p>
+<p style="position:absolute;top:1018px;left:248px;white-space:nowrap" class="ft316">•</p>
+<p style="position:absolute;top:1015px;left:263px;white-space:nowrap" class="ft311">other&#160;specific&#160;tools</p>
+<p style="position:absolute;top:1054px;left:248px;white-space:nowrap" class="ft311">Additionally&#160;this&#160;directory&#160;contains&#160;an&#160;archive&#160;holding&#160;the&#160;documentation&#160;of&#160;the</p>
+<p style="position:absolute;top:1072px;left:226px;white-space:nowrap" class="ft311">whole&#160;Security&#160;Services&#160;API&#160;in&#160;html&#160;format.</p>
+<p style="position:absolute;top:1117px;left:480px;white-space:nowrap" class="ft311">3</p>
+</div>
+<!-- Page 4 -->
+<a name="4"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft417{font-size:15px;font-family:Times;color:#000000;}
+	.ft418{font-size:15px;font-family:Helvetica;color:#000000;}
+-->
+</style>
+<div id="page4-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D05.3_SecServicesCode004.png" alt="background image"/>
+<p style="position:absolute;top:189px;left:150px;white-space:nowrap" class="ft414"><b>5</b></p>
+<p style="position:absolute;top:190px;left:182px;white-space:nowrap" class="ft415"><b>PKI/</b></p>
+<p style="position:absolute;top:189px;left:234px;white-space:nowrap" class="ft414"><b>:&#160;Public-Key&#160;Infrastructure&#160;(IAIK)</b></p>
+<p style="position:absolute;top:227px;left:150px;white-space:nowrap" class="ft413">The&#160;“PKI”&#160;directory&#160;contains&#160;a&#160;set&#160;of&#160;PKI&#160;components&#160;with&#160;Trusted&#160;Computing&#160;support<br/>which&#160;were&#160;developed&#160;within&#160;OpenTC.</p>
+<p style="position:absolute;top:275px;left:150px;white-space:nowrap" class="ft417"><b>pca-0.1.tar.bz2&#160;</b>Is&#160;a&#160;proof-of-concept&#160;implementation&#160;of&#160;a&#160;“Privacy&#160;CA”&#160;server&#160;ser-</p>
+<p style="position:absolute;top:293px;left:187px;white-space:nowrap" class="ft412">vice.&#160;This&#160;PKI&#160;service&#160;interprets&#160;TPM&#160;Endorsement&#160;Key&#160;certificates&#160;of&#160;hard-<br/>ware&#160;TPMs&#160;and&#160;issues&#160;Attested&#160;Identity&#160;Key&#160;(AIK)&#160;certificates,&#160;plus&#160;common<br/>management&#160;functions.</p>
+<p style="position:absolute;top:358px;left:150px;white-space:nowrap" class="ft417"><b>jTpmTools&#160;0.3a.tar.bz2&#160;</b>Is&#160;a&#160;command&#160;line&#160;client&#160;application&#160;which&#160;showcases&#160;inter-</p>
+<p style="position:absolute;top:376px;left:187px;white-space:nowrap" class="ft413">action&#160;with&#160;the&#160;local&#160;TPM&#160;to&#160;extract&#160;the&#160;EK&#160;certificate&#160;and&#160;does&#160;the&#160;AIK&#160;creation<br/>cycle&#160;with&#160;a&#160;remote&#160;entity,&#160;the&#160;above&#160;mentioned&#160;Privacy&#160;CA.</p>
+<p style="position:absolute;top:424px;left:150px;white-space:nowrap" class="ft417"><b>tccert-0.2.2.tar.bz2&#160;</b>Is&#160;a&#160;library&#160;which&#160;provides&#160;the&#160;implementation&#160;of&#160;Trusted&#160;Com-</p>
+<p style="position:absolute;top:442px;left:187px;white-space:nowrap" class="ft411">puting&#160;specific&#160;certificate&#160;handling.</p>
+<p style="position:absolute;top:472px;left:150px;white-space:nowrap" class="ft413">Note&#160;that&#160;these&#160;packages&#160;are&#160;not&#160;standalone,&#160;but&#160;require&#160;additional&#160;support&#160;libraries.<br/>For&#160;these&#160;and&#160;up&#160;to&#160;date&#160;versions&#160;please&#160;visit</p>
+<p style="position:absolute;top:489px;left:420px;white-space:nowrap" class="ft418"><a href="http://trustedjava.sourceforge.net/">http://trustedjava.sourceforge.net/</a></p>
+<p style="position:absolute;top:490px;left:642px;white-space:nowrap" class="ft411"><a href="http://trustedjava.sourceforge.net/">.</a></p>
+<p style="position:absolute;top:1117px;left:404px;white-space:nowrap" class="ft411">4</p>
+</div>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li>D05.3-v01-SecServicesCode.pdf
+<ul>
+<li>D05.3-v01-SecServicesCode.pdf
+<ul>
+<li><a href="Open_TC_D05.3_SecServicesCode.html#3">Introduction</a></li>
+<li><a href="Open_TC_D05.3_SecServicesCode.html#3">Xen_Security_Services/: Xen Security Services (IBM)</a></li>
+<li><a href="Open_TC_D05.3_SecServicesCode.html#3">vNET/: Xen Virtual Networking (HPL)</a></li>
+<li><a href="Open_TC_D05.3_SecServicesCode.html#3">L4_Security_Services: Security Services for L4 (RUB)</a></li>
+<li><a href="Open_TC_D05.3_SecServicesCode.html#4">PKI/: Public-Key Infrastructure (IAIK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

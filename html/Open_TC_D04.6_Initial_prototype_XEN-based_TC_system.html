@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Initial prototype Xen-based TC system</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="author" content="Angelika Holzweber"/>
+<meta name="keywords" content="WP4, Xen, Prototype, BMI, domB, disaggregation"/>
+<meta name="date" content="2007-04-10T11:34:48+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<!-- Page 1 -->
+<a name="1"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:13px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft11{font-size:19px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft12{font-size:27px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft13{font-size:17px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft14{font-size:17px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft15{font-size:10px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft16{font-size:14px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft17{font-size:17px;line-height:19px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft18{font-size:17px;line-height:19px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page1-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system001.png" alt="background image"/>
+<p style="position:absolute;top:137px;left:92px;white-space:nowrap" class="ft10">&#160;</p>
+<p style="position:absolute;top:76px;left:91px;white-space:nowrap" class="ft11">&#160;</p>
+<p style="position:absolute;top:242px;left:115px;white-space:nowrap" class="ft12"><b>D4.6&#160;Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</b></p>
+<p style="position:absolute;top:319px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;number</b></p>
+<p style="position:absolute;top:319px;left:425px;white-space:nowrap" class="ft14">IST-027635</p>
+<p style="position:absolute;top:345px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;acronym</b></p>
+<p style="position:absolute;top:345px;left:425px;white-space:nowrap" class="ft14">Open_TC</p>
+<p style="position:absolute;top:370px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;title</b></p>
+<p style="position:absolute;top:370px;left:425px;white-space:nowrap" class="ft14">Open&#160;Trusted&#160;Computing</p>
+<p style="position:absolute;top:396px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;type</b></p>
+<p style="position:absolute;top:396px;left:425px;white-space:nowrap" class="ft14">Report&#160;(see&#160;p&#160;84/85 Annex&#160;1 -&#160;Nature)</p>
+<p style="position:absolute;top:439px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;reference&#160;number</b></p>
+<p style="position:absolute;top:439px;left:425px;white-space:nowrap" class="ft14">IST-027635/D4.6/FINAL|1.0</p>
+<p style="position:absolute;top:464px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;title</b></p>
+<p style="position:absolute;top:464px;left:425px;white-space:nowrap" class="ft14">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:490px;left:91px;white-space:nowrap" class="ft13"><b>WP&#160;contributing&#160;to&#160;the&#160;deliverable</b></p>
+<p style="position:absolute;top:490px;left:425px;white-space:nowrap" class="ft14">WP4</p>
+<p style="position:absolute;top:515px;left:91px;white-space:nowrap" class="ft13"><b>Due&#160;date</b></p>
+<p style="position:absolute;top:515px;left:425px;white-space:nowrap" class="ft14">Feb&#160;2007 -&#160;M16</p>
+<p style="position:absolute;top:541px;left:91px;white-space:nowrap" class="ft13"><b>Actual&#160;submission&#160;date</b></p>
+<p style="position:absolute;top:541px;left:425px;white-space:nowrap" class="ft14">April&#160;2007</p>
+<p style="position:absolute;top:584px;left:91px;white-space:nowrap" class="ft13"><b>Responsible&#160;Organisation</b></p>
+<p style="position:absolute;top:584px;left:424px;white-space:nowrap" class="ft14">CUCL</p>
+<p style="position:absolute;top:616px;left:91px;white-space:nowrap" class="ft13"><b>Authors</b></p>
+<p style="position:absolute;top:606px;left:424px;white-space:nowrap" class="ft17">CUCL&#160;(Derek&#160;Murray)<br/>POLITO&#160;(Gianluca&#160;Ramunno)</p>
+<p style="position:absolute;top:645px;left:91px;white-space:nowrap" class="ft13"><b>Abstract</b></p>
+<p style="position:absolute;top:645px;left:424px;white-space:nowrap" class="ft17">In&#160;this&#160;report, an&#160;initial&#160;prototype&#160;Xen-based&#160;<br/>trusted&#160;computing&#160;system&#160;is&#160;described. This&#160;<br/>is&#160;a&#160;modified&#160;version&#160;of&#160;the&#160;Xen&#160;VMM&#160;and&#160;<br/>tool-stack, which&#160;takes&#160;into&#160;account&#160;some&#160;of&#160;<br/>the&#160;requirements&#160;of&#160;the&#160;Basic Management&#160;<br/>Interface&#160;(BMI). Specifically, our&#160;<br/>modifications&#160;to&#160;Xen&#160;have&#160;involved&#160;<br/>disaggregating&#160;the&#160;function&#160;of&#160;domain&#160;<br/>building&#160;from&#160;the&#160;management&#160;domain&#160;into&#160;a&#160;<br/>smaller&#160;domain&#160;isolated&#160;from&#160;the&#160;<br/>management&#160;domain. This&#160;modified&#160;version&#160;<br/>of&#160;Xen&#160;may&#160;be&#160;built&#160;using&#160;the&#160;Proof&#160;of&#160;<br/>Concept&#160;LiveCD, and&#160;the&#160;included&#160;<br/>development&#160;domain, though&#160;these&#160;do&#160;not&#160;<br/>form&#160;part&#160;of&#160;this&#160;deliverable.</p>
+<p style="position:absolute;top:942px;left:91px;white-space:nowrap" class="ft13"><b>Keywords</b></p>
+<p style="position:absolute;top:933px;left:424px;white-space:nowrap" class="ft17">WP4, Xen, Prototype, BMI, domB,<br/>disaggregation</p>
+<p style="position:absolute;top:992px;left:92px;white-space:nowrap" class="ft13"><b>Dissemination&#160;level</b></p>
+<p style="position:absolute;top:992px;left:423px;white-space:nowrap" class="ft14">Public</p>
+<p style="position:absolute;top:1017px;left:92px;white-space:nowrap" class="ft13"><b>Revision</b></p>
+<p style="position:absolute;top:1017px;left:423px;white-space:nowrap" class="ft14">FINAL|1.0</p>
+<p style="position:absolute;top:1069px;left:90px;white-space:nowrap" class="ft13"><b>Instrument</b></p>
+<p style="position:absolute;top:1069px;left:271px;white-space:nowrap" class="ft14">IP</p>
+<p style="position:absolute;top:1059px;left:452px;white-space:nowrap" class="ft18"><b>Start&#160;date&#160;of&#160;the&#160;<br/>project</b></p>
+<p style="position:absolute;top:1069px;left:632px;white-space:nowrap" class="ft14">1</p>
+<p style="position:absolute;top:1069px;left:643px;white-space:nowrap" class="ft15">st</p>
+<p style="position:absolute;top:1069px;left:652px;white-space:nowrap" class="ft14">&#160;November&#160;2005</p>
+<p style="position:absolute;top:1097px;left:90px;white-space:nowrap" class="ft13"><b>Thematic&#160;Priority</b></p>
+<p style="position:absolute;top:1097px;left:271px;white-space:nowrap" class="ft14">IST</p>
+<p style="position:absolute;top:1097px;left:452px;white-space:nowrap" class="ft13"><b>Duration</b></p>
+<p style="position:absolute;top:1097px;left:632px;white-space:nowrap" class="ft14">42 months</p>
+<p style="position:absolute;top:75px;left:674px;white-space:nowrap" class="ft16">&#160;</p>
+</div>
+<!-- Page 2 -->
+<a name="2"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft29{font-size:9px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft210{font-size:15px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft211{font-size:17px;font-family:DAAAAA+BitstreamVeraSans;color:#000080;}
+-->
+</style>
+<div id="page2-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system002.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft29">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft20">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft210">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft210">FINAL|1.0</p>
+<p style="position:absolute;top:823px;left:85px;white-space:nowrap" class="ft24">If&#160;you&#160;need&#160;further&#160;information, please&#160;visit&#160;our&#160;website&#160;</p>
+<p style="position:absolute;top:823px;left:552px;white-space:nowrap" class="ft211"><a href="http://www.opentc.net/">www.opentc.net</a></p>
+<p style="position:absolute;top:823px;left:687px;white-space:nowrap" class="ft24"><a href="http://www.opentc.net/">&#160;o</a>r&#160;contact&#160;</p>
+<p style="position:absolute;top:842px;left:85px;white-space:nowrap" class="ft24">the&#160;coordinator:</p>
+<p style="position:absolute;top:881px;left:85px;white-space:nowrap" class="ft27">Technikon&#160;Forschungs-und&#160;Planungsgesellschaft&#160;mbH<br/>Richard-Wagner-Strasse&#160;7, 9500 Villach, AUSTRIA<br/>Tel.+43 4242 23355 –0<br/>Fax. +43 4242 23355 –77<br/>Email<a href="mailto:coordination@opentc.net">&#160;</a></p>
+<p style="position:absolute;top:957px;left:136px;white-space:nowrap" class="ft211"><a href="mailto:coordination@opentc.net">coordination@opentc.net</a></p>
+<p style="position:absolute;top:1053px;left:180px;white-space:nowrap" class="ft210">The&#160;information&#160;in&#160;this&#160;document&#160;is&#160;provided&#160;“as&#160;is”,&#160;and&#160;no&#160;guarantee&#160;</p>
+<p style="position:absolute;top:1071px;left:174px;white-space:nowrap" class="ft210">or&#160;warranty&#160;is&#160;given&#160;that&#160;the&#160;information&#160;is&#160;fit&#160;for&#160;any&#160;particular&#160;purpose.&#160;</p>
+<p style="position:absolute;top:1088px;left:203px;white-space:nowrap" class="ft210">The&#160;user&#160;thereof&#160;uses&#160;the&#160;information&#160;at&#160;its&#160;sole&#160;risk&#160;and&#160;liability.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft210">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft210">2/12</p>
+</div>
+<!-- Page 3 -->
+<a name="3"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft312{font-size:24px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page3-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system003.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft39">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft30">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft310">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft310">FINAL|1.0</p>
+<p style="position:absolute;top:169px;left:85px;white-space:nowrap" class="ft312"><b>Table&#160;of&#160;Contents</b></p>
+<p style="position:absolute;top:206px;left:85px;white-space:nowrap" class="ft34">1&#160;&#160;Introduction&#160;..............................................................................................................&#160;4</p>
+<p style="position:absolute;top:225px;left:94px;white-space:nowrap" class="ft34">1.1&#160;Summary&#160;of&#160;work&#160;done..........................................................................................&#160;4</p>
+<p style="position:absolute;top:244px;left:85px;white-space:nowrap" class="ft34">2&#160;&#160;Features&#160;for&#160;Trusted&#160;Computing&#160;in&#160;Xen.....................................................................&#160;5</p>
+<p style="position:absolute;top:264px;left:94px;white-space:nowrap" class="ft34">2.1&#160;Existing&#160;features....................................................................................................&#160;5</p>
+<p style="position:absolute;top:283px;left:102px;white-space:nowrap" class="ft37">2.1.1&#160;Hypervisor&#160;isolation...........................................................................................&#160;5<br/>2.1.2&#160;Mandatory&#160;Access&#160;Control&#160;(MAC).......................................................................&#160;6<br/>2.1.3&#160;Virtual&#160;Trusted&#160;Platform&#160;Module&#160;(vTPM)............................................................&#160;6</p>
+<p style="position:absolute;top:340px;left:94px;white-space:nowrap" class="ft34">2.2&#160;Security-related&#160;features&#160;under&#160;development........................................................&#160;7</p>
+<p style="position:absolute;top:360px;left:102px;white-space:nowrap" class="ft37">2.2.1&#160;Dom0 disaggregation........................................................................................&#160;7<br/>2.2.2&#160;Xen&#160;Security&#160;Modules........................................................................................&#160;7<br/>2.2.3&#160;IOMMU support..................................................................................................&#160;7</p>
+<p style="position:absolute;top:417px;left:85px;white-space:nowrap" class="ft34">3&#160;&#160;Interaction&#160;with&#160;the&#160;Proof&#160;of&#160;Concept.........................................................................9</p>
+<p style="position:absolute;top:436px;left:94px;white-space:nowrap" class="ft37">3.1&#160;Description&#160;of&#160;the&#160;PET&#160;Proof&#160;of&#160;Concept&#160;prototype.................................................9<br/>3.2&#160;Description&#160;of&#160;the&#160;development&#160;domain................................................................&#160;9<br/>3.3&#160;Building&#160;the&#160;prototype&#160;using&#160;the&#160;development&#160;domain.........................................&#160;9</p>
+<p style="position:absolute;top:494px;left:85px;white-space:nowrap" class="ft37">4&#160;&#160;Conclusion...............................................................................................................&#160;11<br/>5&#160;&#160;List&#160;of&#160;Abbreviations&#160;...............................................................................................&#160;12</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft310">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft310">3/12</p>
+</div>
+<!-- Page 4 -->
+<a name="4"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft413{font-size:15px;font-family:EAAAAA+BitstreamVeraSerif;color:#000000;}
+	.ft414{font-size:18px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft415{font-size:17px;font-family:FAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft416{font-size:14px;font-family:GAAAAA+OpenSymbol;color:#000000;}
+-->
+</style>
+<div id="page4-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system004.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft49">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft40">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft410">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft410">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft413"><b>1&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft414"><b>Introduction&#160;</b></p>
+<p style="position:absolute;top:199px;left:85px;white-space:nowrap" class="ft47">The&#160;OpenTC&#160;project&#160;is&#160;building&#160;an&#160;open&#160;trusted&#160;computing&#160;architecture&#160;that&#160;is&#160;based&#160;<br/>on&#160;the&#160;virtualisation&#160;of&#160;computers. By&#160;harnessing&#160;virtualisation, it&#160;is&#160;possible&#160;to&#160;isolate&#160;<br/>trusted&#160;and&#160;untrusted&#160;code&#160;in&#160;separate&#160;virtual&#160;machines&#160;(VMs), and&#160;be&#160;assured&#160;that&#160;<br/>the&#160;trusted&#160;code&#160;is&#160;not&#160;affected&#160;by&#160;untrusted&#160;code&#160;running&#160;in&#160;any&#160;other&#160;VM.</p>
+<p style="position:absolute;top:295px;left:85px;white-space:nowrap" class="ft44">Xen&#160;is&#160;a&#160;Virtual&#160;Machine&#160;Monitor&#160;(VMM)&#160;or&#160;</p>
+<p style="position:absolute;top:295px;left:438px;white-space:nowrap" class="ft415"><i>hypervisor</i></p>
+<p style="position:absolute;top:295px;left:525px;white-space:nowrap" class="ft44">, that&#160;was&#160;originally&#160;developed&#160;at&#160;</p>
+<p style="position:absolute;top:314px;left:85px;white-space:nowrap" class="ft47">the&#160;University&#160;of&#160;Cambridge&#160;Computer&#160;Laboratory. It&#160;is&#160;capable&#160;of&#160;running&#160;several&#160;<br/>different&#160;operating&#160;systems&#160;in&#160;parallel. In&#160;the&#160;first&#160;two&#160;versions&#160;of&#160;Xen, a&#160;guest&#160;<br/>operating&#160;system&#160;had&#160;to&#160;be&#160;modified&#160;in&#160;order&#160;to&#160;run&#160;on&#160;the&#160;hypervisor, a&#160;process&#160;<br/>known&#160;as&#160;</p>
+<p style="position:absolute;top:372px;left:168px;white-space:nowrap" class="ft415"><i>paravirtualisation</i></p>
+<p style="position:absolute;top:372px;left:314px;white-space:nowrap" class="ft44">. In&#160;the&#160;most&#160;recent&#160;major&#160;version&#160;of&#160;Xen, version&#160;3,&#160;</p>
+<p style="position:absolute;top:391px;left:85px;white-space:nowrap" class="ft44">support&#160;for&#160;</p>
+<p style="position:absolute;top:391px;left:182px;white-space:nowrap" class="ft415"><i>full&#160;virtualisation</i></p>
+<p style="position:absolute;top:391px;left:320px;white-space:nowrap" class="ft44">&#160;was&#160;added:&#160;new machine&#160;instructions&#160;available&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:410px;left:85px;white-space:nowrap" class="ft47">latest&#160;processors&#160;from&#160;AMD&#160;and&#160;Intel&#160;allow closed-source&#160;operating&#160;systems, such&#160;as&#160;<br/>Microsoft&#160;Windows, to&#160;be&#160;run&#160;in&#160;virtual&#160;machines. This&#160;was&#160;not&#160;possible&#160;before&#160;by&#160;<br/>simply&#160;using&#160;paravirtualisation, because&#160;the&#160;required&#160;modifications&#160;of&#160;the&#160;source&#160;code&#160;<br/>of&#160;such&#160;operating&#160;systems&#160;were&#160;not&#160;feasible.</p>
+<p style="position:absolute;top:506px;left:85px;white-space:nowrap" class="ft47">In&#160;this&#160;report, an&#160;initial&#160;prototype&#160;of&#160;a&#160;Xen-based&#160;trusted&#160;computing&#160;system&#160;is&#160;<br/>described. It&#160;is&#160;a&#160;modified&#160;version&#160;of&#160;the&#160;Xen&#160;VMM&#160;and&#160;tool-stack&#160;that&#160;addresses&#160;some&#160;<br/>of&#160;the&#160;requirements&#160;of&#160;the&#160;Basic Management&#160;Interface&#160;(BMI). Our&#160;modifications&#160;to&#160;<br/>Xen&#160;have&#160;included&#160;disaggregating&#160;the&#160;function&#160;of&#160;domain&#160;building&#160;from&#160;the&#160;<br/>management&#160;domain&#160;into&#160;a&#160;smaller&#160;domain&#160;“domB”. This&#160;domain&#160;is&#160;isolated&#160;from&#160;the&#160;<br/>management&#160;domain. The&#160;modified&#160;version&#160;of&#160;Xen&#160;may&#160;be&#160;built&#160;using&#160;the&#160;Proof&#160;of&#160;<br/>Concept&#160;LiveCD, and&#160;the&#160;included&#160;development&#160;domain, though&#160;these&#160;do&#160;not&#160;form&#160;<br/>part&#160;of&#160;this&#160;deliverable. The&#160;remainder&#160;of&#160;the&#160;report&#160;is&#160;structured&#160;as&#160;follows. In&#160;Section&#160;<br/>2, the&#160;relevant&#160;features&#160;of&#160;Xen&#160;for&#160;trusted&#160;computing&#160;are&#160;described. In&#160;Section&#160;3, the&#160;<br/>Proof&#160;of&#160;Concept&#160;application&#160;and&#160;development&#160;domain&#160;are&#160;introduced, and&#160;their&#160;<br/>relation&#160;to&#160;the&#160;present&#160;work&#160;is&#160;outlined.</p>
+<p style="position:absolute;top:735px;left:85px;white-space:nowrap" class="ft43"><b>1.1&#160;Summary&#160;of&#160;work&#160;done</b></p>
+<p style="position:absolute;top:764px;left:85px;white-space:nowrap" class="ft47">In&#160;order&#160;to&#160;distinguish&#160;the&#160;OpenTC&#160;efforts&#160;from&#160;independent&#160;developments&#160;by&#160;the&#160;Xen&#160;<br/>community, we&#160;list&#160;the&#160;work&#160;that&#160;was&#160;done&#160;for&#160;OpenTC. Note&#160;that&#160;other&#160;work&#160;was&#160;also&#160;<br/>carried&#160;out&#160;in&#160;this&#160;area, both&#160;under&#160;the&#160;XenSE project&#160;and&#160;as&#160;part&#160;of&#160;the&#160;open-source&#160;<br/>community's&#160;commitment&#160;to&#160;improving&#160;the&#160;security&#160;rating&#160;of&#160;the&#160;Xen&#160;VMM.</p>
+<p style="position:absolute;top:863px;left:112px;white-space:nowrap" class="ft416">●</p>
+<p style="position:absolute;top:860px;left:139px;white-space:nowrap" class="ft47">Modified&#160;Xen&#160;in&#160;order&#160;to&#160;allow the&#160;delegation&#160;of&#160;domain&#160;building&#160;privileges&#160;to&#160;<br/>domains&#160;other&#160;than&#160;dom0</p>
+<p style="position:absolute;top:901px;left:112px;white-space:nowrap" class="ft416">●</p>
+<p style="position:absolute;top:898px;left:139px;white-space:nowrap" class="ft47">Created&#160;a&#160;new guest&#160;operating&#160;system&#160;(domB)&#160;that&#160;has&#160;the&#160;ability&#160;to&#160;build&#160;other&#160;<br/>guest&#160;operating&#160;systems, which&#160;involved:</p>
+<p style="position:absolute;top:940px;left:139px;white-space:nowrap" class="ft416">○</p>
+<p style="position:absolute;top:937px;left:166px;white-space:nowrap" class="ft44">Porting&#160;the&#160;Xen&#160;C-based&#160;control&#160;library, libxc, to&#160;Mini-OS</p>
+<p style="position:absolute;top:959px;left:139px;white-space:nowrap" class="ft416">○</p>
+<p style="position:absolute;top:957px;left:166px;white-space:nowrap" class="ft44">Creating&#160;a&#160;driver&#160;(gntdev)&#160;for&#160;mapping&#160;granted&#160;pages&#160;into&#160;user-space</p>
+<p style="position:absolute;top:979px;left:112px;white-space:nowrap" class="ft416">●</p>
+<p style="position:absolute;top:976px;left:139px;white-space:nowrap" class="ft47">Modified&#160;the&#160;existing&#160;dom0 tool&#160;stack&#160;to&#160;enable&#160;the&#160;use&#160;of&#160;domB, which&#160;<br/>involved:</p>
+<p style="position:absolute;top:1018px;left:139px;white-space:nowrap" class="ft416">○</p>
+<p style="position:absolute;top:1015px;left:166px;white-space:nowrap" class="ft47">Adding&#160;a&#160;function&#160;(xc_domb_linux_build)&#160;to&#160;the&#160;dom0 instance&#160;of&#160;libxc, which&#160;<br/>acts&#160;as&#160;a&#160;proxy&#160;for&#160;the&#160;domain-build&#160;operation, and&#160;communicates&#160;with&#160;<br/>domB</p>
+<p style="position:absolute;top:1076px;left:139px;white-space:nowrap" class="ft416">○</p>
+<p style="position:absolute;top:1073px;left:166px;white-space:nowrap" class="ft47">Modifying&#160;the&#160;Python-based&#160;Xen&#160;control&#160;daemon&#160;to&#160;allow domB to&#160;be&#160;used&#160;<br/>instead&#160;of&#160;the&#160;standard&#160;builder, by&#160;specifying&#160;this&#160;in&#160;the&#160;domain&#160;<br/>configuration&#160;file</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft410">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft410">4/12</p>
+</div>
+<!-- Page 5 -->
+<a name="5"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft517{font-size:15px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page5-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system005.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft59">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft50">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft510">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft510">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft513"><b>2&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft514"><b>Features&#160;for&#160;Trusted&#160;Computing&#160;in&#160;Xen</b></p>
+<p style="position:absolute;top:199px;left:85px;white-space:nowrap" class="ft57">In&#160;this&#160;section, the&#160;security-related&#160;features&#160;of&#160;Xen&#160;are&#160;described. In&#160;subsection&#160;2.1,&#160;<br/>the&#160;features&#160;of&#160;the&#160;current&#160;Xen&#160;VMM&#160;are&#160;described. Subsection&#160;2.2 describes&#160;TC-<br/>specific features, being&#160;developed&#160;in&#160;this&#160;work&#160;package&#160;and&#160;elsewhere, that&#160;will&#160;<br/>improve&#160;the&#160;security&#160;of&#160;Xen.</p>
+<p style="position:absolute;top:294px;left:85px;white-space:nowrap" class="ft53"><b>2.1&#160;Existing&#160;features</b></p>
+<p style="position:absolute;top:340px;left:85px;white-space:nowrap" class="ft517"><b>2.1.1&#160;Hypervisor&#160;isolation</b></p>
+<p style="position:absolute;top:367px;left:85px;white-space:nowrap" class="ft57">A&#160;typical&#160;Xen&#160;system&#160;comprises&#160;one&#160;or&#160;more&#160;guest&#160;operating&#160;systems, running&#160;in&#160;their&#160;<br/>own&#160;dedicated&#160;</p>
+<p style="position:absolute;top:386px;left:212px;white-space:nowrap" class="ft515"><i>domains</i></p>
+<p style="position:absolute;top:386px;left:282px;white-space:nowrap" class="ft54">.&#160;The&#160;most&#160;important&#160;feature&#160;of&#160;Xen&#160;for&#160;trusted&#160;computing&#160;is&#160;</p>
+<p style="position:absolute;top:405px;left:85px;white-space:nowrap" class="ft57">the&#160;isolation&#160;between&#160;domains&#160;that&#160;is&#160;provided&#160;by&#160;the&#160;hypervisor.&#160;This&#160;is&#160;a&#160;<br/>fundamental&#160;requirement&#160;for&#160;enforcement&#160;of&#160;any&#160;information&#160;flow policy. Every&#160;Xen&#160;<br/>system&#160;has&#160;a&#160;management&#160;domain, called&#160;</p>
+<p style="position:absolute;top:443px;left:442px;white-space:nowrap" class="ft515"><i>dom0. This&#160;domain&#160;is&#160;a&#160;privileged&#160;domain&#160;</i></p>
+<p style="position:absolute;top:463px;left:85px;white-space:nowrap" class="ft515"><i>regarding&#160;access&#160;to&#160;the&#160;hypervisor&#160;API&#160;(or&#160;hypercalls).</i></p>
+<p style="position:absolute;top:463px;left:535px;white-space:nowrap" class="ft54">&#160;Other&#160;unprivileged&#160;domains&#160;</p>
+<p style="position:absolute;top:482px;left:85px;white-space:nowrap" class="ft54">containing&#160;a&#160;guest&#160;operating&#160;system&#160;are&#160;referred&#160;to&#160;as&#160;</p>
+<p style="position:absolute;top:482px;left:544px;white-space:nowrap" class="ft515"><i>domU</i></p>
+<p style="position:absolute;top:482px;left:593px;white-space:nowrap" class="ft54">. The&#160;isolation&#160;properties&#160;</p>
+<p style="position:absolute;top:501px;left:85px;white-space:nowrap" class="ft57">of&#160;the&#160;hypervisor&#160;ensure&#160;that&#160;no&#160;domU may&#160;access&#160;the&#160;memory&#160;of&#160;another&#160;domU or&#160;of&#160;<br/>dom0. At&#160;present, the&#160;hypervisor&#160;makes&#160;no&#160;attempt&#160;to&#160;address&#160;covert&#160;channels.</p>
+<p style="position:absolute;top:559px;left:85px;white-space:nowrap" class="ft57">For&#160;paravirtualised&#160;guest&#160;operating&#160;systems, this&#160;is&#160;typically&#160;achieved&#160;by&#160;making&#160;<br/>changes&#160;to&#160;the&#160;page&#160;tables&#160;indirectly&#160;through&#160;the&#160;Xen&#160;hypervisor&#160;API. When&#160;it&#160;is&#160;<br/>necessary&#160;to&#160;modify&#160;a&#160;page&#160;table, the&#160;guest&#160;operating&#160;system&#160;must&#160;make&#160;a&#160;</p>
+<p style="position:absolute;top:597px;left:719px;white-space:nowrap" class="ft515"><i>hypercall&#160;</i></p>
+<p style="position:absolute;top:616px;left:85px;white-space:nowrap" class="ft57">to&#160;Xen, which&#160;invokes&#160;the&#160;appropriate&#160;code&#160;within&#160;the&#160;hypervisor&#160;and&#160;checks&#160;that&#160;the&#160;<br/>update&#160;is&#160;valid&#160;before&#160;committing&#160;the&#160;change&#160;to&#160;the&#160;relevant&#160;page&#160;table&#160;entry. An&#160;<br/>update&#160;is&#160;valid&#160;if&#160;the&#160;updated&#160;machine&#160;frame&#160;number&#160;is&#160;a&#160;member&#160;of&#160;the&#160;allocation&#160;for&#160;<br/>the&#160;domain;&#160;therefore&#160;it&#160;is&#160;not&#160;possible&#160;to&#160;map&#160;arbitrary&#160;memory&#160;from&#160;other&#160;guests,&#160;<br/>thus&#160;preventing&#160;unauthorised&#160;sharing&#160;of&#160;data&#160;between&#160;two&#160;domains. When&#160;it&#160;is&#160;<br/>necessary&#160;to&#160;make&#160;a&#160;large&#160;number&#160;of&#160;updates, such&#160;as&#160;upon&#160;process&#160;creation, the&#160;<br/>individual&#160;updates&#160;may&#160;be&#160;batched&#160;into&#160;a&#160;single&#160;hypercall, for&#160;performance&#160;reasons.</p>
+<p style="position:absolute;top:770px;left:85px;white-space:nowrap" class="ft57">For&#160;fully&#160;virtualised&#160;guest&#160;operating&#160;systems, it&#160;is&#160;not&#160;possible&#160;to&#160;modify&#160;the&#160;page&#160;<br/>table&#160;update&#160;code, so, instead,&#160;</p>
+<p style="position:absolute;top:789px;left:346px;white-space:nowrap" class="ft515"><i>shadow page&#160;tables</i></p>
+<p style="position:absolute;top:789px;left:512px;white-space:nowrap" class="ft54">&#160;are&#160;maintained. The&#160;unmodified&#160;</p>
+<p style="position:absolute;top:808px;left:85px;white-space:nowrap" class="ft57">operating&#160;system&#160;makes&#160;updates&#160;to&#160;its&#160;page&#160;tables&#160;by&#160;writing&#160;to&#160;them&#160;directly&#160;as&#160;it&#160;<br/>normally&#160;does;&#160;the&#160;page&#160;fault&#160;mechanism&#160;then&#160;signifies&#160;to&#160;Xen&#160;that&#160;the&#160;page&#160;table&#160;has&#160;<br/>been&#160;modified, and&#160;the&#160;hypervisor&#160;records&#160;the&#160;change&#160;in&#160;its&#160;shadow copy. The&#160;<br/>difference&#160;between&#160;the&#160;operating&#160;system&#160;and&#160;shadow copies&#160;is&#160;that&#160;the&#160;shadow page&#160;<br/>tables&#160;are&#160;a&#160;mapping&#160;from&#160;virtual&#160;page&#160;numbers&#160;to&#160;machine&#160;frame&#160;numbers. The&#160;<br/>operating&#160;system&#160;page&#160;tables&#160;are&#160;a&#160;mapping&#160;from&#160;virtual&#160;page&#160;numbers&#160;to&#160;pseudo-<br/>physical&#160;frame&#160;numbers, which&#160;are&#160;allocated&#160;to&#160;give&#160;the&#160;guest&#160;operating&#160;system&#160;the&#160;<br/>appearance&#160;of&#160;a&#160;contiguous&#160;physical&#160;address&#160;space, beginning&#160;at&#160;address&#160;zero.</p>
+<p style="position:absolute;top:981px;left:85px;white-space:nowrap" class="ft57">It&#160;is&#160;possible, however, for&#160;two&#160;guest&#160;operating&#160;systems&#160;to&#160;share&#160;memory&#160;in&#160;order&#160;to&#160;<br/>communicate. This&#160;is&#160;done&#160;in&#160;a&#160;controlled&#160;manner, through&#160;the&#160;</p>
+<p style="position:absolute;top:1000px;left:613px;white-space:nowrap" class="ft515"><i>grant&#160;table&#160;</i></p>
+<p style="position:absolute;top:1019px;left:85px;white-space:nowrap" class="ft57">mechanism. A&#160;guest&#160;that&#160;wishes&#160;to&#160;share&#160;its&#160;memory&#160;with&#160;another&#160;guest&#160;can&#160;create&#160;an&#160;<br/>entry&#160;in&#160;its&#160;grant&#160;table, which&#160;details&#160;the&#160;machine&#160;frame&#160;to&#160;be&#160;shared&#160;and&#160;the&#160;domain&#160;<br/>with&#160;which&#160;to&#160;share&#160;it. This&#160;yields&#160;a&#160;</p>
+<p style="position:absolute;top:1058px;left:381px;white-space:nowrap" class="ft515"><i>grant&#160;reference</i></p>
+<p style="position:absolute;top:1058px;left:510px;white-space:nowrap" class="ft54">, which&#160;the&#160;foreign&#160;guest&#160;may&#160;use&#160;</p>
+<p style="position:absolute;top:1077px;left:85px;white-space:nowrap" class="ft57">in&#160;a&#160;hypercall&#160;to&#160;map&#160;the&#160;granted&#160;page. Therefore, the&#160;sharing&#160;of&#160;memory&#160;is&#160;controlled&#160;<br/>by&#160;the&#160;domain&#160;that&#160;owns&#160;the&#160;memory.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft510">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft510">5/12</p>
+</div>
+<!-- Page 6 -->
+<a name="6"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page6-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system006.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft69">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft60">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft610">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft610">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft67">The&#160;other&#160;mechanism&#160;for&#160;communication&#160;between&#160;guest&#160;operating&#160;systems&#160;is&#160;through&#160;<br/>the&#160;use&#160;of&#160;</p>
+<p style="position:absolute;top:170px;left:173px;white-space:nowrap" class="ft615"><i>event&#160;channels</i></p>
+<p style="position:absolute;top:170px;left:299px;white-space:nowrap" class="ft64">. An&#160;event&#160;channel&#160;is&#160;similar&#160;to&#160;an&#160;interrupt, and&#160;</p>
+<p style="position:absolute;top:189px;left:85px;white-space:nowrap" class="ft67">paravirtualised&#160;operating&#160;systems&#160;typically&#160;map&#160;events&#160;onto&#160;virtual&#160;interrupt&#160;requests.&#160;<br/>A&#160;common&#160;means&#160;of&#160;inter-domain&#160;communication&#160;in&#160;Xen&#160;is&#160;to&#160;build&#160;a&#160;ring&#160;buffer&#160;from&#160;<br/>a&#160;page&#160;of&#160;shared&#160;memory, and&#160;use&#160;an&#160;event&#160;channel&#160;to&#160;notify&#160;the&#160;foreign&#160;domain&#160;of&#160;<br/>pending&#160;items.</p>
+<p style="position:absolute;top:284px;left:85px;white-space:nowrap" class="ft617"><b>2.1.2&#160;Mandatory&#160;Access&#160;Control&#160;(MAC)</b></p>
+<p style="position:absolute;top:311px;left:85px;white-space:nowrap" class="ft67">The&#160;current&#160;version&#160;of&#160;Xen&#160;includes&#160;optional&#160;MAC&#160;functionality. This&#160;allows&#160;the&#160;<br/>administrator&#160;of&#160;a&#160;Xen&#160;host&#160;to&#160;put&#160;in&#160;place&#160;formal&#160;policies&#160;that&#160;dictate&#160;what&#160;resources&#160;<br/>may&#160;be&#160;shared.&#160;</p>
+<p style="position:absolute;top:388px;left:85px;white-space:nowrap" class="ft67">As&#160;were&#160;described&#160;in&#160;the&#160;previous&#160;subsection, the&#160;two&#160;primitive&#160;mechanisms&#160;for&#160;<br/>sharing&#160;resources&#160;in&#160;Xen&#160;are&#160;grant&#160;tables&#160;(shared&#160;memory)&#160;and&#160;event&#160;channels. The&#160;<br/>advent&#160;of&#160;MAC&#160;in&#160;Xen&#160;has&#160;led&#160;to&#160;hooks&#160;being&#160;added&#160;in&#160;the&#160;routines&#160;that&#160;create&#160;grant&#160;<br/>table&#160;entries&#160;and&#160;event&#160;channels. When&#160;MAC&#160;is&#160;enabled, these&#160;hooks&#160;call&#160;into&#160;the&#160;<br/>Access&#160;Control&#160;Module, which&#160;queries&#160;the&#160;current&#160;policy&#160;and&#160;returns&#160;a&#160;decision&#160;on&#160;<br/>whether&#160;or&#160;not&#160;the&#160;sharing&#160;should&#160;be&#160;allowed. For&#160;efficiency, these&#160;decisions&#160;are&#160;<br/>cached&#160;until&#160;the&#160;next&#160;time&#160;the&#160;policy&#160;changes. This&#160;architecture&#160;is&#160;necessary&#160;for&#160;the&#160;<br/>support&#160;of&#160;the&#160;WP5 security&#160;services&#160;implementation&#160;by&#160;allowing&#160;enforcement&#160;of&#160;the&#160;<br/>security&#160;policies&#160;at&#160;the&#160;hypervisor&#160;level&#160;while&#160;letting&#160;the&#160;policies&#160;being&#160;managed&#160;by&#160;<br/>the&#160;critical&#160;security&#160;services&#160;of&#160;the&#160;whole&#160;system.</p>
+<p style="position:absolute;top:599px;left:85px;white-space:nowrap" class="ft67">The&#160;current&#160;implementation&#160;of&#160;MAC&#160;includes&#160;two&#160;example&#160;policies. The&#160;first&#160;is&#160;a&#160;<br/>Chinese&#160;Wall&#160;Policy, which&#160;is&#160;used&#160;to&#160;ensure&#160;that&#160;a&#160;guest&#160;cannot&#160;communicate&#160;with&#160;<br/>guests&#160;in&#160;two&#160;or&#160;more&#160;“conflict&#160;of&#160;interest&#160;classes”. The&#160;second&#160;is&#160;Simple&#160;Type&#160;<br/>Enforcement, which&#160;allows&#160;the&#160;administrator&#160;to&#160;assign&#160;a&#160;type&#160;to&#160;each&#160;guest, and&#160;<br/>enforce&#160;sharing&#160;rules&#160;between&#160;types.</p>
+<p style="position:absolute;top:713px;left:85px;white-space:nowrap" class="ft617"><b>2.1.3&#160;Virtual&#160;Trusted&#160;Platform&#160;Module&#160;(vTPM)</b></p>
+<p style="position:absolute;top:739px;left:85px;white-space:nowrap" class="ft67">Xen&#160;currently&#160;provides&#160;a&#160;virtual&#160;TPM&#160;device&#160;to&#160;guest&#160;operating&#160;systems, using&#160;the&#160;<br/>same&#160;split-driver&#160;model&#160;that&#160;is&#160;used&#160;for&#160;network&#160;and&#160;block&#160;devices. A&#160;front-end&#160;driver&#160;<br/>runs&#160;in&#160;domU, and&#160;provides&#160;a&#160;similar&#160;interface&#160;to&#160;a&#160;hardware&#160;TPM&#160;as&#160;defined&#160;by&#160;the&#160;<br/>Trusted&#160;Computing&#160;Group&#160;(TCG). The&#160;front-end&#160;driver&#160;passes&#160;requests&#160;through&#160;to&#160;the&#160;<br/>back-end&#160;driver&#160;that&#160;runs&#160;in&#160;dom0. A&#160;daemon&#160;process, running&#160;in&#160;dom0, creates&#160;vTPM&#160;<br/>instances&#160;for&#160;each&#160;domU when&#160;necessary. There&#160;is&#160;a&#160;one&#160;to&#160;one&#160;mapping&#160;between&#160;a&#160;<br/>domU and&#160;a&#160;specific vTPM, thus&#160;each&#160;domU has&#160;the&#160;impression&#160;it&#160;has&#160;access&#160;to&#160;a&#160;<br/>traditional&#160;hardware&#160;TPM.</p>
+<p style="position:absolute;top:912px;left:85px;white-space:nowrap" class="ft67">Although&#160;this&#160;architecture&#160;provides&#160;TPM&#160;functionalities&#160;to&#160;each&#160;domU, there&#160;is&#160;no&#160;<br/>verifiable&#160;trust&#160;relationship&#160;between&#160;each&#160;vTPM&#160;and&#160;the&#160;hardware&#160;TPM&#160;of&#160;the&#160;platform.&#160;<br/>Furthermore, the&#160;trusted&#160;computing&#160;base&#160;for&#160;the&#160;current&#160;vTPM&#160;implementation&#160;<br/>comprises&#160;the&#160;hypervisor&#160;and&#160;dom0 as&#160;a&#160;whole, which&#160;makes&#160;it&#160;more&#160;difficult&#160;to&#160;trust&#160;<br/>vTPM&#160;implementations. These&#160;issues&#160;will&#160;be&#160;addressed&#160;in&#160;future&#160;versions&#160;of&#160;the&#160;<br/>prototype&#160;once&#160;the&#160;TPM&#160;Virtualisation&#160;architecture&#160;and&#160;its&#160;integration&#160;with&#160;the&#160;BMI&#160;is&#160;<br/>finalized&#160;in&#160;forthcoming&#160;WP4 deliverables.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft610">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft610">6/12</p>
+</div>
+<!-- Page 7 -->
+<a name="7"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page7-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system007.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft79">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft70">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft710">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft710">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft73"><b>2.2&#160;Security-related&#160;features&#160;under&#160;development</b></p>
+<p style="position:absolute;top:197px;left:85px;white-space:nowrap" class="ft717"><b>2.2.1&#160;Dom0&#160;disaggregation</b></p>
+<p style="position:absolute;top:224px;left:85px;white-space:nowrap" class="ft77">In&#160;its&#160;current&#160;release&#160;version, the&#160;implementation&#160;of&#160;Xen&#160;relies&#160;on&#160;the&#160;ability&#160;of&#160;the&#160;<br/>management&#160;domain&#160;(dom0)&#160;to&#160;map&#160;arbitrary&#160;pages&#160;of&#160;physical&#160;memory&#160;in&#160;order&#160;to&#160;<br/>manage&#160;the&#160;life-cycle&#160;of&#160;the&#160;other&#160;domains. This&#160;is&#160;used&#160;by&#160;the&#160;domain&#160;builder,&#160;<br/>XenStore&#160;and&#160;the&#160;console&#160;applet, present&#160;in&#160;dom0. This&#160;is&#160;an&#160;undesirable&#160;situation&#160;as&#160;<br/>it&#160;increases&#160;significantly&#160;the&#160;amount&#160;of&#160;the&#160;software&#160;that&#160;needs&#160;to&#160;be&#160;trusted&#160;in&#160;order&#160;<br/>to&#160;ensure&#160;isolation&#160;between&#160;the&#160;guest&#160;domains. Thus, the&#160;totality&#160;of&#160;the&#160;code&#160;of&#160;dom0&#160;<br/>has&#160;to&#160;be&#160;trusted&#160;by&#160;a&#160;third&#160;party&#160;to&#160;have&#160;the&#160;assurance&#160;the&#160;isolation&#160;policies&#160;between&#160;<br/>the&#160;guest&#160;domains&#160;are&#160;actually&#160;being&#160;enforced. We&#160;therefore&#160;aim&#160;at&#160;providing&#160;Xen&#160;<br/>with&#160;a&#160;finer-grained&#160;privilege&#160;model, which&#160;will&#160;be&#160;used&#160;to&#160;remove&#160;this&#160;privilege&#160;from&#160;<br/>dom0.</p>
+<p style="position:absolute;top:435px;left:85px;white-space:nowrap" class="ft77">In&#160;order&#160;to&#160;support&#160;domain&#160;building, a&#160;new paravirtualised&#160;guest&#160;with&#160;the&#160;ability&#160;to&#160;<br/>map&#160;arbitrary&#160;pages&#160;(</p>
+<p style="position:absolute;top:454px;left:266px;white-space:nowrap" class="ft715"><i>domB</i></p>
+<p style="position:absolute;top:454px;left:314px;white-space:nowrap" class="ft74">)&#160;has&#160;been&#160;created. The&#160;code&#160;for&#160;building&#160;a&#160;domain&#160;has&#160;</p>
+<p style="position:absolute;top:473px;left:85px;white-space:nowrap" class="ft74">been&#160;ported&#160;to&#160;this&#160;guest, which&#160;is&#160;based&#160;on&#160;</p>
+<p style="position:absolute;top:473px;left:458px;white-space:nowrap" class="ft715"><i>Mini-OS</i></p>
+<p style="position:absolute;top:473px;left:521px;white-space:nowrap" class="ft74">, a&#160;minimal&#160;operating&#160;system&#160;that&#160;</p>
+<p style="position:absolute;top:493px;left:85px;white-space:nowrap" class="ft77">is&#160;included&#160;with&#160;Xen, and&#160;which&#160;forms&#160;a&#160;much&#160;smaller&#160;trusted&#160;computing&#160;base&#160;than&#160;<br/>dom0. To&#160;support&#160;communication&#160;with&#160;XenStore&#160;and&#160;the&#160;console&#160;device, the&#160;grant&#160;<br/>table&#160;mechanism&#160;will&#160;be&#160;modified&#160;to&#160;include&#160;pre-defined&#160;grants&#160;to&#160;the&#160;pages&#160;that&#160;are&#160;<br/>used&#160;for&#160;XenStore&#160;and&#160;the&#160;console&#160;driver. In&#160;addition, it&#160;will&#160;be&#160;necessary&#160;to&#160;perform&#160;<br/>operations&#160;such&#160;as&#160;domain&#160;save&#160;and&#160;restore&#160;indirectly&#160;through&#160;a&#160;privileged&#160;domain,&#160;<br/>such&#160;as&#160;domB.</p>
+<p style="position:absolute;top:627px;left:85px;white-space:nowrap" class="ft77">A&#160;prototype&#160;version&#160;of&#160;domB, along&#160;with&#160;the&#160;necessary&#160;modifications&#160;to&#160;Xen, has&#160;been&#160;<br/>included&#160;on&#160;the&#160;accompanying&#160;CD.&#160;</p>
+<p style="position:absolute;top:646px;left:380px;white-space:nowrap" class="ft73"><b>N.B.</b></p>
+<p style="position:absolute;top:646px;left:419px;white-space:nowrap" class="ft74">&#160;This&#160;is&#160;prototype&#160;software, and&#160;should&#160;not&#160;be&#160;</p>
+<p style="position:absolute;top:665px;left:85px;white-space:nowrap" class="ft74">used&#160;in&#160;a&#160;production&#160;system.</p>
+<p style="position:absolute;top:704px;left:85px;white-space:nowrap" class="ft77">This&#160;new DomB architecture&#160;will&#160;be&#160;used&#160;as&#160;the&#160;basis&#160;for&#160;the&#160;implementation&#160;of&#160;the&#160;<br/>Basic Management&#160;Interface&#160;(BMI)&#160;service, which&#160;is&#160;also&#160;being&#160;developed&#160;as&#160;part&#160;of&#160;<br/>WP4 in&#160;OpenTC. With&#160;this&#160;architecture, the&#160;BMI&#160;service&#160;will&#160;benefit&#160;from&#160;a&#160;small&#160;TCB&#160;<br/>and&#160;therefore&#160;provide&#160;local&#160;software&#160;and&#160;third&#160;parties&#160;with&#160;a&#160;higher&#160;level&#160;of&#160;trust&#160;in&#160;its&#160;<br/>behavior&#160;and&#160;the&#160;properties&#160;of&#160;the&#160;whole&#160;system.</p>
+<p style="position:absolute;top:818px;left:85px;white-space:nowrap" class="ft717"><b>2.2.2&#160;Xen&#160;Security&#160;Modules</b></p>
+<p style="position:absolute;top:844px;left:85px;white-space:nowrap" class="ft77">A&#160;future&#160;version&#160;of&#160;Xen&#160;will&#160;replace&#160;the&#160;current&#160;MAC&#160;code&#160;with&#160;the&#160;Xen&#160;Security&#160;<br/>Modules&#160;(XSM)&#160;framework. The&#160;XSM&#160;infrastructure&#160;has&#160;two&#160;main&#160;facets. The&#160;first&#160;is&#160;a&#160;<br/>hook&#160;infrastructure, in&#160;which&#160;hooks&#160;have&#160;been&#160;added&#160;to&#160;all&#160;potentially&#160;security-critical&#160;<br/>operations&#160;in&#160;the&#160;Xen&#160;VMM. The&#160;second&#160;is&#160;the&#160;security&#160;module&#160;itself, which&#160;installs&#160;<br/>functions&#160;for&#160;each&#160;of&#160;the&#160;hooks&#160;provided&#160;by&#160;the&#160;infrastructure. It&#160;is&#160;possible&#160;to&#160;specify&#160;<br/>the&#160;module&#160;to&#160;be&#160;used&#160;at&#160;boot&#160;time, as&#160;an&#160;image&#160;loaded&#160;by&#160;the&#160;bootloader.</p>
+<p style="position:absolute;top:979px;left:85px;white-space:nowrap" class="ft77">XSM&#160;supersedes&#160;the&#160;current&#160;MAC&#160;implementation, by&#160;allowing&#160;more-flexible&#160;policies&#160;to&#160;<br/>be&#160;specified. The&#160;proposed&#160;implementation&#160;of&#160;XSM&#160;includes&#160;two&#160;pre-defined&#160;modules:&#160;<br/>one&#160;emulates&#160;the&#160;current&#160;MAC&#160;implementation, and&#160;the&#160;other&#160;implements&#160;the&#160;Flask&#160;<br/>security&#160;policy&#160;language, which&#160;is&#160;employed&#160;by&#160;SELinux.</p>
+<p style="position:absolute;top:1073px;left:85px;white-space:nowrap" class="ft717"><b>2.2.3&#160;IOMMU&#160;support</b></p>
+<p style="position:absolute;top:1100px;left:85px;white-space:nowrap" class="ft77">Once&#160;the&#160;ability&#160;of&#160;dom0 to&#160;map&#160;arbitrary&#160;pages&#160;of&#160;physical&#160;memory&#160;is&#160;removed, a&#160;<br/>further&#160;concern&#160;remains. Currently, all&#160;physical&#160;device&#160;drivers&#160;must&#160;operate&#160;in&#160;a&#160;</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft710">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft710">7/12</p>
+</div>
+<!-- Page 8 -->
+<a name="8"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page8-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system008.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft89">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft80">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft810">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft810">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft87">trusted&#160;domain. This&#160;is&#160;because&#160;a&#160;device&#160;that&#160;is&#160;capable&#160;of&#160;Direct&#160;Memory&#160;Access&#160;<br/>(DMA)&#160;operates&#160;on&#160;machine&#160;addresses. Therefore, it&#160;is&#160;possible&#160;to&#160;exploit&#160;the&#160;device&#160;to&#160;<br/>access&#160;areas&#160;of&#160;memory&#160;that&#160;belong&#160;to&#160;other&#160;guest&#160;operating&#160;systems, by&#160;performing&#160;<br/>DMA&#160;on&#160;those&#160;guests'&#160;address&#160;spaces.</p>
+<p style="position:absolute;top:247px;left:85px;white-space:nowrap" class="ft87">The&#160;solution&#160;to&#160;this&#160;problem&#160;comes&#160;in&#160;the&#160;form&#160;of&#160;hardware&#160;support. An&#160;Input/Output&#160;<br/>Memory&#160;Management&#160;Unit&#160;(IOMMU)&#160;can&#160;be&#160;employed&#160;to&#160;perform&#160;mandatory&#160;<br/>translation&#160;of&#160;addresses&#160;used&#160;for&#160;DMA. Therefore, with&#160;some&#160;modifications, Xen&#160;may&#160;<br/>be&#160;used&#160;to&#160;enforce&#160;isolation&#160;by&#160;controlling&#160;what&#160;mappings&#160;may&#160;be&#160;made, in&#160;the&#160;same&#160;<br/>way&#160;as&#160;it&#160;enforces&#160;isolation&#160;by&#160;controlling&#160;page&#160;table&#160;updates. IOMMUs&#160;will&#160;be&#160;<br/>available&#160;in&#160;forthcoming&#160;chipsets&#160;from&#160;AMD&#160;and&#160;Intel.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft810">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft810">8/12</p>
+</div>
+<!-- Page 9 -->
+<a name="9"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page9-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system009.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft99">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft90">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft910">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft910">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft913"><b>3&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft914"><b>Interaction&#160;with&#160;the&#160;Proof&#160;of&#160;Concept</b></p>
+<p style="position:absolute;top:217px;left:85px;white-space:nowrap" class="ft93"><b>3.1&#160;Description&#160;of&#160;the&#160;PET&#160;Proof&#160;of&#160;Concept&#160;prototype</b></p>
+<p style="position:absolute;top:245px;left:85px;white-space:nowrap" class="ft97">The&#160;Private&#160;Electronic Transaction&#160;(PET)&#160;Proof&#160;of&#160;Concept&#160;(PoC)&#160;prototype&#160;was&#160;<br/>presented&#160;to&#160;the&#160;Review Board&#160;in&#160;December&#160;2006. The&#160;PoC&#160;prototype&#160;uses&#160;Xen&#160;at&#160;the&#160;<br/>hypervisor&#160;layer&#160;to&#160;provide&#160;isolation&#160;and&#160;other&#160;trusted&#160;computing&#160;facilities, as&#160;<br/>described&#160;in&#160;Section&#160;2. In&#160;this&#160;section, the&#160;structure&#160;and&#160;functionality&#160;of&#160;the&#160;prototype&#160;<br/>is&#160;described.</p>
+<p style="position:absolute;top:360px;left:85px;white-space:nowrap" class="ft97">The&#160;prototype&#160;supports&#160;two&#160;“user&#160;modes” chosen&#160;at&#160;boot&#160;time:&#160;expert&#160;and&#160;normal.&#160;<br/>The&#160;former&#160;is&#160;useful&#160;for&#160;understanding&#160;the&#160;internal&#160;details&#160;of&#160;the&#160;prototype&#160;while&#160;the&#160;<br/>latter&#160;make&#160;the&#160;prototype&#160;behave&#160;as&#160;in&#160;a&#160;real&#160;scenario.</p>
+<p style="position:absolute;top:437px;left:85px;white-space:nowrap" class="ft94">The&#160;prototype&#160;is&#160;divided&#160;into&#160;three&#160;domains;&#160;in&#160;the&#160;normal&#160;mode:</p>
+<p style="position:absolute;top:476px;left:112px;white-space:nowrap" class="ft94">1.&#160;dom0. The&#160;user&#160;does&#160;not&#160;interact&#160;with&#160;this&#160;domain;&#160;it&#160;uses&#160;automatic scripts&#160;to&#160;</p>
+<p style="position:absolute;top:495px;left:139px;white-space:nowrap" class="ft94">launch&#160;the&#160;two&#160;other&#160;domains, and&#160;configure&#160;the&#160;networking.</p>
+<p style="position:absolute;top:514px;left:112px;white-space:nowrap" class="ft94">2.&#160;domU. This&#160;is&#160;an&#160;untrusted&#160;domain, which&#160;is&#160;used&#160;to&#160;run&#160;arbitrary, untrusted&#160;</p>
+<p style="position:absolute;top:533px;left:139px;white-space:nowrap" class="ft94">programs.</p>
+<p style="position:absolute;top:552px;left:112px;white-space:nowrap" class="ft94">3.&#160;domT. This&#160;is&#160;a&#160;trusted&#160;domain, which&#160;is&#160;used&#160;to&#160;run&#160;the&#160;web&#160;browser&#160;for&#160;</p>
+<p style="position:absolute;top:572px;left:139px;white-space:nowrap" class="ft94">carrying&#160;out&#160;the&#160;Private&#160;Electronic Transaction&#160;with&#160;a&#160;bank.</p>
+<p style="position:absolute;top:610px;left:85px;white-space:nowrap" class="ft97">The&#160;use&#160;case&#160;for&#160;the&#160;demonstrator&#160;is&#160;that, on&#160;a&#160;day-to-day&#160;basis, the&#160;user&#160;will&#160;run&#160;and&#160;<br/>install&#160;arbitrary&#160;code&#160;in&#160;domU. This&#160;code&#160;may&#160;include&#160;malevolent&#160;software, such&#160;as&#160;a&#160;<br/>keylogger&#160;or&#160;other&#160;program&#160;that&#160;monitors&#160;how the&#160;user&#160;uses&#160;the&#160;computer. When&#160;the&#160;<br/>user&#160;wishes&#160;to&#160;make&#160;a&#160;private&#160;electronic transaction, he&#160;wants&#160;to&#160;be&#160;sure&#160;that&#160;his&#160;<br/>details&#160;are&#160;safe&#160;from&#160;this&#160;untrusted&#160;code. Therefore, he&#160;switches&#160;to&#160;domT, which&#160;is&#160;a&#160;<br/>simple&#160;domain&#160;that&#160;contains&#160;only&#160;a&#160;web&#160;browser, and&#160;which&#160;is&#160;in&#160;a&#160;known-good&#160;<br/>configuration. DomT's&#160; configuration&#160;and&#160;its&#160;file&#160;system&#160;are&#160;measured&#160;(i.e. digested)&#160;<br/>and&#160;the&#160;measurement&#160;is&#160;used&#160;to&#160;extend&#160;a&#160;TPM&#160;register&#160;(PCR)&#160;, which&#160;makes&#160;it&#160;possible&#160;<br/>to&#160;carry&#160;out&#160;remote&#160;attestation&#160;of&#160;the&#160;client&#160;by&#160;the&#160;server&#160;(i.e. the&#160;bank&#160;web&#160;site)&#160;<br/>through&#160;a&#160;pair&#160;of&#160;proxies&#160; that&#160;implement&#160;the&#160;attestation&#160;protocol. These&#160;proxies&#160;run&#160;in&#160;<br/>dom0 on&#160;the&#160;client&#160;side&#160;and&#160;as&#160;front-end&#160;for&#160;the&#160;web&#160;server&#160;on&#160;the&#160;other&#160;side.</p>
+<p style="position:absolute;top:841px;left:85px;white-space:nowrap" class="ft93"><b>3.2&#160;Description&#160;o</b></p>
+<p style="position:absolute;top:839px;left:254px;white-space:nowrap" class="ft914"><b>f&#160;the&#160;development&#160;doma</b></p>
+<p style="position:absolute;top:841px;left:504px;white-space:nowrap" class="ft93"><b>in</b></p>
+<p style="position:absolute;top:869px;left:85px;white-space:nowrap" class="ft97">In&#160;order&#160;to&#160;facilitate&#160;the&#160;development&#160;of&#160;the&#160;PET&#160;demonstrator&#160;(see&#160;above&#160;for&#160;more&#160;<br/>details), a&#160;development&#160;domain&#160;has&#160;been&#160;created. This&#160;is&#160;a&#160;full&#160;copy&#160;of&#160;a&#160;Debian&#160;Sarge&#160;<br/>Linux&#160;distribution, which&#160;includes&#160;the&#160;necessary&#160;tools&#160;and&#160;libraries&#160;in&#160;order&#160;to&#160;build&#160;<br/>Xen&#160;3.0.4. This&#160;makes&#160;it&#160;possible&#160;to&#160;experiment&#160;with&#160;different&#160;configurations&#160;of&#160;Xen&#160;<br/>and&#160;the&#160;Linux&#160;kernel. The&#160;development&#160;domain&#160;can&#160;also&#160;be&#160;used&#160;to&#160;build&#160;the&#160;new-<br/>architecture&#160;Xen&#160;and&#160;domB components&#160;of&#160;this&#160;deliverable.</p>
+<p style="position:absolute;top:1004px;left:85px;white-space:nowrap" class="ft97">The&#160;development&#160;domain&#160;comprises&#160;a&#160;file&#160;system&#160;image&#160;(containing&#160;the&#160;Linux&#160;<br/>distribution)&#160;and&#160;a&#160;Xen&#160;domain&#160;configuration&#160;file. Due&#160;to&#160;the&#160;size&#160;of&#160;the&#160;development&#160;<br/>domain, it&#160;must&#160;be&#160;copied&#160;to&#160;the&#160;hard&#160;disk&#160;before&#160;it&#160;can&#160;be&#160;used.&#160;</p>
+<p style="position:absolute;top:1079px;left:85px;white-space:nowrap" class="ft93"><b>3.3&#160;Building&#160;the&#160;prototype&#160;using&#160;the&#160;development&#160;domain</b></p>
+<p style="position:absolute;top:1107px;left:85px;white-space:nowrap" class="ft94">The&#160;PET&#160;PoC&#160;prototype&#160;is&#160;a&#160;LiveCD, which&#160;may&#160;be&#160;used&#160;to&#160;run&#160;Xen&#160;without&#160;installing&#160;</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft910">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft910">9/12</p>
+</div>
+<!-- Page 10 -->
+<a name="10"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page10-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system010.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft109">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft100">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft1010">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft1010">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft107">any&#160;software&#160;onto&#160;a&#160;computer. In&#160;combination&#160;with&#160;the&#160;development&#160;domain&#160;(which&#160;<br/>does&#160;require&#160;some&#160;software&#160;to&#160;be&#160;copied&#160;to&#160;a&#160;hard&#160;disk, due&#160;to&#160;memory&#160;and&#160;space&#160;<br/>constraints), it&#160;is&#160;possible&#160;to&#160;build&#160;the&#160;domain&#160;builder&#160;prototype&#160;(as&#160;described&#160;in&#160;<br/>Subsubsection&#160;2.2.1). Furthermore, since&#160;the&#160;development&#160;domain&#160;runs&#160;in&#160;a&#160;virtual&#160;<br/>machine, it&#160;is&#160;possible&#160;to&#160;run&#160;the&#160;modified&#160;version&#160;of&#160;Xen&#160;itself&#160;in&#160;a&#160;virtual&#160;machine.&#160;<br/>This&#160;is&#160;safer&#160;than&#160;running&#160;an&#160;experimental&#160;version&#160;of&#160;Xen&#160;directly&#160;on&#160;the&#160;physical&#160;<br/>hardware, because&#160;the&#160;effects&#160;of&#160;kernel&#160;misconfiguration&#160;can&#160;be&#160;contained&#160;within&#160;the&#160;<br/>virtual&#160;machine. Therefore, the&#160;risk&#160;of&#160;data&#160;loss&#160;during&#160;development&#160;is&#160;mitigated.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft1010">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:765px;white-space:nowrap" class="ft1010">10/12</p>
+</div>
+<!-- Page 11 -->
+<a name="11"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page11-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system011.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft119">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft110">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft1110">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft1110">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft1113"><b>4&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft1114"><b>Conclusion</b></p>
+<p style="position:absolute;top:199px;left:85px;white-space:nowrap" class="ft117">We&#160;have&#160;designed&#160;and&#160;developed&#160;a&#160;prototype&#160;of&#160;the&#160;new architecture&#160;for&#160;the&#160;Xen&#160;<br/>virtualisation&#160;layer. This&#160;architecture&#160;supports&#160;an&#160;initial&#160;reduction&#160;of&#160;the&#160;Trusted&#160;<br/>Computing&#160;Base&#160;and&#160;provides&#160;the&#160;basis&#160;for&#160;the&#160;implementation&#160;of&#160;the&#160;BMI&#160;service. It&#160;<br/>also&#160;enables&#160;the&#160;support&#160;of&#160;further&#160;research&#160;on&#160;improvement&#160;of&#160;access&#160;control&#160;<br/>mechanisms&#160;within&#160;the&#160;hypervisor. We&#160;also&#160;hope&#160;that&#160;the&#160;development&#160;domain&#160;<br/>created&#160;during&#160;this&#160;work&#160;will&#160;be&#160;used&#160;by&#160;other&#160;OpenTC&#160;partners&#160;(and&#160;external&#160;entities&#160;<br/>when&#160;becoming&#160;public)&#160;to&#160;build&#160;higher&#160;level&#160;applications. We&#160;anticipate&#160;this&#160;work&#160;to&#160;be&#160;<br/>of&#160;great&#160;use&#160;for&#160;Work&#160;packages&#160;5 and&#160;6 in&#160;particular.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft1110">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:765px;white-space:nowrap" class="ft1110">11/12</p>
+</div>
+<!-- Page 12 -->
+<a name="12"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page12-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system012.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft129">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft120">&#160;</p>
+<p style="position:absolute;top:92px;left:282px;white-space:nowrap" class="ft1210">Initial&#160;prototype&#160;Xen-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft1210">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft1213"><b>5&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft1214"><b>List&#160;of&#160;Abbreviations&#160;</b></p>
+<p style="position:absolute;top:236px;left:91px;white-space:nowrap" class="ft124">BMI</p>
+<p style="position:absolute;top:236px;left:220px;white-space:nowrap" class="ft124">Basic Management&#160;Interface</p>
+<p style="position:absolute;top:255px;left:91px;white-space:nowrap" class="ft124">DMA</p>
+<p style="position:absolute;top:255px;left:220px;white-space:nowrap" class="ft124">Direct&#160;Memory&#160;Access</p>
+<p style="position:absolute;top:274px;left:91px;white-space:nowrap" class="ft124">IOMMU</p>
+<p style="position:absolute;top:274px;left:220px;white-space:nowrap" class="ft124">Input/Output&#160;Memory&#160;Management&#160;Unit</p>
+<p style="position:absolute;top:293px;left:91px;white-space:nowrap" class="ft124">MAC</p>
+<p style="position:absolute;top:293px;left:220px;white-space:nowrap" class="ft124">Mandatory&#160;Access&#160;Control</p>
+<p style="position:absolute;top:313px;left:91px;white-space:nowrap" class="ft124">PET</p>
+<p style="position:absolute;top:313px;left:220px;white-space:nowrap" class="ft124">Private&#160;Electronic Transaction</p>
+<p style="position:absolute;top:332px;left:91px;white-space:nowrap" class="ft124">PCR</p>
+<p style="position:absolute;top:332px;left:220px;white-space:nowrap" class="ft124">Platform&#160;Configuration&#160;Register</p>
+<p style="position:absolute;top:351px;left:91px;white-space:nowrap" class="ft124">TPM</p>
+<p style="position:absolute;top:351px;left:220px;white-space:nowrap" class="ft124">Trusted&#160;Platform&#160;Module</p>
+<p style="position:absolute;top:370px;left:91px;white-space:nowrap" class="ft124">VM</p>
+<p style="position:absolute;top:370px;left:220px;white-space:nowrap" class="ft124">Virtual&#160;Machine</p>
+<p style="position:absolute;top:389px;left:91px;white-space:nowrap" class="ft124">VMM</p>
+<p style="position:absolute;top:389px;left:220px;white-space:nowrap" class="ft124">Virtual&#160;Machine&#160;Monitor</p>
+<p style="position:absolute;top:409px;left:91px;white-space:nowrap" class="ft124">vTPM</p>
+<p style="position:absolute;top:409px;left:220px;white-space:nowrap" class="ft124">Virtual&#160;Trusted&#160;Platform&#160;Module</p>
+<p style="position:absolute;top:428px;left:91px;white-space:nowrap" class="ft124">XSM</p>
+<p style="position:absolute;top:428px;left:220px;white-space:nowrap" class="ft124">Xen&#160;Security&#160;Modules</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft1210">Open_TC&#160;Deliverable&#160;4.6</p>
+<p style="position:absolute;top:1160px;left:765px;white-space:nowrap" class="ft1210">12/12</p>
+</div>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#4">1 Introduction&#160;</a>
+<ul>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#4">1.1Summary of work done</a></li>
+</ul>
+</li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#5">2 Features for Trusted Computing in Xen</a>
+<ul>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#5">2.1Existing features</a>
+<ul>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#5">2.1.1Hypervisor isolation</a></li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#6">2.1.2Mandatory Access Control (MAC)</a></li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#6">2.1.3Virtual Trusted Platform Module (vTPM)</a></li>
+</ul>
+</li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#7">2.2Security-related features under development</a>
+<ul>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#7">2.2.1Dom0 disaggregation</a></li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#7">2.2.2Xen Security Modules</a></li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#7">2.2.3IOMMU support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#9">3 Interaction with the Proof of Concept</a>
+<ul>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#9">3.1Description of the PET Proof of Concept prototype</a></li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#9">3.2Description of the development domain</a></li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#9">3.3Building the prototype using the development domain</a></li>
+</ul>
+</li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#11">4 Conclusion</a></li>
+<li><a href="Open_TC_D04.6_Initial_prototype_XEN-based_TC_system.html#12">5 List of Abbreviations&#160;</a></li>
+</ul>
+</body>
+</html>

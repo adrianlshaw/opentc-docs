@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>html/OTC_Architecting_Dependable_Systems</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="date" content="2007-03-18T23:27:45+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<!-- Page 1 -->
+<a name="1"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:22px;font-family:YFPPFB+NimbusRomNo9L-Medi;color:#231f20;}
+	.ft11{font-size:15px;font-family:CJHSRX+NimbusRomNo9L-Regu;color:#231f20;}
+	.ft12{font-size:15px;font-family:LXKMXB+CMSY10;color:#231f20;}
+	.ft13{font-size:15px;font-family:GMIKPV+NimbusMonL-Regu;color:#231f20;}
+	.ft14{font-size:18px;font-family:YFPPFB+NimbusRomNo9L-Medi;color:#000000;}
+	.ft15{font-size:15px;font-family:DGAPYD+NimbusRomNo9L-ReguItal;color:#000000;}
+	.ft16{font-size:15px;font-family:CJHSRX+NimbusRomNo9L-Regu;color:#000000;}
+	.ft17{font-size:15px;line-height:17px;font-family:DGAPYD+NimbusRomNo9L-ReguItal;color:#000000;}
+	.ft18{font-size:15px;line-height:17px;font-family:CJHSRX+NimbusRomNo9L-Regu;color:#000000;}
+-->
+</style>
+<div id="page1-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="OTC_Architecting_Dependable_Systems001.png" alt="background image"/>
+<p style="position:absolute;top:132px;left:209px;white-space:nowrap" class="ft10">Architecting&#160;Dependable&#160;Systems&#160;Using&#160;Virtualization</p>
+<p style="position:absolute;top:160px;left:311px;white-space:nowrap" class="ft11">HariGovind&#160;V.&#160;Ramasamy&#160;and&#160;Matthias&#160;Schunter</p>
+<p style="position:absolute;top:177px;left:359px;white-space:nowrap" class="ft11">IBM&#160;Zurich&#160;Research&#160;Laboratory</p>
+<p style="position:absolute;top:195px;left:386px;white-space:nowrap" class="ft11">R¨uschlikon,&#160;Switzerland</p>
+<p style="position:absolute;top:213px;left:353px;white-space:nowrap" class="ft12"><i>{</i></p>
+<p style="position:absolute;top:213px;left:360px;white-space:nowrap" class="ft13">hvr,mts</p>
+<p style="position:absolute;top:213px;left:423px;white-space:nowrap" class="ft12"><i>}</i></p>
+<p style="position:absolute;top:213px;left:431px;white-space:nowrap" class="ft13">@zurich.ibm.com</p>
+<p style="position:absolute;top:248px;left:242px;white-space:nowrap" class="ft14">Abstract</p>
+<p style="position:absolute;top:278px;left:126px;white-space:nowrap" class="ft15"><i>We&#160;propose&#160;new&#160;methods&#160;of&#160;leveraging&#160;virtualization</i></p>
+<p style="position:absolute;top:296px;left:108px;white-space:nowrap" class="ft17"><i>for&#160;addressing&#160;system&#160;dependability&#160;issues.&#160;Using&#160;com-<br/>binatorial&#160;modeling,&#160;we&#160;analyze&#160;multiple&#160;design&#160;choices<br/>when&#160;a&#160;single&#160;physical&#160;server&#160;is&#160;used&#160;to&#160;host&#160;multiple<br/>virtual&#160;servers.&#160;Our&#160;results&#160;show&#160;that&#160;unless&#160;certain<br/>conditions&#160;(e.g.,&#160;regarding&#160;the&#160;reliability&#160;of&#160;the&#160;hyper-<br/>visor&#160;and&#160;the&#160;number&#160;of&#160;VMs)&#160;are&#160;met,&#160;virtualization<br/>could&#160;decrease&#160;the&#160;reliability&#160;of&#160;a&#160;single&#160;physical&#160;node.<br/>In&#160;light&#160;of&#160;the&#160;prevailing&#160;ad-hoc&#160;approach&#160;to&#160;virtualiza-<br/>tion&#160;and&#160;the&#160;general&#160;inclination&#160;to&#160;move&#160;services&#160;out&#160;of<br/>the&#160;operating&#160;system&#160;into&#160;the&#160;virtualization&#160;layer,&#160;our&#160;re-<br/>sults&#160;point&#160;out&#160;the&#160;need&#160;for&#160;a&#160;more&#160;cautious&#160;and&#160;rigorous<br/>approach.</i></p>
+<p style="position:absolute;top:531px;left:108px;white-space:nowrap" class="ft14">1&#160;Introduction</p>
+<p style="position:absolute;top:563px;left:126px;white-space:nowrap" class="ft16">Virtualization&#160;allows&#160;abstracting&#160;away&#160;the&#160;real&#160;hard-</p>
+<p style="position:absolute;top:581px;left:108px;white-space:nowrap" class="ft18">ware&#160;configuration&#160;of&#160;a&#160;system.&#160;One&#160;method&#160;of&#160;virtualiz-<br/>ing&#160;the&#160;hardware&#160;resources&#160;of&#160;a&#160;computer&#160;involves&#160;using<br/>a&#160;layer&#160;of&#160;software,&#160;called&#160;the&#160;Virtual&#160;Machine&#160;Moni-<br/>tor&#160;(VMM),&#160;to&#160;provide&#160;the&#160;illusion&#160;of&#160;real&#160;hardware&#160;for<br/>multiple&#160;virtual&#160;machines&#160;(VMs).&#160;Inside&#160;each&#160;VM,&#160;the<br/>operating&#160;system&#160;(often&#160;called&#160;the</p>
+<p style="position:absolute;top:671px;left:317px;white-space:nowrap" class="ft15"><i>guest</i></p>
+<p style="position:absolute;top:671px;left:353px;white-space:nowrap" class="ft16">OS)&#160;and&#160;appli-</p>
+<p style="position:absolute;top:689px;left:108px;white-space:nowrap" class="ft18">cations&#160;run&#160;on&#160;the&#160;VM’s&#160;own&#160;virtual&#160;resources&#160;such&#160;as<br/>virtual&#160;CPU,&#160;virtual&#160;network&#160;card,&#160;virtual&#160;RAM,&#160;and&#160;vir-<br/>tual&#160;disks.&#160;A&#160;VMM&#160;can&#160;be&#160;hosted&#160;directly&#160;on&#160;the&#160;com-<br/>puter&#160;hardware&#160;(e.g.,&#160;Xen&#160;[4])&#160;or&#160;within&#160;a&#160;host&#160;operating<br/>system&#160;(e.g.,&#160;VMware).</p>
+<p style="position:absolute;top:779px;left:126px;white-space:nowrap" class="ft16">Introduced&#160;in&#160;the&#160;1960s,&#160;virtualization&#160;has&#160;lately&#160;en-</p>
+<p style="position:absolute;top:797px;left:108px;white-space:nowrap" class="ft18">joyed&#160;a&#160;great&#160;surge&#160;of&#160;interest.&#160;The&#160;improved&#160;efficiency,<br/>flexibility,&#160;and&#160;cost&#160;savings&#160;that&#160;virtualization&#160;of&#160;stor-<br/>age,&#160;networking,&#160;and&#160;computing&#160;resources&#160;enables&#160;in<br/>data&#160;centers&#160;have&#160;been&#160;the&#160;key&#160;drivers&#160;of&#160;this&#160;interest.</p>
+<p style="position:absolute;top:869px;left:126px;white-space:nowrap" class="ft16">We&#160;address&#160;the&#160;issue&#160;of&#160;using&#160;virtualization&#160;as&#160;a</p>
+<p style="position:absolute;top:887px;left:108px;white-space:nowrap" class="ft18">building&#160;block&#160;for&#160;enhancing&#160;dependability&#160;not&#160;just&#160;in<br/>data&#160;centers,&#160;but&#160;also&#160;in&#160;more&#160;general&#160;settings.&#160;With<br/>few&#160;exceptions,&#160;current&#160;solutions&#160;in&#160;this&#160;space&#160;have&#160;been<br/>largely&#160;ad-hoc.&#160;There&#160;seems&#160;to&#160;be&#160;an&#160;increasingly&#160;preva-<br/>lent&#160;tendency&#160;to&#160;think&#160;of&#160;virtualization&#160;as&#160;a&#160;cure-all.<br/>Suggestions&#160;to&#160;shift&#160;almost&#160;anything&#160;that&#160;runs&#160;on&#160;a&#160;real<br/>machine&#160;to&#160;a&#160;virtual&#160;machine&#160;and&#160;to&#160;move&#160;services&#160;(such<br/>as&#160;networking&#160;and&#160;security)&#160;currently&#160;provided&#160;by&#160;the<br/>operating&#160;system&#160;to&#160;the&#160;virtual&#160;machine&#160;monitor&#160;are&#160;be-<br/>coming&#160;commonplace&#160;(e.g.,&#160;[9]).</p>
+<p style="position:absolute;top:1067px;left:126px;white-space:nowrap" class="ft16">We&#160;make&#160;the&#160;following&#160;contributions.</p>
+<p style="position:absolute;top:1067px;left:385px;white-space:nowrap" class="ft16">First,&#160;we</p>
+<p style="position:absolute;top:250px;left:476px;white-space:nowrap" class="ft18">present&#160;new&#160;ways&#160;of&#160;using&#160;virtualization&#160;for&#160;addressing<br/>system&#160;dependability&#160;issues.&#160;Second,&#160;we&#160;use&#160;combina-<br/>torial&#160;modeling&#160;to&#160;analyze&#160;multiple&#160;design&#160;choices&#160;when<br/>a&#160;single&#160;physical&#160;server&#160;is&#160;used&#160;to&#160;host&#160;multiple&#160;virtual<br/>servers&#160;and&#160;to&#160;quantify&#160;the&#160;reliability&#160;impact&#160;of&#160;virtual-<br/>ization.&#160;In&#160;light&#160;of&#160;the&#160;prevailing&#160;general&#160;inclination&#160;to<br/>shift&#160;services&#160;out&#160;of&#160;the&#160;guest&#160;OS&#160;into&#160;the&#160;virtualization<br/>layer,&#160;we&#160;show&#160;that&#160;this&#160;shift,&#160;if&#160;not&#160;done&#160;carefully,&#160;could<br/>adversely&#160;affect&#160;system&#160;reliability.</p>
+<p style="position:absolute;top:423px;left:476px;white-space:nowrap" class="ft14">2&#160;Related&#160;Work</p>
+<p style="position:absolute;top:455px;left:494px;white-space:nowrap" class="ft16">Bressoud&#160;and&#160;Schneider&#160;[5]&#160;implemented&#160;a&#160;primary-</p>
+<p style="position:absolute;top:473px;left:476px;white-space:nowrap" class="ft18">backup&#160;replication&#160;protocol&#160;tolerant&#160;to&#160;benign&#160;faults&#160;at<br/>the&#160;VMM&#160;level.&#160;The&#160;protocol&#160;resolves&#160;non-determinism<br/>by&#160;logging&#160;the&#160;results&#160;of&#160;all&#160;non-deterministic&#160;actions<br/>taken&#160;by&#160;the&#160;primary&#160;and&#160;then&#160;applying&#160;the&#160;same&#160;results<br/>at&#160;the&#160;backups&#160;to&#160;maintain&#160;state&#160;consistency.</p>
+<p style="position:absolute;top:563px;left:494px;white-space:nowrap" class="ft16">Double-Take&#160;[2]&#160;uses&#160;hardware-based&#160;real-time&#160;syn-</p>
+<p style="position:absolute;top:581px;left:476px;white-space:nowrap" class="ft18">chronous&#160;replication&#160;to&#160;replicate&#160;application&#160;data&#160;from<br/>multiple&#160;VMs&#160;to&#160;a&#160;single&#160;physical&#160;machine&#160;so&#160;that&#160;the<br/>application&#160;can&#160;automatically&#160;fail&#160;over&#160;to&#160;a&#160;spare&#160;ma-<br/>chine,&#160;by&#160;importing&#160;the&#160;replicated&#160;data,&#160;in&#160;case&#160;of&#160;out-<br/>age.&#160;Since&#160;the&#160;replication&#160;is&#160;done&#160;at&#160;the&#160;file&#160;system&#160;level<br/>below&#160;the&#160;VM,&#160;the&#160;technique&#160;is&#160;guest-OS-agnostic.</p>
+<p style="position:absolute;top:689px;left:494px;white-space:nowrap" class="ft16">Douceur&#160;and&#160;Howell&#160;[7]&#160;describe&#160;how&#160;VMMs&#160;can&#160;be</p>
+<p style="position:absolute;top:707px;left:476px;white-space:nowrap" class="ft18">used&#160;to&#160;ensure&#160;that&#160;VMs&#160;satisfy&#160;determinism&#160;and&#160;thereby<br/>enable&#160;state&#160;machine&#160;replication&#160;at&#160;the&#160;VM&#160;level&#160;instead<br/>of&#160;the&#160;application&#160;level.&#160;Specifically,&#160;they&#160;describe&#160;how<br/>a&#160;VM’s&#160;virtual&#160;disk&#160;and&#160;clock&#160;can&#160;be&#160;made&#160;deterministic<br/>with&#160;respect&#160;to&#160;the&#160;VM’s&#160;execution.&#160;The&#160;design&#160;relieves<br/>the&#160;burden&#160;off&#160;the&#160;application&#160;programmer&#160;to&#160;structure<br/>the&#160;application&#160;as&#160;a&#160;deterministic&#160;state&#160;machine.</p>
+<p style="position:absolute;top:833px;left:494px;white-space:nowrap" class="ft16">Dunlap&#160;et&#160;al.&#160;describe&#160;ReVirt&#160;[8]&#160;for&#160;VM&#160;logging&#160;and</p>
+<p style="position:absolute;top:851px;left:476px;white-space:nowrap" class="ft18">replay.&#160;ReVirt&#160;encapsulates&#160;the&#160;OS&#160;as&#160;a&#160;VM,&#160;logs&#160;non-<br/>deterministic&#160;events&#160;that&#160;affect&#160;the&#160;VM’s&#160;execution,&#160;and<br/>uses&#160;the&#160;logged&#160;data&#160;to&#160;replay&#160;the&#160;VM’s&#160;execution&#160;later.</p>
+<p style="position:absolute;top:905px;left:494px;white-space:nowrap" class="ft16">Joshi&#160;et&#160;al.&#160;[11]&#160;combine&#160;VM&#160;introspection&#160;with&#160;VM</p>
+<p style="position:absolute;top:923px;left:476px;white-space:nowrap" class="ft18">replay&#160;to&#160;analyze&#160;whether&#160;an&#160;OS&#160;vulnerability&#160;or&#160;ap-<br/>plication&#160;vulnerability&#160;was&#160;activated&#160;in&#160;a&#160;VM&#160;before<br/>a&#160;patch&#160;was&#160;applied.&#160;The&#160;analysis&#160;is&#160;done&#160;based&#160;on<br/>vulnerability-specific&#160;predicates,&#160;which&#160;are&#160;provided&#160;by<br/>the&#160;patch&#160;writer.&#160;After&#160;the&#160;patch&#160;has&#160;been&#160;applied,&#160;the<br/>same&#160;predicates&#160;can&#160;be&#160;used&#160;during&#160;the&#160;VM’s&#160;normal<br/>execution&#160;to&#160;detect&#160;and&#160;respond&#160;to&#160;attacks.</p>
+<p style="position:absolute;top:1049px;left:494px;white-space:nowrap" class="ft16">Backtracker&#160;[12]&#160;can&#160;be&#160;used&#160;to&#160;identify&#160;which&#160;ap-</p>
+<p style="position:absolute;top:1067px;left:476px;white-space:nowrap" class="ft16">plication&#160;running&#160;inside&#160;a&#160;VM&#160;was&#160;exploited&#160;on&#160;a&#160;given</p>
+<p style="position:absolute;top:1112px;left:455px;white-space:nowrap" class="ft11">1</p>
+</div>
+<!-- Page 2 -->
+<a name="2"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft29{font-size:15px;font-family:YFPPFB+NimbusRomNo9L-Medi;color:#000000;}
+-->
+</style>
+<div id="page2-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="OTC_Architecting_Dependable_Systems002.png" alt="background image"/>
+<p style="position:absolute;top:110px;left:108px;white-space:nowrap" class="ft28">host.&#160;An&#160;extension&#160;of&#160;Backtracker&#160;[13]&#160;has&#160;been&#160;used&#160;to<br/>track&#160;attacks&#160;from&#160;a&#160;single&#160;host&#160;at&#160;which&#160;infection&#160;has<br/>been&#160;detected&#160;to&#160;the&#160;originator&#160;of&#160;the&#160;attack&#160;and&#160;to&#160;other<br/>hosts&#160;that&#160;were&#160;compromised&#160;from&#160;that&#160;host.</p>
+<p style="position:absolute;top:192px;left:108px;white-space:nowrap" class="ft24">3&#160;Virtualization:&#160;New&#160;Opportunities&#160;for</p>
+<p style="position:absolute;top:213px;left:135px;white-space:nowrap" class="ft24">Dependability</p>
+<p style="position:absolute;top:242px;left:126px;white-space:nowrap" class="ft26">Commodity&#160;operating&#160;systems&#160;provide&#160;a&#160;level&#160;of&#160;de-</p>
+<p style="position:absolute;top:260px;left:108px;white-space:nowrap" class="ft28">pendability&#160;that&#160;is&#160;much&#160;lower&#160;than&#160;what&#160;is&#160;desired.&#160;This<br/>trend&#160;hasn’t&#160;seen&#160;much&#160;change&#160;in&#160;the&#160;last&#160;decade&#160;or&#160;so.<br/>Hence,&#160;the&#160;focus&#160;has&#160;shifted&#160;to&#160;designing&#160;dependable<br/>systems&#160;around&#160;the&#160;OS&#160;problems.</p>
+<p style="position:absolute;top:332px;left:126px;white-space:nowrap" class="ft26">Virtualization&#160;enables&#160;such&#160;a&#160;design&#160;in&#160;at&#160;least&#160;two</p>
+<p style="position:absolute;top:350px;left:108px;white-space:nowrap" class="ft28">ways.&#160;One&#160;way&#160;is&#160;to&#160;encapsulate&#160;the&#160;OS&#160;and&#160;applications<br/>in&#160;a&#160;VM&#160;and&#160;introduce&#160;dependability&#160;enhancements&#160;at<br/>the&#160;VMM-level,&#160;which&#160;are&#160;transparent&#160;to&#160;the&#160;guest&#160;OS<br/>and&#160;applications.&#160;Such&#160;a&#160;design&#160;allows&#160;the&#160;VM&#160;to&#160;be<br/>treated&#160;as&#160;a&#160;black&#160;box.&#160;For&#160;example,&#160;checkpointing&#160;and<br/>recovery&#160;can&#160;be&#160;done&#160;at&#160;the&#160;granularity&#160;of&#160;VMs&#160;instead<br/>of&#160;processes.&#160;Another&#160;way&#160;is&#160;to&#160;instrument&#160;applications,<br/>middleware,&#160;and/or&#160;the&#160;guest&#160;OS&#160;with&#160;explicit&#160;knowl-<br/>edge&#160;of&#160;their&#160;running&#160;on&#160;a&#160;virtual&#160;as&#160;opposed&#160;to&#160;physical<br/>machine.&#160;For&#160;example,&#160;in&#160;programming&#160;languages&#160;sup-<br/>porting&#160;VMs&#160;(such&#160;as&#160;Java&#160;and&#160;OCAML),&#160;checkpoint-<br/>ing&#160;the&#160;application&#160;state&#160;at&#160;the&#160;VM-level&#160;or&#160;byte-code-<br/>level&#160;(as&#160;opposed&#160;to&#160;native&#160;code)&#160;can&#160;allow&#160;restarting<br/>the&#160;saved&#160;state&#160;on&#160;a&#160;hardware&#160;platform&#160;different&#160;from<br/>the&#160;one&#160;in&#160;which&#160;checkpointing&#160;was&#160;done&#160;[3].</p>
+<p style="position:absolute;top:619px;left:126px;white-space:nowrap" class="ft26">Virtual&#160;machines&#160;offer&#160;a&#160;degree&#160;of&#160;flexibility&#160;that&#160;is</p>
+<p style="position:absolute;top:637px;left:108px;white-space:nowrap" class="ft28">not&#160;possible&#160;to&#160;obtain&#160;on&#160;physical&#160;machines.&#160;That&#160;is<br/>mainly&#160;because&#160;VM&#160;state,&#160;much&#160;like&#160;files,&#160;can&#160;be&#160;read,<br/>copied,&#160;modified,&#160;saved,&#160;migrated,&#160;and&#160;restored.&#160;In&#160;this<br/>section,&#160;we&#160;propose&#160;various&#160;new&#160;methods&#160;based&#160;on&#160;vir-<br/>tualization&#160;for&#160;improving&#160;dependability.</p>
+<p style="position:absolute;top:727px;left:126px;white-space:nowrap" class="ft29">Coping&#160;with&#160;Load-Induced&#160;Failures:</p>
+<p style="position:absolute;top:727px;left:379px;white-space:nowrap" class="ft26">Deploying</p>
+<p style="position:absolute;top:745px;left:108px;white-space:nowrap" class="ft28">services&#160;on&#160;VMs&#160;instead&#160;of&#160;physical&#160;machines&#160;enables<br/>higher&#160;and&#160;more&#160;flexible&#160;resilience&#160;to&#160;load-induced&#160;fail-<br/>ures&#160;without&#160;requiring&#160;additional&#160;hardware.&#160;Under&#160;load<br/>conditions,&#160;the&#160;VMs&#160;can&#160;be&#160;seamlessly&#160;migrated&#160;(using<br/>live&#160;migration&#160;technology&#160;[6])&#160;to&#160;a&#160;lightly&#160;loaded&#160;or&#160;a<br/>more&#160;powerful&#160;physical&#160;machine.&#160;VM&#160;creation&#160;is&#160;simple<br/>and&#160;cheap,&#160;much&#160;like&#160;copying&#160;a&#160;file.&#160;In&#160;response&#160;to&#160;high<br/>load&#160;conditions,&#160;it&#160;is&#160;much&#160;easier&#160;to&#160;dynamically&#160;pro-<br/>vision&#160;additional&#160;VMs&#160;on&#160;under-utilized&#160;physical&#160;ma-<br/>chines&#160;than&#160;to&#160;provision&#160;additional&#160;physical&#160;machines.</p>
+<p style="position:absolute;top:924px;left:126px;white-space:nowrap" class="ft29">Patch&#160;Application&#160;for&#160;High&#160;Availability&#160;Services:</p>
+<p style="position:absolute;top:942px;left:108px;white-space:nowrap" class="ft28">Typically,&#160;patch&#160;application&#160;involves&#160;system&#160;restart,&#160;and<br/>thus&#160;negatively&#160;affects&#160;service&#160;availability.&#160;Consider&#160;a<br/>service&#160;running&#160;inside&#160;a&#160;VM.&#160;Virtualization&#160;provides<br/>a&#160;way&#160;to&#160;remove&#160;faults&#160;and&#160;vulnerabilities&#160;at&#160;run-time<br/>without&#160;affecting&#160;system&#160;availability.&#160;For&#160;this&#160;purpose,&#160;a<br/>copy&#160;of&#160;the&#160;VM&#160;is&#160;instantiated,&#160;and&#160;the&#160;patch&#160;(be&#160;it&#160;OS-<br/>level&#160;or&#160;service-level)&#160;is&#160;applied&#160;on&#160;the&#160;copy&#160;rather&#160;than<br/>on&#160;the&#160;original&#160;VM.&#160;Then,&#160;the&#160;copy&#160;is&#160;restarted&#160;for&#160;the</p>
+<p style="position:absolute;top:110px;left:476px;white-space:nowrap" class="ft28">patch&#160;to&#160;take&#160;effect&#160;after&#160;which&#160;the&#160;original&#160;VM&#160;is&#160;grace-<br/>fully&#160;shut&#160;down&#160;and&#160;future&#160;service&#160;requests&#160;are&#160;directed<br/>to&#160;the&#160;copy&#160;VM.&#160;The&#160;patch&#160;is&#160;applied&#160;at&#160;the&#160;copy&#160;VM<br/>and&#160;the&#160;copy&#160;VM&#160;is&#160;restarted&#160;while&#160;the&#160;original&#160;VM&#160;still<br/>continues&#160;regular&#160;operation,&#160;thereby&#160;maintaining&#160;service<br/>availability.&#160;To&#160;ensure&#160;that&#160;there&#160;are&#160;no&#160;undesirable&#160;side<br/>effects&#160;due&#160;to&#160;the&#160;patch&#160;application,&#160;the&#160;copy&#160;VM&#160;may<br/>be&#160;placed&#160;in</p>
+<p style="position:absolute;top:236px;left:550px;white-space:nowrap" class="ft25"><i>quarantine</i></p>
+<p style="position:absolute;top:236px;left:618px;white-space:nowrap" class="ft26">for&#160;a&#160;sufficiently&#160;long&#160;time&#160;while</p>
+<p style="position:absolute;top:254px;left:476px;white-space:nowrap" class="ft28">observing&#160;its&#160;post-patch&#160;behavior&#160;before&#160;shutting&#160;down<br/>the&#160;original&#160;VM.&#160;If&#160;the&#160;service&#160;running&#160;inside&#160;the&#160;VM<br/>is&#160;stateful,&#160;then&#160;additional&#160;techniques&#160;based&#160;on&#160;a&#160;combi-<br/>nation&#160;of&#160;VM&#160;checkpointing&#160;and&#160;VM&#160;live&#160;migration&#160;[6]<br/>may&#160;be&#160;used&#160;to&#160;retain&#160;network&#160;connections&#160;of&#160;the&#160;orig-<br/>inal&#160;VM&#160;and&#160;to&#160;bring&#160;the&#160;copy&#160;up-to-date&#160;with&#160;the&#160;last<br/>correct&#160;checkpoint.</p>
+<p style="position:absolute;top:381px;left:494px;white-space:nowrap" class="ft29">Enforcing&#160;Fail-Safe&#160;Behavior:</p>
+<p style="position:absolute;top:381px;left:687px;white-space:nowrap" class="ft26">The&#160;average&#160;time&#160;be-</p>
+<p style="position:absolute;top:399px;left:476px;white-space:nowrap" class="ft28">tween&#160;when&#160;a&#160;vulnerability&#160;is&#160;made&#160;public&#160;and&#160;when&#160;a<br/>patch&#160;is&#160;available&#160;is&#160;still&#160;measured&#160;in&#160;months.&#160;In&#160;2005,<br/>Microsoft&#160;took&#160;an&#160;average&#160;time&#160;of&#160;134.5&#160;days&#160;for&#160;issuing<br/>critical&#160;patches&#160;for&#160;Windows&#160;security&#160;problems&#160;reported<br/>to&#160;the&#160;company&#160;[1].&#160;Developing&#160;patches&#160;for&#160;a&#160;software<br/>component&#160;is&#160;a&#160;time-consuming&#160;process&#160;because&#160;of&#160;the<br/>need&#160;to&#160;ensure&#160;that&#160;the&#160;patch&#160;does&#160;not&#160;introduce&#160;new<br/>flaws&#160;or&#160;affect&#160;the&#160;dependencies&#160;between&#160;that&#160;compo-<br/>nent&#160;and&#160;other&#160;components&#160;in&#160;the&#160;system.&#160;In&#160;many&#160;cases,<br/>a&#160;service&#160;administrator&#160;simply&#160;does&#160;not&#160;have&#160;the&#160;luxury<br/>of&#160;suspending&#160;a&#160;service&#160;immediately&#160;after&#160;a&#160;critical&#160;flaw<br/>(in&#160;the&#160;OS&#160;running&#160;the&#160;service&#160;or&#160;the&#160;service&#160;itself)&#160;be-<br/>comes&#160;publicized&#160;until&#160;the&#160;patch&#160;becomes&#160;available.</p>
+<p style="position:absolute;top:635px;left:494px;white-space:nowrap" class="ft26">Virtualization&#160;can&#160;be&#160;used&#160;to&#160;prolong&#160;the&#160;availability</p>
+<p style="position:absolute;top:653px;left:476px;white-space:nowrap" class="ft28">of&#160;the&#160;service&#160;as&#160;much&#160;as&#160;possible&#160;while&#160;at&#160;the&#160;same&#160;time<br/>ensuring&#160;that&#160;the&#160;service&#160;is&#160;fail-safe.&#160;We&#160;leverage&#160;the&#160;ob-<br/>servation&#160;that&#160;publicizing&#160;a&#160;flaw&#160;is&#160;usually&#160;accompanied<br/>by&#160;details&#160;of&#160;possible&#160;attacks&#160;exploiting&#160;the&#160;flaw&#160;and/or<br/>symptoms&#160;of&#160;an&#160;exploited&#160;flaw.&#160;Developing&#160;an&#160;external<br/>monitor&#160;for&#160;identifying&#160;attack&#160;signatures&#160;or&#160;symptoms<br/>of&#160;an&#160;exploited&#160;flaw&#160;may&#160;be&#160;done&#160;independently&#160;of&#160;the<br/>patch&#160;development.&#160;The&#160;monitor&#160;may&#160;also&#160;be&#160;developed<br/>much&#160;faster&#160;than&#160;the&#160;patch&#160;itself,&#160;because&#160;the&#160;monitor<br/>may&#160;not&#160;be&#160;subject&#160;to&#160;the&#160;same&#160;stringent&#160;testing&#160;and&#160;val-<br/>idation&#160;requirements.</p>
+<p style="position:absolute;top:852px;left:494px;white-space:nowrap" class="ft26">Consider&#160;a&#160;service&#160;run&#160;inside&#160;a&#160;VM&#160;instead&#160;of&#160;directly</p>
+<p style="position:absolute;top:870px;left:476px;white-space:nowrap" class="ft28">on&#160;a&#160;physical&#160;machine.&#160;Then,&#160;a&#160;VM-external&#160;monitor,<br/>running&#160;parallel&#160;to&#160;the&#160;VM,&#160;can&#160;be&#160;used&#160;detect&#160;the&#160;symp-<br/>toms&#160;of&#160;the&#160;exploited&#160;flaw&#160;and&#160;to&#160;signal&#160;the&#160;VMM&#160;to<br/>crash&#160;the&#160;VM.&#160;Alternatively,&#160;if&#160;the&#160;attack&#160;signature&#160;is<br/>known,&#160;the&#160;monitor&#160;can&#160;be&#160;used&#160;to&#160;identify&#160;an&#160;ongoing<br/>attack&#160;and&#160;terminate&#160;interaction&#160;with&#160;the&#160;attack&#160;source.<br/>The&#160;monitor&#160;could&#160;be&#160;implemented&#160;at&#160;the&#160;VMM&#160;level<br/>or&#160;in&#160;a&#160;privileged&#160;VM&#160;(such&#160;as&#160;Dom0&#160;in&#160;Xen&#160;[4]).&#160;If&#160;it<br/>is&#160;important&#160;to&#160;revert&#160;the&#160;service&#160;to&#160;its&#160;last&#160;correct&#160;state<br/>when&#160;a&#160;patch&#160;does&#160;become&#160;available,&#160;then&#160;the&#160;above<br/>technique&#160;can&#160;be&#160;augmented&#160;with&#160;a&#160;checkpointing&#160;mech-<br/>anism,&#160;which&#160;periodically&#160;checkpoints&#160;the&#160;state&#160;of&#160;the</p>
+<p style="position:absolute;top:1112px;left:455px;white-space:nowrap" class="ft21">2</p>
+</div>
+<!-- Page 3 -->
+<a name="3"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft310{font-size:8px;font-family:Times;color:#000000;}
+	.ft311{font-size:12px;font-family:CJHSRX+NimbusRomNo9L-Regu;color:#231f20;}
+	.ft312{font-size:16px;font-family:Times;color:#000000;}
+	.ft313{font-size:12px;font-family:LPMWQK+NimbusSanL;color:#231f20;}
+	.ft314{font-size:15px;font-family:YUIHWJ+CMMI10;color:#000000;}
+	.ft315{font-size:10px;font-family:IZFSSL+CMMI7;color:#000000;}
+	.ft316{font-size:15px;font-family:AXXRAL+CMR10;color:#000000;}
+-->
+</style>
+<div id="page3-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="OTC_Architecting_Dependable_Systems003.png" alt="background image"/>
+<p style="position:absolute;top:110px;left:108px;white-space:nowrap" class="ft36">service&#160;with&#160;respect&#160;to&#160;the&#160;VM&#160;(e.g.,&#160;[3]).</p>
+<p style="position:absolute;top:130px;left:126px;white-space:nowrap" class="ft39">Proactive&#160;Software&#160;Rejuvenation:</p>
+<p style="position:absolute;top:130px;left:344px;white-space:nowrap" class="ft36">Rebooting&#160;a&#160;ma-</p>
+<p style="position:absolute;top:148px;left:108px;white-space:nowrap" class="ft38">chine&#160;is&#160;an&#160;easy&#160;way&#160;of&#160;rejuvenating&#160;software.&#160;The<br/>downside&#160;of&#160;machine&#160;reboot&#160;is&#160;that&#160;the&#160;service&#160;is&#160;un-<br/>available&#160;during&#160;the&#160;reboot&#160;process.&#160;The&#160;VMM&#160;is&#160;a&#160;con-<br/>venient&#160;layer&#160;for&#160;introducing&#160;hooks&#160;to&#160;proactively&#160;reju-<br/>venate&#160;the&#160;guest&#160;OS&#160;and&#160;services&#160;running&#160;inside&#160;a&#160;VM<br/>in&#160;a&#160;performance-&#160;and&#160;availability-preserving&#160;way.&#160;Pe-<br/>riodically,&#160;the&#160;VMM&#160;can&#160;be&#160;made&#160;to&#160;instantiate&#160;a</p>
+<p style="position:absolute;top:255px;left:414px;white-space:nowrap" class="ft35"><i>rein-</i></p>
+<p style="position:absolute;top:273px;left:108px;white-space:nowrap" class="ft35"><i>carnation&#160;VM</i></p>
+<p style="position:absolute;top:273px;left:197px;white-space:nowrap" class="ft36">from&#160;a&#160;clean&#160;VM&#160;image.&#160;The&#160;booting&#160;of</p>
+<p style="position:absolute;top:291px;left:108px;white-space:nowrap" class="ft38">the&#160;reincarnation&#160;VM&#160;is&#160;done&#160;while&#160;the&#160;original&#160;VM&#160;still<br/>continues&#160;regular&#160;operation,&#160;thereby&#160;maintaining&#160;service<br/>availability.&#160;As&#160;mentioned&#160;above&#160;in&#160;the&#160;context&#160;of&#160;patch<br/>application,&#160;techniques&#160;based&#160;on&#160;VM&#160;checkpointing&#160;and<br/>live&#160;migration&#160;may&#160;be&#160;used&#160;to&#160;seamlessly&#160;transfer&#160;net-<br/>work&#160;connections&#160;and&#160;service&#160;state&#160;of&#160;the&#160;original&#160;VM<br/>to&#160;the&#160;reincarnation&#160;VM.&#160;It&#160;is&#160;possible&#160;to&#160;adjust&#160;the&#160;per-<br/>formance&#160;impact&#160;of&#160;the&#160;rejuvenation&#160;procedure&#160;on&#160;the<br/>original&#160;VMs&#160;performance.&#160;To&#160;lower&#160;the&#160;impact,&#160;the<br/>VMM&#160;can&#160;restrict&#160;the&#160;amount&#160;of&#160;resources&#160;devoted&#160;to<br/>the&#160;booting&#160;of&#160;reincarnation&#160;VM&#160;and&#160;compensate&#160;for&#160;the<br/>restriction&#160;in&#160;resources&#160;by&#160;allowing&#160;more&#160;time&#160;for&#160;the<br/>rebooting&#160;to&#160;complete.</p>
+<p style="position:absolute;top:526px;left:126px;white-space:nowrap" class="ft36">One&#160;can&#160;view&#160;the&#160;above&#160;type&#160;of&#160;rejuvenation&#160;as</p>
+<p style="position:absolute;top:544px;left:108px;white-space:nowrap" class="ft36">a</p>
+<p style="position:absolute;top:544px;left:121px;white-space:nowrap" class="ft35"><i>memory&#160;scrubbing</i></p>
+<p style="position:absolute;top:544px;left:241px;white-space:nowrap" class="ft36">technique,&#160;for&#160;reclaiming&#160;leaked</p>
+<p style="position:absolute;top:562px;left:108px;white-space:nowrap" class="ft38">memory&#160;and&#160;recovering&#160;from&#160;memory&#160;errors&#160;of&#160;the&#160;orig-<br/>inal&#160;VM.&#160;Perhaps,&#160;more&#160;importantly,&#160;such&#160;periodic&#160;reju-<br/>venation&#160;offers&#160;a&#160;way&#160;to&#160;proactively&#160;recover&#160;from&#160;errors<br/>without&#160;requiring&#160;failure&#160;detection&#160;mechanisms&#160;(which<br/>are&#160;often&#160;unreliable)&#160;to&#160;trigger&#160;the&#160;recovery.</p>
+<p style="position:absolute;top:653px;left:126px;white-space:nowrap" class="ft39">Replica&#160;Diversity:</p>
+<p style="position:absolute;top:653px;left:251px;white-space:nowrap" class="ft36">In&#160;fault-tolerant&#160;replication,&#160;di-</p>
+<p style="position:absolute;top:671px;left:108px;white-space:nowrap" class="ft38">versity&#160;of&#160;replicas&#160;is&#160;important&#160;to&#160;ensure&#160;that&#160;all&#160;replicas<br/>do&#160;not&#160;fail&#160;because&#160;of&#160;the&#160;same&#160;disruptive&#160;event.&#160;By&#160;de-<br/>ploying&#160;replicas&#160;on&#160;a&#160;combination&#160;of&#160;virtual&#160;and&#160;phys-<br/>ical&#160;machines&#160;rather&#160;than&#160;on&#160;physical&#160;machines&#160;alone,<br/>replica&#160;diversity&#160;can&#160;be&#160;enhanced.&#160;Also,&#160;deploying&#160;repli-<br/>cas&#160;on&#160;virtual&#160;machines&#160;instead&#160;of&#160;physical&#160;machines<br/>opens&#160;another&#160;layer&#160;in&#160;which&#160;diversity&#160;can&#160;be&#160;intro-<br/>duced:&#160;the&#160;VMM&#160;software.&#160;VMM&#160;diversity&#160;and&#160;OS&#160;di-<br/>versity&#160;can&#160;complement&#160;each&#160;other&#160;to&#160;enhance&#160;replica<br/>diversity&#160;without&#160;additional&#160;hardware&#160;costs.&#160;On&#160;the&#160;flip<br/>side,&#160;using&#160;the&#160;same&#160;VMM&#160;for&#160;all&#160;replica&#160;VMs&#160;will&#160;actu-<br/>ally&#160;lower&#160;replica&#160;diversity&#160;even&#160;if&#160;the&#160;replicas&#160;were&#160;de-<br/>ployed&#160;on&#160;different&#160;operating&#160;systems.&#160;That&#160;is&#160;because,<br/>a&#160;fault&#160;in&#160;the&#160;VMM&#160;could&#160;lead&#160;to&#160;failure&#160;of&#160;all&#160;replicas.</p>
+<p style="position:absolute;top:924px;left:126px;white-space:nowrap" class="ft39">Containment:</p>
+<p style="position:absolute;top:924px;left:219px;white-space:nowrap" class="ft36">Fault&#160;containment&#160;is&#160;an&#160;important&#160;as-</p>
+<p style="position:absolute;top:942px;left:108px;white-space:nowrap" class="ft38">pect&#160;of&#160;dependability.&#160;Containment&#160;among&#160;VMs&#160;run-<br/>ning&#160;on&#160;the&#160;same&#160;VMM&#160;is&#160;much&#160;stronger&#160;than&#160;contain-<br/>ment&#160;among&#160;processes&#160;running&#160;on&#160;the&#160;same&#160;OS.&#160;To&#160;bet-<br/>ter&#160;isolate&#160;the&#160;fault&#160;effects&#160;of&#160;two&#160;services&#160;running&#160;on&#160;the<br/>same&#160;OS&#160;and&#160;physical&#160;server,&#160;one&#160;can&#160;carve&#160;the&#160;physical<br/>server&#160;into&#160;two&#160;VMs&#160;each&#160;running&#160;one&#160;service.&#160;On&#160;the<br/>other&#160;hand,&#160;fault&#160;containment&#160;between&#160;two&#160;VMs&#160;is&#160;not<br/>as&#160;strong&#160;as&#160;the&#160;fault&#160;containment&#160;between&#160;two&#160;physical</p>
+<p style="position:absolute;top:172px;left:509px;white-space:nowrap" class="ft310"><b>Hardware H</b></p>
+<p style="position:absolute;top:120px;left:502px;white-space:nowrap" class="ft310"><b>OS + Application</b></p>
+<p style="position:absolute;top:136px;left:525px;white-space:nowrap" class="ft310"><b>M</b></p>
+<p style="position:absolute;top:197px;left:492px;white-space:nowrap" class="ft311">(a)&#160;Architecture</p>
+<p style="position:absolute;top:167px;left:663px;white-space:nowrap" class="ft312"><b>H</b></p>
+<p style="position:absolute;top:167px;left:725px;white-space:nowrap" class="ft312"><b>M</b></p>
+<p style="position:absolute;top:197px;left:640px;white-space:nowrap" class="ft311">(b)&#160;Combinatorial&#160;Model</p>
+<p style="position:absolute;top:224px;left:556px;white-space:nowrap" class="ft313"><b>Figure&#160;1.&#160;Non-Virtualized&#160;Node</b></p>
+<p style="position:absolute;top:248px;left:476px;white-space:nowrap" class="ft38">machines&#160;(e.g.,&#160;due&#160;to&#160;covert&#160;channels).&#160;Hence,&#160;when<br/>cost&#160;is&#160;not&#160;a&#160;restriction&#160;(e.g.,&#160;in&#160;highly-critical&#160;space&#160;and<br/>military&#160;applications),&#160;running&#160;software&#160;components&#160;on<br/>distinct&#160;hardware&#160;would&#160;be&#160;better&#160;for&#160;fault&#160;containment<br/>than&#160;running&#160;the&#160;components&#160;in&#160;different&#160;VMs&#160;on&#160;the<br/>same&#160;hardware.</p>
+<p style="position:absolute;top:368px;left:476px;white-space:nowrap" class="ft34">4&#160;Quantifying&#160;the&#160;Impact&#160;of&#160;Virtualization</p>
+<p style="position:absolute;top:389px;left:503px;white-space:nowrap" class="ft34">on&#160;Node&#160;Reliability</p>
+<p style="position:absolute;top:421px;left:494px;white-space:nowrap" class="ft36">In&#160;this&#160;section,&#160;we&#160;use&#160;combinatorial&#160;modeling&#160;to&#160;per-</p>
+<p style="position:absolute;top:439px;left:476px;white-space:nowrap" class="ft38">form&#160;reliability&#160;analysis&#160;of&#160;redundant&#160;fault-tolerant&#160;de-<br/>signs&#160;involving&#160;virtualization&#160;on&#160;a&#160;single&#160;physical&#160;node<br/>and&#160;compare&#160;them&#160;with&#160;the&#160;non-virtualized&#160;case.&#160;We<br/>consider&#160;a&#160;model&#160;in&#160;which&#160;multiple&#160;VMs&#160;run&#160;concur-<br/>rently&#160;on&#160;the&#160;same&#160;node&#160;and&#160;offer&#160;identical&#160;service.&#160;We<br/>derive&#160;lower&#160;bounds&#160;on&#160;the&#160;VMM&#160;reliability&#160;and&#160;the<br/>number&#160;of&#160;VMs&#160;required&#160;for&#160;the&#160;virtualized&#160;node&#160;to&#160;have<br/>better&#160;reliability&#160;than&#160;the&#160;non-virtualized&#160;case.&#160;We&#160;also<br/>analyze&#160;the&#160;reliability&#160;impact&#160;of&#160;moving&#160;a&#160;functionality<br/>common&#160;to&#160;all&#160;VMs&#160;out&#160;of&#160;the&#160;VMs&#160;and&#160;into&#160;the&#160;VMM.<br/>Additionally,&#160;we&#160;analyze&#160;the&#160;reliability&#160;of&#160;a&#160;redundant<br/>execution&#160;scheme&#160;that&#160;can&#160;tolerate&#160;the&#160;corruption&#160;of&#160;one<br/>out&#160;of&#160;three&#160;VMs&#160;running&#160;on&#160;the&#160;same&#160;physical&#160;host,<br/>and&#160;compare&#160;it&#160;with&#160;the&#160;non-virtualized&#160;case.&#160;Our&#160;re-<br/>sults&#160;point&#160;to&#160;the&#160;need&#160;for&#160;careful&#160;modeling&#160;and&#160;analysis<br/>before&#160;a&#160;design&#160;based&#160;on&#160;virtualization&#160;is&#160;used.</p>
+<p style="position:absolute;top:726px;left:494px;white-space:nowrap" class="ft36">Combinatorial&#160;modeling&#160;and&#160;Markov&#160;modeling&#160;are</p>
+<p style="position:absolute;top:744px;left:476px;white-space:nowrap" class="ft38">the&#160;two&#160;main&#160;methods&#160;used&#160;for&#160;reliability&#160;assessment<br/>of&#160;fault-tolerant&#160;designs&#160;[10].&#160;We&#160;chose&#160;combinatorial<br/>modeling&#160;because&#160;its&#160;simplicity&#160;enables&#160;easy&#160;elimina-<br/>tion&#160;of&#160;“hopeless”&#160;choices&#160;in&#160;the&#160;early&#160;stage&#160;of&#160;the&#160;de-<br/>sign&#160;process.&#160;In&#160;combinatorial&#160;modeling,&#160;a&#160;system&#160;con-<br/>sists&#160;of&#160;series&#160;and&#160;parallel&#160;combinations&#160;of&#160;modules.&#160;The<br/>assumption&#160;is&#160;that&#160;module&#160;failures&#160;are&#160;independent.&#160;In<br/>a&#160;real-world&#160;setting&#160;where&#160;module&#160;failures&#160;may&#160;not&#160;be<br/>independent,&#160;the&#160;reliability&#160;values&#160;obtained&#160;using&#160;com-<br/>binatorial&#160;modeling&#160;yield&#160;upper&#160;bounds.</p>
+<p style="position:absolute;top:924px;left:494px;white-space:nowrap" class="ft39">Non-Virtualized&#160;(NV)&#160;Node:</p>
+<p style="position:absolute;top:924px;left:681px;white-space:nowrap" class="ft36">For&#160;our&#160;reliability&#160;as-</p>
+<p style="position:absolute;top:942px;left:476px;white-space:nowrap" class="ft38">sessment,&#160;we&#160;consider&#160;a&#160;non-virtualized&#160;single&#160;physical<br/>node&#160;as&#160;the&#160;base&#160;case.&#160;We&#160;model&#160;the&#160;node&#160;using&#160;two<br/>modules:&#160;hardware&#160;(</p>
+<p style="position:absolute;top:978px;left:601px;white-space:nowrap" class="ft314"><i>H</i></p>
+<p style="position:absolute;top:978px;left:615px;white-space:nowrap" class="ft36">)&#160;and&#160;the&#160;software&#160;machine&#160;(</p>
+<p style="position:absolute;top:978px;left:789px;white-space:nowrap" class="ft314"><i>M</i></p>
+<p style="position:absolute;top:978px;left:805px;white-space:nowrap" class="ft36">)</p>
+<p style="position:absolute;top:996px;left:476px;white-space:nowrap" class="ft38">consisting&#160;of&#160;the&#160;operating&#160;system,&#160;middleware,&#160;and&#160;ap-<br/>plications&#160;(Figure&#160;1(a))&#160;.&#160;Thus,&#160;the&#160;node&#160;is&#160;a&#160;simple&#160;se-<br/>rial&#160;system&#160;consisting&#160;of</p>
+<p style="position:absolute;top:1031px;left:629px;white-space:nowrap" class="ft314"><i>H</i></p>
+<p style="position:absolute;top:1031px;left:647px;white-space:nowrap" class="ft36">and</p>
+<p style="position:absolute;top:1031px;left:674px;white-space:nowrap" class="ft314"><i>M</i></p>
+<p style="position:absolute;top:1031px;left:694px;white-space:nowrap" class="ft36">whose&#160;reliability&#160;is</p>
+<p style="position:absolute;top:1049px;left:476px;white-space:nowrap" class="ft36">given&#160;by</p>
+<p style="position:absolute;top:1049px;left:531px;white-space:nowrap" class="ft314"><i>R</i></p>
+<p style="position:absolute;top:1048px;left:543px;white-space:nowrap" class="ft315"><i>N&#160;V</i></p>
+<p style="position:absolute;top:1057px;left:543px;white-space:nowrap" class="ft315"><i>sys</i></p>
+<p style="position:absolute;top:1049px;left:568px;white-space:nowrap" class="ft316">=</p>
+<p style="position:absolute;top:1049px;left:584px;white-space:nowrap" class="ft314"><i>R</i></p>
+<p style="position:absolute;top:1055px;left:596px;white-space:nowrap" class="ft315"><i>H</i></p>
+<p style="position:absolute;top:1049px;left:607px;white-space:nowrap" class="ft314"><i>R</i></p>
+<p style="position:absolute;top:1055px;left:619px;white-space:nowrap" class="ft315"><i>M</i></p>
+<p style="position:absolute;top:1049px;left:632px;white-space:nowrap" class="ft36">,&#160;where</p>
+<p style="position:absolute;top:1049px;left:680px;white-space:nowrap" class="ft314"><i>R</i></p>
+<p style="position:absolute;top:1055px;left:691px;white-space:nowrap" class="ft315"><i>X</i></p>
+<p style="position:absolute;top:1049px;left:707px;white-space:nowrap" class="ft36">denotes&#160;the&#160;relia-</p>
+<p style="position:absolute;top:1067px;left:476px;white-space:nowrap" class="ft36">bility&#160;of&#160;module</p>
+<p style="position:absolute;top:1067px;left:576px;white-space:nowrap" class="ft314"><i>X</i></p>
+<p style="position:absolute;top:1067px;left:593px;white-space:nowrap" class="ft36">(Figure&#160;1(b)).</p>
+<p style="position:absolute;top:1112px;left:455px;white-space:nowrap" class="ft31">3</p>
+</div>
+<!-- Page 4 -->
+<a name="4"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft417{font-size:5px;font-family:Times;color:#000000;}
+	.ft418{font-size:12px;font-family:Times;color:#000000;}
+	.ft419{font-size:15px;font-family:YUIHWJ+CMMI10;color:#231f20;}
+	.ft420{font-size:15px;font-family:LXKMXB+CMSY10;color:#000000;}
+	.ft421{font-size:15px;font-family:MEJRXV+CMEX10;color:#000000;}
+	.ft422{font-size:10px;font-family:MHSASX+CMR7;color:#000000;}
+	.ft423{font-size:7px;font-family:TGNGPZ+CMMI5;color:#000000;}
+	.ft424{font-size:9px;font-family:Helvetica;color:#000000;}
+	.ft425{font-size:9px;font-family:Helvetica;color:#000000;-moz-transform: matrix(         0,         -1,          1,          0, 0, 0);-webkit-transform: matrix(         0,         -1,          1,          0, 0, 0);-o-transform: matrix(         0,         -1,          1,          0, 0, 0);-ms-transform: matrix(         0,         -1,          1,          0, 0, 0);-moz-transform-origin: left 75%;-webkit-transform-origin: left 75%;-o-transform-origin: left 75%;-ms-transform-origin: left 75%;}
+	.ft426{font-size:7px;font-family:Helvetica;color:#000000;-moz-transform: matrix(         0,         -1,          1,          0, 0, 0);-webkit-transform: matrix(         0,         -1,          1,          0, 0, 0);-o-transform: matrix(         0,         -1,          1,          0, 0, 0);-ms-transform: matrix(         0,         -1,          1,          0, 0, 0);-moz-transform-origin: left 75%;-webkit-transform-origin: left 75%;-o-transform-origin: left 75%;-ms-transform-origin: left 75%;}
+	.ft427{font-size:7px;font-family:Helvetica;color:#000000;}
+	.ft428{font-size:10px;font-family:IZFSSL+CMMI7;color:#231f20;}
+	.ft429{font-size:15px;font-family:AXXRAL+CMR10;color:#231f20;}
+	.ft430{font-size:10px;line-height:12px;font-family:IZFSSL+CMMI7;color:#000000;}
+	.ft431{font-size:9px;line-height:9px;font-family:Helvetica;color:#000000;}
+	.ft432{font-size:12px;line-height:17px;font-family:LPMWQK+NimbusSanL;color:#231f20;}
+-->
+</style>
+<div id="page4-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="OTC_Architecting_Dependable_Systems004.png" alt="background image"/>
+<p style="position:absolute;top:130px;left:157px;white-space:nowrap" class="ft410"><b>. . .&#160;</b></p>
+<p style="position:absolute;top:199px;left:141px;white-space:nowrap" class="ft410"><b>Hardware H</b></p>
+<p style="position:absolute;top:116px;left:176px;white-space:nowrap" class="ft410"><b>Virtual</b></p>
+<p style="position:absolute;top:130px;left:172px;white-space:nowrap" class="ft410"><b>Machine</b></p>
+<p style="position:absolute;top:143px;left:182px;white-space:nowrap" class="ft410"><b>M</b></p>
+<p style="position:absolute;top:145px;left:191px;white-space:nowrap" class="ft417"><b>n</b></p>
+<p style="position:absolute;top:116px;left:124px;white-space:nowrap" class="ft410"><b>Virtual</b></p>
+<p style="position:absolute;top:130px;left:120px;white-space:nowrap" class="ft410"><b>Machine</b></p>
+<p style="position:absolute;top:143px;left:131px;white-space:nowrap" class="ft410"><b>M</b></p>
+<p style="position:absolute;top:145px;left:139px;white-space:nowrap" class="ft417"><b>1</b></p>
+<p style="position:absolute;top:163px;left:136px;white-space:nowrap" class="ft410"><b>Virtual Machine</b></p>
+<p style="position:absolute;top:173px;left:144px;white-space:nowrap" class="ft410"><b>Monitor V</b></p>
+<p style="position:absolute;top:224px;left:124px;white-space:nowrap" class="ft411">(a)&#160;Architecture</p>
+<p style="position:absolute;top:204px;left:392px;white-space:nowrap" class="ft410"><b>n</b></p>
+<p style="position:absolute;top:199px;left:380px;white-space:nowrap" class="ft418"><b>M</b></p>
+<p style="position:absolute;top:147px;left:380px;white-space:nowrap" class="ft418"><b>M</b></p>
+<p style="position:absolute;top:161px;left:384px;white-space:nowrap" class="ft418"><b>.</b></p>
+<p style="position:absolute;top:169px;left:384px;white-space:nowrap" class="ft418"><b>.</b></p>
+<p style="position:absolute;top:177px;left:384px;white-space:nowrap" class="ft418"><b>.</b></p>
+<p style="position:absolute;top:173px;left:286px;white-space:nowrap" class="ft418"><b>H</b></p>
+<p style="position:absolute;top:173px;left:334px;white-space:nowrap" class="ft418"><b>V</b></p>
+<p style="position:absolute;top:152px;left:392px;white-space:nowrap" class="ft410"><b>1</b></p>
+<p style="position:absolute;top:224px;left:277px;white-space:nowrap" class="ft411">(b)&#160;Combinatorial&#160;Model</p>
+<p style="position:absolute;top:251px;left:200px;white-space:nowrap" class="ft413"><b>Figure&#160;2.&#160;Node&#160;with</b></p>
+<p style="position:absolute;top:249px;left:313px;white-space:nowrap" class="ft419"><i>n</i></p>
+<p style="position:absolute;top:251px;left:326px;white-space:nowrap" class="ft413"><b>VMs</b></p>
+<p style="position:absolute;top:276px;left:126px;white-space:nowrap" class="ft49">Virtualized&#160;Node&#160;with</p>
+<p style="position:absolute;top:276px;left:279px;white-space:nowrap" class="ft414"><i>n</i></p>
+<p style="position:absolute;top:276px;left:294px;white-space:nowrap" class="ft49">Independent,&#160;Identical</p>
+<p style="position:absolute;top:294px;left:108px;white-space:nowrap" class="ft49">VMs:</p>
+<p style="position:absolute;top:294px;left:150px;white-space:nowrap" class="ft46">Figure&#160;2(a)&#160;shows&#160;a&#160;physical&#160;node&#160;consisting&#160;of</p>
+<p style="position:absolute;top:312px;left:108px;white-space:nowrap" class="ft414"><i>H</i></p>
+<p style="position:absolute;top:312px;left:122px;white-space:nowrap" class="ft46">,&#160;a&#160;type-1&#160;VMM&#160;(</p>
+<p style="position:absolute;top:312px;left:225px;white-space:nowrap" class="ft414"><i>V</i></p>
+<p style="position:absolute;top:312px;left:237px;white-space:nowrap" class="ft46">)&#160;that&#160;runs&#160;directly&#160;on&#160;the&#160;hardware</p>
+<p style="position:absolute;top:330px;left:108px;white-space:nowrap" class="ft46">(such&#160;a&#160;VMM&#160;is&#160;referred&#160;to&#160;as&#160;a</p>
+<p style="position:absolute;top:330px;left:302px;white-space:nowrap" class="ft45"><i>hypervisor</i></p>
+<p style="position:absolute;top:330px;left:367px;white-space:nowrap" class="ft46">),&#160;and&#160;one&#160;or</p>
+<p style="position:absolute;top:348px;left:108px;white-space:nowrap" class="ft46">more&#160;virtual&#160;machines&#160;(</p>
+<p style="position:absolute;top:348px;left:251px;white-space:nowrap" class="ft420"><i>{</i></p>
+<p style="position:absolute;top:348px;left:258px;white-space:nowrap" class="ft414"><i>M</i></p>
+<p style="position:absolute;top:354px;left:273px;white-space:nowrap" class="ft415"><i>i</i></p>
+<p style="position:absolute;top:348px;left:278px;white-space:nowrap" class="ft420"><i>}</i></p>
+<p style="position:absolute;top:348px;left:285px;white-space:nowrap" class="ft414"><i>,&#160;i</i></p>
+<p style="position:absolute;top:348px;left:301px;white-space:nowrap" class="ft420"><i>≥</i></p>
+<p style="position:absolute;top:348px;left:317px;white-space:nowrap" class="ft416">1</p>
+<p style="position:absolute;top:348px;left:325px;white-space:nowrap" class="ft46">).&#160;Each&#160;VM&#160;has&#160;the</p>
+<p style="position:absolute;top:365px;left:108px;white-space:nowrap" class="ft46">same&#160;functionality&#160;as&#160;the&#160;software&#160;machine</p>
+<p style="position:absolute;top:365px;left:382px;white-space:nowrap" class="ft414"><i>M</i></p>
+<p style="position:absolute;top:365px;left:403px;white-space:nowrap" class="ft46">shown</p>
+<p style="position:absolute;top:383px;left:108px;white-space:nowrap" class="ft48">in&#160;the&#160;non-virtualized&#160;case.&#160;The&#160;VMs&#160;provide&#160;identi-<br/>cal&#160;service&#160;concurrently&#160;and&#160;independently&#160;(i.e.,&#160;with-<br/>out&#160;the&#160;need&#160;for&#160;strong&#160;synchronization).&#160;For&#160;example,<br/>each&#160;VM&#160;could&#160;be&#160;a&#160;virtual&#160;server&#160;answering&#160;client&#160;re-<br/>quests&#160;for&#160;static&#160;web&#160;content.&#160;Thus,&#160;the&#160;node&#160;is&#160;a&#160;series-<br/>parallel&#160;system&#160;(Figure&#160;2(b))&#160;whose&#160;overall&#160;reliability&#160;is<br/>given&#160;by</p>
+<p style="position:absolute;top:491px;left:164px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:489px;left:176px;white-space:nowrap" class="ft415"><i>n</i></p>
+<p style="position:absolute;top:498px;left:176px;white-space:nowrap" class="ft415"><i>sys</i></p>
+<p style="position:absolute;top:491px;left:200px;white-space:nowrap" class="ft416">=</p>
+<p style="position:absolute;top:491px;left:217px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:497px;left:228px;white-space:nowrap" class="ft415"><i>H</i></p>
+<p style="position:absolute;top:491px;left:239px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:497px;left:251px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:491px;left:261px;white-space:nowrap" class="ft416">[1</p>
+<p style="position:absolute;top:491px;left:277px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:480px;left:292px;white-space:nowrap" class="ft421">Q</p>
+<p style="position:absolute;top:487px;left:306px;white-space:nowrap" class="ft430"><i>n<br/>i</i></p>
+<p style="position:absolute;top:499px;left:311px;white-space:nowrap" class="ft422">=0</p>
+<p style="position:absolute;top:491px;left:326px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:491px;left:344px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:491px;left:359px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:497px;left:370px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:501px;left:382px;white-space:nowrap" class="ft423"><i>i</i></p>
+<p style="position:absolute;top:491px;left:387px;white-space:nowrap" class="ft416">)]</p>
+<p style="position:absolute;top:491px;left:397px;white-space:nowrap" class="ft46">.&#160;Then,</p>
+<p style="position:absolute;top:511px;left:108px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:509px;left:119px;white-space:nowrap" class="ft415"><i>n</i></p>
+<p style="position:absolute;top:518px;left:119px;white-space:nowrap" class="ft415"><i>sys</i></p>
+<p style="position:absolute;top:511px;left:144px;white-space:nowrap" class="ft414"><i>&gt;&#160;R</i></p>
+<p style="position:absolute;top:509px;left:174px;white-space:nowrap" class="ft415"><i>N&#160;V</i></p>
+<p style="position:absolute;top:518px;left:173px;white-space:nowrap" class="ft415"><i>sys</i></p>
+<p style="position:absolute;top:511px;left:199px;white-space:nowrap" class="ft46">gives&#160;the&#160;condition&#160;for</p>
+<p style="position:absolute;top:511px;left:342px;white-space:nowrap" class="ft414"><i>n</i></p>
+<p style="position:absolute;top:511px;left:351px;white-space:nowrap" class="ft46">-replicated&#160;ser-</p>
+<p style="position:absolute;top:529px;left:108px;white-space:nowrap" class="ft48">vice&#160;to&#160;be&#160;more&#160;reliable&#160;than&#160;the&#160;non-virtualized&#160;service.<br/>i.e.,</p>
+<p style="position:absolute;top:547px;left:134px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:553px;left:145px;white-space:nowrap" class="ft415"><i>H</i></p>
+<p style="position:absolute;top:547px;left:156px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:553px;left:168px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:547px;left:178px;white-space:nowrap" class="ft416">[1</p>
+<p style="position:absolute;top:547px;left:193px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:535px;left:208px;white-space:nowrap" class="ft421">Q</p>
+<p style="position:absolute;top:543px;left:222px;white-space:nowrap" class="ft430"><i>n<br/>i</i></p>
+<p style="position:absolute;top:555px;left:226px;white-space:nowrap" class="ft422">=0</p>
+<p style="position:absolute;top:547px;left:242px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:547px;left:259px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:547px;left:274px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:553px;left:285px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:557px;left:297px;white-space:nowrap" class="ft423"><i>i</i></p>
+<p style="position:absolute;top:547px;left:302px;white-space:nowrap" class="ft416">)]</p>
+<p style="position:absolute;top:547px;left:316px;white-space:nowrap" class="ft414"><i>&gt;&#160;R</i></p>
+<p style="position:absolute;top:553px;left:343px;white-space:nowrap" class="ft415"><i>H</i></p>
+<p style="position:absolute;top:547px;left:355px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:553px;left:366px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:565px;left:108px;white-space:nowrap" class="ft46">For&#160;simplicity,&#160;let</p>
+<p style="position:absolute;top:565px;left:218px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:571px;left:229px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:575px;left:241px;white-space:nowrap" class="ft423"><i>i</i></p>
+<p style="position:absolute;top:565px;left:251px;white-space:nowrap" class="ft416">=</p>
+<p style="position:absolute;top:565px;left:267px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:571px;left:278px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:565px;left:295px;white-space:nowrap" class="ft46">for&#160;all</p>
+<p style="position:absolute;top:565px;left:336px;white-space:nowrap" class="ft416">1</p>
+<p style="position:absolute;top:565px;left:348px;white-space:nowrap" class="ft420"><i>≤</i></p>
+<p style="position:absolute;top:565px;left:364px;white-space:nowrap" class="ft414"><i>i</i></p>
+<p style="position:absolute;top:565px;left:374px;white-space:nowrap" class="ft420"><i>≤</i></p>
+<p style="position:absolute;top:565px;left:390px;white-space:nowrap" class="ft414"><i>n</i></p>
+<p style="position:absolute;top:565px;left:399px;white-space:nowrap" class="ft46">.&#160;Then,</p>
+<p style="position:absolute;top:583px;left:108px;white-space:nowrap" class="ft46">the&#160;above&#160;condition&#160;becomes</p>
+<p style="position:absolute;top:611px;left:190px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:617px;left:201px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:611px;left:212px;white-space:nowrap" class="ft416">[1</p>
+<p style="position:absolute;top:611px;left:227px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:611px;left:241px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:611px;left:258px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:611px;left:273px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:617px;left:284px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:611px;left:298px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:609px;left:303px;white-space:nowrap" class="ft415"><i>n</i></p>
+<p style="position:absolute;top:611px;left:312px;white-space:nowrap" class="ft416">]</p>
+<p style="position:absolute;top:611px;left:320px;white-space:nowrap" class="ft414"><i>&gt;&#160;R</i></p>
+<p style="position:absolute;top:617px;left:347px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:611px;left:425px;white-space:nowrap" class="ft46">(1)</p>
+<p style="position:absolute;top:635px;left:126px;white-space:nowrap" class="ft46">Inequality&#160;(1)&#160;immediately&#160;yields&#160;two&#160;conclusions.</p>
+<p style="position:absolute;top:653px;left:108px;white-space:nowrap" class="ft46">First,&#160;if</p>
+<p style="position:absolute;top:653px;left:157px;white-space:nowrap" class="ft414"><i>n</i></p>
+<p style="position:absolute;top:653px;left:171px;white-space:nowrap" class="ft416">=&#160;1</p>
+<p style="position:absolute;top:653px;left:195px;white-space:nowrap" class="ft46">,&#160;then&#160;again&#160;the&#160;above&#160;condition&#160;does&#160;not</p>
+<p style="position:absolute;top:671px;left:108px;white-space:nowrap" class="ft46">hold&#160;(since</p>
+<p style="position:absolute;top:671px;left:177px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:677px;left:188px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:671px;left:202px;white-space:nowrap" class="ft414"><i>&lt;</i></p>
+<p style="position:absolute;top:671px;left:218px;white-space:nowrap" class="ft416">1</p>
+<p style="position:absolute;top:671px;left:226px;white-space:nowrap" class="ft46">).&#160;What&#160;this&#160;means&#160;is&#160;that&#160;it&#160;is&#160;neces-</p>
+<p style="position:absolute;top:689px;left:108px;white-space:nowrap" class="ft48">sary&#160;to&#160;have&#160;some&#160;additional&#160;coordination&#160;mechanism&#160;or<br/>protocol&#160;built&#160;into&#160;the&#160;system&#160;to&#160;compensate&#160;for&#160;the&#160;reli-<br/>ability&#160;lost&#160;by&#160;the&#160;introduction&#160;of&#160;the&#160;hypervisor.&#160;In&#160;the<br/>absence&#160;of&#160;such&#160;a&#160;mechanism/protocol,&#160;simply&#160;adding&#160;a<br/>hypervisor&#160;layer&#160;to&#160;a&#160;node&#160;will&#160;only&#160;decrease&#160;the&#160;node<br/>reliability.&#160;Second,&#160;if</p>
+<p style="position:absolute;top:779px;left:239px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:785px;left:250px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:779px;left:265px;white-space:nowrap" class="ft416">=</p>
+<p style="position:absolute;top:779px;left:281px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:785px;left:292px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:779px;left:305px;white-space:nowrap" class="ft46">,&#160;then&#160;it&#160;is&#160;obvious&#160;that</p>
+<p style="position:absolute;top:797px;left:108px;white-space:nowrap" class="ft46">above&#160;condition&#160;does&#160;not&#160;hold.</p>
+<p style="position:absolute;top:816px;left:126px;white-space:nowrap" class="ft46">It&#160;is&#160;clear&#160;that&#160;the</p>
+<p style="position:absolute;top:816px;left:235px;white-space:nowrap" class="ft45"><i>hypervisor&#160;has&#160;to&#160;be&#160;more&#160;reliable</i></p>
+<p style="position:absolute;top:833px;left:108px;white-space:nowrap" class="ft45"><i>than&#160;the&#160;individual&#160;VM</i></p>
+<p style="position:absolute;top:833px;left:245px;white-space:nowrap" class="ft46">.&#160;The&#160;interesting&#160;question&#160;is,&#160;how</p>
+<p style="position:absolute;top:851px;left:108px;white-space:nowrap" class="ft46">much&#160;more&#160;reliable.&#160;Figure&#160;3&#160;shows&#160;that&#160;for&#160;a&#160;fixed</p>
+<p style="position:absolute;top:851px;left:418px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:857px;left:429px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:869px;left:108px;white-space:nowrap" class="ft48">value,&#160;the&#160;hypervisor&#160;has&#160;to&#160;be&#160;more&#160;reliable&#160;when&#160;de-<br/>ploying&#160;fewer&#160;VMs.&#160;The&#160;graph&#160;also&#160;shows&#160;that,&#160;for&#160;fixed<br/>values&#160;of</p>
+<p style="position:absolute;top:905px;left:166px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:911px;left:177px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:905px;left:195px;white-space:nowrap" class="ft46">and</p>
+<p style="position:absolute;top:905px;left:220px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:911px;left:232px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:905px;left:242px;white-space:nowrap" class="ft46">,&#160;there&#160;exits&#160;a&#160;lower&#160;bound&#160;on&#160;the</p>
+<p style="position:absolute;top:923px;left:108px;white-space:nowrap" class="ft414"><i>n</i></p>
+<p style="position:absolute;top:923px;left:120px;white-space:nowrap" class="ft46">value&#160;below&#160;which&#160;the&#160;virtualized&#160;node&#160;reliability&#160;will</p>
+<p style="position:absolute;top:941px;left:108px;white-space:nowrap" class="ft48">definitely&#160;be&#160;lower&#160;than&#160;that&#160;of&#160;a&#160;non-virtualized&#160;node.<br/>For&#160;example,&#160;when</p>
+<p style="position:absolute;top:959px;left:228px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:965px;left:239px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:959px;left:256px;white-space:nowrap" class="ft46">=&#160;0.1&#160;and</p>
+<p style="position:absolute;top:959px;left:317px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:965px;left:329px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:959px;left:343px;white-space:nowrap" class="ft46">=&#160;0.3,&#160;deploying</p>
+<p style="position:absolute;top:977px;left:108px;white-space:nowrap" class="ft48">fewer&#160;than&#160;4&#160;VMs&#160;would&#160;only&#160;lower&#160;the&#160;node&#160;reliability.<br/>This&#160;is&#160;a&#160;useful&#160;result,&#160;since&#160;in&#160;many&#160;practical&#160;settings,</p>
+<p style="position:absolute;top:1013px;left:108px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:1019px;left:119px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:1013px;left:137px;white-space:nowrap" class="ft46">and</p>
+<p style="position:absolute;top:1013px;left:162px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:1019px;left:174px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:1013px;left:188px;white-space:nowrap" class="ft46">values&#160;may&#160;be&#160;fixed,&#160;e.g.,&#160;when&#160;the&#160;hyper-</p>
+<p style="position:absolute;top:1031px;left:108px;white-space:nowrap" class="ft48">visor,&#160;guest&#160;OS,&#160;and&#160;application&#160;are&#160;commercial-off-the-<br/>shelf&#160;(COTS)&#160;components&#160;with&#160;no&#160;source&#160;code&#160;access.</p>
+<p style="position:absolute;top:1067px;left:126px;white-space:nowrap" class="ft46">The&#160;equation&#160;for</p>
+<p style="position:absolute;top:1067px;left:231px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:1066px;left:243px;white-space:nowrap" class="ft415"><i>n</i></p>
+<p style="position:absolute;top:1075px;left:242px;white-space:nowrap" class="ft415"><i>sys</i></p>
+<p style="position:absolute;top:1067px;left:265px;white-space:nowrap" class="ft46">also&#160;suggests&#160;that&#160;by&#160;increas-</p>
+<p style="position:absolute;top:267px;left:541px;white-space:nowrap" class="ft424">&#160;0.1</p>
+<p style="position:absolute;top:250px;left:541px;white-space:nowrap" class="ft424">&#160;0.2</p>
+<p style="position:absolute;top:233px;left:541px;white-space:nowrap" class="ft424">&#160;0.3</p>
+<p style="position:absolute;top:216px;left:541px;white-space:nowrap" class="ft424">&#160;0.4</p>
+<p style="position:absolute;top:199px;left:541px;white-space:nowrap" class="ft424">&#160;0.5</p>
+<p style="position:absolute;top:183px;left:541px;white-space:nowrap" class="ft424">&#160;0.6</p>
+<p style="position:absolute;top:166px;left:541px;white-space:nowrap" class="ft424">&#160;0.7</p>
+<p style="position:absolute;top:149px;left:541px;white-space:nowrap" class="ft424">&#160;0.8</p>
+<p style="position:absolute;top:132px;left:541px;white-space:nowrap" class="ft424">&#160;0.9</p>
+<p style="position:absolute;top:115px;left:548px;white-space:nowrap" class="ft424">&#160;1</p>
+<p style="position:absolute;top:276px;left:553px;white-space:nowrap" class="ft424">&#160;0.1&#160;&#160;0.2&#160;&#160;0.3&#160;&#160;0.4&#160;&#160;0.5&#160;&#160;0.6&#160;&#160;0.7&#160;&#160;0.8&#160;&#160;0.9</p>
+<p style="position:absolute;top:276px;left:757px;white-space:nowrap" class="ft424">&#160;1</p>
+<p style="position:absolute;top:242px;left:518px;white-space:nowrap" class="ft425">Lower Bound on Reliability&#160;</p>
+<p style="position:absolute;top:226px;left:526px;white-space:nowrap" class="ft425">&#160;of Hypervisor (R</p>
+<p style="position:absolute;top:159px;left:529px;white-space:nowrap" class="ft426">V</p>
+<p style="position:absolute;top:153px;left:526px;white-space:nowrap" class="ft425">)</p>
+<p style="position:absolute;top:288px;left:594px;white-space:nowrap" class="ft424">Reliability of Virtual Machine (R</p>
+<p style="position:absolute;top:292px;left:719px;white-space:nowrap" class="ft427">M</p>
+<p style="position:absolute;top:288px;left:725px;white-space:nowrap" class="ft424">)</p>
+<p style="position:absolute;top:122px;left:573px;white-space:nowrap" class="ft431">n=2<br/>n=3<br/>n=4<br/>n=8</p>
+<p style="position:absolute;top:158px;left:568px;white-space:nowrap" class="ft431">n=16<br/>n=32</p>
+<p style="position:absolute;top:309px;left:494px;white-space:nowrap" class="ft432"><b>Figure&#160;3.&#160;Lower&#160;Bound&#160;on&#160;the&#160;Hypervisor&#160;Reliability<br/>for&#160;a&#160;Physical&#160;Node&#160;with</b></p>
+<p style="position:absolute;top:324px;left:635px;white-space:nowrap" class="ft419"><i>n</i></p>
+<p style="position:absolute;top:327px;left:647px;white-space:nowrap" class="ft413"><b>Independent&#160;and&#160;Concur-</b></p>
+<p style="position:absolute;top:345px;left:494px;white-space:nowrap" class="ft413"><b>rently&#160;Operating&#160;VMs&#160;Providing&#160;Identical&#160;Service.</b></p>
+<p style="position:absolute;top:528px;left:534px;white-space:nowrap" class="ft424">&#160;0</p>
+<p style="position:absolute;top:507px;left:529px;white-space:nowrap" class="ft424">&#160;10</p>
+<p style="position:absolute;top:485px;left:529px;white-space:nowrap" class="ft424">&#160;20</p>
+<p style="position:absolute;top:464px;left:529px;white-space:nowrap" class="ft424">&#160;30</p>
+<p style="position:absolute;top:442px;left:529px;white-space:nowrap" class="ft424">&#160;40</p>
+<p style="position:absolute;top:420px;left:529px;white-space:nowrap" class="ft424">&#160;50</p>
+<p style="position:absolute;top:399px;left:529px;white-space:nowrap" class="ft424">&#160;60</p>
+<p style="position:absolute;top:377px;left:529px;white-space:nowrap" class="ft424">&#160;70</p>
+<p style="position:absolute;top:537px;left:539px;white-space:nowrap" class="ft424">&#160;0.1</p>
+<p style="position:absolute;top:537px;left:563px;white-space:nowrap" class="ft424">&#160;0.2</p>
+<p style="position:absolute;top:537px;left:587px;white-space:nowrap" class="ft424">&#160;0.3</p>
+<p style="position:absolute;top:537px;left:610px;white-space:nowrap" class="ft424">&#160;0.4</p>
+<p style="position:absolute;top:537px;left:634px;white-space:nowrap" class="ft424">&#160;0.5</p>
+<p style="position:absolute;top:537px;left:658px;white-space:nowrap" class="ft424">&#160;0.6</p>
+<p style="position:absolute;top:537px;left:682px;white-space:nowrap" class="ft424">&#160;0.7</p>
+<p style="position:absolute;top:537px;left:706px;white-space:nowrap" class="ft424">&#160;0.8</p>
+<p style="position:absolute;top:537px;left:729px;white-space:nowrap" class="ft424">&#160;0.9</p>
+<p style="position:absolute;top:537px;left:757px;white-space:nowrap" class="ft424">&#160;1</p>
+<p style="position:absolute;top:522px;left:518px;white-space:nowrap" class="ft425">Lower Bound on Number of VMs (n)</p>
+<p style="position:absolute;top:550px;left:587px;white-space:nowrap" class="ft424">Reliability of Virtual Machine (R</p>
+<p style="position:absolute;top:554px;left:712px;white-space:nowrap" class="ft427">M</p>
+<p style="position:absolute;top:550px;left:718px;white-space:nowrap" class="ft424">)</p>
+<p style="position:absolute;top:384px;left:686px;white-space:nowrap" class="ft424">R = 0.98</p>
+<p style="position:absolute;top:393px;left:681px;white-space:nowrap" class="ft424">R = 0.998</p>
+<p style="position:absolute;top:571px;left:494px;white-space:nowrap" class="ft432"><b>Figure&#160;4.&#160;Lower&#160;Bound&#160;on&#160;the&#160;Number&#160;of&#160;VMs&#160;to<br/>Achieve&#160;Desired&#160;Reliability</b></p>
+<p style="position:absolute;top:586px;left:657px;white-space:nowrap" class="ft419"><i>R</i></p>
+<p style="position:absolute;top:589px;left:674px;white-space:nowrap" class="ft413"><b>for&#160;a&#160;Physical&#160;Node</b></p>
+<p style="position:absolute;top:607px;left:494px;white-space:nowrap" class="ft413"><b>with</b></p>
+<p style="position:absolute;top:604px;left:521px;white-space:nowrap" class="ft419"><i>n</i></p>
+<p style="position:absolute;top:607px;left:533px;white-space:nowrap" class="ft413"><b>Independent&#160;and&#160;Concurrently&#160;Operating&#160;VMs</b></p>
+<p style="position:absolute;top:625px;left:494px;white-space:nowrap" class="ft413"><b>Providing&#160;Identical&#160;Service&#160;when</b></p>
+<p style="position:absolute;top:622px;left:683px;white-space:nowrap" class="ft419"><i>R</i></p>
+<p style="position:absolute;top:628px;left:695px;white-space:nowrap" class="ft428"><i>V</i></p>
+<p style="position:absolute;top:622px;left:709px;white-space:nowrap" class="ft429">=&#160;0</p>
+<p style="position:absolute;top:622px;left:733px;white-space:nowrap" class="ft419"><i>.</i></p>
+<p style="position:absolute;top:622px;left:737px;white-space:nowrap" class="ft429">999</p>
+<p style="position:absolute;top:625px;left:759px;white-space:nowrap" class="ft413"><b>.</b></p>
+<p style="position:absolute;top:653px;left:476px;white-space:nowrap" class="ft48">ing&#160;the&#160;number&#160;of&#160;VMs,&#160;the&#160;node&#160;reliability&#160;can&#160;be&#160;made<br/>as&#160;close&#160;to&#160;the&#160;hypervisor&#160;reliability&#160;as&#160;desired.&#160;Suppose<br/>we&#160;desire&#160;the&#160;node&#160;reliability&#160;to&#160;be</p>
+<p style="position:absolute;top:689px;left:686px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:689px;left:698px;white-space:nowrap" class="ft46">,&#160;where</p>
+<p style="position:absolute;top:689px;left:745px;white-space:nowrap" class="ft414"><i>R&#160;&lt;&#160;R</i></p>
+<p style="position:absolute;top:695px;left:788px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:689px;left:799px;white-space:nowrap" class="ft46">.</p>
+<p style="position:absolute;top:708px;left:476px;white-space:nowrap" class="ft46">Then,</p>
+<p style="position:absolute;top:708px;left:515px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:708px;left:532px;white-space:nowrap" class="ft416">=</p>
+<p style="position:absolute;top:708px;left:550px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:714px;left:561px;white-space:nowrap" class="ft415"><i>H</i></p>
+<p style="position:absolute;top:708px;left:572px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:714px;left:584px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:708px;left:594px;white-space:nowrap" class="ft416">[1</p>
+<p style="position:absolute;top:708px;left:610px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:708px;left:625px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:708px;left:643px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:708px;left:658px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:714px;left:670px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:708px;left:683px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:706px;left:689px;white-space:nowrap" class="ft415"><i>n</i></p>
+<p style="position:absolute;top:708px;left:697px;white-space:nowrap" class="ft416">]</p>
+<p style="position:absolute;top:708px;left:701px;white-space:nowrap" class="ft46">.&#160;Assume&#160;that&#160;the</p>
+<p style="position:absolute;top:725px;left:476px;white-space:nowrap" class="ft46">hardware&#160;is&#160;highly&#160;reliable,&#160;i.e.,</p>
+<p style="position:absolute;top:725px;left:680px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:732px;left:691px;white-space:nowrap" class="ft415"><i>H</i></p>
+<p style="position:absolute;top:725px;left:710px;white-space:nowrap" class="ft420"><i>≃</i></p>
+<p style="position:absolute;top:725px;left:729px;white-space:nowrap" class="ft416">1</p>
+<p style="position:absolute;top:725px;left:737px;white-space:nowrap" class="ft46">.&#160;Then,&#160;the</p>
+<p style="position:absolute;top:743px;left:476px;white-space:nowrap" class="ft46">above&#160;equation&#160;becomes&#160;the&#160;inequality,</p>
+<p style="position:absolute;top:762px;left:494px;white-space:nowrap" class="ft414"><i>R&#160;&lt;&#160;R</i></p>
+<p style="position:absolute;top:768px;left:537px;white-space:nowrap" class="ft415"><i>V</i></p>
+<p style="position:absolute;top:762px;left:547px;white-space:nowrap" class="ft416">[1</p>
+<p style="position:absolute;top:762px;left:562px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:762px;left:577px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:762px;left:593px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:762px;left:608px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:768px;left:620px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:762px;left:633px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:760px;left:639px;white-space:nowrap" class="ft415"><i>n</i></p>
+<p style="position:absolute;top:762px;left:647px;white-space:nowrap" class="ft416">]</p>
+<p style="position:absolute;top:780px;left:476px;white-space:nowrap" class="ft416">=</p>
+<p style="position:absolute;top:780px;left:485px;white-space:nowrap" class="ft420"><i>⇒</i></p>
+<p style="position:absolute;top:780px;left:504px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:780px;left:520px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:780px;left:535px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:786px;left:547px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:780px;left:560px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:778px;left:566px;white-space:nowrap" class="ft415"><i>n</i></p>
+<p style="position:absolute;top:780px;left:578px;white-space:nowrap" class="ft414"><i>&lt;</i></p>
+<p style="position:absolute;top:780px;left:594px;white-space:nowrap" class="ft416">1</p>
+<p style="position:absolute;top:780px;left:605px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:778px;left:626px;white-space:nowrap" class="ft415"><i>R</i></p>
+<p style="position:absolute;top:789px;left:621px;white-space:nowrap" class="ft415"><i>R</i></p>
+<p style="position:absolute;top:793px;left:630px;white-space:nowrap" class="ft423"><i>V</i></p>
+<p style="position:absolute;top:801px;left:476px;white-space:nowrap" class="ft416">=</p>
+<p style="position:absolute;top:801px;left:485px;white-space:nowrap" class="ft420"><i>⇒</i></p>
+<p style="position:absolute;top:801px;left:504px;white-space:nowrap" class="ft414"><i>n.log</i></p>
+<p style="position:absolute;top:801px;left:537px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:801px;left:553px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:801px;left:568px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:807px;left:580px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:801px;left:593px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:801px;left:603px;white-space:nowrap" class="ft414"><i>&lt;&#160;log</i></p>
+<p style="position:absolute;top:801px;left:638px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:801px;left:655px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:799px;left:676px;white-space:nowrap" class="ft415"><i>R</i></p>
+<p style="position:absolute;top:810px;left:672px;white-space:nowrap" class="ft415"><i>R</i></p>
+<p style="position:absolute;top:814px;left:681px;white-space:nowrap" class="ft423"><i>V</i></p>
+<p style="position:absolute;top:801px;left:692px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:820px;left:476px;white-space:nowrap" class="ft46">Dividing&#160;by</p>
+<p style="position:absolute;top:820px;left:551px;white-space:nowrap" class="ft414"><i>log</i></p>
+<p style="position:absolute;top:820px;left:571px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:820px;left:587px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:820px;left:602px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:826px;left:614px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:820px;left:627px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:820px;left:633px;white-space:nowrap" class="ft46">,&#160;a&#160;negative&#160;number,&#160;we&#160;get,</p>
+<p style="position:absolute;top:856px;left:586px;white-space:nowrap" class="ft414"><i>n&#160;&gt;</i></p>
+<p style="position:absolute;top:843px;left:618px;white-space:nowrap" class="ft414"><i>log</i></p>
+<p style="position:absolute;top:843px;left:638px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:843px;left:654px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:841px;left:676px;white-space:nowrap" class="ft415"><i>R</i></p>
+<p style="position:absolute;top:852px;left:671px;white-space:nowrap" class="ft415"><i>R</i></p>
+<p style="position:absolute;top:856px;left:680px;white-space:nowrap" class="ft423"><i>V</i></p>
+<p style="position:absolute;top:843px;left:691px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:866px;left:617px;white-space:nowrap" class="ft414"><i>log</i></p>
+<p style="position:absolute;top:866px;left:636px;white-space:nowrap" class="ft416">(1</p>
+<p style="position:absolute;top:866px;left:653px;white-space:nowrap" class="ft420"><i>−</i></p>
+<p style="position:absolute;top:866px;left:668px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:872px;left:679px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:866px;left:692px;white-space:nowrap" class="ft416">)</p>
+<p style="position:absolute;top:856px;left:793px;white-space:nowrap" class="ft46">(2)</p>
+<p style="position:absolute;top:887px;left:494px;white-space:nowrap" class="ft46">Inequality&#160;(2)&#160;gives&#160;a&#160;lower&#160;bound&#160;on&#160;the&#160;number&#160;of</p>
+<p style="position:absolute;top:905px;left:476px;white-space:nowrap" class="ft48">VMs&#160;required&#160;for&#160;a&#160;virtualized&#160;physical&#160;node&#160;to&#160;meet&#160;a<br/>given&#160;reliability&#160;requirement.&#160;In&#160;practice,&#160;the&#160;number&#160;of<br/>VMs&#160;that&#160;can&#160;be&#160;hosted&#160;on&#160;a&#160;physical&#160;node&#160;is&#160;ultimately<br/>limited&#160;by&#160;the&#160;resources&#160;available&#160;on&#160;that&#160;node.&#160;Compar-<br/>ing&#160;the&#160;lower&#160;bound&#160;with&#160;the&#160;number&#160;of&#160;VMs&#160;that&#160;can<br/>be&#160;possibly&#160;co-hosted&#160;provides&#160;an&#160;easy&#160;way&#160;to&#160;eliminate<br/>certain&#160;choices&#160;early&#160;on&#160;in&#160;the&#160;design&#160;process.</p>
+<p style="position:absolute;top:1031px;left:494px;white-space:nowrap" class="ft46">Figure&#160;4&#160;shows&#160;the&#160;lower&#160;bound&#160;for</p>
+<p style="position:absolute;top:1031px;left:723px;white-space:nowrap" class="ft414"><i>n</i></p>
+<p style="position:absolute;top:1031px;left:738px;white-space:nowrap" class="ft46">for&#160;two&#160;dif-</p>
+<p style="position:absolute;top:1049px;left:476px;white-space:nowrap" class="ft46">ferent</p>
+<p style="position:absolute;top:1049px;left:516px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:1049px;left:532px;white-space:nowrap" class="ft46">values&#160;(0.98&#160;and&#160;0.998)&#160;as&#160;the&#160;VM&#160;reliability</p>
+<p style="position:absolute;top:1067px;left:476px;white-space:nowrap" class="ft46">(</p>
+<p style="position:absolute;top:1067px;left:481px;white-space:nowrap" class="ft414"><i>R</i></p>
+<p style="position:absolute;top:1073px;left:492px;white-space:nowrap" class="ft415"><i>M</i></p>
+<p style="position:absolute;top:1067px;left:505px;white-space:nowrap" class="ft46">)&#160;is&#160;increased&#160;from&#160;roughly&#160;0.1&#160;to&#160;1.0&#160;with&#160;the&#160;hy-</p>
+<p style="position:absolute;top:1112px;left:455px;white-space:nowrap" class="ft41">4</p>
+</div>
+<!-- Page 5 -->
+<a name="5"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft533{font-size:12px;font-family:ZKZAJT+CMMI8;color:#231f20;}
+	.ft534{font-size:9px;font-family:RQXVSU+CMR6;color:#231f20;}
+	.ft535{font-size:7px;font-family:HPDJTL+CMSY5;color:#000000;}
+	.ft536{font-size:7px;font-family:XXMTEV+CMR5;color:#000000;}
+	.ft537{font-size:9px;font-family:TKKETD+CMMI6;color:#231f20;}
+	.ft538{font-size:7px;font-family:HPDJTL+CMSY5;color:#231f20;}
+-->
+</style>
+<div id="page5-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="OTC_Architecting_Dependable_Systems005.png" alt="background image"/>
+<p style="position:absolute;top:115px;left:351px;white-space:nowrap" class="ft510"><b>’</b></p>
+<p style="position:absolute;top:118px;left:339px;white-space:nowrap" class="ft518"><b>M</b></p>
+<p style="position:absolute;top:123px;left:351px;white-space:nowrap" class="ft510"><b>1</b></p>
+<p style="position:absolute;top:133px;left:326px;white-space:nowrap" class="ft518"><b>.</b></p>
+<p style="position:absolute;top:139px;left:326px;white-space:nowrap" class="ft518"><b>.</b></p>
+<p style="position:absolute;top:145px;left:326px;white-space:nowrap" class="ft518"><b>.</b></p>
+<p style="position:absolute;top:145px;left:209px;white-space:nowrap" class="ft518"><b>H</b></p>
+<p style="position:absolute;top:145px;left:258px;white-space:nowrap" class="ft518"><b>V</b></p>
+<p style="position:absolute;top:172px;left:310px;white-space:nowrap" class="ft518"><b>f</b></p>
+<p style="position:absolute;top:118px;left:310px;white-space:nowrap" class="ft518"><b>f</b></p>
+<p style="position:absolute;top:172px;left:339px;white-space:nowrap" class="ft518"><b>M</b></p>
+<p style="position:absolute;top:177px;left:351px;white-space:nowrap" class="ft510"><b>n</b></p>
+<p style="position:absolute;top:169px;left:351px;white-space:nowrap" class="ft510"><b>’</b></p>
+<p style="position:absolute;top:197px;left:163px;white-space:nowrap" class="ft511">(a)&#160;Configuration</p>
+<p style="position:absolute;top:197px;left:252px;white-space:nowrap" class="ft533"><i>C</i></p>
+<p style="position:absolute;top:201px;left:261px;white-space:nowrap" class="ft534">1</p>
+<p style="position:absolute;top:197px;left:268px;white-space:nowrap" class="ft511">:&#160;Functionality</p>
+<p style="position:absolute;top:197px;left:344px;white-space:nowrap" class="ft533"><i>f</i></p>
+<p style="position:absolute;top:197px;left:356px;white-space:nowrap" class="ft511">imple-</p>
+<p style="position:absolute;top:211px;left:163px;white-space:nowrap" class="ft511">mented&#160;within&#160;each&#160;VM</p>
+<p style="position:absolute;top:237px;left:351px;white-space:nowrap" class="ft510"><b>’</b></p>
+<p style="position:absolute;top:241px;left:339px;white-space:nowrap" class="ft518"><b>M</b></p>
+<p style="position:absolute;top:246px;left:351px;white-space:nowrap" class="ft510"><b>1</b></p>
+<p style="position:absolute;top:255px;left:343px;white-space:nowrap" class="ft518"><b>.</b></p>
+<p style="position:absolute;top:261px;left:343px;white-space:nowrap" class="ft518"><b>.</b></p>
+<p style="position:absolute;top:267px;left:343px;white-space:nowrap" class="ft518"><b>.</b></p>
+<p style="position:absolute;top:267px;left:209px;white-space:nowrap" class="ft518"><b>H</b></p>
+<p style="position:absolute;top:267px;left:258px;white-space:nowrap" class="ft518"><b>V</b></p>
+<p style="position:absolute;top:294px;left:339px;white-space:nowrap" class="ft518"><b>M</b></p>
+<p style="position:absolute;top:299px;left:351px;white-space:nowrap" class="ft510"><b>n</b></p>
+<p style="position:absolute;top:267px;left:293px;white-space:nowrap" class="ft518"><b>F</b></p>
+<p style="position:absolute;top:291px;left:351px;white-space:nowrap" class="ft510"><b>’</b></p>
+<p style="position:absolute;top:319px;left:163px;white-space:nowrap" class="ft511">(b)&#160;Configuration</p>
+<p style="position:absolute;top:319px;left:252px;white-space:nowrap" class="ft533"><i>C</i></p>
+<p style="position:absolute;top:323px;left:261px;white-space:nowrap" class="ft534">2</p>
+<p style="position:absolute;top:319px;left:268px;white-space:nowrap" class="ft511">:&#160;Functionality</p>
+<p style="position:absolute;top:319px;left:342px;white-space:nowrap" class="ft533"><i>F</i></p>
+<p style="position:absolute;top:319px;left:356px;white-space:nowrap" class="ft511">imple-</p>
+<p style="position:absolute;top:333px;left:163px;white-space:nowrap" class="ft511">mented&#160;as&#160;part&#160;of&#160;Hypervisor</p>
+<p style="position:absolute;top:368px;left:126px;white-space:nowrap" class="ft532"><b>Figure&#160;5.&#160;Moving&#160;Functionality&#160;out&#160;of&#160;the&#160;VMs&#160;into&#160;the<br/>Hypervisor</b></p>
+<p style="position:absolute;top:426px;left:108px;white-space:nowrap" class="ft56">pervisor&#160;reliability&#160;fixed&#160;at</p>
+<p style="position:absolute;top:426px;left:271px;white-space:nowrap" class="ft516">0</p>
+<p style="position:absolute;top:426px;left:278px;white-space:nowrap" class="ft514"><i>.</i></p>
+<p style="position:absolute;top:426px;left:282px;white-space:nowrap" class="ft516">999</p>
+<p style="position:absolute;top:426px;left:305px;white-space:nowrap" class="ft56">.&#160;The&#160;figure&#160;shows&#160;that</p>
+<p style="position:absolute;top:444px;left:108px;white-space:nowrap" class="ft56">for&#160;fixed</p>
+<p style="position:absolute;top:444px;left:165px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:450px;left:176px;white-space:nowrap" class="ft515"><i>V</i></p>
+<p style="position:absolute;top:444px;left:192px;white-space:nowrap" class="ft56">and</p>
+<p style="position:absolute;top:444px;left:218px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:450px;left:229px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:444px;left:248px;white-space:nowrap" class="ft56">values,&#160;higher&#160;system&#160;reliability</p>
+<p style="position:absolute;top:462px;left:108px;white-space:nowrap" class="ft56">(up&#160;to</p>
+<p style="position:absolute;top:462px;left:150px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:468px;left:162px;white-space:nowrap" class="ft515"><i>V</i></p>
+<p style="position:absolute;top:462px;left:172px;white-space:nowrap" class="ft56">)&#160;can&#160;be&#160;obtained&#160;by&#160;increasing&#160;the&#160;number</p>
+<p style="position:absolute;top:479px;left:108px;white-space:nowrap" class="ft56">of&#160;VMs&#160;hosted.&#160;However,&#160;when</p>
+<p style="position:absolute;top:479px;left:305px;white-space:nowrap" class="ft514"><i>n</i></p>
+<p style="position:absolute;top:479px;left:318px;white-space:nowrap" class="ft56">is&#160;large,&#160;one&#160;is&#160;faced</p>
+<p style="position:absolute;top:497px;left:108px;white-space:nowrap" class="ft58">with&#160;the&#160;practical&#160;difficulty&#160;of&#160;obtaining&#160;sufficient&#160;diver-<br/>sity&#160;to&#160;ensure&#160;that&#160;VM&#160;failures&#160;are&#160;independent.</p>
+<p style="position:absolute;top:534px;left:126px;white-space:nowrap" class="ft59">Moving&#160;Functionality&#160;out&#160;of&#160;the&#160;VMs&#160;into&#160;the&#160;Hy-</p>
+<p style="position:absolute;top:552px;left:108px;white-space:nowrap" class="ft59">pervisor:</p>
+<p style="position:absolute;top:552px;left:170px;white-space:nowrap" class="ft56">We&#160;now&#160;analyze&#160;the&#160;reliability&#160;impact&#160;of&#160;mov-</p>
+<p style="position:absolute;top:570px;left:108px;white-space:nowrap" class="ft58">ing&#160;a&#160;functionality&#160;out&#160;of&#160;the&#160;VMs&#160;into&#160;the&#160;hypervisor.<br/>As&#160;before,&#160;our&#160;system&#160;model&#160;is&#160;one&#160;in&#160;which&#160;a&#160;physical<br/>node&#160;has</p>
+<p style="position:absolute;top:606px;left:164px;white-space:nowrap" class="ft514"><i>n</i></p>
+<p style="position:absolute;top:606px;left:177px;white-space:nowrap" class="ft520"><i>≥</i></p>
+<p style="position:absolute;top:606px;left:193px;white-space:nowrap" class="ft516">1</p>
+<p style="position:absolute;top:606px;left:204px;white-space:nowrap" class="ft56">independent&#160;and&#160;concurrently&#160;operating</p>
+<p style="position:absolute;top:623px;left:108px;white-space:nowrap" class="ft58">VMs&#160;providing&#160;identical&#160;service.&#160;Consider&#160;a&#160;functional-<br/>ity</p>
+<p style="position:absolute;top:641px;left:128px;white-space:nowrap" class="ft514"><i>f</i></p>
+<p style="position:absolute;top:641px;left:140px;white-space:nowrap" class="ft56">implemented&#160;inside&#160;each&#160;VM.&#160;Then,&#160;each&#160;VM</p>
+<p style="position:absolute;top:641px;left:423px;white-space:nowrap" class="ft514"><i>M</i></p>
+<p style="position:absolute;top:647px;left:437px;white-space:nowrap" class="ft515"><i>i</i></p>
+<p style="position:absolute;top:659px;left:108px;white-space:nowrap" class="ft56">can&#160;be&#160;divided&#160;into&#160;two&#160;components,</p>
+<p style="position:absolute;top:659px;left:326px;white-space:nowrap" class="ft514"><i>f</i></p>
+<p style="position:absolute;top:659px;left:338px;white-space:nowrap" class="ft56">and</p>
+<p style="position:absolute;top:659px;left:363px;white-space:nowrap" class="ft514"><i>M</i></p>
+<p style="position:absolute;top:656px;left:379px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:667px;left:377px;white-space:nowrap" class="ft515"><i>i</i></p>
+<p style="position:absolute;top:659px;left:383px;white-space:nowrap" class="ft56">,&#160;the&#160;latter</p>
+<p style="position:absolute;top:677px;left:108px;white-space:nowrap" class="ft56">representing&#160;the&#160;rest&#160;of</p>
+<p style="position:absolute;top:677px;left:249px;white-space:nowrap" class="ft514"><i>M</i></p>
+<p style="position:absolute;top:683px;left:264px;white-space:nowrap" class="ft515"><i>i</i></p>
+<p style="position:absolute;top:677px;left:269px;white-space:nowrap" class="ft56">.&#160;Figure&#160;5(a)&#160;shows&#160;the&#160;relia-</p>
+<p style="position:absolute;top:695px;left:108px;white-space:nowrap" class="ft56">bility&#160;model&#160;for&#160;a&#160;node&#160;containing</p>
+<p style="position:absolute;top:695px;left:319px;white-space:nowrap" class="ft514"><i>n</i></p>
+<p style="position:absolute;top:695px;left:333px;white-space:nowrap" class="ft56">such&#160;VMs.&#160;Let&#160;us</p>
+<p style="position:absolute;top:713px;left:108px;white-space:nowrap" class="ft56">call&#160;this&#160;node&#160;configuration</p>
+<p style="position:absolute;top:713px;left:272px;white-space:nowrap" class="ft514"><i>C</i></p>
+<p style="position:absolute;top:719px;left:282px;white-space:nowrap" class="ft522">1</p>
+<p style="position:absolute;top:713px;left:289px;white-space:nowrap" class="ft56">.&#160;Further,&#160;suppose&#160;that&#160;the</p>
+<p style="position:absolute;top:731px;left:108px;white-space:nowrap" class="ft56">functionality</p>
+<p style="position:absolute;top:731px;left:188px;white-space:nowrap" class="ft514"><i>f</i></p>
+<p style="position:absolute;top:731px;left:201px;white-space:nowrap" class="ft56">is&#160;moved&#160;out&#160;of&#160;the&#160;VMs&#160;and&#160;substituted</p>
+<p style="position:absolute;top:749px;left:108px;white-space:nowrap" class="ft56">by&#160;component</p>
+<p style="position:absolute;top:749px;left:197px;white-space:nowrap" class="ft514"><i>F</i></p>
+<p style="position:absolute;top:749px;left:212px;white-space:nowrap" class="ft56">implemented&#160;as&#160;part&#160;of&#160;the&#160;hypervisor.</p>
+<p style="position:absolute;top:767px;left:108px;white-space:nowrap" class="ft56">Now,&#160;the&#160;new&#160;hypervisor&#160;consists&#160;of&#160;two&#160;components</p>
+<p style="position:absolute;top:767px;left:430px;white-space:nowrap" class="ft514"><i>F</i></p>
+<p style="position:absolute;top:785px;left:108px;white-space:nowrap" class="ft56">and&#160;the&#160;old&#160;hypervisor</p>
+<p style="position:absolute;top:785px;left:243px;white-space:nowrap" class="ft514"><i>V</i></p>
+<p style="position:absolute;top:785px;left:255px;white-space:nowrap" class="ft56">.&#160;Figure&#160;5(b)&#160;shows&#160;the&#160;reliabil-</p>
+<p style="position:absolute;top:803px;left:108px;white-space:nowrap" class="ft58">ity&#160;model&#160;for&#160;a&#160;node&#160;with&#160;the&#160;modified&#160;hypervisor.&#160;Let<br/>us&#160;call&#160;this&#160;node&#160;configuration</p>
+<p style="position:absolute;top:821px;left:292px;white-space:nowrap" class="ft514"><i>C</i></p>
+<p style="position:absolute;top:827px;left:303px;white-space:nowrap" class="ft522">2</p>
+<p style="position:absolute;top:821px;left:309px;white-space:nowrap" class="ft56">.</p>
+<p style="position:absolute;top:839px;left:126px;white-space:nowrap" class="ft56">We&#160;now&#160;derive&#160;the&#160;condition&#160;for</p>
+<p style="position:absolute;top:839px;left:326px;white-space:nowrap" class="ft514"><i>C</i></p>
+<p style="position:absolute;top:845px;left:337px;white-space:nowrap" class="ft522">2</p>
+<p style="position:absolute;top:839px;left:348px;white-space:nowrap" class="ft56">to&#160;be&#160;at&#160;least&#160;as</p>
+<p style="position:absolute;top:857px;left:108px;white-space:nowrap" class="ft56">reliable&#160;as</p>
+<p style="position:absolute;top:857px;left:172px;white-space:nowrap" class="ft514"><i>C</i></p>
+<p style="position:absolute;top:863px;left:183px;white-space:nowrap" class="ft522">1</p>
+<p style="position:absolute;top:857px;left:190px;white-space:nowrap" class="ft56">.&#160;For&#160;simplicity,&#160;let&#160;us&#160;assume&#160;that</p>
+<p style="position:absolute;top:857px;left:397px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:866px;left:408px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:862px;left:421px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:872px;left:420px;white-space:nowrap" class="ft523"><i>i</i></p>
+<p style="position:absolute;top:857px;left:431px;white-space:nowrap" class="ft516">=</p>
+<p style="position:absolute;top:877px;left:108px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:883px;left:119px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:883px;left:132px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:877px;left:140px;white-space:nowrap" class="ft56">for&#160;all</p>
+<p style="position:absolute;top:877px;left:180px;white-space:nowrap" class="ft516">1</p>
+<p style="position:absolute;top:877px;left:192px;white-space:nowrap" class="ft520"><i>≤</i></p>
+<p style="position:absolute;top:877px;left:208px;white-space:nowrap" class="ft514"><i>i</i></p>
+<p style="position:absolute;top:877px;left:217px;white-space:nowrap" class="ft520"><i>≤</i></p>
+<p style="position:absolute;top:877px;left:233px;white-space:nowrap" class="ft514"><i>n</i></p>
+<p style="position:absolute;top:877px;left:242px;white-space:nowrap" class="ft56">.&#160;Then,&#160;the&#160;desired&#160;condition&#160;is</p>
+<p style="position:absolute;top:896px;left:108px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:894px;left:119px;white-space:nowrap" class="ft515"><i>C</i></p>
+<p style="position:absolute;top:898px;left:128px;white-space:nowrap" class="ft536">2</p>
+<p style="position:absolute;top:903px;left:119px;white-space:nowrap" class="ft515"><i>sys</i></p>
+<p style="position:absolute;top:896px;left:142px;white-space:nowrap" class="ft520"><i>≥</i></p>
+<p style="position:absolute;top:896px;left:158px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:894px;left:169px;white-space:nowrap" class="ft515"><i>C</i></p>
+<p style="position:absolute;top:898px;left:178px;white-space:nowrap" class="ft536">1</p>
+<p style="position:absolute;top:903px;left:169px;white-space:nowrap" class="ft515"><i>sys</i></p>
+<p style="position:absolute;top:913px;left:108px;white-space:nowrap" class="ft516">=</p>
+<p style="position:absolute;top:913px;left:117px;white-space:nowrap" class="ft520"><i>⇒</i></p>
+<p style="position:absolute;top:913px;left:136px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:920px;left:148px;white-space:nowrap" class="ft515"><i>H</i></p>
+<p style="position:absolute;top:913px;left:159px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:920px;left:170px;white-space:nowrap" class="ft515"><i>V</i></p>
+<p style="position:absolute;top:913px;left:181px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:920px;left:192px;white-space:nowrap" class="ft515"><i>F</i></p>
+<p style="position:absolute;top:913px;left:202px;white-space:nowrap" class="ft516">[1</p>
+<p style="position:absolute;top:913px;left:217px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:913px;left:232px;white-space:nowrap" class="ft516">(1</p>
+<p style="position:absolute;top:913px;left:248px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:913px;left:263px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:920px;left:275px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:919px;left:287px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:913px;left:292px;white-space:nowrap" class="ft516">)</p>
+<p style="position:absolute;top:912px;left:298px;white-space:nowrap" class="ft515"><i>n</i></p>
+<p style="position:absolute;top:913px;left:306px;white-space:nowrap" class="ft516">]</p>
+<p style="position:absolute;top:913px;left:314px;white-space:nowrap" class="ft520"><i>≥</i></p>
+<p style="position:absolute;top:932px;left:270px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:938px;left:282px;white-space:nowrap" class="ft515"><i>H</i></p>
+<p style="position:absolute;top:932px;left:293px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:938px;left:304px;white-space:nowrap" class="ft515"><i>V</i></p>
+<p style="position:absolute;top:932px;left:315px;white-space:nowrap" class="ft516">[1</p>
+<p style="position:absolute;top:932px;left:330px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:932px;left:345px;white-space:nowrap" class="ft516">(1</p>
+<p style="position:absolute;top:932px;left:361px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:932px;left:376px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:938px;left:388px;white-space:nowrap" class="ft515"><i>f</i></p>
+<p style="position:absolute;top:932px;left:395px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:938px;left:407px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:938px;left:419px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:932px;left:424px;white-space:nowrap" class="ft516">)</p>
+<p style="position:absolute;top:930px;left:430px;white-space:nowrap" class="ft515"><i>n</i></p>
+<p style="position:absolute;top:932px;left:438px;white-space:nowrap" class="ft516">]</p>
+<p style="position:absolute;top:964px;left:189px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:970px;left:200px;white-space:nowrap" class="ft515"><i>F</i></p>
+<p style="position:absolute;top:964px;left:214px;white-space:nowrap" class="ft520"><i>≥</i></p>
+<p style="position:absolute;top:954px;left:232px;white-space:nowrap" class="ft516">[1</p>
+<p style="position:absolute;top:954px;left:247px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:954px;left:262px;white-space:nowrap" class="ft516">(1</p>
+<p style="position:absolute;top:954px;left:279px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:954px;left:293px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:960px;left:305px;white-space:nowrap" class="ft515"><i>f</i></p>
+<p style="position:absolute;top:954px;left:313px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:960px;left:324px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:960px;left:336px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:954px;left:341px;white-space:nowrap" class="ft516">)</p>
+<p style="position:absolute;top:952px;left:347px;white-space:nowrap" class="ft515"><i>n</i></p>
+<p style="position:absolute;top:954px;left:355px;white-space:nowrap" class="ft516">]</p>
+<p style="position:absolute;top:974px;left:242px;white-space:nowrap" class="ft516">[1</p>
+<p style="position:absolute;top:974px;left:257px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:974px;left:271px;white-space:nowrap" class="ft516">(1</p>
+<p style="position:absolute;top:974px;left:288px;white-space:nowrap" class="ft520"><i>−</i></p>
+<p style="position:absolute;top:974px;left:303px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:980px;left:314px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:980px;left:327px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:974px;left:332px;white-space:nowrap" class="ft516">)</p>
+<p style="position:absolute;top:974px;left:337px;white-space:nowrap" class="ft515"><i>n</i></p>
+<p style="position:absolute;top:974px;left:346px;white-space:nowrap" class="ft516">]</p>
+<p style="position:absolute;top:964px;left:425px;white-space:nowrap" class="ft56">(3)</p>
+<p style="position:absolute;top:996px;left:126px;white-space:nowrap" class="ft56">It&#160;is&#160;easy&#160;to&#160;see&#160;from&#160;Figure&#160;5&#160;that&#160;when&#160;there&#160;is&#160;only</p>
+<p style="position:absolute;top:1013px;left:108px;white-space:nowrap" class="ft58">a&#160;single&#160;VM,&#160;it&#160;does&#160;not&#160;matter&#160;whether&#160;the&#160;functionality<br/>is&#160;implemented&#160;in&#160;the&#160;hypervisor&#160;or&#160;in&#160;the&#160;VM.&#160;We&#160;can<br/>also&#160;confirm&#160;this&#160;observation&#160;by&#160;substituting</p>
+<p style="position:absolute;top:1049px;left:384px;white-space:nowrap" class="ft514"><i>n</i></p>
+<p style="position:absolute;top:1049px;left:400px;white-space:nowrap" class="ft516">=&#160;1</p>
+<p style="position:absolute;top:1049px;left:431px;white-space:nowrap" class="ft56">in</p>
+<p style="position:absolute;top:1067px;left:108px;white-space:nowrap" class="ft56">Inequality&#160;(3).</p>
+<p style="position:absolute;top:267px;left:551px;white-space:nowrap" class="ft524">&#160;0.2</p>
+<p style="position:absolute;top:248px;left:551px;white-space:nowrap" class="ft524">&#160;0.3</p>
+<p style="position:absolute;top:229px;left:551px;white-space:nowrap" class="ft524">&#160;0.4</p>
+<p style="position:absolute;top:210px;left:551px;white-space:nowrap" class="ft524">&#160;0.5</p>
+<p style="position:absolute;top:191px;left:551px;white-space:nowrap" class="ft524">&#160;0.6</p>
+<p style="position:absolute;top:172px;left:551px;white-space:nowrap" class="ft524">&#160;0.7</p>
+<p style="position:absolute;top:153px;left:551px;white-space:nowrap" class="ft524">&#160;0.8</p>
+<p style="position:absolute;top:134px;left:551px;white-space:nowrap" class="ft524">&#160;0.9</p>
+<p style="position:absolute;top:115px;left:559px;white-space:nowrap" class="ft524">&#160;1</p>
+<p style="position:absolute;top:276px;left:564px;white-space:nowrap" class="ft524">&#160;0.1&#160;&#160;0.2&#160;&#160;0.3&#160;&#160;0.4&#160;&#160;0.5&#160;&#160;0.6&#160;&#160;0.7&#160;&#160;0.8&#160;&#160;0.9</p>
+<p style="position:absolute;top:276px;left:759px;white-space:nowrap" class="ft524">&#160;1</p>
+<p style="position:absolute;top:242px;left:520px;white-space:nowrap" class="ft525">Lower Bound on Reliability&#160;</p>
+<p style="position:absolute;top:233px;left:529px;white-space:nowrap" class="ft525">&#160;of Functionality when&#160;</p>
+<p style="position:absolute;top:240px;left:537px;white-space:nowrap" class="ft525">&#160;Moved to Hypervisor (R</p>
+<p style="position:absolute;top:144px;left:540px;white-space:nowrap" class="ft526">F</p>
+<p style="position:absolute;top:139px;left:537px;white-space:nowrap" class="ft525">)</p>
+<p style="position:absolute;top:288px;left:568px;white-space:nowrap" class="ft524">Reliability of Functionality Implemented in VM (R</p>
+<p style="position:absolute;top:292px;left:762px;white-space:nowrap" class="ft527">f</p>
+<p style="position:absolute;top:288px;left:764px;white-space:nowrap" class="ft524">)</p>
+<p style="position:absolute;top:232px;left:655px;white-space:nowrap" class="ft524">R</p>
+<p style="position:absolute;top:236px;left:662px;white-space:nowrap" class="ft527">M’</p>
+<p style="position:absolute;top:232px;left:669px;white-space:nowrap" class="ft524">&#160;= 0.75, n = 3</p>
+<p style="position:absolute;top:241px;left:655px;white-space:nowrap" class="ft524">R</p>
+<p style="position:absolute;top:245px;left:662px;white-space:nowrap" class="ft527">M’</p>
+<p style="position:absolute;top:241px;left:669px;white-space:nowrap" class="ft524">&#160;= 0.90, n = 3</p>
+<p style="position:absolute;top:250px;left:655px;white-space:nowrap" class="ft524">R</p>
+<p style="position:absolute;top:254px;left:662px;white-space:nowrap" class="ft527">M’</p>
+<p style="position:absolute;top:250px;left:669px;white-space:nowrap" class="ft524">&#160;= 0.95, n = 3</p>
+<p style="position:absolute;top:259px;left:655px;white-space:nowrap" class="ft524">R</p>
+<p style="position:absolute;top:263px;left:662px;white-space:nowrap" class="ft527">M’</p>
+<p style="position:absolute;top:259px;left:669px;white-space:nowrap" class="ft524">&#160;= 0.99, n = 3</p>
+<p style="position:absolute;top:305px;left:579px;white-space:nowrap" class="ft511">(a)&#160;Fixed</p>
+<p style="position:absolute;top:305px;left:627px;white-space:nowrap" class="ft533"><i>n</i></p>
+<p style="position:absolute;top:305px;left:635px;white-space:nowrap" class="ft511">,&#160;Varying</p>
+<p style="position:absolute;top:305px;left:681px;white-space:nowrap" class="ft533"><i>R</i></p>
+<p style="position:absolute;top:310px;left:691px;white-space:nowrap" class="ft537"><i>M</i></p>
+<p style="position:absolute;top:309px;left:702px;white-space:nowrap" class="ft538"><i>0</i></p>
+<p style="position:absolute;top:485px;left:551px;white-space:nowrap" class="ft524">&#160;0.2</p>
+<p style="position:absolute;top:466px;left:551px;white-space:nowrap" class="ft524">&#160;0.3</p>
+<p style="position:absolute;top:447px;left:551px;white-space:nowrap" class="ft524">&#160;0.4</p>
+<p style="position:absolute;top:428px;left:551px;white-space:nowrap" class="ft524">&#160;0.5</p>
+<p style="position:absolute;top:409px;left:551px;white-space:nowrap" class="ft524">&#160;0.6</p>
+<p style="position:absolute;top:391px;left:551px;white-space:nowrap" class="ft524">&#160;0.7</p>
+<p style="position:absolute;top:372px;left:551px;white-space:nowrap" class="ft524">&#160;0.8</p>
+<p style="position:absolute;top:353px;left:551px;white-space:nowrap" class="ft524">&#160;0.9</p>
+<p style="position:absolute;top:334px;left:559px;white-space:nowrap" class="ft524">&#160;1</p>
+<p style="position:absolute;top:494px;left:564px;white-space:nowrap" class="ft524">&#160;0.1&#160;&#160;0.2&#160;&#160;0.3&#160;&#160;0.4&#160;&#160;0.5&#160;&#160;0.6&#160;&#160;0.7&#160;&#160;0.8&#160;&#160;0.9</p>
+<p style="position:absolute;top:494px;left:759px;white-space:nowrap" class="ft524">&#160;1</p>
+<p style="position:absolute;top:461px;left:520px;white-space:nowrap" class="ft525">Lower Bound on Reliability&#160;</p>
+<p style="position:absolute;top:451px;left:529px;white-space:nowrap" class="ft525">&#160;of Functionality when&#160;</p>
+<p style="position:absolute;top:459px;left:537px;white-space:nowrap" class="ft525">&#160;Moved to Hypervisor (R</p>
+<p style="position:absolute;top:363px;left:540px;white-space:nowrap" class="ft526">F</p>
+<p style="position:absolute;top:357px;left:537px;white-space:nowrap" class="ft525">)</p>
+<p style="position:absolute;top:507px;left:568px;white-space:nowrap" class="ft524">Reliability of Functionality Implemented in VM (R</p>
+<p style="position:absolute;top:511px;left:762px;white-space:nowrap" class="ft527">f</p>
+<p style="position:absolute;top:507px;left:764px;white-space:nowrap" class="ft524">)</p>
+<p style="position:absolute;top:459px;left:655px;white-space:nowrap" class="ft524">R</p>
+<p style="position:absolute;top:463px;left:662px;white-space:nowrap" class="ft527">M’</p>
+<p style="position:absolute;top:459px;left:669px;white-space:nowrap" class="ft524">&#160;= 0.75, n = 3</p>
+<p style="position:absolute;top:468px;left:655px;white-space:nowrap" class="ft524">R</p>
+<p style="position:absolute;top:472px;left:662px;white-space:nowrap" class="ft527">M’</p>
+<p style="position:absolute;top:468px;left:669px;white-space:nowrap" class="ft524">&#160;= 0.75, n = 6</p>
+<p style="position:absolute;top:477px;left:655px;white-space:nowrap" class="ft524">R</p>
+<p style="position:absolute;top:481px;left:662px;white-space:nowrap" class="ft527">M’</p>
+<p style="position:absolute;top:477px;left:669px;white-space:nowrap" class="ft524">&#160;= 0.75, n = 9</p>
+<p style="position:absolute;top:523px;left:578px;white-space:nowrap" class="ft511">(b)&#160;Fixed</p>
+<p style="position:absolute;top:523px;left:627px;white-space:nowrap" class="ft533"><i>R</i></p>
+<p style="position:absolute;top:528px;left:637px;white-space:nowrap" class="ft537"><i>M</i></p>
+<p style="position:absolute;top:527px;left:648px;white-space:nowrap" class="ft538"><i>0</i></p>
+<p style="position:absolute;top:523px;left:653px;white-space:nowrap" class="ft511">,&#160;Varying</p>
+<p style="position:absolute;top:523px;left:700px;white-space:nowrap" class="ft533"><i>n</i></p>
+<p style="position:absolute;top:564px;left:510px;white-space:nowrap" class="ft513"><b>Figure&#160;6.&#160;Plot&#160;of</b></p>
+<p style="position:absolute;top:561px;left:604px;white-space:nowrap" class="ft519"><i>R</i></p>
+<p style="position:absolute;top:567px;left:615px;white-space:nowrap" class="ft528"><i>F</i></p>
+<p style="position:absolute;top:561px;left:629px;white-space:nowrap" class="ft52"><i>≥</i></p>
+<p style="position:absolute;top:551px;left:647px;white-space:nowrap" class="ft529">[1</p>
+<p style="position:absolute;top:551px;left:662px;white-space:nowrap" class="ft52"><i>−</i></p>
+<p style="position:absolute;top:551px;left:677px;white-space:nowrap" class="ft529">(1</p>
+<p style="position:absolute;top:551px;left:693px;white-space:nowrap" class="ft52"><i>−</i></p>
+<p style="position:absolute;top:551px;left:708px;white-space:nowrap" class="ft519"><i>R</i></p>
+<p style="position:absolute;top:557px;left:720px;white-space:nowrap" class="ft528"><i>f</i></p>
+<p style="position:absolute;top:551px;left:727px;white-space:nowrap" class="ft519"><i>R</i></p>
+<p style="position:absolute;top:557px;left:739px;white-space:nowrap" class="ft528"><i>M</i></p>
+<p style="position:absolute;top:557px;left:751px;white-space:nowrap" class="ft538"><i>0</i></p>
+<p style="position:absolute;top:551px;left:756px;white-space:nowrap" class="ft529">)</p>
+<p style="position:absolute;top:549px;left:762px;white-space:nowrap" class="ft528"><i>n</i></p>
+<p style="position:absolute;top:551px;left:770px;white-space:nowrap" class="ft529">]</p>
+<p style="position:absolute;top:571px;left:656px;white-space:nowrap" class="ft529">[1</p>
+<p style="position:absolute;top:571px;left:671px;white-space:nowrap" class="ft52"><i>−</i></p>
+<p style="position:absolute;top:571px;left:686px;white-space:nowrap" class="ft529">(1</p>
+<p style="position:absolute;top:571px;left:703px;white-space:nowrap" class="ft52"><i>−</i></p>
+<p style="position:absolute;top:571px;left:718px;white-space:nowrap" class="ft519"><i>R</i></p>
+<p style="position:absolute;top:577px;left:729px;white-space:nowrap" class="ft528"><i>M</i></p>
+<p style="position:absolute;top:577px;left:742px;white-space:nowrap" class="ft538"><i>0</i></p>
+<p style="position:absolute;top:571px;left:746px;white-space:nowrap" class="ft529">)</p>
+<p style="position:absolute;top:571px;left:752px;white-space:nowrap" class="ft528"><i>n</i></p>
+<p style="position:absolute;top:571px;left:760px;white-space:nowrap" class="ft529">]</p>
+<p style="position:absolute;top:600px;left:494px;white-space:nowrap" class="ft56">Figures&#160;6(a)&#160;and&#160;(b)&#160;illustrate&#160;how</p>
+<p style="position:absolute;top:600px;left:708px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:606px;left:719px;white-space:nowrap" class="ft515"><i>F</i></p>
+<p style="position:absolute;top:600px;left:734px;white-space:nowrap" class="ft56">varies&#160;as</p>
+<p style="position:absolute;top:600px;left:791px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:606px;left:802px;white-space:nowrap" class="ft515"><i>f</i></p>
+<p style="position:absolute;top:618px;left:476px;white-space:nowrap" class="ft56">is&#160;increased&#160;from&#160;0.1&#160;to&#160;1.&#160;The&#160;graphs&#160;show&#160;that</p>
+<p style="position:absolute;top:618px;left:774px;white-space:nowrap" class="ft514"><i>F</i></p>
+<p style="position:absolute;top:618px;left:790px;white-space:nowrap" class="ft56">has</p>
+<p style="position:absolute;top:636px;left:476px;white-space:nowrap" class="ft56">to&#160;be&#160;more&#160;reliable&#160;than</p>
+<p style="position:absolute;top:636px;left:621px;white-space:nowrap" class="ft514"><i>f</i></p>
+<p style="position:absolute;top:636px;left:633px;white-space:nowrap" class="ft56">for&#160;the&#160;configuration</p>
+<p style="position:absolute;top:636px;left:760px;white-space:nowrap" class="ft514"><i>C</i></p>
+<p style="position:absolute;top:642px;left:770px;white-space:nowrap" class="ft522">2</p>
+<p style="position:absolute;top:636px;left:781px;white-space:nowrap" class="ft56">to&#160;be</p>
+<p style="position:absolute;top:654px;left:476px;white-space:nowrap" class="ft56">more&#160;reliable&#160;than</p>
+<p style="position:absolute;top:654px;left:592px;white-space:nowrap" class="ft514"><i>C</i></p>
+<p style="position:absolute;top:660px;left:603px;white-space:nowrap" class="ft522">1</p>
+<p style="position:absolute;top:654px;left:609px;white-space:nowrap" class="ft56">.&#160;Figure&#160;6(a)&#160;shows&#160;that&#160;as</p>
+<p style="position:absolute;top:654px;left:781px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:660px;left:793px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:660px;left:805px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:672px;left:476px;white-space:nowrap" class="ft56">increases,&#160;the&#160;degree&#160;by&#160;which</p>
+<p style="position:absolute;top:672px;left:669px;white-space:nowrap" class="ft514"><i>F</i></p>
+<p style="position:absolute;top:672px;left:686px;white-space:nowrap" class="ft56">should&#160;be&#160;more&#160;reli-</p>
+<p style="position:absolute;top:690px;left:476px;white-space:nowrap" class="ft56">able&#160;than</p>
+<p style="position:absolute;top:690px;left:537px;white-space:nowrap" class="ft514"><i>f</i></p>
+<p style="position:absolute;top:690px;left:551px;white-space:nowrap" class="ft56">also&#160;increases.&#160;Figure&#160;6(b)&#160;shows&#160;that&#160;the</p>
+<p style="position:absolute;top:708px;left:476px;white-space:nowrap" class="ft58">degree&#160;is&#160;also&#160;considerably&#160;higher&#160;when&#160;more&#160;VMs&#160;are<br/>co-hosted&#160;on&#160;the&#160;same&#160;physical&#160;host.&#160;For&#160;example,&#160;even<br/>with&#160;modest</p>
+<p style="position:absolute;top:744px;left:556px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:750px;left:567px;white-space:nowrap" class="ft515"><i>M</i></p>
+<p style="position:absolute;top:749px;left:580px;white-space:nowrap" class="ft535"><i>0</i></p>
+<p style="position:absolute;top:744px;left:590px;white-space:nowrap" class="ft56">and</p>
+<p style="position:absolute;top:744px;left:617px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:750px;left:628px;white-space:nowrap" class="ft515"><i>f</i></p>
+<p style="position:absolute;top:744px;left:641px;white-space:nowrap" class="ft56">values&#160;of&#160;0.75,</p>
+<p style="position:absolute;top:744px;left:737px;white-space:nowrap" class="ft514"><i>F</i></p>
+<p style="position:absolute;top:744px;left:754px;white-space:nowrap" class="ft56">has&#160;to&#160;be</p>
+<p style="position:absolute;top:762px;left:476px;white-space:nowrap" class="ft56">ultra-reliable:</p>
+<p style="position:absolute;top:762px;left:563px;white-space:nowrap" class="ft514"><i>R</i></p>
+<p style="position:absolute;top:768px;left:574px;white-space:nowrap" class="ft515"><i>F</i></p>
+<p style="position:absolute;top:762px;left:589px;white-space:nowrap" class="ft56">has&#160;to&#160;be&#160;more&#160;than&#160;.9932&#160;and&#160;.9994</p>
+<p style="position:absolute;top:779px;left:476px;white-space:nowrap" class="ft56">when</p>
+<p style="position:absolute;top:779px;left:513px;white-space:nowrap" class="ft514"><i>n</i></p>
+<p style="position:absolute;top:779px;left:527px;white-space:nowrap" class="ft516">=&#160;6</p>
+<p style="position:absolute;top:779px;left:555px;white-space:nowrap" class="ft56">and</p>
+<p style="position:absolute;top:779px;left:581px;white-space:nowrap" class="ft514"><i>n</i></p>
+<p style="position:absolute;top:779px;left:595px;white-space:nowrap" class="ft516">=&#160;9</p>
+<p style="position:absolute;top:779px;left:624px;white-space:nowrap" class="ft56">respectively.&#160;Thus,&#160;when&#160;more</p>
+<p style="position:absolute;top:797px;left:476px;white-space:nowrap" class="ft58">than&#160;a&#160;handful&#160;of&#160;VMs&#160;are&#160;co-hosted&#160;on&#160;the&#160;same&#160;physi-<br/>cal&#160;node,&#160;better&#160;system&#160;reliability&#160;is&#160;likely&#160;to&#160;be&#160;obtained<br/>by&#160;retaining&#160;a&#160;poorly&#160;reliable&#160;functionality&#160;in&#160;the&#160;VM<br/>than&#160;by&#160;moving&#160;the&#160;functionality&#160;into&#160;the&#160;hypervisor.</p>
+<p style="position:absolute;top:870px;left:494px;white-space:nowrap" class="ft59">Virtualized&#160;Node&#160;with&#160;VMM-level&#160;Voting:</p>
+<p style="position:absolute;top:870px;left:780px;white-space:nowrap" class="ft56">Con-</p>
+<p style="position:absolute;top:888px;left:476px;white-space:nowrap" class="ft58">sider&#160;a&#160;fault-tolerant&#160;2-out-of-3&#160;replication&#160;scheme&#160;in<br/>which&#160;three&#160;VMs&#160;providing&#160;identical&#160;service&#160;are&#160;co-<br/>hosted&#160;on&#160;a&#160;single&#160;physical&#160;node.&#160;The&#160;VMM&#160;layer&#160;re-<br/>ceives&#160;client&#160;requests&#160;and&#160;forward&#160;them&#160;to&#160;all&#160;three&#160;VMs<br/>in&#160;the&#160;same&#160;order.&#160;Assume&#160;that&#160;the&#160;service&#160;is&#160;a&#160;deter-<br/>ministic&#160;state&#160;machine;&#160;thus,&#160;the&#160;VM&#160;replicas&#160;yield&#160;the<br/>same&#160;result&#160;for&#160;the&#160;same&#160;request.&#160;The&#160;VMM&#160;receives<br/>the&#160;results&#160;from&#160;the&#160;VM&#160;replicas.&#160;Once&#160;the&#160;VMM&#160;has<br/>obtained&#160;replies&#160;from&#160;two&#160;replicas&#160;with&#160;identical&#160;result<br/>values&#160;for&#160;a&#160;given&#160;client&#160;request,&#160;it&#160;forwards&#160;the&#160;result<br/>value&#160;to&#160;the&#160;corresponding&#160;client.&#160;Such&#160;a&#160;scheme&#160;can</p>
+<p style="position:absolute;top:1112px;left:455px;white-space:nowrap" class="ft51">5</p>
+</div>
+<!-- Page 6 -->
+<a name="6"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft639{font-size:10px;font-family:MHSASX+CMR7;color:#231f20;}
+	.ft640{font-size:10px;font-family:DXHWAJ+CMSY7;color:#231f20;}
+	.ft641{font-size:10px;font-family:DXHWAJ+CMSY7;color:#000000;}
+	.ft642{font-size:13px;font-family:CJHSRX+NimbusRomNo9L-Regu;color:#231f20;}
+	.ft643{font-size:13px;font-family:CJHSRX+NimbusRomNo9L-Regu;color:#000000;}
+	.ft644{font-size:13px;font-family:GMIKPV+NimbusMonL-Regu;color:#000000;}
+	.ft645{font-size:13px;font-family:DGAPYD+NimbusRomNo9L-ReguItal;color:#000000;}
+	.ft646{font-size:15px;line-height:20px;font-family:AXXRAL+CMR10;color:#000000;}
+	.ft647{font-size:13px;line-height:16px;font-family:GMIKPV+NimbusMonL-Regu;color:#000000;}
+	.ft648{font-size:13px;line-height:16px;font-family:CJHSRX+NimbusRomNo9L-Regu;color:#000000;}
+	.ft649{font-size:13px;line-height:16px;font-family:DGAPYD+NimbusRomNo9L-ReguItal;color:#000000;}
+-->
+</style>
+<div id="page6-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="OTC_Architecting_Dependable_Systems006.png" alt="background image"/>
+<p style="position:absolute;top:267px;left:175px;white-space:nowrap" class="ft624">&#160;0.88</p>
+<p style="position:absolute;top:241px;left:180px;white-space:nowrap" class="ft624">&#160;0.9</p>
+<p style="position:absolute;top:216px;left:175px;white-space:nowrap" class="ft624">&#160;0.92</p>
+<p style="position:absolute;top:191px;left:175px;white-space:nowrap" class="ft624">&#160;0.94</p>
+<p style="position:absolute;top:166px;left:175px;white-space:nowrap" class="ft624">&#160;0.96</p>
+<p style="position:absolute;top:141px;left:175px;white-space:nowrap" class="ft624">&#160;0.98</p>
+<p style="position:absolute;top:115px;left:187px;white-space:nowrap" class="ft624">&#160;1</p>
+<p style="position:absolute;top:276px;left:193px;white-space:nowrap" class="ft624">&#160;0.1&#160;&#160;0.2&#160;&#160;0.3&#160;&#160;0.4&#160;&#160;0.5&#160;&#160;0.6&#160;&#160;0.7&#160;&#160;0.8&#160;&#160;0.9</p>
+<p style="position:absolute;top:276px;left:391px;white-space:nowrap" class="ft624">&#160;1</p>
+<p style="position:absolute;top:242px;left:152px;white-space:nowrap" class="ft625">Lower Bound on Reliability&#160;</p>
+<p style="position:absolute;top:226px;left:160px;white-space:nowrap" class="ft625">&#160;of Hypervisor (R</p>
+<p style="position:absolute;top:159px;left:163px;white-space:nowrap" class="ft626">V</p>
+<p style="position:absolute;top:153px;left:160px;white-space:nowrap" class="ft625">)</p>
+<p style="position:absolute;top:288px;left:231px;white-space:nowrap" class="ft624">Reliability of Virtual Machine (R</p>
+<p style="position:absolute;top:292px;left:356px;white-space:nowrap" class="ft627">M</p>
+<p style="position:absolute;top:288px;left:362px;white-space:nowrap" class="ft624">)</p>
+<p style="position:absolute;top:312px;left:139px;white-space:nowrap" class="ft613"><b>Figure&#160;7.&#160;Plot&#160;of</b></p>
+<p style="position:absolute;top:310px;left:232px;white-space:nowrap" class="ft629">(3</p>
+<p style="position:absolute;top:310px;left:246px;white-space:nowrap" class="ft619"><i>R</i></p>
+<p style="position:absolute;top:316px;left:257px;white-space:nowrap" class="ft628"><i>M</i></p>
+<p style="position:absolute;top:310px;left:274px;white-space:nowrap" class="ft62"><i>−</i></p>
+<p style="position:absolute;top:310px;left:288px;white-space:nowrap" class="ft629">2</p>
+<p style="position:absolute;top:310px;left:296px;white-space:nowrap" class="ft619"><i>R</i></p>
+<p style="position:absolute;top:308px;left:307px;white-space:nowrap" class="ft639">2</p>
+<p style="position:absolute;top:318px;left:307px;white-space:nowrap" class="ft628"><i>M</i></p>
+<p style="position:absolute;top:310px;left:321px;white-space:nowrap" class="ft629">)</p>
+<p style="position:absolute;top:308px;left:326px;white-space:nowrap" class="ft640"><i>−</i></p>
+<p style="position:absolute;top:308px;left:336px;white-space:nowrap" class="ft639">1</p>
+<p style="position:absolute;top:310px;left:347px;white-space:nowrap" class="ft619"><i>&lt;&#160;R</i></p>
+<p style="position:absolute;top:316px;left:374px;white-space:nowrap" class="ft628"><i>V</i></p>
+<p style="position:absolute;top:310px;left:388px;white-space:nowrap" class="ft619"><i>&lt;</i></p>
+<p style="position:absolute;top:310px;left:404px;white-space:nowrap" class="ft629">1</p>
+<p style="position:absolute;top:334px;left:108px;white-space:nowrap" class="ft68">tolerate&#160;the&#160;arbitrary&#160;failure&#160;of&#160;one&#160;VM&#160;replica,&#160;and&#160;is<br/>similar&#160;to&#160;the&#160;one&#160;suggested&#160;in&#160;the&#160;RESH&#160;architecture&#160;for<br/>fault-tolerant&#160;replication&#160;using&#160;virtualization&#160;[14].&#160;Then,<br/>assuming&#160;that&#160;the&#160;VMs&#160;fail&#160;independently,&#160;the&#160;system&#160;re-<br/>liability&#160;is&#160;given&#160;by</p>
+<p style="position:absolute;top:432px;left:126px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:430px;left:137px;white-space:nowrap" class="ft622">2</p>
+<p style="position:absolute;top:430px;left:143px;white-space:nowrap" class="ft641"><i>−</i></p>
+<p style="position:absolute;top:430px;left:153px;white-space:nowrap" class="ft622">of</p>
+<p style="position:absolute;top:430px;left:163px;white-space:nowrap" class="ft641"><i>−</i></p>
+<p style="position:absolute;top:430px;left:173px;white-space:nowrap" class="ft622">3</p>
+<p style="position:absolute;top:439px;left:137px;white-space:nowrap" class="ft615"><i>sys</i></p>
+<p style="position:absolute;top:432px;left:183px;white-space:nowrap" class="ft616">=</p>
+<p style="position:absolute;top:432px;left:199px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:438px;left:211px;white-space:nowrap" class="ft615"><i>H</i></p>
+<p style="position:absolute;top:432px;left:222px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:438px;left:233px;white-space:nowrap" class="ft615"><i>V</i></p>
+<p style="position:absolute;top:432px;left:244px;white-space:nowrap" class="ft616">[</p>
+<p style="position:absolute;top:432px;left:248px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:430px;left:259px;white-space:nowrap" class="ft622">3</p>
+<p style="position:absolute;top:440px;left:259px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:432px;left:276px;white-space:nowrap" class="ft616">+</p>
+<p style="position:absolute;top:411px;left:291px;white-space:nowrap" class="ft621">µ</p>
+<p style="position:absolute;top:422px;left:302px;white-space:nowrap" class="ft646">3<br/>2</p>
+<p style="position:absolute;top:411px;left:309px;white-space:nowrap" class="ft621">¶</p>
+<p style="position:absolute;top:432px;left:320px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:430px;left:332px;white-space:nowrap" class="ft622">2</p>
+<p style="position:absolute;top:440px;left:331px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:432px;left:345px;white-space:nowrap" class="ft616">(1</p>
+<p style="position:absolute;top:432px;left:361px;white-space:nowrap" class="ft620"><i>−</i></p>
+<p style="position:absolute;top:432px;left:376px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:438px;left:388px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:432px;left:401px;white-space:nowrap" class="ft616">)]</p>
+<p style="position:absolute;top:460px;left:108px;white-space:nowrap" class="ft66">Then,</p>
+<p style="position:absolute;top:460px;left:148px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:459px;left:159px;white-space:nowrap" class="ft622">2</p>
+<p style="position:absolute;top:459px;left:165px;white-space:nowrap" class="ft641"><i>−</i></p>
+<p style="position:absolute;top:459px;left:175px;white-space:nowrap" class="ft622">of</p>
+<p style="position:absolute;top:459px;left:185px;white-space:nowrap" class="ft641"><i>−</i></p>
+<p style="position:absolute;top:459px;left:194px;white-space:nowrap" class="ft622">3</p>
+<p style="position:absolute;top:468px;left:159px;white-space:nowrap" class="ft615"><i>sys</i></p>
+<p style="position:absolute;top:460px;left:208px;white-space:nowrap" class="ft614"><i>&gt;&#160;R</i></p>
+<p style="position:absolute;top:459px;left:237px;white-space:nowrap" class="ft615"><i>N&#160;V</i></p>
+<p style="position:absolute;top:468px;left:237px;white-space:nowrap" class="ft615"><i>sys</i></p>
+<p style="position:absolute;top:460px;left:263px;white-space:nowrap" class="ft66">gives&#160;the&#160;condition&#160;for&#160;the&#160;2-</p>
+<p style="position:absolute;top:478px;left:108px;white-space:nowrap" class="ft68">out-of-3&#160;replication&#160;scheme&#160;to&#160;be&#160;more&#160;reliable&#160;than&#160;the<br/>non-virtualized&#160;service.&#160;Thus,&#160;we&#160;obtain</p>
+<p style="position:absolute;top:521px;left:126px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:528px;left:137px;white-space:nowrap" class="ft615"><i>H</i></p>
+<p style="position:absolute;top:521px;left:149px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:528px;left:160px;white-space:nowrap" class="ft615"><i>V</i></p>
+<p style="position:absolute;top:521px;left:170px;white-space:nowrap" class="ft616">[</p>
+<p style="position:absolute;top:521px;left:174px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:520px;left:186px;white-space:nowrap" class="ft622">3</p>
+<p style="position:absolute;top:529px;left:186px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:521px;left:202px;white-space:nowrap" class="ft616">+</p>
+<p style="position:absolute;top:500px;left:217px;white-space:nowrap" class="ft621">µ</p>
+<p style="position:absolute;top:511px;left:228px;white-space:nowrap" class="ft646">3<br/>2</p>
+<p style="position:absolute;top:500px;left:236px;white-space:nowrap" class="ft621">¶</p>
+<p style="position:absolute;top:521px;left:247px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:520px;left:258px;white-space:nowrap" class="ft622">2</p>
+<p style="position:absolute;top:529px;left:258px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:521px;left:271px;white-space:nowrap" class="ft616">(1</p>
+<p style="position:absolute;top:521px;left:288px;white-space:nowrap" class="ft620"><i>−</i></p>
+<p style="position:absolute;top:521px;left:303px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:528px;left:314px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:521px;left:328px;white-space:nowrap" class="ft616">)]</p>
+<p style="position:absolute;top:521px;left:342px;white-space:nowrap" class="ft614"><i>&gt;&#160;R</i></p>
+<p style="position:absolute;top:528px;left:369px;white-space:nowrap" class="ft615"><i>H</i></p>
+<p style="position:absolute;top:521px;left:380px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:528px;left:392px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:552px;left:211px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:558px;left:223px;white-space:nowrap" class="ft615"><i>V</i></p>
+<p style="position:absolute;top:552px;left:237px;white-space:nowrap" class="ft614"><i>&gt;</i></p>
+<p style="position:absolute;top:542px;left:292px;white-space:nowrap" class="ft616">1</p>
+<p style="position:absolute;top:562px;left:255px;white-space:nowrap" class="ft616">3</p>
+<p style="position:absolute;top:562px;left:262px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:568px;left:273px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:562px;left:290px;white-space:nowrap" class="ft620"><i>−</i></p>
+<p style="position:absolute;top:562px;left:305px;white-space:nowrap" class="ft616">2</p>
+<p style="position:absolute;top:562px;left:312px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:561px;left:324px;white-space:nowrap" class="ft622">2</p>
+<p style="position:absolute;top:570px;left:324px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:552px;left:425px;white-space:nowrap" class="ft66">(4)</p>
+<p style="position:absolute;top:578px;left:126px;white-space:nowrap" class="ft66">Inequality&#160;(4)&#160;gives&#160;a&#160;lower&#160;bound&#160;on&#160;the&#160;hypervisor</p>
+<p style="position:absolute;top:596px;left:108px;white-space:nowrap" class="ft68">reliability&#160;for&#160;the&#160;2-out-of-3&#160;replication&#160;scheme&#160;to&#160;have<br/>better&#160;reliability&#160;than&#160;the&#160;non-virtualized&#160;case.&#160;Figure&#160;7<br/>shows&#160;a&#160;plot&#160;of</p>
+<p style="position:absolute;top:630px;left:234px;white-space:nowrap" class="ft622">1</p>
+<p style="position:absolute;top:641px;left:206px;white-space:nowrap" class="ft622">3</p>
+<p style="position:absolute;top:641px;left:212px;white-space:nowrap" class="ft615"><i>R</i></p>
+<p style="position:absolute;top:645px;left:221px;white-space:nowrap" class="ft623"><i>M</i></p>
+<p style="position:absolute;top:641px;left:232px;white-space:nowrap" class="ft641"><i>−</i></p>
+<p style="position:absolute;top:641px;left:242px;white-space:nowrap" class="ft622">2</p>
+<p style="position:absolute;top:641px;left:248px;white-space:nowrap" class="ft615"><i>R</i></p>
+<p style="position:absolute;top:640px;left:257px;white-space:nowrap" class="ft636">2</p>
+<p style="position:absolute;top:647px;left:257px;white-space:nowrap" class="ft623"><i>M</i></p>
+<p style="position:absolute;top:632px;left:275px;white-space:nowrap" class="ft614"><i>&lt;&#160;R</i></p>
+<p style="position:absolute;top:638px;left:303px;white-space:nowrap" class="ft615"><i>V</i></p>
+<p style="position:absolute;top:632px;left:318px;white-space:nowrap" class="ft614"><i>&lt;</i></p>
+<p style="position:absolute;top:632px;left:335px;white-space:nowrap" class="ft616">1</p>
+<p style="position:absolute;top:632px;left:342px;white-space:nowrap" class="ft66">.&#160;It&#160;is&#160;clear&#160;from</p>
+<p style="position:absolute;top:653px;left:108px;white-space:nowrap" class="ft66">the&#160;graph&#160;that&#160;there&#160;exists&#160;no</p>
+<p style="position:absolute;top:653px;left:285px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:659px;left:297px;white-space:nowrap" class="ft615"><i>V</i></p>
+<p style="position:absolute;top:653px;left:311px;white-space:nowrap" class="ft66">value&#160;that&#160;satisfies&#160;In-</p>
+<p style="position:absolute;top:671px;left:108px;white-space:nowrap" class="ft66">equality&#160;(4)&#160;and&#160;is&#160;less&#160;than&#160;1,&#160;when</p>
+<p style="position:absolute;top:671px;left:344px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:677px;left:355px;white-space:nowrap" class="ft615"><i>M</i></p>
+<p style="position:absolute;top:671px;left:376px;white-space:nowrap" class="ft620"><i>≤</i></p>
+<p style="position:absolute;top:671px;left:396px;white-space:nowrap" class="ft616">0</p>
+<p style="position:absolute;top:671px;left:403px;white-space:nowrap" class="ft614"><i>.</i></p>
+<p style="position:absolute;top:671px;left:408px;white-space:nowrap" class="ft616">5</p>
+<p style="position:absolute;top:671px;left:415px;white-space:nowrap" class="ft66">.&#160;In</p>
+<p style="position:absolute;top:689px;left:108px;white-space:nowrap" class="ft68">other&#160;words,&#160;if&#160;the&#160;VM&#160;reliability&#160;(i.e.,&#160;the&#160;OS&#160;and&#160;ser-<br/>vice&#160;reliability)&#160;is&#160;poor&#160;to&#160;begin&#160;with,&#160;then&#160;the&#160;2-out-of-<br/>3&#160;replication&#160;scheme&#160;will&#160;only&#160;make&#160;the&#160;node&#160;reliability<br/>worse&#160;even&#160;if&#160;the&#160;hypervisor&#160;is&#160;ultra-reliable.&#160;The&#160;graph<br/>also&#160;shows&#160;that&#160;the&#160;higher&#160;the&#160;hypervisor&#160;reliability,&#160;the<br/>larger&#160;the&#160;range&#160;of&#160;VM&#160;reliability&#160;values&#160;for&#160;which&#160;the&#160;2-<br/>out-of-3&#160;replication&#160;scheme&#160;has&#160;better&#160;reliability&#160;than&#160;the<br/>non-virtualized&#160;case.&#160;For&#160;example,&#160;when</p>
+<p style="position:absolute;top:814px;left:365px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:820px;left:377px;white-space:nowrap" class="ft615"><i>V</i></p>
+<p style="position:absolute;top:814px;left:394px;white-space:nowrap" class="ft616">=&#160;0</p>
+<p style="position:absolute;top:814px;left:419px;white-space:nowrap" class="ft614"><i>.</i></p>
+<p style="position:absolute;top:814px;left:423px;white-space:nowrap" class="ft616">98</p>
+<p style="position:absolute;top:814px;left:438px;white-space:nowrap" class="ft66">,</p>
+<p style="position:absolute;top:832px;left:108px;white-space:nowrap" class="ft68">the&#160;range&#160;of&#160;VM&#160;reliability&#160;values&#160;that&#160;can&#160;be&#160;accommo-<br/>dated&#160;is&#160;greater&#160;than&#160;the&#160;range&#160;when</p>
+<p style="position:absolute;top:850px;left:328px;white-space:nowrap" class="ft614"><i>R</i></p>
+<p style="position:absolute;top:856px;left:339px;white-space:nowrap" class="ft615"><i>V</i></p>
+<p style="position:absolute;top:850px;left:353px;white-space:nowrap" class="ft616">=&#160;0</p>
+<p style="position:absolute;top:850px;left:377px;white-space:nowrap" class="ft614"><i>.</i></p>
+<p style="position:absolute;top:850px;left:381px;white-space:nowrap" class="ft616">9</p>
+<p style="position:absolute;top:850px;left:388px;white-space:nowrap" class="ft66">.</p>
+<p style="position:absolute;top:877px;left:108px;white-space:nowrap" class="ft64">5&#160;Conclusion</p>
+<p style="position:absolute;top:906px;left:126px;white-space:nowrap" class="ft66">We&#160;described&#160;new&#160;ways&#160;of&#160;leveraging&#160;virtualization</p>
+<p style="position:absolute;top:924px;left:108px;white-space:nowrap" class="ft68">for&#160;improving&#160;system&#160;dependability.&#160;Using&#160;combinato-<br/>rial&#160;modeling,&#160;we&#160;provided&#160;more&#160;detailed&#160;analysis&#160;than<br/>was&#160;previously&#160;available&#160;on&#160;how&#160;virtualization&#160;can&#160;af-<br/>fect&#160;system&#160;dependability.&#160;Our&#160;results&#160;show&#160;that&#160;unless<br/>certain&#160;conditions&#160;(e.g.,&#160;regarding&#160;the&#160;reliability&#160;of&#160;the<br/>hypervisor&#160;and&#160;the&#160;number&#160;of&#160;VMs)&#160;are&#160;met,&#160;introducing<br/>virtualization&#160;could&#160;decrease&#160;the&#160;reliability&#160;of&#160;a&#160;physical<br/>node.&#160;In&#160;light&#160;of&#160;the&#160;general&#160;inclination&#160;to&#160;move&#160;ser-<br/>vices&#160;out&#160;of&#160;the&#160;guest&#160;OS&#160;into&#160;the&#160;virtualization&#160;layer,</p>
+<p style="position:absolute;top:110px;left:476px;white-space:nowrap" class="ft68">our&#160;results&#160;point&#160;out&#160;the&#160;need&#160;for&#160;a&#160;more&#160;cautious&#160;ap-<br/>proach.&#160;Notwithstanding&#160;the&#160;simplicity&#160;of&#160;the&#160;modeling<br/>technique&#160;and&#160;its&#160;associated&#160;strong&#160;assumptions&#160;(regard-<br/>ing&#160;independent&#160;module&#160;failures),&#160;our&#160;exercise&#160;points&#160;to<br/>the&#160;need&#160;for&#160;more&#160;thorough&#160;and&#160;rigorous&#160;modeling&#160;and<br/>assessment&#160;in&#160;the&#160;context&#160;of&#160;virtualization.</p>
+<p style="position:absolute;top:226px;left:476px;white-space:nowrap" class="ft64">References</p>
+<p style="position:absolute;top:264px;left:485px;white-space:nowrap" class="ft642">[1]</p>
+<p style="position:absolute;top:264px;left:508px;white-space:nowrap" class="ft643">A</p>
+<p style="position:absolute;top:264px;left:539px;white-space:nowrap" class="ft643">Time</p>
+<p style="position:absolute;top:264px;left:588px;white-space:nowrap" class="ft643">to</p>
+<p style="position:absolute;top:264px;left:619px;white-space:nowrap" class="ft643">Patch.</p>
+<p style="position:absolute;top:264px;left:713px;white-space:nowrap" class="ft644">http://blog.</p>
+<p style="position:absolute;top:281px;left:508px;white-space:nowrap" class="ft647">washingtonpost.com/securityfix/2006/<br/>01/a_time_to_patch.html</p>
+<p style="position:absolute;top:297px;left:694px;white-space:nowrap" class="ft643">.</p>
+<p style="position:absolute;top:312px;left:485px;white-space:nowrap" class="ft642">[2]</p>
+<p style="position:absolute;top:312px;left:508px;white-space:nowrap" class="ft643">VMWare&#160;Double-Take.</p>
+<p style="position:absolute;top:312px;left:665px;white-space:nowrap" class="ft644">http://www.vmware.</p>
+<p style="position:absolute;top:328px;left:508px;white-space:nowrap" class="ft644">com/pdf/vmware_doubletake.pdf</p>
+<p style="position:absolute;top:328px;left:742px;white-space:nowrap" class="ft643">.</p>
+<p style="position:absolute;top:343px;left:485px;white-space:nowrap" class="ft642">[3]</p>
+<p style="position:absolute;top:343px;left:508px;white-space:nowrap" class="ft648">A.&#160;Agbaria&#160;and&#160;R.&#160;Friedman.&#160;Virtual&#160;Machine&#160;Based<br/>Heterogeneous&#160;Checkpointing.</p>
+<p style="position:absolute;top:359px;left:683px;white-space:nowrap" class="ft645"><i>Software:&#160;Practice&#160;and</i></p>
+<p style="position:absolute;top:375px;left:508px;white-space:nowrap" class="ft645"><i>Experience</i></p>
+<p style="position:absolute;top:375px;left:569px;white-space:nowrap" class="ft643">,&#160;32(1):1–19,&#160;2002.</p>
+<p style="position:absolute;top:390px;left:485px;white-space:nowrap" class="ft642">[4]</p>
+<p style="position:absolute;top:390px;left:508px;white-space:nowrap" class="ft648">P.&#160;T.&#160;Barham,&#160;B.&#160;Dragovic,&#160;K.&#160;Fraser,&#160;S.&#160;Hand,&#160;T.&#160;L.&#160;Har-<br/>ris,&#160;A.&#160;Ho,&#160;R.&#160;Neugebauer,&#160;I.&#160;Pratt,&#160;and&#160;A.&#160;Warfield.&#160;Xen<br/>and&#160;the&#160;Art&#160;of&#160;Virtualization.&#160;In</p>
+<p style="position:absolute;top:423px;left:690px;white-space:nowrap" class="ft645"><i>Proc.&#160;19th&#160;ACM&#160;Sym-</i></p>
+<p style="position:absolute;top:439px;left:508px;white-space:nowrap" class="ft645"><i>posium&#160;on&#160;Operating&#160;Systems&#160;Principles&#160;(SOSP-2003)</i></p>
+<p style="position:absolute;top:439px;left:807px;white-space:nowrap" class="ft643">,</p>
+<p style="position:absolute;top:456px;left:508px;white-space:nowrap" class="ft643">pages&#160;164–177,&#160;October&#160;2003.</p>
+<p style="position:absolute;top:470px;left:485px;white-space:nowrap" class="ft642">[5]</p>
+<p style="position:absolute;top:470px;left:508px;white-space:nowrap" class="ft648">T.&#160;C.&#160;Bressoud&#160;and&#160;F.&#160;B.&#160;Schneider.&#160;Hypervisor-Based<br/>Fault&#160;Tolerance.</p>
+<p style="position:absolute;top:486px;left:598px;white-space:nowrap" class="ft645"><i>ACM&#160;Trans.&#160;Comput.&#160;Syst.</i></p>
+<p style="position:absolute;top:486px;left:738px;white-space:nowrap" class="ft643">,&#160;14(1),&#160;1996.</p>
+<p style="position:absolute;top:501px;left:485px;white-space:nowrap" class="ft642">[6]</p>
+<p style="position:absolute;top:501px;left:508px;white-space:nowrap" class="ft648">C.&#160;Clark,&#160;K.&#160;Fraser,&#160;S.&#160;Hand,&#160;J.&#160;G.&#160;Hansen,&#160;E.&#160;Jul,<br/>C.&#160;Limpach,&#160;I.&#160;Pratt,&#160;and&#160;A.&#160;Warfield.&#160;Live&#160;Migra-<br/>tion&#160;of&#160;Virtual&#160;Machines.&#160;In</p>
+<p style="position:absolute;top:534px;left:672px;white-space:nowrap" class="ft645"><i>Proc.&#160;2nd&#160;Symposium&#160;on</i></p>
+<p style="position:absolute;top:550px;left:508px;white-space:nowrap" class="ft649"><i>Networked&#160;Systems&#160;Design&#160;and&#160;Implementation&#160;(NSDI-<br/>2005)</i></p>
+<p style="position:absolute;top:567px;left:540px;white-space:nowrap" class="ft643">,&#160;May&#160;2005.</p>
+<p style="position:absolute;top:581px;left:485px;white-space:nowrap" class="ft642">[7]</p>
+<p style="position:absolute;top:581px;left:508px;white-space:nowrap" class="ft648">J.&#160;R.&#160;Douceur&#160;and&#160;J.&#160;Howell.&#160;Replicated&#160;Virtual&#160;Ma-<br/>chines.&#160;Technical&#160;Report&#160;MSR&#160;TR-2005-119,&#160;Microsoft<br/>Research,&#160;Sep&#160;2005.</p>
+<p style="position:absolute;top:628px;left:485px;white-space:nowrap" class="ft642">[8]</p>
+<p style="position:absolute;top:628px;left:508px;white-space:nowrap" class="ft648">G.&#160;W.&#160;Dunlap,&#160;S.&#160;T.&#160;King,&#160;S.&#160;Cinar,&#160;M.&#160;A.&#160;Basrai,&#160;and<br/>P.&#160;M.&#160;Chen.&#160;ReVirt:&#160;Enabling&#160;Intrusion&#160;Analysis&#160;through<br/>Virtual-Machine&#160;Logging&#160;and&#160;Replay.</p>
+<p style="position:absolute;top:661px;left:719px;white-space:nowrap" class="ft645"><i>SIGOPS&#160;Operat-</i></p>
+<p style="position:absolute;top:678px;left:508px;white-space:nowrap" class="ft645"><i>ing&#160;System&#160;Review</i></p>
+<p style="position:absolute;top:678px;left:608px;white-space:nowrap" class="ft643">,&#160;36(SI):211–224,&#160;2002.</p>
+<p style="position:absolute;top:692px;left:485px;white-space:nowrap" class="ft642">[9]</p>
+<p style="position:absolute;top:692px;left:508px;white-space:nowrap" class="ft643">T.&#160;Garfinkel&#160;and&#160;M.&#160;Rosenblum.</p>
+<p style="position:absolute;top:692px;left:717px;white-space:nowrap" class="ft643">When&#160;Virtual&#160;is</p>
+<p style="position:absolute;top:708px;left:508px;white-space:nowrap" class="ft648">Harder&#160;than&#160;Real:&#160;Security&#160;Challenges&#160;in&#160;Virtual&#160;Ma-<br/>chine&#160;Based&#160;Computing&#160;Environments.&#160;In</p>
+<p style="position:absolute;top:725px;left:752px;white-space:nowrap" class="ft645"><i>Proc.&#160;10th</i></p>
+<p style="position:absolute;top:741px;left:508px;white-space:nowrap" class="ft649"><i>Workshop&#160;on&#160;Hot&#160;Topics&#160;in&#160;Operating&#160;Systems&#160;(HotOS-<br/>X)</i></p>
+<p style="position:absolute;top:758px;left:521px;white-space:nowrap" class="ft643">,&#160;May&#160;2005.</p>
+<p style="position:absolute;top:772px;left:478px;white-space:nowrap" class="ft642">[10]</p>
+<p style="position:absolute;top:772px;left:508px;white-space:nowrap" class="ft643">B.&#160;W.&#160;Johnson.</p>
+<p style="position:absolute;top:772px;left:600px;white-space:nowrap" class="ft645"><i>Design&#160;and&#160;Analysis&#160;of&#160;Fault-Tolerant</i></p>
+<p style="position:absolute;top:789px;left:508px;white-space:nowrap" class="ft645"><i>Digital&#160;Systems</i></p>
+<p style="position:absolute;top:789px;left:592px;white-space:nowrap" class="ft643">.&#160;Addison-Wesley,&#160;1989.</p>
+<p style="position:absolute;top:803px;left:478px;white-space:nowrap" class="ft642">[11]</p>
+<p style="position:absolute;top:803px;left:508px;white-space:nowrap" class="ft648">A.&#160;Joshi,&#160;S.&#160;T.&#160;King,&#160;G.&#160;W.&#160;Dunlap,&#160;and&#160;P.&#160;M.<br/>Chen.&#160;Detecting&#160;Past&#160;and&#160;Present&#160;Intrusions&#160;through<br/>Vulnerability-Specific&#160;Predicates.&#160;In</p>
+<p style="position:absolute;top:836px;left:719px;white-space:nowrap" class="ft645"><i>Proc.&#160;20th&#160;ACM</i></p>
+<p style="position:absolute;top:852px;left:508px;white-space:nowrap" class="ft649"><i>Symposium&#160;on&#160;Operating&#160;Systems&#160;Principles&#160;(SOSP-<br/>2005)</i></p>
+<p style="position:absolute;top:869px;left:540px;white-space:nowrap" class="ft643">,&#160;pages&#160;91–104,&#160;2005.</p>
+<p style="position:absolute;top:883px;left:478px;white-space:nowrap" class="ft642">[12]</p>
+<p style="position:absolute;top:883px;left:508px;white-space:nowrap" class="ft648">S.&#160;T.&#160;King&#160;and&#160;P.&#160;M.&#160;Chen.&#160;Backtracking&#160;Intrusions.<br/>In</p>
+<p style="position:absolute;top:900px;left:525px;white-space:nowrap" class="ft645"><i>Proc.&#160;19th&#160;ACM&#160;Symposium&#160;on&#160;Operating&#160;Systems</i></p>
+<p style="position:absolute;top:916px;left:508px;white-space:nowrap" class="ft645"><i>Principles&#160;(SOSP-2003)</i></p>
+<p style="position:absolute;top:916px;left:639px;white-space:nowrap" class="ft643">,&#160;pages&#160;223–236,&#160;2003.</p>
+<p style="position:absolute;top:930px;left:478px;white-space:nowrap" class="ft642">[13]</p>
+<p style="position:absolute;top:930px;left:508px;white-space:nowrap" class="ft648">S.&#160;T.&#160;King,&#160;Z.&#160;M.&#160;Mao,&#160;D.&#160;G.&#160;Lucchetti,&#160;and&#160;P.&#160;M.&#160;Chen.<br/>Enriching&#160;Intrusion&#160;Alerts&#160;Through&#160;Multi-Host&#160;Causal-<br/>ity.&#160;In</p>
+<p style="position:absolute;top:963px;left:550px;white-space:nowrap" class="ft645"><i>Proc.&#160;Network&#160;and&#160;Distributed&#160;System&#160;Security</i></p>
+<p style="position:absolute;top:980px;left:508px;white-space:nowrap" class="ft645"><i>Symposium&#160;(NDSS-2005)</i></p>
+<p style="position:absolute;top:980px;left:645px;white-space:nowrap" class="ft643">,&#160;2005.</p>
+<p style="position:absolute;top:994px;left:478px;white-space:nowrap" class="ft642">[14]</p>
+<p style="position:absolute;top:994px;left:508px;white-space:nowrap" class="ft648">H.&#160;P.&#160;Reiser,&#160;F.&#160;J.&#160;Hauck,&#160;R.&#160;Kapitza,&#160;and&#160;W.&#160;Schr¨oder-<br/>Preikschat.&#160;Hypervisor-Based&#160;Redundant&#160;Execution&#160;on<br/>a&#160;Single&#160;Physical&#160;Host.&#160;In</p>
+<p style="position:absolute;top:1027px;left:654px;white-space:nowrap" class="ft645"><i>Proc.&#160;6th&#160;European&#160;Depend-</i></p>
+<p style="position:absolute;top:1043px;left:508px;white-space:nowrap" class="ft645"><i>able&#160;Computing&#160;Conference&#160;(EDCC-2006)</i></p>
+<p style="position:absolute;top:1043px;left:747px;white-space:nowrap" class="ft643">,&#160;page&#160;S.2,</p>
+<p style="position:absolute;top:1060px;left:508px;white-space:nowrap" class="ft643">2006.</p>
+<p style="position:absolute;top:1112px;left:455px;white-space:nowrap" class="ft61">6</p>
+</div>
+</body>
+</html>

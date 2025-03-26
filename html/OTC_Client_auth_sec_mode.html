@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>html/OTC_Client_auth_sec_mode</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="date" content="2006-02-23T13:43:44+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<!-- Page 1 -->
+<a name="1"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:26px;font-family:UXWVCX+CMR17;color:#000000;}
+	.ft11{font-size:18px;font-family:VGRIRF+CMR12;color:#000000;}
+	.ft12{font-size:13px;font-family:YGURCF+CMBX9;color:#000000;}
+	.ft13{font-size:13px;font-family:EPPPVW+CMR9;color:#000000;}
+	.ft14{font-size:22px;font-family:EYHHSV+CMBX12;color:#000000;}
+	.ft15{font-size:15px;font-family:JNRUKY+CMR10;color:#000000;}
+	.ft16{font-size:15px;font-family:UKUXQQ+CMTI10;color:#000000;}
+	.ft17{font-size:13px;line-height:16px;font-family:EPPPVW+CMR9;color:#000000;}
+	.ft18{font-size:15px;line-height:17px;font-family:JNRUKY+CMR10;color:#000000;}
+-->
+</style>
+<div id="page1-div" style="position:relative;width:892px;height:1262px;">
+<img width="892" height="1262" src="OTC_Client_auth_sec_mode001.png" alt="background image"/>
+<p style="position:absolute;top:247px;left:226px;white-space:nowrap" class="ft10">Client&#160;Authentication&#160;in&#160;Federations&#160;Using&#160;a</p>
+<p style="position:absolute;top:280px;left:383px;white-space:nowrap" class="ft10">Security&#160;Mode</p>
+<p style="position:absolute;top:329px;left:294px;white-space:nowrap" class="ft11">Sebastian&#160;Gajek&#160;and&#160;Ahmad-Reza&#160;Sadeghi</p>
+<p style="position:absolute;top:371px;left:316px;white-space:nowrap" class="ft11">Horst&#160;G¨</p>
+<p style="position:absolute;top:371px;left:379px;white-space:nowrap" class="ft11">ortz&#160;Institute&#160;for&#160;IT-Security</p>
+<p style="position:absolute;top:391px;left:322px;white-space:nowrap" class="ft11">Ruhr&#160;University&#160;Bochum,&#160;Germany</p>
+<p style="position:absolute;top:449px;left:428px;white-space:nowrap" class="ft12">Abstract</p>
+<p style="position:absolute;top:472px;left:259px;white-space:nowrap" class="ft13">Nowadays,&#160;identity-based&#160;client&#160;authentication&#160;(e.g.,&#160;by&#160;username/</p>
+<p style="position:absolute;top:489px;left:238px;white-space:nowrap" class="ft17">password)&#160;over&#160;SSL&#160;is&#160;the&#160;standard&#160;for&#160;user&#160;authentication&#160;on&#160;the&#160;Web.&#160;In<br/>particular,&#160;browser-based&#160;federated&#160;identity&#160;management&#160;(FIM)&#160;protocols<br/>prefer&#160;this&#160;technique&#160;to&#160;authenticate&#160;customers&#160;due&#160;to&#160;its&#160;user-convenience<br/>and&#160;lightweight&#160;access&#160;management.&#160;However,&#160;recent&#160;attacks&#160;known&#160;as<br/>phishing&#160;provide&#160;evidence&#160;that&#160;this&#160;authentication&#160;scheme&#160;is&#160;vulnerable&#160;to<br/>identity&#160;theft.&#160;As&#160;a&#160;consequence,&#160;FIM-protocols&#160;are&#160;likewise&#160;threatened<br/>by&#160;online-fraud.&#160;More&#160;dramatically,&#160;since&#160;FIM-protocols&#160;grant&#160;access&#160;to<br/>a&#160;federation&#160;of&#160;services&#160;with&#160;solely&#160;a&#160;single&#160;identity,&#160;a&#160;misuse&#160;affects&#160;many<br/>services&#160;equally.&#160;Therefore,&#160;we&#160;propose&#160;to&#160;define&#160;a&#160;secure&#160;mode&#160;(FIM-M),<br/>which&#160;downgrades&#160;malicious&#160;features&#160;of&#160;web&#160;browsers&#160;in&#160;the&#160;case&#160;of&#160;FIM<br/>and&#160;let&#160;us&#160;more&#160;concisely&#160;reason&#160;about&#160;the&#160;security&#160;of&#160;FIM-protocols.</p>
+<p style="position:absolute;top:697px;left:201px;white-space:nowrap" class="ft14">1</p>
+<p style="position:absolute;top:697px;left:237px;white-space:nowrap" class="ft14">Background</p>
+<p style="position:absolute;top:734px;left:201px;white-space:nowrap" class="ft18">Single&#160;sign-on&#160;approaches&#160;aim&#160;to&#160;offering&#160;one-click&#160;features&#160;across&#160;the&#160;entire<br/>world-wide&#160;web&#160;[5].&#160;Ideally,&#160;a&#160;password&#160;and&#160;some&#160;clicks&#160;should&#160;transfer&#160;both<br/>the&#160;user’s&#160;identity&#160;and&#160;relevant&#160;user&#160;information&#160;(also&#160;called&#160;attributes&#160;as&#160;gener-<br/>alizing&#160;term),&#160;which&#160;were&#160;deposited&#160;at&#160;a&#160;trusted&#160;third&#160;party&#160;acting&#160;as&#160;credential<br/>supplier.&#160;The&#160;main&#160;goal&#160;is&#160;to&#160;provide&#160;a&#160;user&#160;with&#160;a&#160;single&#160;identity&#160;(federated<br/>identity)&#160;for&#160;ease-of-use&#160;that&#160;she&#160;can&#160;reliably&#160;reuse&#160;in&#160;a&#160;federation&#160;of&#160;trusted&#160;ser-<br/>vices.&#160;Several&#160;proposals&#160;for</p>
+<p style="position:absolute;top:842px;left:378px;white-space:nowrap" class="ft16">federated&#160;identity&#160;management</p>
+<p style="position:absolute;top:842px;left:580px;white-space:nowrap" class="ft15">(FIM)&#160;protocols&#160;have</p>
+<p style="position:absolute;top:860px;left:201px;white-space:nowrap" class="ft18">been&#160;made&#160;so&#160;far.&#160;Examples&#160;include&#160;the&#160;Shibboleth&#160;project&#160;[1],&#160;Liberty&#160;Single<br/>Sign&#160;On&#160;[11],&#160;.NET&#160;passport&#160;[12],&#160;SAML&#160;[2],&#160;or&#160;WS-Federation&#160;[4].&#160;The&#160;chief<br/>requirement&#160;on&#160;above&#160;mentioned&#160;FIM-protocols&#160;is&#160;that&#160;a&#160;standard&#160;web&#160;browser<br/>should&#160;be&#160;able&#160;to&#160;provide&#160;a&#160;federated&#160;identity.&#160;An&#160;additional&#160;aggravation&#160;is&#160;that<br/>the&#160;user&#160;should&#160;be&#160;able&#160;to&#160;access&#160;her&#160;federated&#160;identity&#160;independently&#160;of&#160;her&#160;lo-<br/>cation,&#160;such&#160;as&#160;at&#160;Internet&#160;kiosks.&#160;Hence,&#160;all&#160;one&#160;can&#160;rely&#160;on&#160;is&#160;a&#160;web&#160;browser<br/>supporting&#160;standard&#160;web&#160;languages,&#160;and&#160;in&#160;particular&#160;transport&#160;protocols,&#160;such<br/>as&#160;HTTP&#160;triggered&#160;over&#160;SSL.</p>
+<p style="position:absolute;top:1044px;left:455px;white-space:nowrap" class="ft15">1</p>
+</div>
+<!-- Page 2 -->
+<a name="2"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft29{font-size:15px;font-family:CBWGYG+CMSY10;color:#000000;}
+-->
+</style>
+<div id="page2-div" style="position:relative;width:892px;height:1262px;">
+<img width="892" height="1262" src="OTC_Client_auth_sec_mode002.png" alt="background image"/>
+<p style="position:absolute;top:192px;left:223px;white-space:nowrap" class="ft25">Recent&#160;studies&#160;point&#160;out&#160;(e.g.,&#160;[3])&#160;that&#160;such&#160;a&#160;setting&#160;is&#160;susceptible&#160;to&#160;so-</p>
+<p style="position:absolute;top:210px;left:201px;white-space:nowrap" class="ft28">called&#160;phishing&#160;attacks.&#160;Adversaries&#160;imitate&#160;the&#160;look&#160;and&#160;feel&#160;of&#160;legitimate&#160;web<br/>sites&#160;including&#160;tampering&#160;with&#160;SSL&#160;security&#160;indicators&#160;to&#160;lure&#160;ordinary&#160;users<br/>to&#160;counterfeit&#160;web&#160;sites&#160;and&#160;suggest&#160;users&#160;to&#160;disclose&#160;their&#160;identity.&#160;By&#160;the<br/>day,&#160;destined&#160;services&#160;(e.g.,&#160;online-banking)&#160;are&#160;threatened&#160;by&#160;these&#160;attacks.<br/>In&#160;mid-term,&#160;we&#160;expect&#160;that&#160;phishing&#160;attacks&#160;will&#160;also&#160;proliferate&#160;and&#160;affect<br/>FIM-services:</p>
+<p style="position:absolute;top:328px;left:223px;white-space:nowrap" class="ft29">•</p>
+<p style="position:absolute;top:329px;left:238px;white-space:nowrap" class="ft28">The&#160;idea&#160;of&#160;federated&#160;identities&#160;was&#160;originally&#160;to&#160;advance&#160;electronic&#160;com-<br/>merce&#160;(ecommerce)&#160;and&#160;thus&#160;tailored&#160;to&#160;a&#160;wide&#160;range&#160;of&#160;consumers.&#160;Hav-<br/>ing&#160;our&#160;lessons&#160;learned,&#160;we&#160;must&#160;not&#160;presuppose&#160;that&#160;most&#160;of&#160;these&#160;con-<br/>sumers&#160;are&#160;highly&#160;security-diligent.&#160;In&#160;our&#160;opinion,&#160;the&#160;use&#160;of&#160;SSL&#160;in<br/>FIM-protocols&#160;is&#160;the&#160;only&#160;cryptographic&#160;mechanism&#160;we&#160;can&#160;rely&#160;on,&#160;if&#160;we<br/>consider&#160;a&#160;minimal&#160;setting,&#160;i.e.&#160;the&#160;user&#160;is&#160;equipped&#160;with&#160;a&#160;standard&#160;web<br/>brower&#160;solely.&#160;Unfortunately,&#160;ordinary&#160;users—the&#160;peak&#160;of&#160;consumers&#160;we<br/>consider—are&#160;unable&#160;to&#160;trustworthily&#160;identify&#160;an&#160;SSL-protected&#160;connec-<br/>tion&#160;(e.g.,&#160;all&#160;bogus&#160;phishing&#160;sites&#160;might&#160;have&#160;been&#160;disclosed,&#160;if&#160;a&#160;user&#160;had<br/>properly&#160;verified&#160;the&#160;server&#160;certificate).&#160;Consequently,&#160;we&#160;must&#160;assume<br/>that&#160;stealing&#160;a&#160;federated&#160;identity&#160;is&#160;feasible&#160;with&#160;means,&#160;phishing&#160;attacks<br/>currently&#160;use.</p>
+<p style="position:absolute;top:556px;left:223px;white-space:nowrap" class="ft29">•</p>
+<p style="position:absolute;top:556px;left:238px;white-space:nowrap" class="ft28">Identity&#160;theft&#160;on&#160;the&#160;Internet&#160;is&#160;linked&#160;to&#160;misuse&#160;(more&#160;precisely,&#160;to&#160;money<br/>laundering)&#160;and&#160;mostly&#160;yields&#160;financial&#160;losses&#160;of&#160;a&#160;betrayed&#160;customer.<br/>Therefore,&#160;financial&#160;services&#160;are&#160;lucrative&#160;targets.&#160;However,&#160;as&#160;the&#160;at-<br/>tack’s&#160;nuisance&#160;increases&#160;both&#160;in&#160;volume&#160;and&#160;sophistication,&#160;adversaries<br/>will&#160;focus&#160;on&#160;emerging&#160;new&#160;markets.&#160;We&#160;believe&#160;that&#160;phishing&#160;attacks<br/>will&#160;unfurl&#160;in&#160;ecommerce&#160;services&#160;as&#160;commerce&#160;of&#160;today&#160;provides&#160;a&#160;varie-<br/>gated&#160;portfolio&#160;of&#160;services&#160;offering&#160;phishers&#160;a&#160;plethora&#160;of&#160;new&#160;applications<br/>(e.g.,&#160;Pay-per-Download,&#160;Voice-over-IP)&#160;indirectly&#160;leading&#160;to&#160;comparable<br/>monetary&#160;enrichment.&#160;Unfortunately&#160;under&#160;this&#160;circumstances,&#160;a&#160;compro-<br/>mised&#160;federated&#160;identity&#160;equals&#160;a&#160;complimentary&#160;ticket&#160;to&#160;a&#160;federation&#160;of<br/>services.</p>
+<p style="position:absolute;top:766px;left:201px;white-space:nowrap" class="ft28">Based&#160;on&#160;this,&#160;we&#160;conclude&#160;that&#160;by&#160;today&#160;FIM&#160;does&#160;not&#160;achieve&#160;in&#160;practice&#160;a<br/>sufficient&#160;level&#160;of&#160;security&#160;to&#160;protect&#160;users&#160;from&#160;misuse&#160;of&#160;their&#160;identity,&#160;although<br/>recent&#160;work&#160;[8,&#160;7]&#160;attempted&#160;to&#160;formally&#160;analyze&#160;some&#160;FIM-protocols&#160;in&#160;secu-<br/>rity&#160;models&#160;(to&#160;prove&#160;security&#160;properties,&#160;such&#160;as&#160;authentication&#160;under&#160;certain<br/>assumptions).&#160;Hence,&#160;a&#160;weak&#160;level&#160;of&#160;security&#160;is&#160;crucial&#160;for&#160;a&#160;long-term&#160;estab-<br/>lishment&#160;of&#160;federated&#160;identities&#160;and&#160;it&#160;is&#160;mandatory&#160;to&#160;update&#160;future&#160;releases&#160;of<br/>web&#160;browsers;&#160;it&#160;is&#160;essential&#160;to&#160;discuss&#160;new&#160;security&#160;features&#160;filling&#160;the&#160;gap&#160;to<br/>secure&#160;the&#160;technology&#160;of&#160;federated&#160;identity&#160;management.</p>
+<p style="position:absolute;top:936px;left:201px;white-space:nowrap" class="ft24">2</p>
+<p style="position:absolute;top:936px;left:237px;white-space:nowrap" class="ft24">Our&#160;proposal</p>
+<p style="position:absolute;top:973px;left:201px;white-space:nowrap" class="ft28">Several&#160;browser-based&#160;approaches&#160;have&#160;been&#160;made&#160;to&#160;counteract&#160;phishing&#160;at-<br/>tacks.&#160;However,&#160;these&#160;approaches&#160;are&#160;tangential&#160;to&#160;our&#160;proposal.&#160;Since&#160;the&#160;ideas</p>
+<p style="position:absolute;top:1044px;left:455px;white-space:nowrap" class="ft25">2</p>
+</div>
+<!-- Page 3 -->
+<a name="3"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft310{font-size:15px;font-family:TKRVDX+CMBX10;color:#000000;}
+	.ft311{font-size:10px;font-family:MOLLOC+CMR7;color:#000000;}
+	.ft312{font-size:9px;font-family:HKLIZP+CMR6;color:#000000;}
+	.ft313{font-size:12px;font-family:UODSDQ+CMR8;color:#000000;}
+-->
+</style>
+<div id="page3-div" style="position:relative;width:892px;height:1262px;">
+<img width="892" height="1262" src="OTC_Client_auth_sec_mode003.png" alt="background image"/>
+<p style="position:absolute;top:192px;left:201px;white-space:nowrap" class="ft38">deter&#160;phishing&#160;attacks,&#160;they&#160;also&#160;counter&#160;federated&#160;identity&#160;theft.&#160;Nevertheless,<br/>regarding&#160;protection&#160;of&#160;FIM-services,&#160;we&#160;have&#160;to&#160;bear&#160;in&#160;mind&#160;their&#160;specific<br/>requirements:</p>
+<p style="position:absolute;top:256px;left:201px;white-space:nowrap" class="ft310">Usability</p>
+<p style="position:absolute;top:256px;left:276px;white-space:nowrap" class="ft35">A&#160;key&#160;requirement&#160;is&#160;ease-of-use.&#160;Users&#160;may&#160;not&#160;be&#160;distracted&#160;from</p>
+<p style="position:absolute;top:274px;left:238px;white-space:nowrap" class="ft35">any&#160;sophisticated&#160;interaction.</p>
+<p style="position:absolute;top:274px;left:452px;white-space:nowrap" class="ft35">Therefore,&#160;the&#160;user&#160;interface&#160;of&#160;a&#160;web</p>
+<p style="position:absolute;top:292px;left:238px;white-space:nowrap" class="ft38">browser&#160;is&#160;an&#160;essential&#160;part&#160;in&#160;browser-based&#160;FIM-protocols.&#160;Moreover,<br/>it&#160;is&#160;important&#160;that&#160;a&#160;web&#160;browser&#160;relaxes&#160;the&#160;user’s&#160;burdens.&#160;Ideally,<br/>browser&#160;and&#160;server&#160;should&#160;reclusively&#160;interact&#160;to&#160;establish&#160;a&#160;trusted&#160;chan-<br/>nel,&#160;i.e.&#160;the&#160;user&#160;must&#160;be&#160;relaxed&#160;to&#160;verify&#160;the&#160;security&#160;properties.&#160;Unfor-<br/>tunately,&#160;a&#160;web&#160;browser&#160;is&#160;unaware&#160;of&#160;the&#160;higher&#160;protocol&#160;it&#160;is&#160;involved&#160;in:<br/>In&#160;common&#160;security&#160;protocols,&#160;principals&#160;are&#160;assumed&#160;to&#160;execute&#160;precisely<br/>the&#160;security&#160;protocol&#160;under&#160;consideration&#160;unless&#160;they&#160;are&#160;corrupted.&#160;A<br/>browser,&#160;in&#160;contrast,&#160;reacts&#160;on&#160;a&#160;set&#160;of&#160;predefined&#160;messages,&#160;adds&#160;infor-<br/>mation&#160;to&#160;responses</p>
+<p style="position:absolute;top:435px;left:372px;white-space:nowrap" class="ft36">automatically</p>
+<p style="position:absolute;top:435px;left:459px;white-space:nowrap" class="ft35">,&#160;and&#160;stores&#160;certain&#160;information&#160;such&#160;as</p>
+<p style="position:absolute;top:453px;left:238px;white-space:nowrap" class="ft38">histories&#160;in&#160;places,&#160;which&#160;cannot&#160;always&#160;be&#160;assumed&#160;to&#160;be&#160;secure.&#160;This<br/>is&#160;a&#160;security&#160;concern&#160;having&#160;direct&#160;impact&#160;on&#160;the&#160;security&#160;of&#160;the&#160;higher<br/>protocol&#160;(see,&#160;e.g.,&#160;[6]&#160;for&#160;a&#160;concrete&#160;real&#160;world&#160;attack&#160;scenario&#160;on&#160;SAML.).<br/>We&#160;call&#160;such&#160;a&#160;party&#160;(like&#160;the&#160;browser)</p>
+<p style="position:absolute;top:507px;left:497px;white-space:nowrap" class="ft36">protocol-unaware</p>
+<p style="position:absolute;top:507px;left:607px;white-space:nowrap" class="ft35">.</p>
+<p style="position:absolute;top:536px;left:201px;white-space:nowrap" class="ft310">Restrictivity</p>
+<p style="position:absolute;top:536px;left:302px;white-space:nowrap" class="ft35">FIM&#160;provides&#160;access&#160;to&#160;a&#160;federation.&#160;These&#160;federations&#160;are&#160;closed</p>
+<p style="position:absolute;top:554px;left:238px;white-space:nowrap" class="ft38">groups&#160;of&#160;services,&#160;which&#160;share&#160;a&#160;trust&#160;relationship&#160;according&#160;to&#160;security<br/>policies.&#160;A&#160;major&#160;benefit&#160;in&#160;comparison&#160;to&#160;unique&#160;services&#160;is&#160;that&#160;we&#160;are<br/>able&#160;to&#160;stipulate&#160;a&#160;federated&#160;security&#160;policy.&#160;As&#160;we&#160;define&#160;how&#160;services<br/>communicate&#160;among&#160;each&#160;others,&#160;how&#160;they&#160;negotiate&#160;and&#160;access&#160;creden-<br/>tials,&#160;we&#160;can&#160;prerequisite&#160;how&#160;services&#160;are&#160;presented.&#160;Note&#160;that&#160;this&#160;is&#160;a<br/>complete&#160;new&#160;situation.&#160;A&#160;widely&#160;accepted&#160;position&#160;is&#160;that&#160;the&#160;limitation<br/>of&#160;modern&#160;web&#160;languages&#160;(e.g.,&#160;JavaScript,&#160;ActiveX)&#160;narrows&#160;the&#160;attrac-<br/>tion&#160;of&#160;the&#160;Internet.&#160;We&#160;fully&#160;agree&#160;with&#160;this&#160;opinion.&#160;Indeed,&#160;it&#160;is&#160;not<br/>practicable&#160;to&#160;reduce&#160;all&#160;features&#160;of&#160;modern&#160;web&#160;design&#160;in&#160;a&#160;general&#160;case.<br/>However,&#160;in&#160;a&#160;closed&#160;group&#160;we&#160;can&#160;more&#160;easily&#160;enforce&#160;that&#160;services&#160;fol-<br/>low&#160;common&#160;design&#160;principles,&#160;as&#160;we&#160;are&#160;able&#160;to&#160;define&#160;federated&#160;security<br/>policies.</p>
+<p style="position:absolute;top:780px;left:223px;white-space:nowrap" class="ft35">We&#160;propose&#160;to&#160;trigger&#160;the&#160;browser&#160;into&#160;a&#160;special&#160;mode&#160;(FIM-M)&#160;that&#160;tames</p>
+<p style="position:absolute;top:798px;left:201px;white-space:nowrap" class="ft38">the&#160;browser&#160;into&#160;a&#160;high&#160;security&#160;mode&#160;and&#160;follows&#160;both&#160;security&#160;guidelines.<br/>This&#160;is&#160;mandatory&#160;because&#160;the&#160;browser&#160;is&#160;protocol-unaware.&#160;Solely&#160;if&#160;we&#160;tame<br/>the&#160;browser&#160;we&#160;can&#160;expect&#160;how&#160;a&#160;FIM-protocol&#160;adheres.&#160;In&#160;other&#160;words,&#160;if<br/>we&#160;anticipate&#160;the&#160;states&#160;of&#160;a&#160;web&#160;browser,&#160;we&#160;are&#160;able&#160;to&#160;point&#160;out&#160;a&#160;sound<br/>protocol&#160;run&#160;and&#160;reason&#160;about&#160;the&#160;security.&#160;As&#160;mentioned&#160;before&#160;in,&#160;e.g.,&#160;[8,&#160;7]<br/>the&#160;authors&#160;already&#160;elaborated&#160;a&#160;model&#160;to&#160;analyze&#160;browser-based&#160;protocols.</p>
+<p style="position:absolute;top:905px;left:223px;white-space:nowrap" class="ft35">In&#160;detail,&#160;FIM-M&#160;limits&#160;features,&#160;which&#160;can&#160;be&#160;potentially&#160;misapplied&#160;to</p>
+<p style="position:absolute;top:923px;left:201px;white-space:nowrap" class="ft35">trick&#160;the&#160;user&#160;about&#160;a&#160;web&#160;site’s&#160;authenticity.</p>
+<p style="position:absolute;top:921px;left:504px;white-space:nowrap" class="ft311">1</p>
+<p style="position:absolute;top:923px;left:521px;white-space:nowrap" class="ft35">Concretely,&#160;we&#160;propose&#160;to&#160;re-</p>
+<p style="position:absolute;top:941px;left:201px;white-space:nowrap" class="ft38">duce&#160;the&#160;browser&#160;to&#160;the&#160;notion&#160;of&#160;“zero-footprint”,&#160;i.e.&#160;the&#160;browser&#160;supports<br/>solely&#160;rudimentary&#160;web&#160;language&#160;features.&#160;We&#160;do&#160;not&#160;claim&#160;that&#160;“zero-footprint”</p>
+<p style="position:absolute;top:984px;left:217px;white-space:nowrap" class="ft312">1</p>
+<p style="position:absolute;top:987px;left:224px;white-space:nowrap" class="ft313">Note&#160;that&#160;this&#160;requirement&#160;does&#160;not&#160;protect&#160;against&#160;any&#160;malware&#160;attack.&#160;This&#160;is&#160;out&#160;of</p>
+<p style="position:absolute;top:1001px;left:201px;white-space:nowrap" class="ft313">our&#160;scope.</p>
+<p style="position:absolute;top:1044px;left:455px;white-space:nowrap" class="ft35">3</p>
+</div>
+<!-- Page 4 -->
+<a name="4"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page4-div" style="position:relative;width:892px;height:1262px;">
+<img width="892" height="1262" src="OTC_Client_auth_sec_mode004.png" alt="background image"/>
+<p style="position:absolute;top:192px;left:201px;white-space:nowrap" class="ft48">solves&#160;completely&#160;the&#160;problem&#160;of&#160;identity&#160;theft,&#160;but&#160;rather&#160;domesticates&#160;adver-<br/>saries.&#160;Our&#160;goal&#160;is&#160;to&#160;prohibit&#160;the&#160;fakeability&#160;of&#160;security-relevant&#160;parts&#160;of&#160;the<br/>user-interface.&#160;A&#160;moderately&#160;educated&#160;user&#160;should&#160;always&#160;be&#160;able&#160;to&#160;see&#160;prop-<br/>erly&#160;displayed&#160;security&#160;and&#160;connection&#160;information.&#160;Today,&#160;web&#160;browsers&#160;are<br/>augmented&#160;with&#160;masses&#160;of&#160;features&#160;that&#160;obfuscate&#160;the&#160;real&#160;presentation.&#160;For<br/>instance,&#160;an&#160;adversary&#160;is&#160;still&#160;able&#160;to&#160;remotely&#160;turn&#160;off&#160;the&#160;address&#160;bar&#160;(display-<br/>ing&#160;the&#160;domain&#160;name—one&#160;fundamental&#160;indicator&#160;of&#160;a&#160;web&#160;site’s&#160;authenticity).<br/>Finally,&#160;we&#160;must&#160;return&#160;to&#160;the&#160;point&#160;that&#160;users&#160;“see&#160;what&#160;they&#160;get”.&#160;Second,<br/>we&#160;must&#160;ensure&#160;that&#160;users&#160;are&#160;able&#160;to&#160;understand&#160;SSL.&#160;However,&#160;this&#160;is&#160;an<br/>awkward&#160;task,&#160;as&#160;a&#160;“non-cryptographer”&#160;ought&#160;to&#160;understand&#160;how&#160;to&#160;properly<br/>indicate&#160;a&#160;trustworthy&#160;SSL-connection.&#160;We&#160;believe&#160;that&#160;today’s&#160;web&#160;browser<br/>do&#160;not&#160;provide&#160;the&#160;required&#160;convenience&#160;of&#160;non-cryptographers;&#160;vice&#160;versa,&#160;we<br/>have&#160;to&#160;accept&#160;that&#160;users&#160;(or&#160;a&#160;notable&#160;amount&#160;of&#160;them)&#160;will&#160;never&#160;provide&#160;the<br/>required&#160;diligence&#160;of&#160;cryptographers;&#160;security&#160;is&#160;made&#160;for&#160;laymen,&#160;and&#160;not&#160;for<br/>those&#160;who&#160;are&#160;experts&#160;in&#160;protecting&#160;themselves.&#160;Therefore,&#160;we&#160;encourage&#160;work<br/>that&#160;deploys&#160;non-cryptographic&#160;means&#160;to&#160;display&#160;security&#160;parameters.&#160;In&#160;this<br/>line,&#160;we&#160;see&#160;fruitable&#160;examples,&#160;such&#160;as&#160;Trustbar&#160;[9]&#160;or&#160;DPA&#160;[10],&#160;which&#160;deploy<br/>visual&#160;representations&#160;of&#160;cryptography.</p>
+<p style="position:absolute;top:515px;left:223px;white-space:nowrap" class="ft45">A&#160;challenge&#160;we&#160;face&#160;is&#160;how&#160;to&#160;activate&#160;this&#160;mode.&#160;We&#160;prefer&#160;a&#160;remote&#160;acti-</p>
+<p style="position:absolute;top:532px;left:201px;white-space:nowrap" class="ft48">vation&#160;to&#160;again&#160;relax&#160;the&#160;user’&#160;s&#160;burdens.&#160;Ideally,&#160;this&#160;can&#160;be&#160;achieved,&#160;when<br/>browsers&#160;would&#160;automatically&#160;detect&#160;FIM-protocols&#160;(e.g.,&#160;by&#160;recognizing&#160;a&#160;spe-<br/>cial&#160;HTML&#160;tag).&#160;This&#160;is&#160;not&#160;a&#160;crucial&#160;task&#160;as&#160;we&#160;wrap&#160;the&#160;browser&#160;into&#160;a<br/>secure&#160;mode&#160;and&#160;tame&#160;his&#160;functionality.&#160;An&#160;adversary&#160;would&#160;rather&#160;intend&#160;to<br/>find&#160;means&#160;how&#160;to&#160;circumvent&#160;this&#160;mode,&#160;i.e.&#160;to&#160;gain&#160;access&#160;to&#160;features&#160;laying<br/>the&#160;grounds&#160;of&#160;his&#160;attack.&#160;Today,&#160;users&#160;can&#160;manually&#160;realize&#160;some&#160;rudimentary<br/>aspects&#160;of&#160;FIM-M.&#160;For&#160;instance,&#160;the&#160;IE6&#160;provides&#160;to&#160;configure&#160;Internet&#160;zones,<br/>which&#160;set&#160;up&#160;security&#160;levels.&#160;However,&#160;this&#160;feature&#160;is&#160;rarely&#160;used&#160;because&#160;(a)&#160;a<br/>user&#160;must&#160;take&#160;care&#160;of&#160;the&#160;configuration&#160;and&#160;(b)&#160;must&#160;verify,&#160;if&#160;indeed&#160;the&#160;level<br/>has&#160;been&#160;activated.&#160;Vice&#160;versa,&#160;a&#160;remote&#160;activation&#160;has&#160;the&#160;advantage&#160;that&#160;the<br/>FIM-provider&#160;could&#160;ensure&#160;a&#160;client’s&#160;browser&#160;is&#160;securely&#160;wrapped.</p>
+<p style="position:absolute;top:757px;left:201px;white-space:nowrap" class="ft44">3</p>
+<p style="position:absolute;top:757px;left:237px;white-space:nowrap" class="ft44">Summary&#160;and&#160;Future&#160;Work</p>
+<p style="position:absolute;top:794px;left:201px;white-space:nowrap" class="ft45">In&#160;a&#160;discussion&#160;we&#160;would&#160;like&#160;to&#160;contribute&#160;two&#160;parts.</p>
+<p style="position:absolute;top:825px;left:223px;white-space:nowrap" class="ft49">•</p>
+<p style="position:absolute;top:826px;left:238px;white-space:nowrap" class="ft48">First,&#160;we&#160;outline&#160;the&#160;peril&#160;current&#160;web&#160;authentication&#160;mechanisms&#160;pose<br/>on&#160;federated&#160;identity&#160;management.&#160;For&#160;the&#160;sake&#160;of&#160;briefness,&#160;we&#160;focus<br/>our&#160;discussion&#160;on&#160;browser-based&#160;protocols&#160;and&#160;pinpoint&#160;flaws,&#160;which&#160;were<br/>found&#160;in&#160;the&#160;past&#160;and&#160;outline&#160;features&#160;that&#160;in&#160;particular&#160;threat&#160;the&#160;security<br/>of&#160;FIM-protocols.</p>
+<p style="position:absolute;top:926px;left:223px;white-space:nowrap" class="ft49">•</p>
+<p style="position:absolute;top:927px;left:238px;white-space:nowrap" class="ft48">Second,&#160;we&#160;sketch&#160;a&#160;wish&#160;list&#160;of&#160;features&#160;and&#160;non-features&#160;we&#160;expect&#160;in<br/>future&#160;releases&#160;of&#160;web&#160;browsers&#160;to&#160;fulfill&#160;a&#160;high&#160;level&#160;of&#160;security.&#160;We&#160;see<br/>the&#160;web&#160;browser&#160;as&#160;the&#160;most&#160;important&#160;responsibility&#160;for&#160;the&#160;wide-spread<br/>adaption&#160;of&#160;FIM.&#160;As&#160;the&#160;user’s&#160;interface&#160;to&#160;a&#160;federation&#160;of&#160;services,&#160;security<br/>features&#160;of&#160;a&#160;web&#160;browser&#160;mainly&#160;will&#160;impact&#160;trust&#160;in&#160;federated&#160;identities.</p>
+<p style="position:absolute;top:1044px;left:455px;white-space:nowrap" class="ft45">4</p>
+</div>
+<!-- Page 5 -->
+<a name="5"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page5-div" style="position:relative;width:892px;height:1262px;">
+<img width="892" height="1262" src="OTC_Client_auth_sec_mode005.png" alt="background image"/>
+<p style="position:absolute;top:187px;left:201px;white-space:nowrap" class="ft54">References</p>
+<p style="position:absolute;top:225px;left:208px;white-space:nowrap" class="ft55">[1]</p>
+<p style="position:absolute;top:225px;left:231px;white-space:nowrap" class="ft56">Shibboleth-Architecture</p>
+<p style="position:absolute;top:225px;left:398px;white-space:nowrap" class="ft56">Draft</p>
+<p style="position:absolute;top:225px;left:451px;white-space:nowrap" class="ft56">v05</p>
+<p style="position:absolute;top:225px;left:473px;white-space:nowrap" class="ft55">,</p>
+<p style="position:absolute;top:225px;left:500px;white-space:nowrap" class="ft55">May</p>
+<p style="position:absolute;top:225px;left:548px;white-space:nowrap" class="ft55">2002</p>
+<p style="position:absolute;top:225px;left:597px;white-space:nowrap" class="ft55">(v01</p>
+<p style="position:absolute;top:225px;left:645px;white-space:nowrap" class="ft55">in</p>
+<p style="position:absolute;top:225px;left:676px;white-space:nowrap" class="ft55">2001).</p>
+<p style="position:absolute;top:242px;left:231px;white-space:nowrap" class="ft58">http://middleware.internet2.edu/shibboleth/docs/draft-internet2-<br/>shibboleth-arch-v05.pdf.</p>
+<p style="position:absolute;top:290px;left:208px;white-space:nowrap" class="ft55">[2]</p>
+<p style="position:absolute;top:290px;left:231px;white-space:nowrap" class="ft56">Security&#160;Assertion&#160;Markup&#160;Language&#160;(SAML);&#160;OASIS&#160;Standard</p>
+<p style="position:absolute;top:290px;left:643px;white-space:nowrap" class="ft55">,&#160;November</p>
+<p style="position:absolute;top:308px;left:231px;white-space:nowrap" class="ft55">2002.&#160;http://www.oasis-open.org/committees/security/docs/.</p>
+<p style="position:absolute;top:338px;left:208px;white-space:nowrap" class="ft55">[3]&#160;A.&#160;Adelsbach,&#160;S.&#160;Gajek,&#160;and&#160;J.&#160;Schwenk.&#160;Visual&#160;Spoofing&#160;of&#160;SSL&#160;Protected</p>
+<p style="position:absolute;top:356px;left:231px;white-space:nowrap" class="ft55">Web&#160;Sites&#160;and&#160;Effective&#160;Countermeasures.&#160;In</p>
+<p style="position:absolute;top:356px;left:524px;white-space:nowrap" class="ft56">Information&#160;Security&#160;Practice</p>
+<p style="position:absolute;top:374px;left:231px;white-space:nowrap" class="ft56">and&#160;Experience&#160;Conference</p>
+<p style="position:absolute;top:374px;left:408px;white-space:nowrap" class="ft55">,&#160;2005.</p>
+<p style="position:absolute;top:404px;left:208px;white-space:nowrap" class="ft55">[4]&#160;BEA,&#160;IBM,&#160;Microsoft,&#160;RSA&#160;Security,&#160;and&#160;VeriSign.</p>
+<p style="position:absolute;top:404px;left:615px;white-space:nowrap" class="ft56">WS-Federation:</p>
+<p style="position:absolute;top:422px;left:231px;white-space:nowrap" class="ft56">Passive</p>
+<p style="position:absolute;top:422px;left:296px;white-space:nowrap" class="ft56">Requestor</p>
+<p style="position:absolute;top:422px;left:375px;white-space:nowrap" class="ft56">Profile;</p>
+<p style="position:absolute;top:422px;left:443px;white-space:nowrap" class="ft56">Draft,</p>
+<p style="position:absolute;top:422px;left:501px;white-space:nowrap" class="ft56">Version</p>
+<p style="position:absolute;top:422px;left:567px;white-space:nowrap" class="ft56">1.0</p>
+<p style="position:absolute;top:422px;left:586px;white-space:nowrap" class="ft55">.</p>
+<p style="position:absolute;top:422px;left:632px;white-space:nowrap" class="ft55">http://www-</p>
+<p style="position:absolute;top:440px;left:231px;white-space:nowrap" class="ft55">106.ibm.com/developerworks/webservices/.</p>
+<p style="position:absolute;top:470px;left:208px;white-space:nowrap" class="ft55">[5]&#160;Birgit&#160;Pfitzmann&#160;and&#160;Michael&#160;Waidner.&#160;BBAE&#160;A&#160;General&#160;Protocol&#160;for</p>
+<p style="position:absolute;top:488px;left:231px;white-space:nowrap" class="ft55">Browser-based&#160;Attribute.&#160;Technical&#160;report,&#160;IBM&#160;Z¨</p>
+<p style="position:absolute;top:488px;left:563px;white-space:nowrap" class="ft55">urich,&#160;2002.</p>
+<p style="position:absolute;top:517px;left:208px;white-space:nowrap" class="ft55">[6]&#160;T.&#160;Groß.&#160;Security&#160;analysis&#160;of&#160;the&#160;saml&#160;single&#160;sign-on&#160;browser/artifact&#160;pro-</p>
+<p style="position:absolute;top:535px;left:231px;white-space:nowrap" class="ft55">file.&#160;In</p>
+<p style="position:absolute;top:535px;left:281px;white-space:nowrap" class="ft56">19th&#160;Annual&#160;Computer&#160;Security&#160;Applications&#160;Conference&#160;(ACSAC</p>
+<p style="position:absolute;top:553px;left:231px;white-space:nowrap" class="ft56">2003)</p>
+<p style="position:absolute;top:553px;left:268px;white-space:nowrap" class="ft55">.&#160;IEEE&#160;Computer&#160;Society&#160;Press,&#160;2003.</p>
+<p style="position:absolute;top:583px;left:208px;white-space:nowrap" class="ft55">[7]&#160;T.&#160;Groß,&#160;B.&#160;Pfitzmann,&#160;and&#160;A.-R.&#160;Sadeghi.&#160;Proving&#160;a&#160;ws-federation&#160;passive</p>
+<p style="position:absolute;top:601px;left:231px;white-space:nowrap" class="ft55">requestor&#160;profile&#160;with&#160;a&#160;browser&#160;model.&#160;In</p>
+<p style="position:absolute;top:601px;left:510px;white-space:nowrap" class="ft56">ACM&#160;Workshop&#160;on&#160;Secure&#160;Web</p>
+<p style="position:absolute;top:619px;left:231px;white-space:nowrap" class="ft56">Services&#160;(SWS)</p>
+<p style="position:absolute;top:619px;left:333px;white-space:nowrap" class="ft55">,&#160;pages&#160;54–64.&#160;ACM&#160;Press,&#160;November&#160;2005.</p>
+<p style="position:absolute;top:649px;left:208px;white-space:nowrap" class="ft55">[8]&#160;T.&#160;Groß,&#160;B.&#160;Pfitzmann,&#160;and&#160;A.-R.&#160;Sadeghi.&#160;Browser&#160;model&#160;for&#160;security</p>
+<p style="position:absolute;top:667px;left:231px;white-space:nowrap" class="ft55">analysis&#160;of&#160;browser-based&#160;protocols.&#160;In</p>
+<p style="position:absolute;top:667px;left:493px;white-space:nowrap" class="ft56">10th&#160;European&#160;Symposium&#160;on&#160;Re-</p>
+<p style="position:absolute;top:685px;left:231px;white-space:nowrap" class="ft56">search&#160;in&#160;Computer&#160;Security&#160;(ESORICS)</p>
+<p style="position:absolute;top:685px;left:507px;white-space:nowrap" class="ft55">,&#160;volume&#160;3679&#160;of</p>
+<p style="position:absolute;top:685px;left:626px;white-space:nowrap" class="ft56">Lecture&#160;Notes</p>
+<p style="position:absolute;top:703px;left:231px;white-space:nowrap" class="ft56">on&#160;Computer&#160;Science</p>
+<p style="position:absolute;top:703px;left:374px;white-space:nowrap" class="ft55">,&#160;pages&#160;489–508.&#160;Springer&#160;Verlag,&#160;September&#160;2005.</p>
+<p style="position:absolute;top:721px;left:231px;white-space:nowrap" class="ft55">Earlier&#160;version&#160;IBM&#160;Research&#160;Report&#160;RZ&#160;3600&#160;(#99610).</p>
+<p style="position:absolute;top:751px;left:208px;white-space:nowrap" class="ft55">[9]&#160;A.&#160;Herzberg&#160;and&#160;A.&#160;Gbara.&#160;TrustBar:&#160;Protecting&#160;(even&#160;Naive)&#160;Web&#160;Users</p>
+<p style="position:absolute;top:768px;left:231px;white-space:nowrap" class="ft58">from&#160;Spoofing&#160;and&#160;Phishing&#160;Attacks.&#160;IACR&#160;Cryptology&#160;ePrint&#160;Archive,<br/>2004.</p>
+<p style="position:absolute;top:816px;left:201px;white-space:nowrap" class="ft55">[10]&#160;M.&#160;Jakobsson&#160;and&#160;S.&#160;Myers.&#160;Stealth&#160;Attacks&#160;and&#160;Delayed&#160;Password&#160;Dis-</p>
+<p style="position:absolute;top:834px;left:231px;white-space:nowrap" class="ft55">closure.,&#160;2005.</p>
+<p style="position:absolute;top:864px;left:201px;white-space:nowrap" class="ft55">[11]&#160;Liberty&#160;Alliance&#160;Project.</p>
+<p style="position:absolute;top:864px;left:404px;white-space:nowrap" class="ft56">Liberty&#160;Phase&#160;2&#160;Final&#160;Specifications</p>
+<p style="position:absolute;top:864px;left:641px;white-space:nowrap" class="ft55">,&#160;November</p>
+<p style="position:absolute;top:882px;left:231px;white-space:nowrap" class="ft58">2003.&#160;http://www.projectliberty.org/specs/lap-phase2-final.zip&#160;(v1.0&#160;July<br/>2002).</p>
+<p style="position:absolute;top:930px;left:201px;white-space:nowrap" class="ft55">[12]&#160;Microsoft&#160;Corporation.</p>
+<p style="position:absolute;top:930px;left:408px;white-space:nowrap" class="ft56">.NET&#160;Passport&#160;documentation,&#160;in&#160;particular</p>
+<p style="position:absolute;top:948px;left:231px;white-space:nowrap" class="ft56">Technical&#160;Overview</p>
+<p style="position:absolute;top:948px;left:362px;white-space:nowrap" class="ft55">,&#160;September&#160;2001.</p>
+<p style="position:absolute;top:948px;left:512px;white-space:nowrap" class="ft55">http://www.passport.com&#160;and</p>
+<p style="position:absolute;top:966px;left:231px;white-space:nowrap" class="ft55">http://msdn.microsoft.com/downloads.</p>
+<p style="position:absolute;top:1044px;left:455px;white-space:nowrap" class="ft55">5</p>
+</div>
+</body>
+</html>

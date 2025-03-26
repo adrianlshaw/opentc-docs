@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>UC.WP05c.1: Virtualized Data Center Scenario</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="date" content="2009-05-04T15:16:39+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<!-- Page 1 -->
+<a name="1"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:13px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft11{font-size:19px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft12{font-size:27px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft13{font-size:17px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft14{font-size:17px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft15{font-size:10px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft16{font-size:14px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft17{font-size:17px;line-height:19px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft18{font-size:17px;line-height:19px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page1-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OpenTC_D10.10_Final_Training_Documentation001.png" alt="background image"/>
+<p style="position:absolute;top:137px;left:92px;white-space:nowrap" class="ft10">&#160;</p>
+<p style="position:absolute;top:76px;left:91px;white-space:nowrap" class="ft11">&#160;</p>
+<p style="position:absolute;top:188px;left:217px;white-space:nowrap" class="ft12"><b>D10.10&#160;Final Training Material</b></p>
+<p style="position:absolute;top:265px;left:91px;white-space:nowrap" class="ft13"><b>Project number</b></p>
+<p style="position:absolute;top:265px;left:425px;white-space:nowrap" class="ft14">IST-027635</p>
+<p style="position:absolute;top:291px;left:91px;white-space:nowrap" class="ft13"><b>Project acronym</b></p>
+<p style="position:absolute;top:291px;left:425px;white-space:nowrap" class="ft14">Open_TC</p>
+<p style="position:absolute;top:316px;left:91px;white-space:nowrap" class="ft13"><b>Project title</b></p>
+<p style="position:absolute;top:316px;left:425px;white-space:nowrap" class="ft14">Open Trusted Computing</p>
+<p style="position:absolute;top:342px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;type</b></p>
+<p style="position:absolute;top:342px;left:425px;white-space:nowrap" class="ft14">Report</p>
+<p style="position:absolute;top:385px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;reference number</b></p>
+<p style="position:absolute;top:385px;left:425px;white-space:nowrap" class="ft14">IST-027635/D10.10/V1.0 FINAL</p>
+<p style="position:absolute;top:410px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;title</b></p>
+<p style="position:absolute;top:410px;left:425px;white-space:nowrap" class="ft14">Final Training Material</p>
+<p style="position:absolute;top:436px;left:91px;white-space:nowrap" class="ft13"><b>WP&#160;contributing&#160;to the deliverable</b></p>
+<p style="position:absolute;top:436px;left:425px;white-space:nowrap" class="ft14">WP10</p>
+<p style="position:absolute;top:461px;left:91px;white-space:nowrap" class="ft13"><b>Due&#160;date</b></p>
+<p style="position:absolute;top:461px;left:425px;white-space:nowrap" class="ft14">Oct&#160;2008 -&#160;M36</p>
+<p style="position:absolute;top:487px;left:91px;white-space:nowrap" class="ft13"><b>Actual&#160;submission&#160;date</b></p>
+<p style="position:absolute;top:487px;left:425px;white-space:nowrap" class="ft14">April 30th, 2009</p>
+<p style="position:absolute;top:530px;left:91px;white-space:nowrap" class="ft13"><b>Responsible Organisation</b></p>
+<p style="position:absolute;top:530px;left:424px;white-space:nowrap" class="ft14">PORT</p>
+<p style="position:absolute;top:633px;left:91px;white-space:nowrap" class="ft13"><b>Authors</b></p>
+<p style="position:absolute;top:556px;left:424px;white-space:nowrap" class="ft17">PORT (Bora&#160;Güngören, Burak&#160;Oğuz, Serdar&#160;<br/>Tuğcu, Emre Yüce)&#160;<br/>IAIK&#160;(Peter Lipp, Thomas&#160;Winkler, Martin&#160;<br/>Pirker)&#160;<br/>RHUL&#160;(Eimear Gallery, Chris&#160;Mitchell)<br/>HP (Graeme Proudler),<br/>CUCL (Steve Hand)<br/>TEC (Herbert&#160;Petautschnig)<br/>TUB&#160;(Görkem Çetin, Kadir İmamoğlu)</p>
+<p style="position:absolute;top:733px;left:91px;white-space:nowrap" class="ft13"><b>Abstract</b></p>
+<p style="position:absolute;top:733px;left:424px;white-space:nowrap" class="ft17">This&#160;is the final collection of training material&#160;<br/>from OpenTC partners.&#160;</p>
+<p style="position:absolute;top:785px;left:91px;white-space:nowrap" class="ft13"><b>Keywords</b></p>
+<p style="position:absolute;top:775px;left:424px;white-space:nowrap" class="ft17">Training concepts,&#160;training plans, educational&#160;<br/>material, Trusted Computing.</p>
+<p style="position:absolute;top:817px;left:92px;white-space:nowrap" class="ft13"><b>Dissemination&#160;level</b></p>
+<p style="position:absolute;top:817px;left:423px;white-space:nowrap" class="ft14">Public</p>
+<p style="position:absolute;top:842px;left:92px;white-space:nowrap" class="ft13"><b>Revision</b></p>
+<p style="position:absolute;top:842px;left:423px;white-space:nowrap" class="ft14">V1.0&#160;FINAL</p>
+<p style="position:absolute;top:894px;left:90px;white-space:nowrap" class="ft13"><b>Instrument</b></p>
+<p style="position:absolute;top:894px;left:271px;white-space:nowrap" class="ft14">IP</p>
+<p style="position:absolute;top:884px;left:452px;white-space:nowrap" class="ft18"><b>Start&#160;date of&#160;the&#160;<br/>project</b></p>
+<p style="position:absolute;top:894px;left:633px;white-space:nowrap" class="ft14">1</p>
+<p style="position:absolute;top:893px;left:643px;white-space:nowrap" class="ft15">st</p>
+<p style="position:absolute;top:894px;left:652px;white-space:nowrap" class="ft14">&#160;November 2005</p>
+<p style="position:absolute;top:922px;left:90px;white-space:nowrap" class="ft13"><b>Thematic&#160;Priority</b></p>
+<p style="position:absolute;top:922px;left:271px;white-space:nowrap" class="ft14">IST</p>
+<p style="position:absolute;top:922px;left:452px;white-space:nowrap" class="ft13"><b>Duration</b></p>
+<p style="position:absolute;top:922px;left:633px;white-space:nowrap" class="ft14">42 months</p>
+<p style="position:absolute;top:75px;left:674px;white-space:nowrap" class="ft16">&#160;</p>
+</div>
+<!-- Page 2 -->
+<a name="2"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft29{font-size:8px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft210{font-size:12px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft211{font-size:15px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft212{font-size:17px;font-family:EAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page2-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OpenTC_D10.10_Final_Training_Documentation002.png" alt="background image"/>
+<p style="position:absolute;top:125px;left:98px;white-space:nowrap" class="ft29">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft210">&#160;</p>
+<p style="position:absolute;top:91px;left:312px;white-space:nowrap" class="ft211">D10.10 Final Training&#160;Material</p>
+<p style="position:absolute;top:149px;left:364px;white-space:nowrap" class="ft23"><b>Table of Contents</b></p>
+<p style="position:absolute;top:187px;left:85px;white-space:nowrap" class="ft23"><b>1&#160;&#160;Introduction..........................................................................................&#160;3</b></p>
+<p style="position:absolute;top:216px;left:85px;white-space:nowrap" class="ft23"><b>2&#160;&#160;Partner&#160;Contributions............................................................................&#160;3</b></p>
+<p style="position:absolute;top:245px;left:94px;white-space:nowrap" class="ft24">2.1&#160;&#160;Academic&#160;Partners................................................................................................&#160;3</p>
+<p style="position:absolute;top:274px;left:102px;white-space:nowrap" class="ft212"><i>2.1.1&#160;&#160;Royal&#160;Holloway,&#160;University of London..............................................................&#160;3</i></p>
+<p style="position:absolute;top:302px;left:102px;white-space:nowrap" class="ft212"><i>2.1.2&#160;&#160;Institute for&#160;Applied Information&#160;Processing&#160;and Communication....................&#160;3</i></p>
+<p style="position:absolute;top:331px;left:102px;white-space:nowrap" class="ft212"><i>2.1.3&#160;&#160;TUBITAK............................................................................................................&#160;4</i></p>
+<p style="position:absolute;top:360px;left:102px;white-space:nowrap" class="ft212"><i>2.1.4&#160;&#160;Seminars,&#160;workshops&#160;and educational&#160;talks.....................................................&#160;4</i></p>
+<p style="position:absolute;top:389px;left:94px;white-space:nowrap" class="ft24">2.2&#160;&#160;Non-Academic&#160;Partners.........................................................................................&#160;4</p>
+<p style="position:absolute;top:418px;left:102px;white-space:nowrap" class="ft212"><i>2.2.1&#160;&#160;Technikon.........................................................................................................&#160;4</i></p>
+<p style="position:absolute;top:446px;left:102px;white-space:nowrap" class="ft212"><i>2.2.2&#160;&#160;Portakal&#160;Teknoloji.............................................................................................&#160;5</i></p>
+<p style="position:absolute;top:475px;left:85px;white-space:nowrap" class="ft23"><b>3&#160;&#160;Royal&#160;Holloway, University&#160;of London.....................................................&#160;6</b></p>
+<p style="position:absolute;top:504px;left:85px;white-space:nowrap" class="ft23"><b>4&#160;&#160;Institute for Applied&#160;Information&#160;Processing&#160;and&#160;Communication.......&#160;1248</b></p>
+<p style="position:absolute;top:533px;left:85px;white-space:nowrap" class="ft23"><b>5&#160;&#160;TUBITAK..........................................................................................&#160;1715</b></p>
+<p style="position:absolute;top:562px;left:85px;white-space:nowrap" class="ft23"><b>6&#160;&#160;Technikon........................................................................................&#160;1936</b></p>
+<p style="position:absolute;top:590px;left:85px;white-space:nowrap" class="ft23"><b>7&#160;&#160;Portakal Teknoloji............................................................................&#160;1971</b></p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft211">Open_TC Deliverable&#160;D10.10</p>
+<p style="position:absolute;top:1160px;left:798px;white-space:nowrap" class="ft211">2</p>
+</div>
+<!-- Page 3 -->
+<a name="3"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft313{font-size:15px;font-family:FAAAAA+BitstreamVeraSerif;color:#000000;}
+	.ft314{font-size:18px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft315{font-size:15px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page3-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OpenTC_D10.10_Final_Training_Documentation003.png" alt="background image"/>
+<p style="position:absolute;top:125px;left:98px;white-space:nowrap" class="ft39">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft310">&#160;</p>
+<p style="position:absolute;top:91px;left:312px;white-space:nowrap" class="ft311">D10.10 Final Training&#160;Material</p>
+<p style="position:absolute;top:170px;left:85px;white-space:nowrap" class="ft313"><b>1&#160;</b></p>
+<p style="position:absolute;top:167px;left:117px;white-space:nowrap" class="ft314"><b>Introduction</b></p>
+<p style="position:absolute;top:192px;left:85px;white-space:nowrap" class="ft37">Training&#160;activities&#160;have&#160;been&#160;integrated&#160;into&#160;WP10&#160;to&#160;ensure&#160;knowledge&#160;transfer&#160;to&#160;<br/>potential&#160;&#160;&#160;users&#160;&#160;&#160;of&#160;&#160;&#160;trusted&#160;&#160;&#160;computing&#160;&#160;&#160;technologies.&#160;&#160;&#160;Target&#160;&#160;&#160;audiences&#160;&#160;&#160;include&#160;<br/>engineers,&#160;&#160;&#160;undergraduate&#160;&#160;&#160;and&#160;&#160;&#160;postgraduate&#160;&#160;&#160;students,&#160;&#160;&#160;researchers&#160;&#160;&#160;and&#160;&#160;&#160;industrial&#160;<br/>executives,&#160;and&#160;training&#160;activities&#160;have&#160;taken&#160;the&#160;form&#160;of&#160;seminars,&#160;summer&#160;schools,&#160;<br/>workshops&#160;&#160;&#160;and&#160;&#160;&#160;on-line&#160;&#160;&#160;courses.&#160;&#160;&#160;During&#160;&#160;&#160;the&#160;&#160;&#160;early&#160;&#160;&#160;stages&#160;&#160;&#160;of&#160;&#160;&#160;the&#160;&#160;&#160;project,&#160;&#160;&#160;activities&#160;<br/>focused&#160;on&#160;the&#160;detailed&#160;planning&#160;and&#160;definition&#160;of&#160;the&#160;training&#160;courses/material&#160;that&#160;in&#160;<br/>the&#160;&#160;&#160;latter&#160;&#160;&#160;stages&#160;&#160;&#160;have&#160;&#160;&#160;been&#160;&#160;&#160;developed&#160;&#160;&#160;and&#160;&#160;&#160;delivered&#160;&#160;&#160;by&#160;&#160;&#160;OpenTC&#160;&#160;&#160;members.&#160;&#160;This&#160;<br/>document&#160;includes&#160;a&#160;summary&#160;of&#160;the&#160;partner&#160;contributions&#160;with&#160;respect&#160;to&#160;training&#160;<br/>activities. Following this, the training material&#160;of the partners&#160;is included.</p>
+<p style="position:absolute;top:386px;left:85px;white-space:nowrap" class="ft313"><b>2&#160;</b></p>
+<p style="position:absolute;top:383px;left:117px;white-space:nowrap" class="ft314"><b>Partner Contributions</b></p>
+<p style="position:absolute;top:409px;left:85px;white-space:nowrap" class="ft37">The&#160;training&#160;activities&#160;of&#160;the&#160;OpenTC&#160;project&#160;incorporates&#160;both&#160;academic&#160;and&#160;pro-<br/>fessional training.</p>
+<p style="position:absolute;top:465px;left:85px;white-space:nowrap" class="ft33"><b>2.1&#160;Academic Partners</b></p>
+<p style="position:absolute;top:489px;left:85px;white-space:nowrap" class="ft37">As&#160;university&#160;courses&#160;on&#160;trusted&#160;computing&#160;are&#160;still&#160;rare,&#160;OpenTC&#160;academic&#160;partners&#160;<br/>are&#160;continuing&#160;their&#160;academic&#160;training.&#160;RHUL&#160;and&#160;IAIK&#160;have&#160;graduate&#160;level&#160;courses&#160;<br/>devoted&#160;to&#160;trusted&#160;computing,&#160;whereas&#160;TUB&#160;OpenTC&#160;members&#160;are&#160;contributing&#160;to&#160;an&#160;<br/>undergraduate&#160;course&#160;in security which covers&#160;trusted computing.</p>
+<p style="position:absolute;top:584px;left:85px;white-space:nowrap" class="ft315"><b>2.1.1&#160;Royal Holloway,&#160;University of&#160;London</b></p>
+<p style="position:absolute;top:606px;left:85px;white-space:nowrap" class="ft37">A&#160;full 11-week course&#160;on trusted computing (comprising 11 3-hour&#160;lectures)&#160;was<br/>initiated&#160;in&#160;January&#160;2007&#160;(academic&#160;year&#160;2006/07)&#160;and&#160;has&#160;been&#160;delivered&#160;since&#160;as&#160;<br/>part&#160;of&#160;the MSc&#160;in&#160;Information&#160;Security at&#160;RHUL.&#160;This&#160;included two&#160;guest&#160;lectures&#160;given&#160;<br/>by&#160;&#160;&#160;Graeme&#160;&#160;&#160;Proudler&#160;&#160;&#160;from&#160;&#160;&#160;HP&#160;&#160;&#160;Labs&#160;&#160;&#160;Bristol&#160;&#160;&#160;and&#160;&#160;&#160;Steve&#160;&#160;&#160;Hand&#160;&#160;&#160;from&#160;&#160;&#160;the&#160;&#160;&#160;University&#160;&#160;&#160;of&#160;<br/>Cambridge&#160;in&#160;2007&#160;and&#160;Graeme&#160;Proudler&#160;and&#160;Chris&#160;Dalton&#160;from&#160;HP&#160;Labs&#160;Bristol&#160;in&#160;<br/>2008&#160;and&#160;2009.&#160;Two&#160;pieces&#160;of&#160;coursework&#160;and&#160;an&#160;examination&#160;were&#160;also&#160;written.&#160;The&#160;<br/>OpenTC proof-of-concept&#160;prototype was&#160;presented during a&#160;lab session in 2009.</p>
+<p style="position:absolute;top:759px;left:85px;white-space:nowrap" class="ft37">RHUL&#160;&#160;&#160;has&#160;&#160;&#160;also&#160;&#160;&#160;presented&#160;&#160;&#160;a&#160;&#160;series&#160;&#160;&#160;of&#160;&#160;&#160;tutorials&#160;&#160;&#160;on&#160;&#160;&#160;trusted&#160;&#160;&#160;computing&#160;&#160;&#160;to&#160;&#160;&#160;staff,&#160;&#160;&#160;post-<br/>doctoral&#160;research&#160;assistants&#160;and PhD students.</p>
+<p style="position:absolute;top:817px;left:85px;white-space:nowrap" class="ft37">More&#160;&#160;&#160;recently,&#160;&#160;&#160;RHUL&#160;&#160;&#160;has&#160;&#160;&#160;seen&#160;&#160;&#160;the&#160;&#160;&#160;introduction&#160;&#160;&#160;of&#160;&#160;&#160;a&#160;&#160;&#160;new&#160;&#160;&#160;'security-focused'&#160;<br/>undergraduate&#160;&#160;&#160;degree&#160;&#160;&#160;in&#160;&#160;&#160;computer&#160;&#160;&#160;science.&#160;&#160;&#160;As&#160;&#160;&#160;part&#160;&#160;&#160;of&#160;&#160;&#160;this&#160;&#160;&#160;undergraduate&#160;&#160;&#160;degree&#160;<br/>programme&#160;&#160;a&#160;course&#160;in&#160;trusted&#160;computing&#160;will&#160;be&#160;offered&#160;in&#160;2009/10,&#160;again&#160;building&#160;<br/>directly on the training materials&#160;developed within the OpenTC project.</p>
+<p style="position:absolute;top:912px;left:85px;white-space:nowrap" class="ft315"><b>2.1.2&#160;Institute for Applied Information Processing&#160;and&#160;Communication&#160;</b></p>
+<p style="position:absolute;top:933px;left:85px;white-space:nowrap" class="ft37">A&#160;course&#160;titled&#160;“Selected&#160;Topics&#160;of&#160;IT-security:&#160;Trusted&#160;&#160;Computing”&#160;was&#160;initiated&#160;by&#160;<br/>IAIK&#160;in&#160;March&#160;2007,&#160;with&#160;approximately&#160;30&#160;registered&#160;students.&#160;This&#160;course&#160;covers&#160;the&#160;<br/>theoretical&#160;foundations&#160;of&#160;trusted&#160;computing.&#160;Students&#160;must&#160;also&#160;complete&#160;practical&#160;<br/>exercises&#160;using&#160;TPM-emulators&#160;and&#160;components&#160;developed&#160;within&#160;OpenTC.&#160;A&#160;series&#160;of&#160;<br/>guest&#160;&#160;&#160;lectures&#160;&#160;&#160;were&#160;&#160;&#160;also&#160;&#160;&#160;presented&#160;&#160;&#160;by&#160;&#160;&#160;David&#160;&#160;&#160;Grawrock&#160;&#160;&#160;(Intel).&#160;&#160;&#160;This&#160;&#160;&#160;course&#160;&#160;&#160;has&#160;<br/>continued&#160;through&#160;2008&#160;and&#160;2009.&#160;In&#160;2008,&#160;students&#160;on&#160;this&#160;course&#160;were&#160;given&#160;the&#160;<br/>opportunity&#160;to&#160;visit&#160;the&#160;educational&#160;event&#160;and&#160;scientific&#160;conference&#160;at&#160;TRUST&#160;2008&#160;and&#160;<br/>given&#160;&#160;&#160;the&#160;&#160;&#160;task&#160;&#160;&#160;of&#160;&#160;&#160;writing&#160;&#160;&#160;papers&#160;&#160;&#160;on&#160;&#160;&#160;selected&#160;&#160;&#160;topics&#160;&#160;&#160;on&#160;&#160;&#160;trusted&#160;&#160;&#160;computing&#160;&#160;&#160;for&#160;<br/>presentation. IAIK&#160;also&#160;participated in ETISS 2006, 2007 and 2008.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft311">Open_TC Deliverable&#160;D10.10</p>
+<p style="position:absolute;top:1160px;left:798px;white-space:nowrap" class="ft311">3</p>
+</div>
+<!-- Page 4 -->
+<a name="4"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft416{font-size:14px;font-family:GAAAAA+OpenSymbol;color:#000000;}
+-->
+</style>
+<div id="page4-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OpenTC_D10.10_Final_Training_Documentation004.png" alt="background image"/>
+<p style="position:absolute;top:125px;left:98px;white-space:nowrap" class="ft49">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft410">&#160;</p>
+<p style="position:absolute;top:91px;left:312px;white-space:nowrap" class="ft411">D10.10 Final Training&#160;Material</p>
+<p style="position:absolute;top:149px;left:85px;white-space:nowrap" class="ft415"><b>2.1.3&#160;TUB</b></p>
+<p style="position:absolute;top:171px;left:85px;white-space:nowrap" class="ft47">A&#160;course titled “New Technologies&#160;in Security”, with a&#160;focus&#160;on trusted computing, was&#160;<br/>initiated&#160;&#160;&#160;by&#160;&#160;&#160;TUB&#160;&#160;&#160;in&#160;&#160;&#160;2006&#160;&#160;&#160;at&#160;&#160;&#160;the&#160;&#160;&#160;Computer&#160;&#160;&#160;Engineering&#160;&#160;&#160;Department,&#160;&#160;&#160;University&#160;&#160;&#160;of&#160;<br/>Kocaeli&#160;&#160;&#160;(Turkey).&#160;&#160;&#160;Five&#160;&#160;&#160;weeks&#160;&#160;&#160;of&#160;&#160;&#160;this&#160;&#160;&#160;course&#160;&#160;&#160;are&#160;&#160;&#160;dedicated&#160;&#160;&#160;to&#160;&#160;&#160;trusted&#160;&#160;&#160;computing&#160;<br/>technologies.&#160;This&#160;course is now in its third year.</p>
+<p style="position:absolute;top:266px;left:85px;white-space:nowrap" class="ft415"><b>2.1.4&#160;Seminars,&#160;Workshops and Educational Talks</b></p>
+<p style="position:absolute;top:288px;left:85px;white-space:nowrap" class="ft47">A&#160;series&#160;of&#160;seminars&#160;have&#160;also&#160;been&#160;presented&#160;by&#160;various&#160;partners.&#160;These&#160;include&#160;the&#160;<br/>following:</p>
+<p style="position:absolute;top:343px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:339px;left:139px;white-space:nowrap" class="ft47">C.J.&#160;Mitchell&#160;(RHUL),&#160;“Trusted&#160;Computing:&#160;A&#160;Universal&#160;Security&#160;Infrastructure?”,&#160;<br/>Seminar:&#160;&#160;&#160;Department&#160;&#160;&#160;of&#160;&#160;&#160;Computer&#160;&#160;&#160;Science&#160;&#160;&#160;and&#160;&#160;&#160;Software&#160;&#160;&#160;Engineering,&#160;<br/>University of Canterbury, Christchurch,&#160;New Zealand, 21st March&#160;2007.</p>
+<p style="position:absolute;top:409px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:405px;left:139px;white-space:nowrap" class="ft47">C.J.&#160;Mitchell&#160;(RHUL),&#160;“Trusted&#160;Computing:&#160;Putting&#160;a&#160;Security&#160;Module&#160;on&#160;Every<br/>Desktop”,&#160;Seminar:&#160;&#160;New&#160;Zealand&#160;Information&#160;Security&#160;Forum,&#160;Auckland,&#160;&#160;New&#160;<br/>Zealand, 28th March&#160;2007.</p>
+<p style="position:absolute;top:475px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:471px;left:139px;white-space:nowrap" class="ft47">C.J.&#160;Mitchell&#160;(RHUL),&#160;“Trusted&#160;Computing:&#160;A&#160;Universal&#160;Security&#160;Infrastructure?”,&#160;<br/>Seminar:&#160;Centre of Digital Enterprise, University of Auckland, New Zealand, 28th&#160;<br/>March&#160;2007.</p>
+<p style="position:absolute;top:542px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:537px;left:139px;white-space:nowrap" class="ft47">C.J.&#160;Mitchell&#160;(RHUL),&#160;“Trusted&#160;Mobile&#160;Platforms”,&#160;Two&#160;half-day&#160;sessions&#160;given&#160;at&#160;<br/>the&#160;&#160;&#160;Information&#160;&#160;&#160;Security&#160;&#160;&#160;Summer&#160;&#160;&#160;School&#160;&#160;&#160;(ISSS&#160;&#160;&#160;2007),&#160;&#160;&#160;Taipei,&#160;&#160;&#160;Taiwan,&#160;&#160;&#160;7th&#160;<br/>August 2007.</p>
+<p style="position:absolute;top:608px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:603px;left:139px;white-space:nowrap" class="ft47">E.&#160;Gallery&#160;and&#160;C.J.&#160;Mitchell,&#160;“Trusted&#160;Mobile&#160;Platforms”,&#160;Foundations&#160;of&#160;Security&#160;<br/>Analysis&#160;and Design IV&#160;(FOSAD 2007), Bertinoro,&#160;Italy,&#160;9</p>
+<p style="position:absolute;top:622px;left:604px;white-space:nowrap" class="ft45">th</p>
+<p style="position:absolute;top:622px;left:614px;white-space:nowrap" class="ft44">-15</p>
+<p style="position:absolute;top:622px;left:641px;white-space:nowrap" class="ft45">th</p>
+<p style="position:absolute;top:622px;left:651px;white-space:nowrap" class="ft44">&#160;September 2007.</p>
+<p style="position:absolute;top:654px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:650px;left:139px;white-space:nowrap" class="ft47">IAIK&#160;participated&#160;in&#160;the&#160;Educational&#160;Event&#160;at&#160;Trust&#160;2008&#160;presenting&#160;two&#160;classes&#160;<br/>on&#160;&#160;&#160;“How&#160;&#160;&#160;Trusted&#160;&#160;&#160;Systems&#160;&#160;&#160;are&#160;&#160;&#160;Programmed:&#160;&#160;&#160;A&#160;&#160;&#160;Practical&#160;&#160;&#160;View”&#160;&#160;&#160;and&#160;&#160;&#160;“Mobile&#160;<br/>Trusted&#160;Computing”.&#160;&#160;RHUL&#160;also&#160;presented&#160;a&#160;session&#160;entitled&#160;“Who&#160;is&#160;the&#160;TCG&#160;<br/>and&#160;what&#160;are&#160;the&#160;TC&#160;concepts?”&#160;at&#160;TRUST2008,&#160;10</p>
+<p style="position:absolute;top:707px;left:571px;white-space:nowrap" class="ft45">th</p>
+<p style="position:absolute;top:708px;left:580px;white-space:nowrap" class="ft44">&#160;-&#160;13</p>
+<p style="position:absolute;top:707px;left:621px;white-space:nowrap" class="ft45">th</p>
+<p style="position:absolute;top:708px;left:630px;white-space:nowrap" class="ft44">&#160;March&#160;2008,&#160;Villach,&#160;</p>
+<p style="position:absolute;top:727px;left:139px;white-space:nowrap" class="ft44">Austria.</p>
+<p style="position:absolute;top:759px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:754px;left:139px;white-space:nowrap" class="ft44">IAIK&#160;presented a poster&#160;at Linuxtage, 28</p>
+<p style="position:absolute;top:754px;left:474px;white-space:nowrap" class="ft45">th</p>
+<p style="position:absolute;top:754px;left:483px;white-space:nowrap" class="ft44">&#160;-&#160;31</p>
+<p style="position:absolute;top:754px;left:521px;white-space:nowrap" class="ft45">st</p>
+<p style="position:absolute;top:754px;left:529px;white-space:nowrap" class="ft44">&#160;May&#160;2008, Berlin, Germany.</p>
+<p style="position:absolute;top:787px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:782px;left:139px;white-space:nowrap" class="ft47">TUB&#160;presented&#160;a&#160;tutorial&#160;entitled&#160;“Trusted&#160;Virtualization&#160;and&#160;Grid&#160;Security”&#160;at&#160;<br/>CCGrid 2008, 19</p>
+<p style="position:absolute;top:801px;left:276px;white-space:nowrap" class="ft45">th</p>
+<p style="position:absolute;top:801px;left:285px;white-space:nowrap" class="ft44">&#160;-&#160;22</p>
+<p style="position:absolute;top:801px;left:323px;white-space:nowrap" class="ft45">nd</p>
+<p style="position:absolute;top:801px;left:335px;white-space:nowrap" class="ft44">&#160;May 2008, Lyon,&#160;France.</p>
+<p style="position:absolute;top:833px;left:112px;white-space:nowrap" class="ft416"></p>
+<p style="position:absolute;top:829px;left:139px;white-space:nowrap" class="ft47">Eimear&#160;Gallery&#160;(RHUL),&#160;&#34;Mobile&#160;Security&#160;and&#160;the&#160;Mobile&#160;Trusted&#160;Module&#34;,&#160;3rd&#160;<br/>European&#160;&#160;&#160;Trusted&#160;&#160;&#160;Infrastructure&#160;&#160;&#160;Summer&#160;&#160;&#160;School&#160;&#160;&#160;2008&#160;&#160;&#160;(ETISS&#160;&#160;&#160;2008),&#160;&#160;&#160;31</p>
+<p style="position:absolute;top:848px;left:799px;white-space:nowrap" class="ft45">st&#160;</p>
+<p style="position:absolute;top:867px;left:139px;white-space:nowrap" class="ft44">September - 4</p>
+<p style="position:absolute;top:867px;left:257px;white-space:nowrap" class="ft45">th</p>
+<p style="position:absolute;top:867px;left:267px;white-space:nowrap" class="ft44">&#160;October,&#160;2008, Oxford, U.K.&#160;</p>
+<p style="position:absolute;top:913px;left:85px;white-space:nowrap" class="ft43"><b>2.2&#160;Non-Academic Partners</b></p>
+<p style="position:absolute;top:955px;left:85px;white-space:nowrap" class="ft415"><b>2.2.1&#160;TEC</b></p>
+<p style="position:absolute;top:977px;left:85px;white-space:nowrap" class="ft47">A&#160;course&#160;titled&#160;&#34;Project&#160;Risk&#160;Management&#34;&#160;was&#160;held&#160;in&#160;Halmstadt,&#160;Sweden&#160;at&#160;the&#160;start&#160;<br/>of&#160;&#160;&#160;the&#160;&#160;&#160;project&#160;&#160;&#160;in&#160;&#160;&#160;November&#160;&#160;&#160;2006&#160;&#160;&#160;with&#160;&#160;&#160;30&#160;&#160;&#160;engineering&#160;&#160;&#160;students.&#160;&#160;&#160;One&#160;&#160;&#160;goal&#160;&#160;&#160;was&#160;&#160;&#160;to&#160;<br/>introduce&#160;the&#160;students&#160;at&#160;Halmstadt&#160;to&#160;the&#160;OpenTC&#160;project.&#160;The&#160;students&#160;were&#160;asked&#160;<br/>to&#160;&#160;&#160;identify&#160;&#160;&#160;and&#160;&#160;&#160;evaluate&#160;&#160;&#160;potential&#160;&#160;&#160;risks&#160;&#160;&#160;connected&#160;&#160;&#160;with&#160;&#160;&#160;the&#160;&#160;&#160;deployment&#160;&#160;&#160;of&#160;&#160;&#160;trusted&#160;<br/>computing.&#160;Thereafter,&#160;with&#160;the&#160;second&#160;goal&#160;of&#160;ensuring&#160;a&#160;deeper&#160;understanding&#160;the&#160;<br/>technology,&#160;&#160;&#160;the&#160;&#160;&#160;students&#160;&#160;&#160;were&#160;&#160;&#160;divided&#160;&#160;&#160;into&#160;&#160;&#160;groups&#160;&#160;&#160;of&#160;&#160;&#160;4-5&#160;&#160;&#160;people&#160;&#160;&#160;to&#160;&#160;&#160;examine&#160;&#160;&#160;an&#160;<br/>OpenTC&#160;&#160;&#160;case&#160;&#160;&#160;study.&#160;&#160;&#160;The&#160;&#160;&#160;students&#160;&#160;&#160;had&#160;&#160;&#160;to&#160;&#160;&#160;choose&#160;&#160;&#160;one&#160;&#160;&#160;of&#160;&#160;&#160;the&#160;&#160;&#160;following:&#160;&#160;&#160;(a)&#160;<br/>Governmental&#160;Agency,&#160;(b)&#160;Private&#160;Person,&#160;(c)&#160;SME&#160;(Small&#160;and&#160;Medium&#160;Enterprise)&#160;or&#160;</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft411">Open_TC Deliverable&#160;D10.10</p>
+<p style="position:absolute;top:1160px;left:798px;white-space:nowrap" class="ft411">4</p>
+</div>
+<!-- Page 5 -->
+<a name="5"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft517{font-size:17px;font-family:DAAAAA+BitstreamVeraSans;color:#000080;}
+	.ft518{font-size:17px;line-height:23px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page5-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OpenTC_D10.10_Final_Training_Documentation005.png" alt="background image"/>
+<p style="position:absolute;top:125px;left:98px;white-space:nowrap" class="ft59">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft510">&#160;</p>
+<p style="position:absolute;top:91px;left:312px;white-space:nowrap" class="ft511">D10.10 Final Training&#160;Material</p>
+<p style="position:absolute;top:149px;left:85px;white-space:nowrap" class="ft57">(d)&#160;Industry,&#160;and&#160;identify&#160;the&#160;potential&#160;influence&#160;of&#160;trusted&#160;computing&#160;on&#160;their&#160;chosen&#160;<br/>entity/organisation.</p>
+<p style="position:absolute;top:205px;left:85px;white-space:nowrap" class="ft515"><b>2.2.2&#160;PORT</b></p>
+<p style="position:absolute;top:227px;left:85px;white-space:nowrap" class="ft57">Portakal&#160;&#160;&#160;Teknoloji&#160;&#160;&#160;continued&#160;&#160;&#160;to&#160;&#160;&#160;add&#160;&#160;&#160;to&#160;&#160;&#160;their&#160;&#160;&#160;training&#160;&#160;&#160;material&#160;&#160;&#160;which&#160;&#160;&#160;examines&#160;&#160;&#160;the&#160;<br/>OpenTC&#160;architecture.&#160;The&#160;material&#160;presented&#160;in&#160;this&#160;deliverable&#160;is&#160;now&#160;complete&#160;and&#160;<br/>includes&#160;the&#160;following&#160;7&#160;topics,&#160;in&#160;line&#160;with&#160;the&#160;course&#160;objectives&#160;planned&#160;in&#160;previous&#160;<br/>WP10c&#160;deliverables.</p>
+<p style="position:absolute;top:317px;left:117px;white-space:nowrap" class="ft518">1.&#160;What&#160;is trusted computing?&#160;<br/>2.&#160;TPM and TSS implementations.<br/>3.&#160;OpenTC goals and objectives.<br/>4.&#160;Basic&#160;management interface.<br/>5.&#160;An everyday&#160;application&#160;(MEITC).&#160;<br/>6.&#160;A security related application&#160;(DRM).<br/>7.&#160;Using the OpenTC infrastructure&#160;(EFS).</p>
+<p style="position:absolute;top:490px;left:85px;white-space:nowrap" class="ft57">Chapters&#160;2-3&#160;focus&#160;on&#160;background&#160;material&#160;and&#160;on&#160;the&#160;OpenTC&#160;design,&#160;chapters&#160;4-7&#160;<br/>focus&#160;on&#160;work&#160;completed&#160;&#160;within&#160;the&#160;OpenTC&#160;project.&#160;In&#160;particular,&#160;chapters&#160;5-7&#160;focus&#160;<br/>on&#160;&#160;&#160;work&#160;&#160;&#160;completed&#160;&#160;&#160;within&#160;&#160;&#160;WP06.&#160;&#160;&#160;&#160;&#160;The&#160;&#160;material&#160;&#160;&#160;has&#160;&#160;&#160;been&#160;&#160;&#160;presented&#160;&#160;&#160;at&#160;&#160;a&#160;&#160;series&#160;&#160;&#160;of&#160;<br/>seminars&#160;organised at METU Institute of&#160;Applied Mathematics&#160;to&#160;MSc&#160;and PhD students&#160;<br/>in Cryptography. However, no formal&#160;course code&#160;has been assigned yet.&#160;</p>
+<p style="position:absolute;top:635px;left:85px;white-space:nowrap" class="ft54">The full D10.10 Final Training Material is available on the Technikon FTP&#160;Server:</p>
+<p style="position:absolute;top:674px;left:85px;white-space:nowrap" class="ft54"><a href="ftp://www.technikon.com/">Server:&#160;</a></p>
+<p style="position:absolute;top:674px;left:150px;white-space:nowrap" class="ft517"><a href="ftp://www.technikon.com/">ftp://www.technikon.com</a></p>
+<p style="position:absolute;top:674px;left:357px;white-space:nowrap" class="ft54"><a href="ftp://www.technikon.com/">&#160;</a></p>
+<p style="position:absolute;top:712px;left:85px;white-space:nowrap" class="ft57">Username:&#160;opentc<br/>Password:&#160;0p3nTCDel</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft511">Open_TC Deliverable&#160;D10.10</p>
+<p style="position:absolute;top:1160px;left:798px;white-space:nowrap" class="ft511">5</p>
+</div>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#3">1 Introduction</a></li>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#3">2 Partner Contributions</a>
+<ul>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#3">2.1Academic Partners</a>
+<ul>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#3">2.1.1Royal Holloway, University of London</a></li>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#3">2.1.2Institute for Applied Information Processing and Communication&#160;</a></li>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#4">2.1.3TUB</a></li>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#4">2.1.4Seminars, Workshops and Educational Talks</a></li>
+</ul>
+</li>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#4">2.2Non-Academic Partners</a>
+<ul>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#4">2.2.1TEC</a></li>
+<li><a href="OpenTC_D10.10_Final_Training_Documentation.html#5">2.2.2PORT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>html/OTC_TC_MobileAgents</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="date" content="2007-02-26T11:04:17+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<!-- Page 1 -->
+<a name="1"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:26px;font-family:FZWXDM+CMR17;color:#231f20;}
+	.ft11{font-size:18px;font-family:LKKMJS+CMR12;color:#231f20;}
+	.ft12{font-size:12px;font-family:HYCLNL+CMSY8;color:#231f20;}
+	.ft13{font-size:18px;font-family:WFOAUI+CMSY10;color:#231f20;}
+	.ft14{font-size:22px;font-family:TOCPEO+CMBX12;color:#000000;}
+	.ft15{font-size:15px;font-family:NKUKMO+CMR10;color:#000000;}
+	.ft16{font-size:9px;font-family:OJPMRG+CMSY6;color:#231f20;}
+	.ft17{font-size:12px;font-family:FLOSDD+CMR8;color:#231f20;}
+	.ft18{font-size:15px;font-family:NKUKMO+CMR10;color:#231f20;}
+	.ft19{font-size:15px;line-height:17px;font-family:NKUKMO+CMR10;color:#000000;}
+	.ft110{font-size:12px;line-height:14px;font-family:FLOSDD+CMR8;color:#231f20;}
+-->
+</style>
+<div id="page1-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OTC_TC_MobileAgents001.png" alt="background image"/>
+<p style="position:absolute;top:228px;left:245px;white-space:nowrap" class="ft10">Mobile&#160;Agents&#160;and&#160;the&#160;Deus&#160;Ex&#160;Machina</p>
+<p style="position:absolute;top:278px;left:332px;white-space:nowrap" class="ft11">Shane&#160;Balfe</p>
+<p style="position:absolute;top:277px;left:423px;white-space:nowrap" class="ft12"><i>∗</i></p>
+<p style="position:absolute;top:278px;left:429px;white-space:nowrap" class="ft11">and&#160;Eimear&#160;Gallery</p>
+<p style="position:absolute;top:277px;left:580px;white-space:nowrap" class="ft12"><i>†</i></p>
+<p style="position:absolute;top:278px;left:580px;white-space:nowrap" class="ft11">,</p>
+<p style="position:absolute;top:299px;left:311px;white-space:nowrap" class="ft11">Royal&#160;Holloway,&#160;University&#160;of&#160;London,</p>
+<p style="position:absolute;top:320px;left:280px;white-space:nowrap" class="ft11">Egham,&#160;Surrey,&#160;TW20&#160;0EX,&#160;United&#160;Kingdom.</p>
+<p style="position:absolute;top:341px;left:333px;white-space:nowrap" class="ft13"><i>{</i></p>
+<p style="position:absolute;top:341px;left:342px;white-space:nowrap" class="ft11">s.balfe,&#160;e.m.gallery</p>
+<p style="position:absolute;top:341px;left:485px;white-space:nowrap" class="ft13"><i>}</i></p>
+<p style="position:absolute;top:341px;left:494px;white-space:nowrap" class="ft11">@rhul.ac.uk</p>
+<p style="position:absolute;top:397px;left:108px;white-space:nowrap" class="ft14">Abstract</p>
+<p style="position:absolute;top:435px;left:108px;white-space:nowrap" class="ft19">This&#160;paper&#160;aims&#160;to&#160;examine&#160;the&#160;benefits&#160;the&#160;intro-<br/>duction&#160;of&#160;trusted&#160;computing&#160;can&#160;bring&#160;to&#160;the&#160;mobile<br/>agent&#160;paradigm,&#160;with&#160;a&#160;specific&#160;emphasis&#160;on&#160;mobile<br/>agent&#160;security.</p>
+<p style="position:absolute;top:534px;left:108px;white-space:nowrap" class="ft14">1</p>
+<p style="position:absolute;top:534px;left:144px;white-space:nowrap" class="ft14">Introduction</p>
+<p style="position:absolute;top:572px;left:108px;white-space:nowrap" class="ft19">The&#160;introduction&#160;of&#160;trusted&#160;computing&#160;into&#160;the&#160;com-<br/>puter&#160;security&#160;vista&#160;has&#160;resulted&#160;in&#160;a&#160;myriad&#160;of&#160;pub-<br/>lications&#160;across&#160;a&#160;slew&#160;of&#160;computer&#160;science&#160;research<br/>topics&#160;[7].&#160;However,&#160;a&#160;dearth&#160;of&#160;information&#160;exists<br/>on&#160;trusting&#160;computing’s&#160;applicability&#160;to&#160;the&#160;mobile<br/>agent&#160;paradigm.&#160;Anecdotal&#160;evidence&#160;would&#160;suggest<br/>that&#160;the&#160;mere&#160;presence&#160;of&#160;trusted&#160;computing&#160;technol-<br/>ogy&#160;in&#160;a&#160;mobile&#160;agent&#160;setting&#160;would&#160;solve&#160;a&#160;multitude<br/>of&#160;security&#160;issues&#160;currently&#160;intrinsic&#160;to&#160;mobile&#160;agent<br/>systems&#160;[4].&#160;Trusted&#160;computing’s&#160;introduction&#160;in&#160;this<br/>context&#160;can&#160;be&#160;viewed&#160;as&#160;akin&#160;to&#160;the&#160;introduction&#160;of<br/>a&#160;Deus&#160;Ex&#160;Machina&#160;in&#160;ancient&#160;Greek&#160;and&#160;Roman&#160;dra-<br/>mas.&#160;Here&#160;trusted&#160;computing&#160;is&#160;presented&#160;suddenly<br/>and&#160;unexpectedly&#160;to&#160;provide&#160;a&#160;contrived&#160;solution&#160;to<br/>the&#160;apparently&#160;insoluble&#160;problem&#160;of&#160;mobile&#160;agent&#160;se-<br/>curity.</p>
+<p style="position:absolute;top:869px;left:124px;white-space:nowrap" class="ft16"><i>∗</i></p>
+<p style="position:absolute;top:871px;left:131px;white-space:nowrap" class="ft17">Research&#160;was&#160;sponsored&#160;by&#160;the&#160;U.S.&#160;Army&#160;Research&#160;Labo-</p>
+<p style="position:absolute;top:885px;left:108px;white-space:nowrap" class="ft110">ratory&#160;and&#160;the&#160;U.K.&#160;Ministry&#160;of&#160;Defence&#160;and&#160;was&#160;accomplished<br/>under&#160;Agreement&#160;Number&#160;W911NF-06-3-0001.&#160;The&#160;views&#160;and<br/>conclusions&#160;contained&#160;in&#160;this&#160;document&#160;are&#160;those&#160;of&#160;the&#160;au-<br/>thor(s)&#160;and&#160;should&#160;not&#160;be&#160;interpreted&#160;as&#160;representing&#160;the&#160;of-<br/>ficial&#160;policies,&#160;either&#160;expressed&#160;or&#160;implied,&#160;of&#160;the&#160;U.S.&#160;Army<br/>Research&#160;Laboratory,&#160;the&#160;U.S.&#160;Government,&#160;the&#160;U.K.</p>
+<p style="position:absolute;top:969px;left:125px;white-space:nowrap" class="ft16"><i>†</i></p>
+<p style="position:absolute;top:971px;left:131px;white-space:nowrap" class="ft17">Research&#160;was&#160;sponsored&#160;by&#160;the&#160;Open&#160;Trusted&#160;Comput-</p>
+<p style="position:absolute;top:985px;left:108px;white-space:nowrap" class="ft110">ing&#160;project&#160;of&#160;the&#160;European&#160;Commissions&#160;Framework&#160;6&#160;Pro-<br/>gramme.</p>
+<p style="position:absolute;top:402px;left:481px;white-space:nowrap" class="ft15">It&#160;is&#160;important&#160;that&#160;we&#160;first&#160;define&#160;what&#160;we&#160;mean</p>
+<p style="position:absolute;top:420px;left:466px;white-space:nowrap" class="ft19">by&#160;a&#160;‘mobile&#160;agent’.&#160;We&#160;adopt&#160;the&#160;definition&#160;given<br/>in&#160;[13]&#160;in&#160;which&#160;a&#160;mobile&#160;agent&#160;is&#160;defined&#160;as&#160;“an<br/>autonomous,&#160;reactive,&#160;goal-oriented,&#160;adaptive,&#160;per-<br/>sistent,&#160;socially&#160;aware&#160;software&#160;entity,&#160;which&#160;can&#160;ac-<br/>tively&#160;migrate&#160;from&#160;host&#160;to&#160;host”.&#160;A&#160;mobile&#160;agent&#160;in-<br/>cludes&#160;code,&#160;data&#160;and&#160;execution&#160;state.&#160;Given&#160;this&#160;de-<br/>finition,&#160;the&#160;mobile&#160;agent&#160;paradigm&#160;offers&#160;a&#160;plethora<br/>of&#160;deployment&#160;scenarios&#160;that&#160;may&#160;exploit&#160;one&#160;or&#160;more<br/>of&#160;these&#160;attributes.&#160;Mobile&#160;agent&#160;systems&#160;have&#160;been<br/>proposed&#160;for&#160;use&#160;in&#160;areas&#160;as&#160;diverse&#160;as&#160;information<br/>management,&#160;contract&#160;negotiation,&#160;service&#160;brokering<br/>and&#160;particularly&#160;in&#160;e-commerce&#160;scenarios.&#160;However,<br/>precisely&#160;because&#160;the&#160;mobile&#160;agent&#160;paradigm&#160;offers<br/>numerous&#160;deployment&#160;scenarios,&#160;both&#160;mobile&#160;agents<br/>and&#160;the&#160;hosts&#160;upon&#160;which&#160;they&#160;execute&#160;are&#160;placed&#160;at<br/>greater&#160;risk&#160;of&#160;compromise&#160;[6].&#160;From&#160;the&#160;host&#160;per-<br/>spective,&#160;the&#160;execution&#160;of&#160;a&#160;mobile&#160;agent&#160;may&#160;poten-<br/>tially&#160;lead&#160;to&#160;information&#160;leakage&#160;or&#160;denial&#160;of&#160;service<br/>attacks&#160;in&#160;which&#160;an&#160;agent&#160;exploits&#160;some&#160;vulnerabil-<br/>ity&#160;in&#160;the&#160;host&#160;system.&#160;Conversely,&#160;the&#160;very&#160;mobility<br/>of&#160;an&#160;agent&#160;places&#160;it&#160;at&#160;increased&#160;risk&#160;from&#160;attack<br/>by&#160;malicious&#160;hosts.&#160;As&#160;a&#160;malicious&#160;host&#160;controls&#160;the<br/>environment&#160;in&#160;which&#160;an&#160;agent&#160;executes&#160;it&#160;can&#160;ef-<br/>fectively&#160;operate&#160;a&#160;Cartesian&#160;deception&#160;in&#160;which&#160;the<br/>platform&#160;is&#160;capable&#160;of&#160;transmogrifying&#160;its&#160;environ-<br/>ment&#160;in&#160;order&#160;to&#160;deceive&#160;an&#160;agent.&#160;The&#160;results&#160;of&#160;this<br/>deception&#160;can&#160;engender&#160;a&#160;number&#160;of&#160;security&#160;sensitive<br/>violations&#160;including&#160;eavesdropping&#160;of&#160;agent&#160;commu-<br/>nications,&#160;altering&#160;an&#160;agent’s&#160;state&#160;or&#160;preventing&#160;an<br/>agent&#160;from&#160;performing&#160;its&#160;task.</p>
+<p style="position:absolute;top:961px;left:481px;white-space:nowrap" class="ft15">This&#160;paper&#160;aims&#160;to&#160;examine&#160;the&#160;benefits&#160;trusted</p>
+<p style="position:absolute;top:979px;left:466px;white-space:nowrap" class="ft19">computing&#160;functionality&#160;can&#160;bring&#160;to&#160;the&#160;mobile<br/>agent&#160;paradigm.&#160;In&#160;describing&#160;the&#160;components&#160;nec-</p>
+<p style="position:absolute;top:1042px;left:455px;white-space:nowrap" class="ft18">1</p>
+</div>
+<!-- Page 2 -->
+<a name="2"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft211{font-size:18px;font-family:TOCPEO+CMBX12;color:#000000;}
+-->
+</style>
+<div id="page2-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OTC_TC_MobileAgents002.png" alt="background image"/>
+<p style="position:absolute;top:190px;left:108px;white-space:nowrap" class="ft29">essary&#160;for&#160;a&#160;trusted&#160;computing&#160;enhanced&#160;frame-<br/>work,&#160;it&#160;is&#160;important&#160;that&#160;we&#160;first&#160;introduce&#160;the&#160;re-<br/>quired&#160;functionality.&#160;We&#160;assume&#160;the&#160;ubiquitous&#160;de-<br/>ployment&#160;of&#160;the&#160;following&#160;components,&#160;the&#160;cumula-<br/>tive&#160;presence&#160;of&#160;which&#160;represents&#160;a&#160;Trusted&#160;Mobile<br/>Agent&#160;Platform&#160;(TMAP):&#160;a&#160;Trusted&#160;Platform&#160;Mod-<br/>ule&#160;(TPM),&#160;processor/chipset&#160;extensions&#160;such&#160;as&#160;In-<br/>tel’s&#160;La&#160;Grande&#160;or&#160;AMD’s&#160;Pacifica/Presidio&#160;and&#160;Op-<br/>erating&#160;System&#160;support&#160;such&#160;as&#160;Microsoft’s&#160;NGSCB.<br/>We&#160;rely&#160;on&#160;the&#160;services&#160;provided&#160;by&#160;TMAPs&#160;to&#160;en-<br/>force&#160;strong&#160;platform&#160;isolation.</p>
+<p style="position:absolute;top:369px;left:335px;white-space:nowrap" class="ft25">In&#160;particular,&#160;we</p>
+<p style="position:absolute;top:387px;left:108px;white-space:nowrap" class="ft29">use&#160;the&#160;TPM’s&#160;sealing&#160;mechanism&#160;to&#160;protect&#160;security<br/>critical&#160;functions&#160;within&#160;a&#160;mobile&#160;agent.&#160;The&#160;use&#160;of<br/>sealing&#160;in&#160;this&#160;context&#160;provides&#160;a&#160;mechanism&#160;through<br/>which&#160;a&#160;mobile&#160;agent&#160;can&#160;securely&#160;migrate&#160;from&#160;one<br/>platform&#160;to&#160;another&#160;whilst&#160;retaining&#160;a&#160;guarantee&#160;that<br/>the&#160;next&#160;visited&#160;platform&#160;will&#160;behave&#160;in&#160;an&#160;expected<br/>manner&#160;to&#160;meet&#160;the&#160;agents&#160;particular&#160;purpose.</p>
+<p style="position:absolute;top:513px;left:123px;white-space:nowrap" class="ft25">The&#160;remainder&#160;of&#160;this&#160;paper&#160;is&#160;organised&#160;as&#160;fol-</p>
+<p style="position:absolute;top:531px;left:108px;white-space:nowrap" class="ft29">lows.&#160;In&#160;section&#160;2,&#160;we&#160;briefly&#160;review&#160;previous&#160;work&#160;in<br/>the&#160;area&#160;of&#160;mobile&#160;host&#160;and&#160;mobile&#160;agent&#160;security&#160;as<br/>well&#160;as&#160;examining&#160;prior&#160;work&#160;completed&#160;in&#160;the&#160;area<br/>of&#160;agent&#160;systems&#160;and&#160;trusted&#160;computing.&#160;In&#160;section<br/>3,&#160;we&#160;look&#160;at&#160;how&#160;agent&#160;protection&#160;can&#160;be&#160;augmented<br/>using&#160;trusted&#160;computing,&#160;with&#160;particular&#160;reference&#160;to<br/>secure&#160;agent&#160;migration.&#160;Finally,&#160;we&#160;conclude&#160;with<br/>section&#160;4.</p>
+<p style="position:absolute;top:706px;left:108px;white-space:nowrap" class="ft24">2</p>
+<p style="position:absolute;top:706px;left:144px;white-space:nowrap" class="ft24">Mobile&#160;Agent&#160;Security</p>
+<p style="position:absolute;top:746px;left:108px;white-space:nowrap" class="ft29">As&#160;stated&#160;above,&#160;the&#160;threats&#160;typically&#160;ascribed&#160;to<br/>mobile&#160;agent&#160;systems&#160;tend&#160;to&#160;be&#160;context&#160;driven&#160;but<br/>can&#160;broadly&#160;be&#160;catagorised&#160;into:&#160;threats&#160;to&#160;the&#160;host<br/>and&#160;threats&#160;to&#160;the&#160;agent&#160;[6].&#160;Attacks&#160;that&#160;can&#160;be<br/>mounted&#160;by&#160;malicious&#160;mobile&#160;agents&#160;include:&#160;unau-<br/>thorised&#160;access&#160;to&#160;resources,&#160;flooding&#160;attacks&#160;caused<br/>by&#160;replication,&#160;environment&#160;monitoring&#160;and&#160;unautho-<br/>rised&#160;modification&#160;or&#160;deletion&#160;of&#160;host&#160;configuration.<br/>Conversely,&#160;attacks&#160;that&#160;can&#160;be&#160;mounted&#160;by&#160;malicious<br/>hosts&#160;include:&#160;eavesdropping&#160;on&#160;agent&#160;code,&#160;data&#160;or<br/>execution&#160;state;&#160;unauthorised&#160;modification&#160;of&#160;agent<br/>code,&#160;data&#160;or&#160;execution&#160;state;&#160;incorrect&#160;execution&#160;of<br/>agent&#160;code;&#160;denial&#160;of&#160;service,&#160;eavesdropping&#160;on&#160;or<br/>unauthorised&#160;manipulation&#160;of&#160;agent&#160;interactions&#160;and<br/>returning&#160;incorrect&#160;results&#160;to&#160;system&#160;calls&#160;issued&#160;by</p>
+<p style="position:absolute;top:190px;left:466px;white-space:nowrap" class="ft25">an&#160;agent.</p>
+<p style="position:absolute;top:242px;left:466px;white-space:nowrap" class="ft211">2.1</p>
+<p style="position:absolute;top:242px;left:512px;white-space:nowrap" class="ft211">Safeguards</p>
+<p style="position:absolute;top:242px;left:626px;white-space:nowrap" class="ft211">for</p>
+<p style="position:absolute;top:242px;left:669px;white-space:nowrap" class="ft211">Protecting</p>
+<p style="position:absolute;top:242px;left:781px;white-space:nowrap" class="ft211">the</p>
+<p style="position:absolute;top:263px;left:512px;white-space:nowrap" class="ft211">Host</p>
+<p style="position:absolute;top:297px;left:466px;white-space:nowrap" class="ft29">The&#160;problem&#160;of&#160;a&#160;host&#160;assigning&#160;correct&#160;access&#160;per-<br/>missions&#160;to&#160;a&#160;mobile&#160;agent&#160;is&#160;a&#160;non-trivial&#160;matter,&#160;es-<br/>pecially&#160;given&#160;difficulties&#160;in&#160;establishing&#160;agent&#160;prove-<br/>nance.&#160;This&#160;is&#160;further&#160;compounded&#160;by&#160;the&#160;fact&#160;that<br/>an&#160;agent&#160;could&#160;start&#160;out&#160;as&#160;trustworthy&#160;only&#160;to&#160;be<br/>compromised&#160;by&#160;a&#160;malicious&#160;platform&#160;prior&#160;to&#160;arriv-<br/>ing&#160;at&#160;its&#160;current&#160;destination.&#160;However,&#160;the&#160;issue&#160;of<br/>protecting&#160;a&#160;host&#160;from&#160;a&#160;mobile&#160;agent&#160;is&#160;largely&#160;con-<br/>sidered&#160;manageable&#160;given&#160;existing&#160;solutions&#160;to&#160;host<br/>protection.&#160;Techniques&#160;such&#160;as&#160;software-based&#160;fault<br/>isolation&#160;[16],&#160;have&#160;long&#160;been&#160;used&#160;to&#160;constrain&#160;the<br/>actions&#160;an&#160;agent&#160;can&#160;perform&#160;on&#160;a&#160;system.</p>
+<p style="position:absolute;top:495px;left:783px;white-space:nowrap" class="ft25">The</p>
+<p style="position:absolute;top:513px;left:466px;white-space:nowrap" class="ft29">new&#160;components&#160;introduced&#160;in&#160;TMAPs&#160;can&#160;enhance<br/>current&#160;software&#160;sandboxing&#160;techniques&#160;by&#160;providing<br/>hardware-enforced&#160;isolated&#160;environments.</p>
+<p style="position:absolute;top:600px;left:466px;white-space:nowrap" class="ft211">2.2</p>
+<p style="position:absolute;top:600px;left:512px;white-space:nowrap" class="ft211">Safeguards</p>
+<p style="position:absolute;top:600px;left:626px;white-space:nowrap" class="ft211">for</p>
+<p style="position:absolute;top:600px;left:671px;white-space:nowrap" class="ft211">protecting</p>
+<p style="position:absolute;top:600px;left:781px;white-space:nowrap" class="ft211">the</p>
+<p style="position:absolute;top:621px;left:512px;white-space:nowrap" class="ft211">Agent</p>
+<p style="position:absolute;top:656px;left:466px;white-space:nowrap" class="ft29">Intuitively,&#160;the&#160;probability&#160;of&#160;a&#160;mobile&#160;agent&#160;being<br/>compromised&#160;by&#160;a&#160;malicious&#160;platform&#160;increases&#160;in<br/>proportion&#160;to&#160;the&#160;length&#160;of&#160;an&#160;agent’s&#160;itinerary.&#160;In<br/>order&#160;to&#160;prevent&#160;an&#160;attack&#160;against&#160;a&#160;mobile&#160;agent&#160;a<br/>number&#160;of&#160;proposals&#160;have&#160;been&#160;put&#160;forward&#160;in&#160;the<br/>literature,&#160;proposals&#160;such&#160;as&#160;mutual&#160;itinerary&#160;record-<br/>ing&#160;[12],&#160;execution&#160;tracing&#160;[15],&#160;code&#160;obfuscation&#160;[3]<br/>and&#160;clueless&#160;agents&#160;[11].&#160;Clueless&#160;agents&#160;represent<br/>the&#160;most&#160;important&#160;agent&#160;protection&#160;mechanism&#160;in<br/>terms&#160;of&#160;this&#160;paper.&#160;Using&#160;Environmental&#160;Key&#160;Gen-<br/>eration&#160;(EKG),&#160;keying&#160;material&#160;is&#160;assembled&#160;from<br/>certain&#160;forms&#160;of&#160;environmental&#160;data.&#160;An&#160;agent&#160;car-<br/>rying&#160;encrypted&#160;code&#160;or&#160;information&#160;can&#160;only&#160;be&#160;de-<br/>crypted&#160;by&#160;a&#160;host&#160;if&#160;certain&#160;predefined&#160;environmental<br/>conditions&#160;are&#160;met.&#160;These&#160;conditions&#160;are&#160;hidden&#160;from<br/>the&#160;host&#160;using&#160;a&#160;one-way&#160;hash&#160;function.&#160;Indeed,&#160;the<br/>agent&#160;itself&#160;will&#160;be&#160;unaware&#160;of&#160;the&#160;triggering&#160;action,<br/>hence&#160;the&#160;additional&#160;moniker,&#160;clueless&#160;agents.&#160;For&#160;a<br/>full&#160;description&#160;of&#160;clueless&#160;agents&#160;and&#160;EKG,&#160;we&#160;refer<br/>readers&#160;to&#160;[11].</p>
+<p style="position:absolute;top:1042px;left:455px;white-space:nowrap" class="ft28">2</p>
+</div>
+<!-- Page 3 -->
+<a name="3"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft312{font-size:15px;font-family:WFOAUI+CMSY10;color:#231f20;}
+	.ft313{font-size:15px;font-family:GPITND+CMBX10;color:#000000;}
+	.ft314{font-size:18px;line-height:20px;font-family:TOCPEO+CMBX12;color:#000000;}
+	.ft315{font-size:15px;line-height:17px;font-family:GPITND+CMBX10;color:#000000;}
+-->
+</style>
+<div id="page3-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OTC_TC_MobileAgents003.png" alt="background image"/>
+<p style="position:absolute;top:187px;left:108px;white-space:nowrap" class="ft311">2.3</p>
+<p style="position:absolute;top:187px;left:154px;white-space:nowrap" class="ft314">Trusted&#160;Computing&#160;and&#160;Agent<br/>Systems</p>
+<p style="position:absolute;top:241px;left:108px;white-space:nowrap" class="ft39">In&#160;the&#160;context&#160;of&#160;trusted&#160;computing,&#160;a&#160;Trusted&#160;Plat-<br/>form&#160;(TP)&#160;is&#160;one&#160;that&#160;behaves&#160;in&#160;the&#160;expected&#160;man-<br/>ner&#160;for&#160;a&#160;particular&#160;purpose&#160;[14].&#160;In&#160;this&#160;paper&#160;we&#160;are<br/>concerned&#160;with&#160;three&#160;aspects&#160;of&#160;a&#160;TP,&#160;remote&#160;attesta-<br/>tion,&#160;sealing&#160;and&#160;isolation.&#160;Remote&#160;attestation&#160;is&#160;the<br/>process&#160;by&#160;which&#160;a&#160;platform&#160;declares&#160;its&#160;current&#160;op-<br/>erating&#160;environment/software&#160;state&#160;as&#160;recorded&#160;in&#160;a<br/>dedicated&#160;set&#160;of&#160;TPM&#160;registers&#160;called&#160;Platform&#160;Con-<br/>figuration&#160;Registers&#160;(PCRs).&#160;Sealing&#160;is&#160;the&#160;process<br/>through&#160;which&#160;data&#160;can&#160;be&#160;used&#160;only&#160;if&#160;a&#160;platform’s<br/>state&#160;matches&#160;some&#160;pre-agreed&#160;value.&#160;Isolation&#160;refers<br/>to&#160;hardware&#160;and&#160;software&#160;support&#160;for&#160;isolated&#160;execu-<br/>tion.&#160;For&#160;interested&#160;readers,&#160;an&#160;introductory&#160;text&#160;to<br/>Trusted&#160;Computing&#160;can&#160;be&#160;found&#160;in&#160;[7].</p>
+<p style="position:absolute;top:493px;left:123px;white-space:nowrap" class="ft35">The&#160;use&#160;of&#160;trusted&#160;hardware&#160;as&#160;a&#160;method&#160;of&#160;pro-</p>
+<p style="position:absolute;top:511px;left:108px;white-space:nowrap" class="ft39">tecting&#160;mobile&#160;agents&#160;can&#160;be&#160;traced&#160;back&#160;to&#160;Wilhelm<br/>et&#160;al.’s&#160;work&#160;on&#160;adding&#160;trusted&#160;third&#160;parties&#160;(in&#160;the<br/>form&#160;of&#160;an&#160;isolated&#160;hardware&#160;environments)&#160;to&#160;host<br/>systems&#160;[17].&#160;In&#160;many&#160;ways&#160;this&#160;work&#160;was&#160;rather<br/>prophetic&#160;in&#160;that&#160;their&#160;requirements&#160;for&#160;trusted&#160;hard-<br/>ware&#160;are&#160;very&#160;much&#160;mirrored&#160;by&#160;what&#160;we&#160;are&#160;seeing<br/>with&#160;trusted&#160;computing&#160;today.&#160;Wilhelm&#160;et&#160;al.&#160;de-<br/>fine&#160;a&#160;Trusted&#160;Processing&#160;Environment&#160;(TPE)&#160;to&#160;con-<br/>sist&#160;of&#160;a&#160;CPU,&#160;RAM,&#160;ROM,&#160;non-volatile&#160;storage&#160;all<br/>of&#160;which&#160;executes&#160;inside&#160;of&#160;a&#160;virtual&#160;machine.&#160;It&#160;is<br/>within&#160;this&#160;environment&#160;that&#160;an&#160;agent&#160;executes.&#160;As<br/>the&#160;agent&#160;is&#160;executing&#160;within&#160;an&#160;isolated&#160;environment<br/>the&#160;host&#160;OS&#160;will&#160;not&#160;be&#160;able&#160;to&#160;observe&#160;its&#160;execution.<br/>At&#160;the&#160;time&#160;of&#160;writing,&#160;Wilhelm’s&#160;system&#160;would&#160;have<br/>been&#160;proprietary&#160;and&#160;expensive,&#160;however,&#160;this&#160;is&#160;no<br/>longer&#160;the&#160;case&#160;as&#160;TPM&#160;and&#160;LaGrande/Pacifica&#160;en-<br/>abled&#160;hardware&#160;will&#160;soon&#160;be&#160;ubiquitous&#160;in&#160;the&#160;mar-<br/>ketplace.</p>
+<p style="position:absolute;top:835px;left:123px;white-space:nowrap" class="ft35">The&#160;use&#160;of&#160;trusted&#160;computing&#160;in&#160;agent&#160;systems&#160;has</p>
+<p style="position:absolute;top:853px;left:108px;white-space:nowrap" class="ft39">also&#160;been&#160;put&#160;forward&#160;in&#160;[10,&#160;9,&#160;8,&#160;2].&#160;Both&#160;[8,&#160;2]<br/>deal&#160;with&#160;non-mobile&#160;agents&#160;used&#160;in&#160;the&#160;preservation<br/>of&#160;user&#160;privacy.&#160;In&#160;[9]&#160;a&#160;number&#160;of&#160;proposals&#160;are<br/>made&#160;to&#160;enhance&#160;privacy&#160;protection&#160;for&#160;mobile&#160;ap-<br/>plications;&#160;each&#160;of&#160;which&#160;stresses&#160;the&#160;need&#160;for&#160;sealed<br/>storage&#160;functionality&#160;and&#160;the&#160;benefits&#160;that&#160;the&#160;ability<br/>to&#160;recognise&#160;when&#160;a&#160;platform&#160;will&#160;behave&#160;as&#160;expected<br/>can&#160;bring.&#160;Recently,&#160;a&#160;trusted&#160;computing&#160;enhanced<br/>mobile&#160;agent&#160;platform&#160;called&#160;SMASH&#160;was&#160;proposed</p>
+<p style="position:absolute;top:190px;left:466px;white-space:nowrap" class="ft39">in&#160;[10].&#160;In&#160;this&#160;system&#160;trusted&#160;computing&#160;is&#160;deployed<br/>to&#160;form&#160;a&#160;middleware-based&#160;instantiation&#160;of&#160;some&#160;as-<br/>pects&#160;of&#160;Wilhelm&#160;et&#160;al’s&#160;proposal&#160;[17].</p>
+<p style="position:absolute;top:276px;left:466px;white-space:nowrap" class="ft34">3</p>
+<p style="position:absolute;top:276px;left:502px;white-space:nowrap" class="ft34">Protecting</p>
+<p style="position:absolute;top:276px;left:638px;white-space:nowrap" class="ft34">Mobile</p>
+<p style="position:absolute;top:276px;left:736px;white-space:nowrap" class="ft34">Agents</p>
+<p style="position:absolute;top:303px;left:502px;white-space:nowrap" class="ft34">with&#160;Trusted&#160;Computing</p>
+<p style="position:absolute;top:344px;left:466px;white-space:nowrap" class="ft39">In&#160;this&#160;section&#160;we&#160;will&#160;look&#160;at&#160;how&#160;trusted&#160;computing<br/>functionality&#160;can&#160;be&#160;used&#160;to&#160;protect&#160;sensitive&#160;agent<br/>information&#160;(be&#160;it&#160;code,&#160;data&#160;or&#160;state).&#160;Through&#160;the<br/>examination&#160;of&#160;a&#160;number&#160;of&#160;scenarios&#160;we&#160;will&#160;demon-<br/>strate&#160;how&#160;an&#160;agent&#160;creator&#160;can&#160;extend&#160;their&#160;control<br/>over&#160;subsequent&#160;environments&#160;in&#160;which&#160;an&#160;agent&#160;will<br/>execute.</p>
+<p style="position:absolute;top:498px;left:466px;white-space:nowrap" class="ft311">3.1</p>
+<p style="position:absolute;top:498px;left:512px;white-space:nowrap" class="ft311">Security&#160;Assumptions</p>
+<p style="position:absolute;top:531px;left:481px;white-space:nowrap" class="ft312"><i>•</i></p>
+<p style="position:absolute;top:531px;left:496px;white-space:nowrap" class="ft313">Assumption&#160;1&#160;(TMAP&#160;Ubiquity)</p>
+<p style="position:absolute;top:531px;left:758px;white-space:nowrap" class="ft35">:&#160;Each</p>
+<p style="position:absolute;top:549px;left:496px;white-space:nowrap" class="ft39">hosting&#160;platform&#160;contains&#160;a&#160;TPM,&#160;La&#160;Grande<br/>or&#160;Pacifica&#160;processor/chipset&#160;extensions&#160;and&#160;OS<br/>support&#160;for&#160;trusted&#160;computing.</p>
+<p style="position:absolute;top:620px;left:481px;white-space:nowrap" class="ft312"><i>•</i></p>
+<p style="position:absolute;top:620px;left:496px;white-space:nowrap" class="ft313">Assumption&#160;2&#160;(Authenticated&#160;Boot)</p>
+<p style="position:absolute;top:620px;left:763px;white-space:nowrap" class="ft35">:&#160;Upon</p>
+<p style="position:absolute;top:638px;left:496px;white-space:nowrap" class="ft39">platform&#160;start-up&#160;and&#160;reset&#160;the&#160;software&#160;state&#160;of<br/>the&#160;TMAP&#160;is&#160;measured&#160;and&#160;the&#160;measurements<br/>stored&#160;to&#160;the&#160;TPM&#160;PCRs.</p>
+<p style="position:absolute;top:709px;left:481px;white-space:nowrap" class="ft312"><i>•</i></p>
+<p style="position:absolute;top:709px;left:496px;white-space:nowrap" class="ft315">Assumption&#160;3&#160;(Trusted&#160;Originating&#160;Plat-<br/>form)</p>
+<p style="position:absolute;top:727px;left:538px;white-space:nowrap" class="ft35">:&#160;The&#160;initial&#160;host&#160;platform&#160;from&#160;which&#160;the</p>
+<p style="position:absolute;top:745px;left:496px;white-space:nowrap" class="ft35">mobile&#160;agent&#160;originates&#160;is&#160;considered&#160;trusted.</p>
+<p style="position:absolute;top:780px;left:481px;white-space:nowrap" class="ft312"><i>•</i></p>
+<p style="position:absolute;top:780px;left:496px;white-space:nowrap" class="ft313">Assumption&#160;4&#160;(Agent&#160;Integrity)</p>
+<p style="position:absolute;top:780px;left:739px;white-space:nowrap" class="ft35">:&#160;Any&#160;sta-</p>
+<p style="position:absolute;top:798px;left:496px;white-space:nowrap" class="ft39">tic&#160;agent&#160;information&#160;is&#160;digitally&#160;signed&#160;by&#160;the<br/>originator.</p>
+<p style="position:absolute;top:851px;left:481px;white-space:nowrap" class="ft312"><i>•</i></p>
+<p style="position:absolute;top:851px;left:496px;white-space:nowrap" class="ft313">Assumption&#160;5&#160;(PCR&#160;Consistency)</p>
+<p style="position:absolute;top:851px;left:748px;white-space:nowrap" class="ft35">:&#160;The&#160;use</p>
+<p style="position:absolute;top:869px;left:496px;white-space:nowrap" class="ft39">of&#160;PCR&#160;registers&#160;to&#160;store&#160;measurements&#160;repre-<br/>sentative&#160;of&#160;a&#160;TMAP’s&#160;software&#160;state&#160;is&#160;consis-<br/>tent&#160;amongst&#160;all&#160;TMAP&#160;platforms.</p>
+<p style="position:absolute;top:940px;left:481px;white-space:nowrap" class="ft312"><i>•</i></p>
+<p style="position:absolute;top:940px;left:496px;white-space:nowrap" class="ft313">Assumption&#160;6&#160;(AIK&#160;Credentials)</p>
+<p style="position:absolute;top:940px;left:754px;white-space:nowrap" class="ft35">:&#160;Every</p>
+<p style="position:absolute;top:958px;left:496px;white-space:nowrap" class="ft39">TMAP&#160;platform&#160;has&#160;enrolled&#160;at&#160;least&#160;one&#160;of&#160;their<br/>AIKs&#160;with&#160;a&#160;Privacy-CA&#160;which&#160;is&#160;know&#160;to&#160;every<br/>other&#160;TMAP&#160;platform.</p>
+<p style="position:absolute;top:1042px;left:455px;white-space:nowrap" class="ft38">3</p>
+</div>
+<!-- Page 4 -->
+<a name="4"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft416{font-size:15px;font-family:WFOAUI+CMSY10;color:#000000;}
+	.ft417{font-size:15px;font-family:MMUTZM+CMMI10;color:#000000;}
+	.ft418{font-size:15px;font-family:CWSXYF+CMTI10;color:#000000;}
+-->
+</style>
+<div id="page4-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OTC_TC_MobileAgents004.png" alt="background image"/>
+<p style="position:absolute;top:426px;left:213px;white-space:nowrap" class="ft48">Figure&#160;1:&#160;Scenario&#160;1</p>
+<p style="position:absolute;top:491px;left:108px;white-space:nowrap" class="ft411">3.2</p>
+<p style="position:absolute;top:491px;left:154px;white-space:nowrap" class="ft411">Scenario&#160;1</p>
+<p style="position:absolute;top:526px;left:108px;white-space:nowrap" class="ft49">This&#160;first&#160;scenario&#160;(see&#160;Figure&#160;1)&#160;represents&#160;the&#160;base<br/>case&#160;from&#160;which&#160;an&#160;originating&#160;platform&#160;requests&#160;a<br/>remote&#160;platform&#160;(B)&#160;to&#160;attest&#160;to&#160;their&#160;current&#160;op-<br/>erational&#160;environment.&#160;If&#160;the&#160;reported&#160;environment<br/>is&#160;deemed&#160;acceptable,&#160;the&#160;originating&#160;platform&#160;will<br/>send&#160;their&#160;agent&#160;to&#160;B.&#160;Once&#160;the&#160;agent&#160;has&#160;finished<br/>executing&#160;on&#160;B,&#160;B&#160;requests&#160;platform&#160;C&#160;to&#160;attest&#160;its<br/>current&#160;operational&#160;environment,&#160;which&#160;B&#160;compares<br/>to&#160;a&#160;list&#160;of&#160;acceptable&#160;states&#160;(obtained&#160;from&#160;the&#160;agent)<br/>prior&#160;to&#160;agent&#160;migration.&#160;This&#160;process&#160;of&#160;attested&#160;mi-<br/>gration&#160;continues&#160;until&#160;the&#160;agent&#160;achieves&#160;its&#160;goal&#160;or<br/>reaches&#160;the&#160;end&#160;of&#160;its&#160;itineracy.</p>
+<p style="position:absolute;top:743px;left:123px;white-space:nowrap" class="ft45">In&#160;order&#160;to&#160;implement&#160;such&#160;an&#160;approach&#160;a&#160;set&#160;of</p>
+<p style="position:absolute;top:761px;left:108px;white-space:nowrap" class="ft49">values,&#160;which&#160;are&#160;representative&#160;of&#160;trusted&#160;TMAP<br/>states,&#160;must&#160;be&#160;stored&#160;within&#160;an&#160;agent.</p>
+<p style="position:absolute;top:779px;left:421px;white-space:nowrap" class="ft45">Here</p>
+<p style="position:absolute;top:797px;left:108px;white-space:nowrap" class="ft49">each&#160;value&#160;takes&#160;the&#160;form&#160;of&#160;a&#160;tuple&#160;of&#160;one&#160;or<br/>more</p>
+<p style="position:absolute;top:815px;left:146px;white-space:nowrap" class="ft416"><i>{</i></p>
+<p style="position:absolute;top:815px;left:153px;white-space:nowrap" class="ft417"><i>P&#160;CR&#160;number,&#160;acceptable&#160;value</i></p>
+<p style="position:absolute;top:815px;left:359px;white-space:nowrap" class="ft416"><i>}</i></p>
+<p style="position:absolute;top:815px;left:371px;white-space:nowrap" class="ft45">pairs,&#160;where</p>
+<p style="position:absolute;top:833px;left:108px;white-space:nowrap" class="ft417"><i>P&#160;CR&#160;number</i></p>
+<p style="position:absolute;top:833px;left:202px;white-space:nowrap" class="ft45">is&#160;the&#160;number&#160;of&#160;the&#160;required&#160;PCR&#160;and</p>
+<p style="position:absolute;top:851px;left:108px;white-space:nowrap" class="ft417"><i>acceptable&#160;value</i></p>
+<p style="position:absolute;top:851px;left:222px;white-space:nowrap" class="ft45">is&#160;what&#160;the&#160;host&#160;deems&#160;good&#160;mea-</p>
+<p style="position:absolute;top:869px;left:108px;white-space:nowrap" class="ft49">surement&#160;digests&#160;for&#160;that&#160;PCR.&#160;The&#160;agent&#160;code,&#160;the<br/>set&#160;of&#160;values&#160;and&#160;any&#160;static&#160;state&#160;or&#160;data&#160;elements<br/>of&#160;the&#160;agent&#160;are&#160;digitally&#160;signed&#160;by&#160;the&#160;originating<br/>platform.</p>
+<p style="position:absolute;top:943px;left:123px;white-space:nowrap" class="ft45">Prior&#160;to&#160;agent&#160;migration&#160;a&#160;random&#160;number</p>
+<p style="position:absolute;top:961px;left:108px;white-space:nowrap" class="ft49">is&#160;requested&#160;from&#160;the&#160;TPM&#160;of&#160;the&#160;TMAP&#160;on<br/>which&#160;the&#160;agent&#160;is&#160;currently&#160;executing&#160;using&#160;the</p>
+<p style="position:absolute;top:997px;left:108px;white-space:nowrap" class="ft418"><i>TPM&#160;GetRandom</i></p>
+<p style="position:absolute;top:997px;left:230px;white-space:nowrap" class="ft45">command.&#160;This&#160;random&#160;challenge</p>
+<p style="position:absolute;top:190px;left:466px;white-space:nowrap" class="ft49">and&#160;a&#160;list&#160;of&#160;the&#160;indices&#160;of&#160;the&#160;PCRs&#160;to&#160;be&#160;reported&#160;are<br/>then&#160;transmitted&#160;to&#160;the&#160;next&#160;TMAP&#160;on&#160;the&#160;agent’s<br/>itinerary.&#160;The&#160;destination&#160;TMAP&#160;attests&#160;to&#160;the&#160;cur-<br/>rent&#160;configuration&#160;of&#160;their&#160;platform&#160;(or,&#160;more&#160;specif-<br/>ically,&#160;the&#160;values&#160;of&#160;the&#160;PCR&#160;indices&#160;specified)&#160;by<br/>calling&#160;the</p>
+<p style="position:absolute;top:279px;left:543px;white-space:nowrap" class="ft418"><i>TPM&#160;Quote</i></p>
+<p style="position:absolute;top:279px;left:630px;white-space:nowrap" class="ft45">command&#160;which&#160;outputs&#160;a</p>
+<p style="position:absolute;top:297px;left:466px;white-space:nowrap" class="ft49">data&#160;structure&#160;consisting&#160;of&#160;the&#160;following&#160;elements:<br/>the&#160;indices&#160;of&#160;the&#160;PCRs&#160;being&#160;reported;&#160;the&#160;values<br/>of&#160;each&#160;of&#160;the&#160;specified&#160;PCRs;&#160;the&#160;signature&#160;of&#160;the<br/>TMAP,&#160;using&#160;one&#160;of&#160;its&#160;attestation&#160;identity&#160;keys,&#160;over<br/>the&#160;hash&#160;value&#160;computed&#160;from&#160;the&#160;random&#160;challenge<br/>received&#160;from&#160;the&#160;mobile&#160;agent&#160;and&#160;the&#160;hash&#160;of&#160;the<br/>PCR&#160;indices&#160;and&#160;their&#160;corresponding&#160;values.</p>
+<p style="position:absolute;top:423px;left:481px;white-space:nowrap" class="ft45">This&#160;data&#160;structure,</p>
+<p style="position:absolute;top:423px;left:645px;white-space:nowrap" class="ft45">along&#160;with&#160;destination</p>
+<p style="position:absolute;top:441px;left:466px;white-space:nowrap" class="ft49">TMAP’s&#160;AIK&#160;credential,&#160;is&#160;returned&#160;to&#160;the&#160;TMAP<br/>on&#160;which&#160;the&#160;mobile&#160;agent&#160;currently&#160;resides.&#160;Once<br/>the&#160;response&#160;has&#160;been&#160;received,&#160;the&#160;AIK&#160;credential&#160;of<br/>the&#160;destination&#160;TMAP&#160;is&#160;validated;&#160;the&#160;signature&#160;of<br/>the&#160;destination&#160;TMAP&#160;on&#160;the&#160;returned&#160;data&#160;structure<br/>is&#160;verified;&#160;the&#160;presence&#160;of&#160;the&#160;random&#160;challenge&#160;in<br/>the&#160;returned&#160;data&#160;structure&#160;is&#160;confirmed;&#160;and&#160;the&#160;at-<br/>tested&#160;PCR&#160;values&#160;of&#160;the&#160;destination&#160;TMAP&#160;is&#160;com-<br/>pared&#160;to&#160;those&#160;stored&#160;locally.&#160;If&#160;a&#160;match&#160;is&#160;found<br/>the&#160;agent&#160;migrates,&#160;else&#160;the&#160;agent&#160;moves&#160;to&#160;the&#160;next<br/>TMAP&#160;on&#160;it’s&#160;itinerary&#160;and&#160;reruns&#160;the&#160;above&#160;steps.</p>
+<p style="position:absolute;top:638px;left:481px;white-space:nowrap" class="ft45">Unfortunately,&#160;this&#160;solution&#160;only&#160;enables&#160;the&#160;state</p>
+<p style="position:absolute;top:656px;left:466px;white-space:nowrap" class="ft49">of&#160;the&#160;destination&#160;TMAP&#160;to&#160;be&#160;verified&#160;at&#160;a&#160;particu-<br/>lar&#160;point&#160;in&#160;time.&#160;There&#160;are&#160;no&#160;guarantees&#160;that&#160;the<br/>destination&#160;TMAP&#160;will&#160;remain&#160;in&#160;its&#160;attested&#160;state<br/>after&#160;it&#160;has&#160;been&#160;verified&#160;but&#160;prior&#160;the&#160;agent&#160;arriv-<br/>ing.&#160;This&#160;problem&#160;is&#160;commonly&#160;referred&#160;to&#160;as&#160;the<br/>time-of-check&#160;time-of-use&#160;problem.</p>
+<p style="position:absolute;top:787px;left:466px;white-space:nowrap" class="ft411">3.3</p>
+<p style="position:absolute;top:787px;left:512px;white-space:nowrap" class="ft411">Scenario&#160;2</p>
+<p style="position:absolute;top:817px;left:466px;white-space:nowrap" class="ft49">The&#160;solution&#160;illustrated&#160;in&#160;figure&#160;2&#160;is&#160;based&#160;upon&#160;the<br/>key&#160;exchange&#160;protocol&#160;defined&#160;in&#160;[7,&#160;5].&#160;In&#160;this&#160;case,<br/>a&#160;set&#160;of&#160;PCR&#160;values,&#160;which&#160;are&#160;representative&#160;of&#160;a<br/>trusted&#160;TMAP&#160;state,&#160;must&#160;also&#160;be&#160;stored&#160;within&#160;the<br/>agent,&#160;as&#160;per&#160;scenario&#160;1.</p>
+<p style="position:absolute;top:907px;left:481px;white-space:nowrap" class="ft45">Prior&#160;to&#160;agent&#160;migration,&#160;a&#160;request&#160;is&#160;made&#160;of&#160;the</p>
+<p style="position:absolute;top:925px;left:466px;white-space:nowrap" class="ft49">next&#160;destination&#160;TMAP&#160;to&#160;generate&#160;an&#160;asymmetric<br/>key&#160;pair&#160;where&#160;the&#160;private&#160;key&#160;component&#160;may&#160;only<br/>be&#160;used&#160;when&#160;the&#160;destination&#160;TMAP&#160;is&#160;in&#160;a&#160;spec-<br/>ified&#160;state.&#160;In&#160;order&#160;to&#160;generate&#160;this&#160;key&#160;pair&#160;the</p>
+<p style="position:absolute;top:997px;left:466px;white-space:nowrap" class="ft418"><i>TPM&#160;CreateWrapKey</i></p>
+<p style="position:absolute;top:997px;left:614px;white-space:nowrap" class="ft45">command&#160;is&#160;called&#160;on&#160;the&#160;des-</p>
+<p style="position:absolute;top:1042px;left:455px;white-space:nowrap" class="ft48">4</p>
+</div>
+<!-- Page 5 -->
+<a name="5"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft519{font-size:13px;font-family:GQKOTB+CMMI9;color:#000000;}
+	.ft520{font-size:13px;font-family:VJVMTR+CMR9;color:#000000;}
+	.ft521{font-size:9px;font-family:OJPMRG+CMSY6;color:#000000;}
+	.ft522{font-size:9px;font-family:NYTOEV+CMMI6;color:#000000;}
+	.ft523{font-size:13px;font-family:YHWXSY+CMSY9;color:#000000;}
+	.ft524{font-size:13px;font-family:MRRJZG+CMBX9;color:#000000;}
+	.ft525{font-size:9px;font-family:WBAJDM+CMR6;color:#000000;}
+-->
+</style>
+<div id="page5-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OTC_TC_MobileAgents005.png" alt="background image"/>
+<p style="position:absolute;top:456px;left:213px;white-space:nowrap" class="ft58">Figure&#160;2:&#160;Scenario&#160;2</p>
+<p style="position:absolute;top:562px;left:108px;white-space:nowrap" class="ft59">tination&#160;TMAP’s&#160;TPM&#160;with&#160;the&#160;specified&#160;state&#160;con-<br/>straints&#160;for&#160;private&#160;key&#160;usage&#160;as&#160;input.&#160;The&#160;des-<br/>tination&#160;TMAP&#160;next&#160;calls</p>
+<p style="position:absolute;top:598px;left:293px;white-space:nowrap" class="ft518"><i>TPM&#160;CertifyKey</i></p>
+<p style="position:absolute;top:598px;left:413px;white-space:nowrap" class="ft55">which</p>
+<p style="position:absolute;top:616px;left:108px;white-space:nowrap" class="ft59">generates&#160;a&#160;data&#160;structure&#160;containing&#160;the&#160;public&#160;key<br/>from&#160;the&#160;newly&#160;generated&#160;key&#160;pair&#160;and&#160;a&#160;description<br/>of&#160;state&#160;to&#160;which&#160;the&#160;corresponding&#160;private&#160;key&#160;is<br/>bound,&#160;certified&#160;by&#160;an&#160;AIK&#160;of&#160;the&#160;destination&#160;TMAP.<br/>This&#160;structure&#160;is&#160;forwarded&#160;to&#160;the&#160;current&#160;TMAP<br/>on&#160;which&#160;an&#160;agent&#160;resides.&#160;Once&#160;this&#160;response&#160;has<br/>been&#160;received,&#160;the&#160;AIK&#160;credential&#160;of&#160;the&#160;destination<br/>TMAP&#160;is&#160;validated;&#160;the&#160;signature&#160;of&#160;the&#160;destination<br/>TMAP&#160;on&#160;the&#160;returned&#160;data&#160;structure&#160;is&#160;verified;&#160;and<br/>the&#160;state&#160;reflected&#160;in&#160;the&#160;PCRs&#160;to&#160;which&#160;the&#160;key&#160;is<br/>bound&#160;is&#160;compared&#160;to&#160;the&#160;value&#160;stored&#160;within&#160;the<br/>agent.&#160;If&#160;a&#160;match&#160;is&#160;found,&#160;the&#160;agent&#160;is&#160;encrypted<br/>with&#160;the&#160;certified&#160;public&#160;key&#160;and&#160;migrates,&#160;else&#160;the<br/>agent&#160;goes&#160;to&#160;the&#160;next&#160;TMAP&#160;on&#160;its&#160;itinerary&#160;and<br/>reruns&#160;the&#160;above.</p>
+<p style="position:absolute;top:907px;left:123px;white-space:nowrap" class="ft55">In&#160;this&#160;way,&#160;the&#160;agent&#160;can&#160;only&#160;be&#160;decrypted&#160;and</p>
+<p style="position:absolute;top:925px;left:108px;white-space:nowrap" class="ft59">executed&#160;on&#160;the&#160;destination&#160;TMAP&#160;if&#160;it&#160;is&#160;in&#160;a&#160;trusted<br/>state.&#160;While&#160;this&#160;solution&#160;overcomes&#160;any&#160;time-of-<br/>check-time-of-use&#160;problem&#160;it&#160;is&#160;quite&#160;computationally<br/>intensive&#160;and&#160;thus&#160;may&#160;not&#160;be&#160;suitable&#160;for&#160;certain&#160;de-<br/>ployment&#160;scenarios.</p>
+<p style="position:absolute;top:187px;left:466px;white-space:nowrap" class="ft511">3.4</p>
+<p style="position:absolute;top:187px;left:512px;white-space:nowrap" class="ft511">Scenario&#160;3</p>
+<p style="position:absolute;top:220px;left:466px;white-space:nowrap" class="ft59">A&#160;sealed&#160;object&#160;in&#160;trusted&#160;computing&#160;is&#160;uniquely<br/>bound&#160;to&#160;a&#160;single&#160;TPM&#160;instance.&#160;It&#160;is&#160;not&#160;possi-<br/>ble&#160;for&#160;a&#160;sealed&#160;object&#160;to&#160;be&#160;opened&#160;on&#160;a&#160;platform<br/>that&#160;did&#160;not&#160;originally&#160;seal&#160;that&#160;object.&#160;In&#160;scenario<br/>2,&#160;we&#160;outlined&#160;an&#160;approach&#160;that&#160;would&#160;allow&#160;a&#160;host&#160;to<br/>‘seal’&#160;an&#160;object&#160;to&#160;a&#160;remote&#160;platform.&#160;However,&#160;such<br/>a&#160;sealing&#160;mechanism&#160;merely&#160;represents&#160;a&#160;one-hop&#160;ex-<br/>tension&#160;to&#160;the&#160;TCG’s&#160;native&#160;sealing&#160;approach.&#160;For<br/>every&#160;host&#160;an&#160;agent&#160;visits,&#160;it&#160;would&#160;require&#160;the&#160;cur-<br/>rent&#160;host&#160;encrypting&#160;an&#160;agent&#160;with&#160;a&#160;public&#160;key&#160;(for<br/>which&#160;the&#160;private&#160;key&#160;is&#160;bound&#160;to&#160;an&#160;agreed&#160;state)<br/>obtained&#160;from&#160;the&#160;next&#160;host.&#160;What&#160;we&#160;require&#160;is<br/>a&#160;generic&#160;sealing&#160;mechanism&#160;that&#160;will&#160;allow&#160;an&#160;ob-<br/>ject&#160;to&#160;be&#160;sealed&#160;to&#160;state&#160;that&#160;is&#160;reproducible&#160;on&#160;any<br/>platform&#160;rather&#160;than&#160;being&#160;sealed&#160;to&#160;an&#160;individual<br/>platform.</p>
+<p style="position:absolute;top:509px;left:481px;white-space:nowrap" class="ft55">The&#160;solution&#160;we&#160;present&#160;here&#160;extends&#160;the&#160;concept</p>
+<p style="position:absolute;top:527px;left:466px;white-space:nowrap" class="ft59">of&#160;environmental&#160;key&#160;generation,&#160;as&#160;briefly&#160;discussed<br/>in&#160;section&#160;2.2,&#160;to&#160;incorporate&#160;elements&#160;of&#160;trusted&#160;com-<br/>puting.&#160;EKG&#160;is&#160;founded&#160;upon&#160;the&#160;idea&#160;of&#160;construct-<br/>ing&#160;keying&#160;material&#160;from&#160;classes&#160;of&#160;environmental<br/>data.&#160;A&#160;trusted&#160;computing&#160;augmented&#160;version&#160;of&#160;this<br/>approach&#160;would&#160;be&#160;to&#160;use&#160;a&#160;current&#160;platform’s&#160;state,<br/>as&#160;indicated&#160;by&#160;one&#160;or&#160;more&#160;PCR&#160;register&#160;values,&#160;as<br/>the&#160;environmental&#160;data&#160;from&#160;which&#160;a&#160;key&#160;is&#160;created.<br/>This&#160;key&#160;can&#160;then&#160;be&#160;used&#160;to&#160;‘seal’&#160;an&#160;agent’s&#160;sensitive<br/>code,&#160;data&#160;and/or&#160;state&#160;information.&#160;This&#160;process&#160;is<br/>illustrated&#160;as&#160;follows:</p>
+<p style="position:absolute;top:726px;left:481px;white-space:nowrap" class="ft55">The&#160;originating&#160;platform&#160;defines&#160;the&#160;following:</p>
+<p style="position:absolute;top:745px;left:466px;white-space:nowrap" class="ft519"><i>N</i></p>
+<p style="position:absolute;top:745px;left:482px;white-space:nowrap" class="ft520">:=</p>
+<p style="position:absolute;top:745px;left:501px;white-space:nowrap" class="ft519"><i>random&#160;nonce</i></p>
+<p style="position:absolute;top:763px;left:466px;white-space:nowrap" class="ft519"><i>K</i></p>
+<p style="position:absolute;top:763px;left:482px;white-space:nowrap" class="ft520">:=</p>
+<p style="position:absolute;top:763px;left:501px;white-space:nowrap" class="ft519"><i>H</i></p>
+<p style="position:absolute;top:763px;left:513px;white-space:nowrap" class="ft520">(“</p>
+<p style="position:absolute;top:763px;left:526px;white-space:nowrap" class="ft519"><i>the&#160;hash&#160;value&#160;computed&#160;f&#160;rom&#160;the&#160;values</i></p>
+<p style="position:absolute;top:781px;left:466px;white-space:nowrap" class="ft519"><i>of&#160;the&#160;T&#160;P&#160;M</i></p>
+<p style="position:absolute;top:779px;left:545px;white-space:nowrap" class="ft521"><i>0</i></p>
+<p style="position:absolute;top:781px;left:549px;white-space:nowrap" class="ft519"><i>s&#160;P&#160;CRs</i></p>
+<p style="position:absolute;top:781px;left:599px;white-space:nowrap" class="ft520">”)</p>
+<p style="position:absolute;top:799px;left:466px;white-space:nowrap" class="ft519"><i>M</i></p>
+<p style="position:absolute;top:799px;left:485px;white-space:nowrap" class="ft520">:=</p>
+<p style="position:absolute;top:799px;left:503px;white-space:nowrap" class="ft519"><i>E</i></p>
+<p style="position:absolute;top:804px;left:513px;white-space:nowrap" class="ft522"><i>K</i></p>
+<p style="position:absolute;top:799px;left:524px;white-space:nowrap" class="ft520">(“</p>
+<p style="position:absolute;top:799px;left:536px;white-space:nowrap" class="ft519"><i>code/data/state&#160;inf&#160;ormation&#160;to&#160;be&#160;protected</i></p>
+<p style="position:absolute;top:817px;left:469px;white-space:nowrap" class="ft523"><i>−</i></p>
+<p style="position:absolute;top:817px;left:487px;white-space:nowrap" class="ft519"><i>specif&#160;ic&#160;to&#160;the&#160;mobile&#160;agent</i></p>
+<p style="position:absolute;top:817px;left:661px;white-space:nowrap" class="ft520">”)</p>
+<p style="position:absolute;top:835px;left:466px;white-space:nowrap" class="ft519"><i>O</i></p>
+<p style="position:absolute;top:835px;left:481px;white-space:nowrap" class="ft520">:=</p>
+<p style="position:absolute;top:835px;left:499px;white-space:nowrap" class="ft519"><i>Hash</i></p>
+<p style="position:absolute;top:835px;left:533px;white-space:nowrap" class="ft520">(</p>
+<p style="position:absolute;top:835px;left:539px;white-space:nowrap" class="ft519"><i>N</i></p>
+<p style="position:absolute;top:835px;left:551px;white-space:nowrap" class="ft523"><i>⊕</i></p>
+<p style="position:absolute;top:835px;left:562px;white-space:nowrap" class="ft520">“</p>
+<p style="position:absolute;top:835px;left:569px;white-space:nowrap" class="ft519"><i>the&#160;hash&#160;value&#160;computed&#160;f&#160;rom&#160;the&#160;values</i></p>
+<p style="position:absolute;top:853px;left:466px;white-space:nowrap" class="ft519"><i>of&#160;the&#160;T&#160;P&#160;M</i></p>
+<p style="position:absolute;top:851px;left:545px;white-space:nowrap" class="ft521"><i>0</i></p>
+<p style="position:absolute;top:853px;left:549px;white-space:nowrap" class="ft519"><i>s&#160;P&#160;CRs</i></p>
+<p style="position:absolute;top:853px;left:599px;white-space:nowrap" class="ft520">”)</p>
+<p style="position:absolute;top:871px;left:481px;white-space:nowrap" class="ft55">We&#160;then&#160;design&#160;an&#160;agent,&#160;which&#160;on&#160;arrival&#160;to&#160;a&#160;new</p>
+<p style="position:absolute;top:889px;left:466px;white-space:nowrap" class="ft59">TMAP,&#160;uses&#160;the&#160;TPM&#160;PCRRead&#160;command&#160;to&#160;read<br/>the&#160;values&#160;held&#160;in&#160;PCRs&#160;0-15&#160;and&#160;takes&#160;the&#160;hash&#160;of<br/>the&#160;values&#160;read:</p>
+<p style="position:absolute;top:944px;left:481px;white-space:nowrap" class="ft524">let</p>
+<p style="position:absolute;top:944px;left:503px;white-space:nowrap" class="ft519"><i>x</i></p>
+<p style="position:absolute;top:944px;left:515px;white-space:nowrap" class="ft520">=</p>
+<p style="position:absolute;top:944px;left:530px;white-space:nowrap" class="ft519"><i>Hash</i></p>
+<p style="position:absolute;top:944px;left:564px;white-space:nowrap" class="ft520">(</p>
+<p style="position:absolute;top:944px;left:569px;white-space:nowrap" class="ft519"><i>output&#160;of&#160;T&#160;P&#160;M&#160;P&#160;CRRead</i></p>
+<p style="position:absolute;top:944px;left:737px;white-space:nowrap" class="ft520">(0)</p>
+<p style="position:absolute;top:944px;left:759px;white-space:nowrap" class="ft519"><i>to</i></p>
+<p style="position:absolute;top:960px;left:511px;white-space:nowrap" class="ft519"><i>T&#160;P&#160;M&#160;P&#160;CRRead</i></p>
+<p style="position:absolute;top:960px;left:619px;white-space:nowrap" class="ft520">(15))</p>
+<p style="position:absolute;top:980px;left:481px;white-space:nowrap" class="ft524">if</p>
+<p style="position:absolute;top:980px;left:490px;white-space:nowrap" class="ft520">(</p>
+<p style="position:absolute;top:980px;left:496px;white-space:nowrap" class="ft519"><i>x</i></p>
+<p style="position:absolute;top:980px;left:503px;white-space:nowrap" class="ft520">)</p>
+<p style="position:absolute;top:980px;left:512px;white-space:nowrap" class="ft523"><i>⊕</i></p>
+<p style="position:absolute;top:980px;left:526px;white-space:nowrap" class="ft519"><i>N</i></p>
+<p style="position:absolute;top:980px;left:538px;white-space:nowrap" class="ft520">)&#160;==</p>
+<p style="position:absolute;top:980px;left:573px;white-space:nowrap" class="ft519"><i>O</i></p>
+<p style="position:absolute;top:998px;left:496px;white-space:nowrap" class="ft519"><i>then</i></p>
+<p style="position:absolute;top:998px;left:528px;white-space:nowrap" class="ft524">execute</p>
+<p style="position:absolute;top:998px;left:581px;white-space:nowrap" class="ft519"><i>D</i></p>
+<p style="position:absolute;top:1004px;left:592px;white-space:nowrap" class="ft522"><i>H</i></p>
+<p style="position:absolute;top:1004px;left:602px;white-space:nowrap" class="ft525">(</p>
+<p style="position:absolute;top:1004px;left:606px;white-space:nowrap" class="ft522"><i>x</i></p>
+<p style="position:absolute;top:1004px;left:612px;white-space:nowrap" class="ft525">)</p>
+<p style="position:absolute;top:998px;left:617px;white-space:nowrap" class="ft520">(</p>
+<p style="position:absolute;top:998px;left:623px;white-space:nowrap" class="ft519"><i>M</i></p>
+<p style="position:absolute;top:998px;left:637px;white-space:nowrap" class="ft520">)</p>
+<p style="position:absolute;top:1042px;left:455px;white-space:nowrap" class="ft58">5</p>
+</div>
+<!-- Page 6 -->
+<a name="6"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page6-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OTC_TC_MobileAgents006.png" alt="background image"/>
+<p style="position:absolute;top:190px;left:123px;white-space:nowrap" class="ft65">In&#160;this&#160;way&#160;the&#160;sensitive&#160;agent&#160;code,&#160;data&#160;and/or</p>
+<p style="position:absolute;top:208px;left:108px;white-space:nowrap" class="ft69">state&#160;information&#160;which&#160;has&#160;been&#160;protected&#160;using&#160;the<br/>environmentally&#160;generated&#160;key&#160;can&#160;only&#160;be&#160;accessed<br/>by&#160;a&#160;TMAP&#160;if&#160;it&#160;is&#160;in&#160;a&#160;state&#160;specified&#160;by&#160;the&#160;origi-<br/>nating&#160;host.</p>
+<p style="position:absolute;top:280px;left:123px;white-space:nowrap" class="ft65">The&#160;security&#160;of&#160;this&#160;approach&#160;is&#160;based&#160;upon&#160;the&#160;in-</p>
+<p style="position:absolute;top:298px;left:108px;white-space:nowrap" class="ft69">ability&#160;of&#160;a&#160;host&#160;platform&#160;to&#160;guess&#160;the&#160;required&#160;plat-<br/>form&#160;configuration&#160;register&#160;values.&#160;However,&#160;if&#160;this<br/>approach&#160;is&#160;to&#160;be&#160;practical,&#160;the&#160;required&#160;platform<br/>configuration&#160;register&#160;values&#160;should&#160;be&#160;chosen&#160;from<br/>a&#160;constrained&#160;set.&#160;This&#160;may&#160;leave&#160;the&#160;agent&#160;open&#160;to<br/>a&#160;dictionary&#160;attack&#160;by&#160;the&#160;host&#160;platform,&#160;whereby&#160;the<br/>host&#160;can&#160;attempt&#160;to&#160;guess&#160;the&#160;required&#160;PCR&#160;values.</p>
+<p style="position:absolute;top:446px;left:108px;white-space:nowrap" class="ft611">3.5</p>
+<p style="position:absolute;top:446px;left:154px;white-space:nowrap" class="ft611">Scenario&#160;4</p>
+<p style="position:absolute;top:476px;left:108px;white-space:nowrap" class="ft69">A&#160;Certifiable&#160;Migratable&#160;Key&#160;(CMK)&#160;is&#160;a&#160;key&#160;that<br/>can&#160;be&#160;migrated&#160;from&#160;the&#160;TPM&#160;on&#160;which&#160;it&#160;was&#160;gen-<br/>erated&#160;but&#160;only&#160;under&#160;strict&#160;controls.&#160;In&#160;this&#160;way,&#160;a<br/>CMK&#160;retains&#160;properties&#160;that&#160;the&#160;TPM,&#160;on&#160;which&#160;it<br/>was&#160;generated,&#160;can&#160;certify.&#160;Such&#160;keys&#160;may&#160;be&#160;used&#160;in<br/>order&#160;to&#160;provide&#160;security&#160;for&#160;mobile&#160;agents.&#160;In&#160;this<br/>scenario,&#160;a&#160;Migration&#160;Selection&#160;Authority&#160;(MSA),<br/>which&#160;has&#160;control&#160;over&#160;CMK&#160;migration,&#160;is&#160;required.</p>
+<p style="position:absolute;top:620px;left:123px;white-space:nowrap" class="ft65">Initially,&#160;a&#160;CMK&#160;must&#160;be&#160;generated&#160;by&#160;the&#160;agent</p>
+<p style="position:absolute;top:638px;left:108px;white-space:nowrap" class="ft65">originator&#160;using&#160;the</p>
+<p style="position:absolute;top:638px;left:259px;white-space:nowrap" class="ft618"><i>TPM&#160;CMK&#160;CreateKey</i></p>
+<p style="position:absolute;top:638px;left:419px;white-space:nowrap" class="ft65">com-</p>
+<p style="position:absolute;top:656px;left:108px;white-space:nowrap" class="ft69">mand,&#160;with&#160;the&#160;specified&#160;state&#160;constrains&#160;for&#160;private<br/>key&#160;usage&#160;as&#160;input.&#160;The&#160;private&#160;key&#160;from&#160;the&#160;CMK<br/>is&#160;then&#160;migrated&#160;to&#160;a&#160;set&#160;of&#160;chosen&#160;TMAPs&#160;under&#160;the<br/>control&#160;of&#160;the&#160;MSA,&#160;who&#160;verifies&#160;the&#160;security&#160;proper-<br/>ties&#160;of&#160;the&#160;TMAPs&#160;prior&#160;to&#160;key&#160;migration.</p>
+<p style="position:absolute;top:745px;left:123px;white-space:nowrap" class="ft65">Once&#160;this&#160;has&#160;been&#160;satisfactorily&#160;completed,&#160;the</p>
+<p style="position:absolute;top:763px;left:108px;white-space:nowrap" class="ft69">agent&#160;originator&#160;can&#160;encrypt&#160;any&#160;sensitive&#160;agent&#160;code<br/>and&#160;data&#160;using&#160;the&#160;public&#160;CMK&#160;in&#160;the&#160;knowledge&#160;that<br/>this&#160;sensitive&#160;information&#160;can&#160;only&#160;be&#160;decrypted&#160;by<br/>a&#160;destination&#160;TMAP&#160;to&#160;which&#160;the&#160;private&#160;CMK&#160;has<br/>been&#160;migrated&#160;and&#160;only&#160;when&#160;those&#160;platforms&#160;are&#160;in<br/>a&#160;particular&#160;software&#160;state.</p>
+<p style="position:absolute;top:871px;left:123px;white-space:nowrap" class="ft65">Alternatively,&#160;a&#160;TTP,&#160;acting&#160;as&#160;an&#160;MSA,&#160;may&#160;be</p>
+<p style="position:absolute;top:889px;left:108px;white-space:nowrap" class="ft69">deployed&#160;in&#160;order&#160;to&#160;generate&#160;certifiable&#160;migratable<br/>key&#160;pairs,&#160;where&#160;the&#160;private&#160;key&#160;from&#160;each&#160;is&#160;bound<br/>to&#160;a&#160;particular&#160;software&#160;state&#160;(which&#160;is&#160;appropriate<br/>to&#160;agent&#160;execution,&#160;for&#160;example,&#160;the&#160;latest&#160;version<br/>of&#160;JRE&#160;executing&#160;on&#160;a&#160;particular&#160;OS).&#160;Host&#160;TMAPs<br/>then&#160;register&#160;with&#160;this&#160;TTP,&#160;and&#160;request&#160;the&#160;migra-<br/>tion&#160;of&#160;the&#160;required&#160;private&#160;CMKs.&#160;The&#160;desired&#160;pri-</p>
+<p style="position:absolute;top:190px;left:466px;white-space:nowrap" class="ft69">vate&#160;CMKs&#160;are&#160;migrated&#160;on&#160;condition&#160;that&#160;the&#160;re-<br/>questing&#160;TMAP&#160;meets&#160;the&#160;pre-established&#160;migration<br/>policy&#160;of&#160;the&#160;TTP.</p>
+<p style="position:absolute;top:250px;left:481px;white-space:nowrap" class="ft65">Once&#160;this&#160;has&#160;been&#160;satisfactorily&#160;completed,&#160;an</p>
+<p style="position:absolute;top:268px;left:466px;white-space:nowrap" class="ft69">agent&#160;originator&#160;can&#160;retrieve&#160;a&#160;public&#160;CMK&#160;which<br/>has&#160;been&#160;certified&#160;by&#160;the&#160;TTP,&#160;verify&#160;that&#160;the&#160;plat-<br/>form&#160;configuration&#160;register&#160;values&#160;to&#160;which&#160;the&#160;cor-<br/>responding&#160;private&#160;key&#160;is&#160;bound&#160;are&#160;suitable&#160;for&#160;the<br/>agent&#160;in&#160;question,&#160;and&#160;validate&#160;the&#160;migration&#160;policy<br/>of&#160;the&#160;TTP.&#160;Once&#160;each&#160;of&#160;these&#160;steps&#160;has&#160;been&#160;com-<br/>pleted&#160;the&#160;agent&#160;originator&#160;can&#160;encrypt&#160;any&#160;sensitive<br/>agent&#160;code&#160;and/or&#160;data&#160;using&#160;the&#160;public&#160;CMK&#160;in&#160;the<br/>knowledge&#160;that&#160;this&#160;protected&#160;information&#160;can&#160;only<br/>be&#160;decrypted&#160;by&#160;a&#160;TMAP&#160;to&#160;which&#160;the&#160;private&#160;CMK<br/>has&#160;been&#160;migrated&#160;and&#160;only&#160;when&#160;this&#160;platform&#160;is&#160;in<br/>a&#160;particular&#160;software&#160;state.</p>
+<p style="position:absolute;top:490px;left:481px;white-space:nowrap" class="ft65">This&#160;solution&#160;assumes&#160;the&#160;inclusion&#160;of&#160;additional</p>
+<p style="position:absolute;top:508px;left:466px;white-space:nowrap" class="ft69">infrastructure&#160;over&#160;scenario’s&#160;1-3.&#160;In&#160;order&#160;for&#160;this<br/>solution&#160;to&#160;work&#160;we&#160;require&#160;the&#160;presence&#160;of&#160;an&#160;MSA<br/>within&#160;the&#160;network&#160;and&#160;for&#160;each&#160;agent&#160;host&#160;to&#160;enroll<br/>with&#160;this&#160;MSA.&#160;This&#160;may&#160;not&#160;always&#160;be&#160;practical&#160;in<br/>all&#160;deployments&#160;and&#160;may&#160;limit&#160;the&#160;scalability&#160;of&#160;such<br/>a&#160;solution.</p>
+<p style="position:absolute;top:677px;left:466px;white-space:nowrap" class="ft64">4</p>
+<p style="position:absolute;top:677px;left:502px;white-space:nowrap" class="ft64">Conclusions</p>
+<p style="position:absolute;top:728px;left:466px;white-space:nowrap" class="ft69">In&#160;this&#160;paper&#160;we&#160;outlined&#160;the&#160;security&#160;issues&#160;faced<br/>by&#160;both&#160;mobile&#160;agents&#160;and&#160;mobile&#160;agent&#160;hosts,&#160;and<br/>briefly&#160;discussed&#160;the&#160;extent&#160;to&#160;which&#160;trusted&#160;comput-<br/>ing&#160;can&#160;be&#160;used&#160;to&#160;enhance&#160;the&#160;security&#160;of&#160;both.&#160;In<br/>providing&#160;trusted&#160;computing&#160;enhancements&#160;to&#160;mobile<br/>agent&#160;systems&#160;we&#160;examined&#160;various&#160;ways&#160;by&#160;which<br/>trusted&#160;computing&#160;primitives&#160;can&#160;be&#160;deployed&#160;in&#160;or-<br/>der&#160;that&#160;an&#160;agent&#160;originator&#160;can&#160;be&#160;secure&#160;in&#160;the<br/>knowledge&#160;that&#160;each&#160;host&#160;platform&#160;their&#160;agent&#160;vis-<br/>its&#160;will&#160;to&#160;behave&#160;in&#160;an&#160;expected&#160;manner&#160;prior&#160;to<br/>sensitive&#160;agent&#160;information&#160;being&#160;accessed.&#160;We&#160;high-<br/>lighted&#160;a&#160;number&#160;of&#160;ways&#160;by&#160;which&#160;we&#160;can&#160;achieve&#160;this<br/>functionality&#160;and&#160;note&#160;the&#160;trade-offs&#160;between&#160;security<br/>and&#160;practicality&#160;for&#160;each.&#160;In&#160;this&#160;context&#160;trusted&#160;com-<br/>puting&#160;is&#160;not&#160;the&#160;obvious&#160;panacea&#160;that&#160;one&#160;may&#160;have<br/>thought.</p>
+<p style="position:absolute;top:1042px;left:455px;white-space:nowrap" class="ft68">6</p>
+</div>
+<!-- Page 7 -->
+<a name="7"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft726{font-size:15px;font-family:JSTCHK+CMTT10;color:#000000;}
+	.ft727{font-size:15px;line-height:17px;font-family:CWSXYF+CMTI10;color:#000000;}
+-->
+</style>
+<div id="page7-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="OTC_TC_MobileAgents007.png" alt="background image"/>
+<p style="position:absolute;top:184px;left:108px;white-space:nowrap" class="ft74">References</p>
+<p style="position:absolute;top:224px;left:115px;white-space:nowrap" class="ft78">[1]</p>
+<p style="position:absolute;top:224px;left:139px;white-space:nowrap" class="ft79">S.&#160;Crane.&#160;Privacy&#160;preserving&#160;trust&#160;agents.&#160;Tech-<br/>nical&#160;Report&#160;HPL-2004-197,&#160;HP&#160;Labs,&#160;Bristol,<br/>UK,&#160;11&#160;November&#160;2004.</p>
+<p style="position:absolute;top:294px;left:115px;white-space:nowrap" class="ft78">[2]</p>
+<p style="position:absolute;top:294px;left:139px;white-space:nowrap" class="ft79">L.&#160;D’Anna,&#160;B.&#160;Matt,&#160;A.&#160;Reisse,&#160;T.&#160;Van&#160;Vleck,<br/>S.&#160;Schwab,&#160;and&#160;P.&#160;LeBlanc.&#160;Self-protecting&#160;mo-<br/>bile&#160;agents&#160;obfuscation&#160;report.&#160;Technical&#160;Re-<br/>port&#160;Report&#160;03-015,&#160;Network&#160;Associates&#160;Labo-<br/>ratories,&#160;2003.</p>
+<p style="position:absolute;top:399px;left:115px;white-space:nowrap" class="ft78">[3]</p>
+<p style="position:absolute;top:399px;left:139px;white-space:nowrap" class="ft75">Unlimited&#160;Freedom.</p>
+<p style="position:absolute;top:399px;left:313px;white-space:nowrap" class="ft75">Interesting&#160;uses&#160;of</p>
+<p style="position:absolute;top:417px;left:139px;white-space:nowrap" class="ft75">trusted&#160;computing,</p>
+<p style="position:absolute;top:417px;left:290px;white-space:nowrap" class="ft75">part&#160;2,</p>
+<p style="position:absolute;top:417px;left:361px;white-space:nowrap" class="ft75">March&#160;2004.</p>
+<p style="position:absolute;top:435px;left:139px;white-space:nowrap" class="ft726">http://invisiblog.com/1c801df4aee49232/</p>
+<p style="position:absolute;top:453px;left:139px;white-space:nowrap" class="ft716"><i>\</i></p>
+<p style="position:absolute;top:453px;left:146px;white-space:nowrap" class="ft726">#mobile</p>
+<p style="position:absolute;top:453px;left:201px;white-space:nowrap" class="ft75">.</p>
+<p style="position:absolute;top:486px;left:115px;white-space:nowrap" class="ft78">[4]</p>
+<p style="position:absolute;top:486px;left:139px;white-space:nowrap" class="ft75">E.&#160;Gallery&#160;and&#160;A.&#160;Tomlinson.</p>
+<p style="position:absolute;top:486px;left:362px;white-space:nowrap" class="ft75">Protection&#160;of</p>
+<p style="position:absolute;top:504px;left:139px;white-space:nowrap" class="ft75">downloadable&#160;software&#160;on&#160;SDR&#160;devices.&#160;In</p>
+<p style="position:absolute;top:504px;left:422px;white-space:nowrap" class="ft718"><i>Pro-</i></p>
+<p style="position:absolute;top:522px;left:139px;white-space:nowrap" class="ft727"><i>ceedings&#160;of&#160;the&#160;4th&#160;Software&#160;Defined&#160;Radio&#160;Fo-<br/>rum&#160;Technical&#160;Conference&#160;(SDR&#160;2005)</i></p>
+<p style="position:absolute;top:540px;left:394px;white-space:nowrap" class="ft75">,&#160;Orange</p>
+<p style="position:absolute;top:558px;left:139px;white-space:nowrap" class="ft79">County,&#160;California,&#160;USA,&#160;14–18&#160;November&#160;2005.<br/>Software&#160;Defined&#160;Radio&#160;Forum&#160;(SDRF).</p>
+<p style="position:absolute;top:609px;left:115px;white-space:nowrap" class="ft78">[5]</p>
+<p style="position:absolute;top:609px;left:139px;white-space:nowrap" class="ft79">W.&#160;Jansen&#160;and&#160;T.&#160;Karygiannis.&#160;Mobile&#160;agents<br/>and&#160;security.&#160;NIST&#160;Special&#160;Publication&#160;800-19,<br/>National&#160;Institute&#160;of&#160;Standards&#160;and&#160;Technology<br/>(NIST),&#160;Computer&#160;Security&#160;Division,&#160;Gaithers-<br/>burg,&#160;Maryland,&#160;USA,&#160;1999.</p>
+<p style="position:absolute;top:714px;left:115px;white-space:nowrap" class="ft78">[6]</p>
+<p style="position:absolute;top:714px;left:139px;white-space:nowrap" class="ft75">C.&#160;Mitchell,&#160;editor.</p>
+<p style="position:absolute;top:714px;left:281px;white-space:nowrap" class="ft718"><i>Trusted&#160;Computing</i></p>
+<p style="position:absolute;top:714px;left:408px;white-space:nowrap" class="ft75">.&#160;IEE</p>
+<p style="position:absolute;top:732px;left:139px;white-space:nowrap" class="ft79">Professional&#160;Applications&#160;of&#160;Computing&#160;Series<br/>6.&#160;The&#160;Institute&#160;of&#160;Electrical&#160;Engineers&#160;(IEE),<br/>London,&#160;UK,&#160;April&#160;2005.</p>
+<p style="position:absolute;top:802px;left:115px;white-space:nowrap" class="ft78">[7]</p>
+<p style="position:absolute;top:802px;left:139px;white-space:nowrap" class="ft79">S.&#160;Pearson.&#160;Trusted&#160;agents&#160;that&#160;enhance&#160;user<br/>privacy&#160;by&#160;self-&#160;profiling.&#160;Technical&#160;Report&#160;HPL-<br/>2002-196,&#160;HP&#160;Labs,&#160;Bristol,&#160;UK,&#160;15&#160;July&#160;2002.</p>
+<p style="position:absolute;top:871px;left:115px;white-space:nowrap" class="ft78">[8]</p>
+<p style="position:absolute;top:871px;left:139px;white-space:nowrap" class="ft75">S.&#160;Pearson.</p>
+<p style="position:absolute;top:871px;left:232px;white-space:nowrap" class="ft75">How&#160;trusted&#160;computers&#160;can&#160;en-</p>
+<p style="position:absolute;top:889px;left:139px;white-space:nowrap" class="ft79">hance&#160;for&#160;privacy&#160;preserving&#160;mobile&#160;applications.<br/>In</p>
+<p style="position:absolute;top:907px;left:161px;white-space:nowrap" class="ft718"><i>Proceedings&#160;of&#160;the&#160;1st&#160;International&#160;IEEE</i></p>
+<p style="position:absolute;top:925px;left:139px;white-space:nowrap" class="ft727"><i>WoWMoM&#160;Workshop&#160;on&#160;Trust,&#160;Security&#160;and<br/>Privacy&#160;for&#160;Ubiquitous&#160;Computing&#160;(WOWMOM<br/>’05)</i></p>
+<p style="position:absolute;top:961px;left:165px;white-space:nowrap" class="ft75">,&#160;pages&#160;609–613,&#160;Taormina,&#160;Sicily,&#160;Italy,&#160;13–</p>
+<p style="position:absolute;top:979px;left:139px;white-space:nowrap" class="ft79">16&#160;June&#160;2005.&#160;IEEE&#160;Computer&#160;Society,&#160;Wash-<br/>ington,&#160;DC,&#160;USA.</p>
+<p style="position:absolute;top:190px;left:473px;white-space:nowrap" class="ft78">[9]</p>
+<p style="position:absolute;top:190px;left:497px;white-space:nowrap" class="ft79">A.&#160;Pridgen&#160;and&#160;C.&#160;Julien.&#160;A&#160;secure&#160;modular<br/>mobile&#160;agent&#160;system.&#160;In</p>
+<p style="position:absolute;top:208px;left:657px;white-space:nowrap" class="ft718"><i>Proceedings&#160;of&#160;the&#160;2006</i></p>
+<p style="position:absolute;top:226px;left:497px;white-space:nowrap" class="ft727"><i>international&#160;workshop&#160;on&#160;Software&#160;engineering<br/>for&#160;large-scale&#160;multi-agent&#160;systems&#160;(SELMAS<br/>’06)</i></p>
+<p style="position:absolute;top:261px;left:523px;white-space:nowrap" class="ft75">,&#160;pages&#160;67–74,&#160;Shanghai,&#160;China,&#160;22–23&#160;May</p>
+<p style="position:absolute;top:279px;left:497px;white-space:nowrap" class="ft75">2006.&#160;ACM&#160;Press,&#160;New&#160;York,&#160;USA.</p>
+<p style="position:absolute;top:308px;left:466px;white-space:nowrap" class="ft78">[10]</p>
+<p style="position:absolute;top:308px;left:497px;white-space:nowrap" class="ft79">J.&#160;Riordan&#160;and&#160;Bruce&#160;Schneier.&#160;Environmental<br/>key&#160;generation&#160;towards&#160;clueless&#160;agents.&#160;In&#160;G.&#160;Vi-<br/>gna,&#160;editor,</p>
+<p style="position:absolute;top:343px;left:584px;white-space:nowrap" class="ft718"><i>Mobile&#160;Agents&#160;and&#160;Security</i></p>
+<p style="position:absolute;top:343px;left:772px;white-space:nowrap" class="ft75">,&#160;vol-</p>
+<p style="position:absolute;top:361px;left:497px;white-space:nowrap" class="ft75">ume&#160;1419&#160;of</p>
+<p style="position:absolute;top:361px;left:580px;white-space:nowrap" class="ft718"><i>Lecture&#160;Notes&#160;in&#160;Comptuer&#160;Science</i></p>
+<p style="position:absolute;top:379px;left:497px;white-space:nowrap" class="ft718"><i>(LNCS)</i></p>
+<p style="position:absolute;top:379px;left:548px;white-space:nowrap" class="ft75">,&#160;pages&#160;15–24.&#160;Springer–Verlag,&#160;Berlin–</p>
+<p style="position:absolute;top:397px;left:497px;white-space:nowrap" class="ft75">Heidelberg,&#160;Germany,&#160;1998.</p>
+<p style="position:absolute;top:425px;left:466px;white-space:nowrap" class="ft78">[11]</p>
+<p style="position:absolute;top:425px;left:497px;white-space:nowrap" class="ft79">V.&#160;Roth.&#160;Secure&#160;recording&#160;of&#160;itineraries&#160;through<br/>co-operating&#160;agents.&#160;In</p>
+<p style="position:absolute;top:443px;left:649px;white-space:nowrap" class="ft718"><i>Workshop&#160;ion&#160;on&#160;Object-</i></p>
+<p style="position:absolute;top:461px;left:497px;white-space:nowrap" class="ft718"><i>Oriented&#160;Technology&#160;(ECOOP&#160;’98)</i></p>
+<p style="position:absolute;top:461px;left:728px;white-space:nowrap" class="ft75">,&#160;pages&#160;297–</p>
+<p style="position:absolute;top:479px;left:497px;white-space:nowrap" class="ft75">298,&#160;20–24&#160;July&#160;1998.</p>
+<p style="position:absolute;top:507px;left:466px;white-space:nowrap" class="ft78">[12]</p>
+<p style="position:absolute;top:507px;left:497px;white-space:nowrap" class="ft79">K.&#160;Rothermel&#160;and&#160;M.&#160;Schwehm.&#160;Mobile&#160;agents.<br/>In&#160;A.&#160;Kent&#160;and&#160;J.G.&#160;Williams,&#160;editors,</p>
+<p style="position:absolute;top:525px;left:771px;white-space:nowrap" class="ft718"><i>Ency-</i></p>
+<p style="position:absolute;top:543px;left:497px;white-space:nowrap" class="ft718"><i>clopedia&#160;for&#160;Computer&#160;Science&#160;and&#160;Technology</i></p>
+<p style="position:absolute;top:543px;left:805px;white-space:nowrap" class="ft75">,</p>
+<p style="position:absolute;top:561px;left:497px;white-space:nowrap" class="ft79">volume&#160;40,&#160;pages&#160;155–176.&#160;M.&#160;Dekker&#160;Inc.,&#160;New<br/>York,&#160;USA,&#160;1999.</p>
+<p style="position:absolute;top:607px;left:466px;white-space:nowrap" class="ft78">[13]</p>
+<p style="position:absolute;top:607px;left:497px;white-space:nowrap" class="ft75">TCG.</p>
+<p style="position:absolute;top:607px;left:577px;white-space:nowrap" class="ft75">TCG</p>
+<p style="position:absolute;top:607px;left:628px;white-space:nowrap" class="ft75">Specification</p>
+<p style="position:absolute;top:607px;left:727px;white-space:nowrap" class="ft75">Architecture</p>
+<p style="position:absolute;top:625px;left:497px;white-space:nowrap" class="ft75">Overview.</p>
+<p style="position:absolute;top:625px;left:587px;white-space:nowrap" class="ft75">TCG&#160;Specification&#160;Version&#160;1.2,</p>
+<p style="position:absolute;top:643px;left:497px;white-space:nowrap" class="ft79">The&#160;Trusted&#160;Computing&#160;Group&#160;(TCG),&#160;Port-<br/>land,&#160;Oregon,&#160;USA,&#160;April&#160;2003.</p>
+<p style="position:absolute;top:689px;left:466px;white-space:nowrap" class="ft78">[14]</p>
+<p style="position:absolute;top:689px;left:497px;white-space:nowrap" class="ft75">G.&#160;Vigna.</p>
+<p style="position:absolute;top:689px;left:586px;white-space:nowrap" class="ft75">Cryptographic&#160;traces&#160;for&#160;mobile</p>
+<p style="position:absolute;top:707px;left:497px;white-space:nowrap" class="ft75">agents.&#160;In&#160;G.&#160;Vigna,&#160;editor,</p>
+<p style="position:absolute;top:707px;left:687px;white-space:nowrap" class="ft718"><i>Mobile&#160;Agents&#160;and</i></p>
+<p style="position:absolute;top:725px;left:497px;white-space:nowrap" class="ft718"><i>Security</i></p>
+<p style="position:absolute;top:725px;left:549px;white-space:nowrap" class="ft75">,&#160;volume&#160;1419&#160;of</p>
+<p style="position:absolute;top:725px;left:661px;white-space:nowrap" class="ft718"><i>Lecture&#160;Notes&#160;in&#160;Com-</i></p>
+<p style="position:absolute;top:743px;left:497px;white-space:nowrap" class="ft718"><i>puter&#160;Science</i></p>
+<p style="position:absolute;top:743px;left:585px;white-space:nowrap" class="ft75">,&#160;pages&#160;137–153.&#160;Springer–Verlag,</p>
+<p style="position:absolute;top:761px;left:497px;white-space:nowrap" class="ft75">Berlin–Heidelberg,&#160;Germany,&#160;1998.</p>
+<p style="position:absolute;top:789px;left:466px;white-space:nowrap" class="ft78">[15]</p>
+<p style="position:absolute;top:789px;left:497px;white-space:nowrap" class="ft79">R.&#160;Wahbe,&#160;S.&#160;Lucco,&#160;T.E.&#160;Anderson,&#160;and&#160;S.L.<br/>Graham.&#160;Efficient&#160;software-based&#160;fault&#160;isolation.<br/>In</p>
+<p style="position:absolute;top:825px;left:516px;white-space:nowrap" class="ft718"><i>Proceedings&#160;of&#160;the&#160;14th&#160;ACM&#160;symposium&#160;on</i></p>
+<p style="position:absolute;top:843px;left:497px;white-space:nowrap" class="ft718"><i>Operating&#160;systems&#160;principles&#160;(SOSP&#160;’93)</i></p>
+<p style="position:absolute;top:843px;left:764px;white-space:nowrap" class="ft75">,&#160;pages</p>
+<p style="position:absolute;top:861px;left:497px;white-space:nowrap" class="ft75">203–216,&#160;5–8&#160;December&#160;1993.</p>
+<p style="position:absolute;top:889px;left:466px;white-space:nowrap" class="ft78">[16]</p>
+<p style="position:absolute;top:889px;left:497px;white-space:nowrap" class="ft79">U.G.&#160;Wilhelm,&#160;S.&#160;Staamann,&#160;and&#160;L.&#160;Butty.&#160;In-<br/>troducing&#160;trusted&#160;third&#160;parties&#160;to&#160;the&#160;mobile<br/>agent&#160;paradigm.&#160;In&#160;J.&#160;Vitek&#160;and&#160;C.&#160;Jensen,&#160;edi-<br/>tors,</p>
+<p style="position:absolute;top:943px;left:531px;white-space:nowrap" class="ft718"><i>Secure&#160;Internet&#160;Programming:&#160;Security&#160;Is-</i></p>
+<p style="position:absolute;top:961px;left:497px;white-space:nowrap" class="ft718"><i>sues&#160;for&#160;Mobile&#160;and&#160;Distributed&#160;Objects</i></p>
+<p style="position:absolute;top:961px;left:753px;white-space:nowrap" class="ft75">,&#160;volume</p>
+<p style="position:absolute;top:979px;left:497px;white-space:nowrap" class="ft79">Lecture&#160;Notes&#160;In&#160;Computer&#160;Science,&#160;pages&#160;469–<br/>489.&#160;Springer-Verlag,&#160;London,&#160;UK,&#160;1999.</p>
+<p style="position:absolute;top:1042px;left:455px;white-space:nowrap" class="ft78">7</p>
+</div>
+</body>
+</html>

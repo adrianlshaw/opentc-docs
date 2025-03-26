@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>D04.4: Initial prototype L4-based TC system</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="author" content="Angelika Holzweber"/>
+<meta name="date" content="2007-04-10T17:42:50+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<!-- Page 1 -->
+<a name="1"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:13px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft11{font-size:19px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft12{font-size:27px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft13{font-size:17px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft14{font-size:17px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft15{font-size:10px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft16{font-size:14px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft17{font-size:17px;line-height:19px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft18{font-size:17px;line-height:19px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page1-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system001.png" alt="background image"/>
+<p style="position:absolute;top:137px;left:92px;white-space:nowrap" class="ft10">&#160;</p>
+<p style="position:absolute;top:76px;left:91px;white-space:nowrap" class="ft11">&#160;</p>
+<p style="position:absolute;top:188px;left:116px;white-space:nowrap" class="ft12"><b>D04.4&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</b></p>
+<p style="position:absolute;top:265px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;number</b></p>
+<p style="position:absolute;top:265px;left:425px;white-space:nowrap" class="ft14">IST-027635</p>
+<p style="position:absolute;top:291px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;acronym</b></p>
+<p style="position:absolute;top:291px;left:425px;white-space:nowrap" class="ft14">Open_TC</p>
+<p style="position:absolute;top:316px;left:91px;white-space:nowrap" class="ft13"><b>Project&#160;title</b></p>
+<p style="position:absolute;top:316px;left:425px;white-space:nowrap" class="ft14">Open&#160;Trusted&#160;Computing</p>
+<p style="position:absolute;top:342px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;type</b></p>
+<p style="position:absolute;top:342px;left:425px;white-space:nowrap" class="ft14">Report&#160;(see&#160;p&#160;84/85 Annex&#160;1 -&#160;Nature)</p>
+<p style="position:absolute;top:385px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;reference&#160;number</b></p>
+<p style="position:absolute;top:385px;left:425px;white-space:nowrap" class="ft14">IST-027635/DD04.4/FINAL|1.0</p>
+<p style="position:absolute;top:410px;left:91px;white-space:nowrap" class="ft13"><b>Deliverable&#160;title</b></p>
+<p style="position:absolute;top:410px;left:425px;white-space:nowrap" class="ft14">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:436px;left:91px;white-space:nowrap" class="ft13"><b>WP&#160;contributing&#160;to&#160;the&#160;deliverable</b></p>
+<p style="position:absolute;top:436px;left:425px;white-space:nowrap" class="ft14">WP4</p>
+<p style="position:absolute;top:461px;left:91px;white-space:nowrap" class="ft13"><b>Due&#160;date</b></p>
+<p style="position:absolute;top:461px;left:425px;white-space:nowrap" class="ft14">Feb&#160;2007 -&#160;M16</p>
+<p style="position:absolute;top:487px;left:91px;white-space:nowrap" class="ft13"><b>Actual&#160;submission&#160;date</b></p>
+<p style="position:absolute;top:487px;left:425px;white-space:nowrap" class="ft14">April&#160;2007</p>
+<p style="position:absolute;top:530px;left:91px;white-space:nowrap" class="ft13"><b>Responsible&#160;Organisation</b></p>
+<p style="position:absolute;top:530px;left:424px;white-space:nowrap" class="ft14">TUD</p>
+<p style="position:absolute;top:571px;left:91px;white-space:nowrap" class="ft13"><b>Authors</b></p>
+<p style="position:absolute;top:552px;left:424px;white-space:nowrap" class="ft17">TUD&#160;(Bernhard&#160;Kauer, Carsten&#160;Weinhold,&#160;<br/>Christelle&#160;Braun, Alexander&#160;Böttcher),<br/>HP&#160;(David&#160;Plaquin)</p>
+<p style="position:absolute;top:610px;left:91px;white-space:nowrap" class="ft13"><b>Abstract</b></p>
+<p style="position:absolute;top:610px;left:424px;white-space:nowrap" class="ft17">This&#160;report&#160;describes&#160;an&#160;initial&#160;prototype&#160;of&#160;<br/>an&#160;L4-based&#160;trusted&#160;operating-system&#160;layer.&#160;<br/>The&#160;prototype&#160;is&#160;based&#160;on&#160;a&#160;snapshot&#160;of&#160;the&#160;<br/>L4 software&#160;components&#160;that&#160;we&#160;provide&#160;in&#160;<br/>OpenTC&#160;and&#160;it&#160;includes&#160;a&#160;first&#160;<br/>implementation&#160;of&#160;the&#160;Basic Management&#160;<br/>Interface&#160;(BMI), facilities&#160;to&#160;access&#160;TPMs, and&#160;<br/>a&#160;trusted&#160;boot&#160;loader. This&#160;deliverable&#160;<br/>includes&#160;the&#160;full&#160;source&#160;code&#160;of&#160;the&#160;L4-based&#160;<br/>prototype&#160;as&#160;well&#160;as&#160;compiled&#160;binaries&#160;that&#160;<br/>have&#160;been&#160;integrated&#160;into&#160;a&#160;demonstrator&#160;in&#160;<br/>the&#160;form&#160;of&#160;a&#160;bootable&#160;CD&#160;image.</p>
+<p style="position:absolute;top:850px;left:91px;white-space:nowrap" class="ft13"><b>Keywords</b></p>
+<p style="position:absolute;top:840px;left:424px;white-space:nowrap" class="ft17">WP4, prototype, microkernel, L4, L4Linux,&#160;<br/>BMI, OSLO</p>
+<p style="position:absolute;top:899px;left:92px;white-space:nowrap" class="ft13"><b>Dissemination&#160;level</b></p>
+<p style="position:absolute;top:899px;left:423px;white-space:nowrap" class="ft14">Public</p>
+<p style="position:absolute;top:925px;left:92px;white-space:nowrap" class="ft13"><b>Revision</b></p>
+<p style="position:absolute;top:925px;left:423px;white-space:nowrap" class="ft14">FINAL|1.0</p>
+<p style="position:absolute;top:976px;left:90px;white-space:nowrap" class="ft13"><b>Instrument</b></p>
+<p style="position:absolute;top:976px;left:271px;white-space:nowrap" class="ft14">IP</p>
+<p style="position:absolute;top:967px;left:452px;white-space:nowrap" class="ft18"><b>Start&#160;date&#160;of&#160;the&#160;<br/>project</b></p>
+<p style="position:absolute;top:976px;left:632px;white-space:nowrap" class="ft14">1</p>
+<p style="position:absolute;top:976px;left:643px;white-space:nowrap" class="ft15">st</p>
+<p style="position:absolute;top:976px;left:652px;white-space:nowrap" class="ft14">&#160;November&#160;2005</p>
+<p style="position:absolute;top:1005px;left:90px;white-space:nowrap" class="ft13"><b>Thematic&#160;Priority</b></p>
+<p style="position:absolute;top:1005px;left:271px;white-space:nowrap" class="ft14">IST</p>
+<p style="position:absolute;top:1005px;left:452px;white-space:nowrap" class="ft13"><b>Duration</b></p>
+<p style="position:absolute;top:1005px;left:632px;white-space:nowrap" class="ft14">42 months</p>
+<p style="position:absolute;top:75px;left:674px;white-space:nowrap" class="ft16">&#160;</p>
+</div>
+<!-- Page 2 -->
+<a name="2"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft29{font-size:9px;font-family:BAAAAA+TimesNewRomanPSMT;color:#000000;}
+	.ft210{font-size:15px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft211{font-size:17px;font-family:DAAAAA+BitstreamVeraSans;color:#000080;}
+-->
+</style>
+<div id="page2-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system002.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft29">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft20">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft210">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft210">FINAL|1.0</p>
+<p style="position:absolute;top:823px;left:85px;white-space:nowrap" class="ft24">If&#160;you&#160;need&#160;further&#160;information, please&#160;visit&#160;our&#160;website&#160;</p>
+<p style="position:absolute;top:823px;left:552px;white-space:nowrap" class="ft211"><a href="http://www.opentc.net/">www.opentc.net</a></p>
+<p style="position:absolute;top:823px;left:687px;white-space:nowrap" class="ft24"><a href="http://www.opentc.net/">&#160;o</a>r&#160;contact&#160;</p>
+<p style="position:absolute;top:842px;left:85px;white-space:nowrap" class="ft24">the&#160;coordinator:</p>
+<p style="position:absolute;top:881px;left:85px;white-space:nowrap" class="ft27">Technikon&#160;Forschungs-und&#160;Planungsgesellschaft&#160;mbH<br/>Richard-Wagner-Strasse&#160;7, 9500 Villach, AUSTRIA<br/>Tel.+43 4242 23355 –0<br/>Fax. +43 4242 23355 –77<br/>Email<a href="mailto:coordination@opentc.net">&#160;</a></p>
+<p style="position:absolute;top:957px;left:136px;white-space:nowrap" class="ft211"><a href="mailto:coordination@opentc.net">coordination@opentc.net</a></p>
+<p style="position:absolute;top:1053px;left:180px;white-space:nowrap" class="ft210">The&#160;information&#160;in&#160;this&#160;document&#160;is&#160;provided&#160;“as&#160;is”,&#160;and&#160;no&#160;guarantee&#160;</p>
+<p style="position:absolute;top:1071px;left:174px;white-space:nowrap" class="ft210">or&#160;warranty&#160;is&#160;given&#160;that&#160;the&#160;information&#160;is&#160;fit&#160;for&#160;any&#160;particular&#160;purpose.&#160;</p>
+<p style="position:absolute;top:1088px;left:203px;white-space:nowrap" class="ft210">The&#160;user&#160;thereof&#160;uses&#160;the&#160;information&#160;at&#160;its&#160;sole&#160;risk&#160;and&#160;liability.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft210">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft210">2/13</p>
+</div>
+<!-- Page 3 -->
+<a name="3"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft312{font-size:24px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page3-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system003.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft39">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft30">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft310">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft310">FINAL|1.0</p>
+<p style="position:absolute;top:169px;left:85px;white-space:nowrap" class="ft312"><b>Table&#160;of&#160;Contents</b></p>
+<p style="position:absolute;top:206px;left:85px;white-space:nowrap" class="ft37">1&#160;&#160;Introduction&#160;..............................................................................................................&#160;3<br/>2&#160;&#160;The&#160;Software..............................................................................................................&#160;3</p>
+<p style="position:absolute;top:244px;left:94px;white-space:nowrap" class="ft37">2.1&#160;L4/Fiasco&#160;Microkernel.............................................................................................&#160;3<br/>2.2&#160;Architectures&#160;based&#160;on&#160;L4/Fiasco...........................................................................&#160;4<br/>2.3&#160;L4Env.....................................................................................................................&#160;4<br/>2.4&#160;L4Linux...................................................................................................................&#160;4<br/>2.5&#160;BMI&#160;– The&#160;Basic Management&#160;Interface..................................................................&#160;4<br/>2.6&#160;STPM......................................................................................................................&#160;5<br/>2.7&#160;IPCMon...................................................................................................................&#160;5<br/>2.8&#160;OSLO......................................................................................................................&#160;6<br/>2.9&#160;Summary&#160;of&#160;Work&#160;Done&#160;Within&#160;OpenTC.................................................................&#160;6</p>
+<p style="position:absolute;top:417px;left:85px;white-space:nowrap" class="ft34">3&#160;&#160;Demo.........................................................................................................................&#160;8</p>
+<p style="position:absolute;top:436px;left:94px;white-space:nowrap" class="ft37">3.1&#160;General&#160;Remarks....................................................................................................&#160;8<br/>3.2&#160;Booting&#160;IPCMon&#160;Test..............................................................................................&#160;8<br/>3.3&#160;Booting&#160;STPM&#160;Test..................................................................................................&#160;8<br/>3.4&#160;Booting&#160;BMI&#160;Test....................................................................................................&#160;9<br/>3.5&#160;Booting&#160;OSLO&#160;Test.................................................................................................&#160;9<br/>3.6&#160;Booting&#160;Integrated&#160;Demo&#160;of&#160;the&#160;Complete&#160;Prototype............................................&#160;9</p>
+<p style="position:absolute;top:552px;left:102px;white-space:nowrap" class="ft37">3.6.1&#160;L4Con&#160;and&#160;Run..................................................................................................&#160;9<br/>3.6.2&#160;STPM, BMI&#160;and&#160;IPCMon&#160;test.............................................................................&#160;10<br/>3.6.3&#160;L4Linux&#160;and&#160;Networking..................................................................................&#160;10</p>
+<p style="position:absolute;top:609px;left:85px;white-space:nowrap" class="ft37">4&#160;&#160;Development...........................................................................................................&#160;10<br/>5&#160;&#160;Outline&#160;– further&#160;steps.............................................................................................&#160;11<br/>6&#160;&#160;List&#160;of&#160;Abbreviations&#160;...............................................................................................&#160;12<br/>7&#160;&#160;References...............................................................................................................&#160;12</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft310">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft310">3/13</p>
+</div>
+<!-- Page 4 -->
+<a name="4"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft413{font-size:15px;font-family:EAAAAA+BitstreamVeraSerif;color:#000000;}
+	.ft414{font-size:18px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft415{font-size:10px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft416{font-size:17px;line-height:28px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft417{font-size:17px;line-height:28px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page4-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system004.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft49">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft40">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft410">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft410">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft413"><b>1&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft414"><b>Introduction&#160;</b></p>
+<p style="position:absolute;top:218px;left:85px;white-space:nowrap" class="ft47">The&#160;WP4 work&#160;package&#160;of&#160;the&#160;OpenTC&#160;project&#160;aims&#160;to&#160;build&#160;two&#160;alternative&#160;trusted&#160;<br/>operating&#160;system&#160;(OS)&#160;layers&#160;that&#160;provide&#160;isolation&#160;and&#160;protection&#160;mechanisms&#160;based&#160;<br/>on&#160;virtualization. Both&#160;layers&#160;will&#160;have&#160;an&#160;interoperable&#160;Basic Management&#160;Interface&#160;<br/>called&#160;BMI&#160;with&#160;common&#160;semantics&#160;for&#160;policies&#160;and&#160;configuration&#160;data&#160;in&#160;order&#160;to&#160;<br/>manage&#160;protection&#160;domains. In&#160;these&#160;protection&#160;domains, applications&#160;and&#160;OSes&#160;such&#160;<br/>as&#160;virtualized&#160;Linux&#160;instances&#160;are&#160;executed&#160;and&#160;protected&#160;from&#160;each&#160;other.</p>
+<p style="position:absolute;top:353px;left:85px;white-space:nowrap" class="ft47">One&#160;of&#160;these&#160;OS&#160;layers&#160;is&#160;based&#160;on&#160;an&#160;L4 microkernel, the&#160;other&#160;one&#160;is&#160;based&#160;on&#160;the&#160;<br/>Xen&#160;VMM. This&#160;report&#160;describes&#160;the&#160;initial&#160;prototype&#160;of&#160;the&#160;L4-based&#160;trusted&#160;OS&#160;layer.&#160;<br/>It&#160;documents&#160;the&#160;basic functionality&#160;for&#160;the&#160;trusted&#160;OS&#160;layer&#160;that&#160;we&#160;developed&#160;within&#160;<br/>the&#160;OpenTC&#160;project, such&#160;as&#160;communication&#160;control&#160;and&#160;facilities&#160;to&#160;access&#160;TPMs&#160;as&#160;<br/>well&#160;as&#160;a&#160;rudimentary&#160;implementation&#160;of&#160;the&#160;BMI.</p>
+<p style="position:absolute;top:489px;left:85px;white-space:nowrap" class="ft413"><b>2&#160;</b></p>
+<p style="position:absolute;top:486px;left:117px;white-space:nowrap" class="ft414"><b>The&#160;Software</b></p>
+<p style="position:absolute;top:535px;left:85px;white-space:nowrap" class="ft44">This&#160;deliverable&#160;is&#160;based&#160;on&#160;the&#160;February&#160;2007 OpenTC&#160;snapshot&#160;of&#160;our&#160;</p>
+<p style="position:absolute;top:535px;left:685px;white-space:nowrap" class="ft43"><b>L4</b></p>
+<p style="position:absolute;top:535px;left:707px;white-space:nowrap" class="ft44">&#160;software,&#160;</p>
+<p style="position:absolute;top:554px;left:85px;white-space:nowrap" class="ft44">which&#160;is&#160;publicly&#160;available&#160;at&#160;the&#160;OpenTC&#160;project&#160;website<a href="http://os.inf.tu-dresden.de/opentc/">&#160;</a></p>
+<p style="position:absolute;top:554px;left:563px;white-space:nowrap" class="ft411"><a href="http://os.inf.tu-dresden.de/opentc/">[3]</a></p>
+<p style="position:absolute;top:554px;left:587px;white-space:nowrap" class="ft44"><a href="http://os.inf.tu-dresden.de/opentc/">. T</a>he&#160;provided&#160;source&#160;tree&#160;</p>
+<p style="position:absolute;top:573px;left:85px;white-space:nowrap" class="ft44">contains&#160;the&#160;</p>
+<p style="position:absolute;top:573px;left:193px;white-space:nowrap" class="ft43"><b>L4/Fiasco</b></p>
+<p style="position:absolute;top:573px;left:280px;white-space:nowrap" class="ft44">&#160;microkernel, the&#160;</p>
+<p style="position:absolute;top:573px;left:426px;white-space:nowrap" class="ft43"><b>L4Env</b></p>
+<p style="position:absolute;top:573px;left:482px;white-space:nowrap" class="ft44">-core&#160;packages&#160;that&#160;provide&#160;services&#160;</p>
+<p style="position:absolute;top:593px;left:85px;white-space:nowrap" class="ft44">on&#160;top&#160;of&#160;this&#160;microkernel, and&#160;a&#160;paravirtualized&#160;Linux&#160;kernel&#160;called&#160;</p>
+<p style="position:absolute;top:593px;left:651px;white-space:nowrap" class="ft43"><b>L</b></p>
+<p style="position:absolute;top:593px;left:661px;white-space:nowrap" class="ft415"><b>4</b></p>
+<p style="position:absolute;top:593px;left:668px;white-space:nowrap" class="ft43"><b>Linux</b></p>
+<p style="position:absolute;top:593px;left:718px;white-space:nowrap" class="ft44">.&#160;</p>
+<p style="position:absolute;top:612px;left:85px;white-space:nowrap" class="ft47">Additionally, we&#160;present&#160;in&#160;this&#160;deliverable&#160;the&#160;first&#160;prototype&#160;of&#160;the&#160;L4 BMI&#160;<br/>implementation, an&#160;L4Env&#160;service&#160;providing&#160;access&#160;to&#160;TPM&#160;interfaces&#160;called&#160;STPM, and&#160;<br/>our&#160;trusted&#160;boot&#160;loader&#160;Open&#160;Secure&#160;LOader&#160;(OSLO). In&#160;the&#160;next&#160;sections, we&#160;briefly&#160;<br/>describe&#160;the&#160;aforementioned&#160;software&#160;and&#160;give&#160;an&#160;overview of&#160;the&#160;components&#160;that&#160;<br/>were&#160;newly&#160;developed&#160;or&#160;modified&#160;for&#160;OpenTC. Where&#160;applicable, we&#160;refer&#160;to&#160;further&#160;<br/>documentation, before&#160;we&#160;present&#160;a&#160;demonstrator&#160;of&#160;the&#160;L4-based&#160;trusted&#160;OS&#160;layer&#160;in&#160;<br/>the&#160;next&#160;chapter.</p>
+<p style="position:absolute;top:783px;left:85px;white-space:nowrap" class="ft416"><b>2.1&#160;L4/Fiasco&#160;Microkernel<br/>L4</b></p>
+<p style="position:absolute;top:812px;left:107px;white-space:nowrap" class="ft44">&#160;is&#160;a&#160;second-generation&#160;microkernel&#160;originally&#160;developed&#160;by&#160;Jochen&#160;Liedtke. The&#160;L4&#160;</p>
+<p style="position:absolute;top:831px;left:85px;white-space:nowrap" class="ft47">philosophy&#160;is&#160;to&#160;implement&#160;only&#160;a&#160;minimal&#160;and&#160;essential&#160;set&#160;of&#160;functionality&#160;in&#160;kernel&#160;<br/>space&#160;in&#160;order&#160;to&#160;facilitate&#160;the&#160;construction&#160;of&#160;robust&#160;and&#160;tiny&#160;kernels. The&#160;L4&#160;<br/>mechanisms&#160;provided&#160;to&#160;user&#160;level&#160;tasks&#160;are&#160;isolation&#160;of&#160;tasks&#160;through&#160;separation&#160;of&#160;<br/>address&#160;spaces, execution&#160;instances&#160;known&#160;as&#160;threads, and&#160;primitives&#160;for&#160;inter&#160;<br/>process&#160;communication&#160;(IPC)&#160;that&#160;allow threads&#160;to&#160;cooperate. In&#160;contrast&#160;to&#160;monolithic&#160;<br/>kernels&#160;such&#160;as&#160;Linux, all&#160;other&#160;required&#160;functionality&#160;including&#160;memory&#160;and&#160;IO&#160;<br/>management, device&#160;drivers, file&#160;systems, and&#160;complex&#160;protocol&#160;stacks&#160;(e.g., for&#160;<br/>networking)&#160;are&#160;implemented&#160;as&#160;services&#160;running&#160;as&#160;isolated&#160;L4 user-level&#160;tasks.<br/>Nowadays, the&#160;name&#160;L4&#160;also&#160;stands&#160;for&#160;a&#160;whole&#160;family&#160;of&#160;microkernels&#160;that&#160;implement&#160;<br/>various&#160;versions&#160;of&#160;the&#160;L4&#160;application&#160;binary&#160;interface&#160;(ABI). One&#160;of&#160;these&#160;<br/>implementations&#160;is&#160;</p>
+<p style="position:absolute;top:1032px;left:248px;white-space:nowrap" class="ft43"><b>Fiasco</b></p>
+<p style="position:absolute;top:1032px;left:307px;white-space:nowrap" class="ft44">, which&#160;is&#160;being&#160;developed&#160;and&#160;maintained&#160;at&#160;TU Dresden.&#160;</p>
+<p style="position:absolute;top:1051px;left:85px;white-space:nowrap" class="ft44">Fiasco&#160;is&#160;sometimes&#160;referred&#160;to&#160;as&#160;</p>
+<p style="position:absolute;top:1051px;left:375px;white-space:nowrap" class="ft43"><b>L4/Fiasco</b></p>
+<p style="position:absolute;top:1051px;left:462px;white-space:nowrap" class="ft44">&#160;to&#160;emphasize&#160;the&#160;relation&#160;to&#160;L4.&#160;TU&#160;</p>
+<p style="position:absolute;top:1070px;left:85px;white-space:nowrap" class="ft47">Dresden&#160;is&#160;maintaining&#160;L4/Fiasco&#160;to&#160;improve&#160;stability&#160;and&#160;performance. Furthermore,&#160;<br/>there&#160;are&#160;ongoing&#160;efforts&#160;to&#160;port&#160;it&#160;to&#160;more&#160;computer&#160;architectures&#160;and&#160;it&#160;is&#160;extended&#160;<br/>with&#160;security&#160;features&#160;such&#160;as&#160;IPC&#160;monitoring, which&#160;supports&#160;the&#160;restriction&#160;of&#160;IPC-</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft410">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft410">4/13</p>
+</div>
+<!-- Page 5 -->
+<a name="5"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft518{font-size:12px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft519{font-size:12px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft520{font-size:13px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft521{font-size:17px;line-height:20px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page5-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system005.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft59">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft50">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft510">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft510">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft54">based&#160;communication&#160;among&#160;user&#160;level&#160;applications.</p>
+<p style="position:absolute;top:216px;left:85px;white-space:nowrap" class="ft53"><b>2.2&#160;Architectures&#160;based&#160;on&#160;L4/Fiasco</b></p>
+<p style="position:absolute;top:245px;left:85px;white-space:nowrap" class="ft521">L4/Fiasco&#160;is&#160;real-time&#160;capable&#160;and&#160;supports&#160;parallel&#160;execution&#160;of&#160;real-time&#160;and&#160;time-<br/>sharing&#160;applications. This&#160;includes&#160;</p>
+<p style="position:absolute;top:265px;left:375px;white-space:nowrap" class="ft53"><b>L</b></p>
+<p style="position:absolute;top:264px;left:385px;white-space:nowrap" class="ft518"><b>4</b></p>
+<p style="position:absolute;top:265px;left:393px;white-space:nowrap" class="ft53"><b>Linux</b></p>
+<p style="position:absolute;top:265px;left:444px;white-space:nowrap" class="ft54">,</p>
+<p style="position:absolute;top:265px;left:449px;white-space:nowrap" class="ft53"><b>&#160;</b></p>
+<p style="position:absolute;top:265px;left:455px;white-space:nowrap" class="ft54">a&#160;paravirtualized&#160;version&#160;of&#160;Linux&#160;that&#160;is&#160;</p>
+<p style="position:absolute;top:285px;left:85px;white-space:nowrap" class="ft57">capable&#160;of&#160;executing&#160;on&#160;the&#160;L4 microkernel. It&#160;can&#160;run&#160;unmodified&#160;Linux&#160;programs.&#160;<br/>Furthermore, the&#160;</p>
+<p style="position:absolute;top:304px;left:232px;white-space:nowrap" class="ft53"><b>Nizza</b></p>
+<p style="position:absolute;top:304px;left:281px;white-space:nowrap" class="ft54">&#160;</p>
+<p style="position:absolute;top:304px;left:287px;white-space:nowrap" class="ft53"><b>Secure-System</b></p>
+<p style="position:absolute;top:304px;left:426px;white-space:nowrap" class="ft54">&#160;</p>
+<p style="position:absolute;top:304px;left:431px;white-space:nowrap" class="ft53"><b>Architecture</b></p>
+<p style="position:absolute;top:304px;left:547px;white-space:nowrap" class="ft54">&#160;[15]&#160;is&#160;based&#160;on&#160;a&#160;microkernel&#160;</p>
+<p style="position:absolute;top:323px;left:85px;white-space:nowrap" class="ft521">--&#160;in&#160;our&#160;implementation&#160;on&#160;L4/Fiasco&#160;--&#160;and&#160;allows&#160;execution&#160;of&#160;security-critical&#160;<br/>applications&#160;in&#160;parallel&#160;to&#160;untrusted&#160;applications&#160;such&#160;as&#160;one&#160;or&#160;more&#160;L</p>
+<p style="position:absolute;top:342px;left:673px;white-space:nowrap" class="ft519">4</p>
+<p style="position:absolute;top:344px;left:680px;white-space:nowrap" class="ft54">Linux&#160;</p>
+<p style="position:absolute;top:363px;left:85px;white-space:nowrap" class="ft54">instances.</p>
+<p style="position:absolute;top:409px;left:85px;white-space:nowrap" class="ft516"><b>2.3&#160;L4Env<br/>L4Env</b></p>
+<p style="position:absolute;top:437px;left:141px;white-space:nowrap" class="ft54">&#160;comprises&#160;a&#160;set&#160;of&#160;user-level&#160;services&#160;and&#160;libraries&#160;that&#160;facilitate&#160;the&#160;use&#160;of&#160;</p>
+<p style="position:absolute;top:457px;left:85px;white-space:nowrap" class="ft57">L4/Fiasco&#160;and&#160;provide&#160;a&#160;basis&#160;for&#160;building&#160;an&#160;operating-system&#160;on&#160;top&#160;of&#160;L4. It&#160;provides&#160;<br/>memory&#160;management&#160;with&#160;dataspaces, management&#160;of&#160;tasks, threads&#160;and&#160;IO&#160;<br/>resources&#160;as&#160;well&#160;as&#160;services&#160;to&#160;start&#160;new applications. The&#160;development&#160;environment&#160;<br/>for&#160;L4Env&#160;includes&#160;DICE [14], an&#160;IDL&#160;compiler&#160;used&#160;to&#160;automatically&#160;generate&#160;stub&#160;<br/>code&#160;for&#160;remote&#160;function&#160;calls&#160;based&#160;on&#160;Interface&#160;Description&#160;Language&#160;(IDL)&#160;files.&#160;<br/>These&#160;IDL&#160;files&#160;specify&#160;the&#160;interfaces&#160;provided&#160;by&#160;L4Env&#160;services&#160;as&#160;a&#160;set&#160;of&#160;functions,&#160;<br/>which&#160;which&#160;applications&#160;can&#160;call&#160;remotely&#160;across&#160;address&#160;space&#160;boundaries.<br/>Documentation&#160;of&#160;the&#160;L4Env&#160;is&#160;available&#160;at&#160;our&#160;L4Env&#160;webpage&#160;[5]&#160;and&#160;in&#160;the&#160;<br/>documentation&#160;directory&#160;(doc/)&#160;of&#160;the&#160;binary&#160;version&#160;of&#160;the&#160;OpenTC&#160;snapshot. The&#160;<br/>L4Env-core&#160;interface&#160;document&#160;[6]&#160;describes&#160;which&#160;functionality&#160;of&#160;the&#160;L4Env&#160;is&#160;<br/>publicly&#160;supported&#160;and&#160;which&#160;functions&#160;an&#160;application&#160;developer&#160;should&#160;not&#160;rely&#160;upon.</p>
+<p style="position:absolute;top:696px;left:85px;white-space:nowrap" class="ft53"><b>2.4&#160;L</b></p>
+<p style="position:absolute;top:695px;left:141px;white-space:nowrap" class="ft518"><b>4</b></p>
+<p style="position:absolute;top:696px;left:149px;white-space:nowrap" class="ft53"><b>Linux</b></p>
+<p style="position:absolute;top:726px;left:85px;white-space:nowrap" class="ft54">L</p>
+<p style="position:absolute;top:725px;left:94px;white-space:nowrap" class="ft519">4</p>
+<p style="position:absolute;top:726px;left:102px;white-space:nowrap" class="ft54">Linux&#160;[13]&#160;is&#160;a&#160;port&#160;of&#160;the&#160;Linux&#160;kernel&#160;to&#160;the&#160;L4 microkernel&#160;ABI&#160;and&#160;L4Env. As&#160;a&#160;</p>
+<p style="position:absolute;top:747px;left:85px;white-space:nowrap" class="ft54">paravirtualized&#160;Linux&#160;running&#160;on&#160;top&#160;of&#160;the&#160;microkernel, L</p>
+<p style="position:absolute;top:745px;left:563px;white-space:nowrap" class="ft519">4</p>
+<p style="position:absolute;top:747px;left:570px;white-space:nowrap" class="ft54">Linux&#160;is&#160;executed&#160;in&#160;ring&#160;3&#160;</p>
+<p style="position:absolute;top:766px;left:85px;white-space:nowrap" class="ft57">of&#160;the&#160;processor&#160;without&#160;privileges&#160;for&#160;accessing&#160;hardware&#160;IO&#160;ports&#160;or&#160;attaching&#160;to&#160;<br/>IRQs, and&#160;without&#160;the&#160;permission&#160;to&#160;perform&#160;privileged&#160;operations&#160;such&#160;as&#160;interrupt&#160;<br/>masking. Thus, multiple&#160;instances&#160;of&#160;L</p>
+<p style="position:absolute;top:805px;left:402px;white-space:nowrap" class="ft55">4</p>
+<p style="position:absolute;top:805px;left:408px;white-space:nowrap" class="ft54">Linux&#160;can&#160;run&#160;side-by-side&#160;with&#160;other&#160;L4&#160;</p>
+<p style="position:absolute;top:824px;left:85px;white-space:nowrap" class="ft57">applications&#160;such&#160;as&#160;real-time&#160;or&#160;security&#160;components. Nevertheless, L4Env&#160;services&#160;<br/>can&#160;grant&#160;specific L4Linux&#160;instances&#160;the&#160;necessary&#160;rights&#160;to&#160;access&#160;certain&#160;hardware&#160;<br/>devices&#160;directly&#160;(e.g., a&#160;hard&#160;disk&#160;controller).</p>
+<p style="position:absolute;top:903px;left:85px;white-space:nowrap" class="ft54">Because&#160;the&#160;paravirtualization&#160;only&#160;affects&#160;the&#160;inner&#160;functions&#160;of&#160;the&#160;kernel, L</p>
+<p style="position:absolute;top:903px;left:731px;white-space:nowrap" class="ft55">4</p>
+<p style="position:absolute;top:903px;left:737px;white-space:nowrap" class="ft54">Linux&#160;</p>
+<p style="position:absolute;top:922px;left:85px;white-space:nowrap" class="ft57">provides&#160;binary&#160;compatibility&#160;to&#160;existing&#160;x86 Linux&#160;applications&#160;and&#160;can&#160;therefore&#160;be&#160;<br/>used&#160;with&#160;any&#160;PC-based&#160;Linux&#160;distribution.&#160;</p>
+<p style="position:absolute;top:981px;left:85px;white-space:nowrap" class="ft54">L</p>
+<p style="position:absolute;top:981px;left:94px;white-space:nowrap" class="ft520">4</p>
+<p style="position:absolute;top:981px;left:103px;white-space:nowrap" class="ft54">Linux&#160;is&#160;regularly&#160;updated&#160;to&#160;the&#160;latest&#160;Linux&#160;kernel&#160;version. Within&#160;this&#160;deliverable&#160;</p>
+<p style="position:absolute;top:1001px;left:85px;white-space:nowrap" class="ft54">the&#160;version&#160;from&#160;the&#160;February&#160;2007 OpenTC&#160;snapshot&#160;is&#160;used, which&#160;is&#160;2.6.19.</p>
+<p style="position:absolute;top:1057px;left:85px;white-space:nowrap" class="ft53"><b>2.5&#160;BMI&#160;–&#160;The&#160;Basic&#160;Management&#160;Interface</b></p>
+<p style="position:absolute;top:1085px;left:85px;white-space:nowrap" class="ft57">The&#160;cbbmi&#160;package&#160;provides&#160;a&#160;first&#160;view on&#160;the&#160;BMI&#160;implementation&#160;for&#160;L4Env. It&#160;is&#160;not&#160;<br/>yet&#160;feature&#160;complete&#160;with&#160;regard&#160;to&#160;the&#160;current&#160;status&#160;of&#160;the&#160;BMI&#160;specification, but&#160;</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft510">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft510">5/13</p>
+</div>
+<!-- Page 6 -->
+<a name="6"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft622{font-size:14px;font-family:FAAAAA+OpenSymbol;color:#000000;}
+	.ft623{font-size:17px;font-family:GAAAAA+LucidaSansUnicode;color:#000000;}
+	.ft624{font-size:17px;line-height:21px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page6-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system006.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft69">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft60">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft610">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft610">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft67">mainly&#160;a&#160;snapshot&#160;of&#160;the&#160;current&#160;development. In&#160;this&#160;early&#160;stage, the&#160;BMI&#160;supports&#160;<br/>the&#160;following&#160;operations:</p>
+<p style="position:absolute;top:213px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:210px;left:139px;white-space:nowrap" class="ft64">start&#160;a&#160;protection&#160;domain&#160;(PD)&#160;such&#160;as&#160;L</p>
+<p style="position:absolute;top:209px;left:473px;white-space:nowrap" class="ft619">4</p>
+<p style="position:absolute;top:210px;left:481px;white-space:nowrap" class="ft64">Linux&#160;or&#160;other&#160;L4 applications&#160;via&#160;the&#160;</p>
+<p style="position:absolute;top:231px;left:139px;white-space:nowrap" class="ft64">L4 Loader&#160;or&#160;a&#160;guest&#160;L</p>
+<p style="position:absolute;top:230px;left:324px;white-space:nowrap" class="ft619">4</p>
+<p style="position:absolute;top:231px;left:332px;white-space:nowrap" class="ft64">Linux</p>
+<p style="position:absolute;top:253px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:250px;left:139px;white-space:nowrap" class="ft64">send&#160;a&#160;shutdown&#160;signal&#160;to&#160;an&#160;L</p>
+<p style="position:absolute;top:251px;left:396px;white-space:nowrap" class="ft65">4</p>
+<p style="position:absolute;top:250px;left:402px;white-space:nowrap" class="ft64">Linux&#160;PD</p>
+<p style="position:absolute;top:273px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:270px;left:139px;white-space:nowrap" class="ft64">kill&#160;a&#160;PD</p>
+<p style="position:absolute;top:292px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:289px;left:139px;white-space:nowrap" class="ft64">list&#160;all&#160;started&#160;PDs</p>
+<p style="position:absolute;top:328px;left:85px;white-space:nowrap" class="ft67">The&#160;user&#160;manual&#160;of&#160;the&#160;cbbmi&#160;package&#160;describes&#160;the&#160;structure&#160;of&#160;the&#160;BMI&#160;<br/>implementation&#160;as&#160;well&#160;as&#160;the&#160;command&#160;line&#160;parameters&#160;of&#160;the&#160;bmic command-line&#160;<br/>application. It&#160;is&#160;available&#160;in&#160;the&#160;documentation&#160;directory&#160;of&#160;the&#160;cbbmi&#160;package&#160;[4].</p>
+<p style="position:absolute;top:404px;left:85px;white-space:nowrap" class="ft63"><b>2.6&#160;STPM</b></p>
+<p style="position:absolute;top:432px;left:85px;white-space:nowrap" class="ft67">STPM&#160;is&#160;a&#160;server&#160;that&#160;provides&#160;a&#160;/dev/tpm&#160;like&#160;interface&#160;for&#160;other&#160;L4 components. It&#160;<br/>reuses&#160;Linux-compatible&#160;device&#160;drivers&#160;for&#160;TPMs, mainly&#160;written&#160;by&#160;TUD, by&#160;using&#160;the&#160;<br/>Device&#160;Driver&#160;Environment&#160;(DDE)&#160;for&#160;L4. DDE provides&#160;a&#160;Linux&#160;kernel-like&#160;environment&#160;<br/>so&#160;that&#160;drivers&#160;originally&#160;written&#160;for&#160;Linux&#160;can&#160;be&#160;isolated&#160;in&#160;L4 tasks&#160;without&#160;the&#160;need&#160;<br/>of&#160;a&#160;complete&#160;Linux&#160;kernel. For&#160;a&#160;deeper&#160;explanation&#160;of&#160;the&#160;DDE ideas&#160;see&#160;[1,2].</p>
+<p style="position:absolute;top:547px;left:85px;white-space:nowrap" class="ft67">The&#160;following&#160;drivers&#160;are&#160;stored&#160;in&#160;the&#160;contrib/&#160;directory&#160;of&#160;the&#160;sources&#160;and&#160;compiled&#160;<br/>into&#160;the&#160;STPM&#160;server:</p>
+<p style="position:absolute;top:609px;left:89px;white-space:nowrap" class="ft64">tpm/</p>
+<p style="position:absolute;top:609px;left:205px;white-space:nowrap" class="ft64">The&#160;original&#160;Atmel&#160;TPM&#160;driver&#160;by&#160;IBM</p>
+<p style="position:absolute;top:637px;left:89px;white-space:nowrap" class="ft64">inftpm/</p>
+<p style="position:absolute;top:637px;left:205px;white-space:nowrap" class="ft64">A&#160;driver&#160;for&#160;v1.1 Infineon&#160;TPMs&#160;by&#160;TUD</p>
+<p style="position:absolute;top:664px;left:89px;white-space:nowrap" class="ft64">oslo/tis.c</p>
+<p style="position:absolute;top:664px;left:205px;white-space:nowrap" class="ft64">A&#160;driver&#160;for&#160;v1.2 TPMs&#160;of&#160;Atmel, Infineon, STM&#160;and&#160;Broadcom&#160;by&#160;TUD</p>
+<p style="position:absolute;top:692px;left:89px;white-space:nowrap" class="ft64">tis_oslo/</p>
+<p style="position:absolute;top:692px;left:205px;white-space:nowrap" class="ft64">Wrapper&#160;for&#160;the&#160;OSLO&#160;TIS&#160;driver&#160;with&#160;a&#160;Linux&#160;driver&#160;interface&#160;by&#160;TUD</p>
+<p style="position:absolute;top:734px;left:85px;white-space:nowrap" class="ft67">The&#160;main&#160;difference&#160;between&#160;these&#160;drivers&#160;and&#160;those&#160;available&#160;in&#160;the&#160;2.6.x&#160;Linux&#160;<br/>Kernels&#160;is&#160;that&#160;the&#160;former&#160;do&#160;not&#160;require&#160;ACPI&#160;support&#160;in&#160;order&#160;to&#160;detect&#160;the&#160;which&#160;<br/>particular&#160;TPM&#160;is&#160;installed. ACPI&#160;support&#160;is&#160;currently&#160;still&#160;missing&#160;in&#160;the&#160;L4 software&#160;<br/>stack. Instead, these&#160;drivers&#160;probe&#160;for&#160;supported&#160;TPMs.</p>
+<p style="position:absolute;top:830px;left:85px;white-space:nowrap" class="ft64">STPM&#160;is&#160;reported&#160;to&#160;work&#160;with&#160;the&#160;following&#160;TPMs:</p>
+<p style="position:absolute;top:852px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:849px;left:139px;white-space:nowrap" class="ft64">Atmel&#160;v1.1 and&#160;v1.2</p>
+<p style="position:absolute;top:872px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:869px;left:139px;white-space:nowrap" class="ft64">Infineon&#160;v1.1 and&#160;v1.2</p>
+<p style="position:absolute;top:891px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:888px;left:139px;white-space:nowrap" class="ft64">STM&#160;v1.2</p>
+<p style="position:absolute;top:911px;left:112px;white-space:nowrap" class="ft622">•</p>
+<p style="position:absolute;top:908px;left:139px;white-space:nowrap" class="ft64">Broadcom&#160;v1.2</p>
+<p style="position:absolute;top:947px;left:85px;white-space:nowrap" class="ft64">STPM&#160;will&#160;be&#160;the&#160;basis&#160;for&#160;TPM&#160;support&#160;in&#160;the&#160;final&#160;BMI&#160;implementation.</p>
+<p style="position:absolute;top:1003px;left:85px;white-space:nowrap" class="ft63"><b>2.7&#160;IPCMon</b></p>
+<p style="position:absolute;top:1031px;left:85px;white-space:nowrap" class="ft624">IPCMon&#160;provides&#160;IPC&#160;control&#160;for&#160;L4/Fiasco&#160;at&#160;the&#160;level&#160;of&#160;L4 tasks. It&#160;consists&#160;of&#160;a&#160;kernel&#160;<br/>extension&#160;that&#160;adds&#160;support&#160;for&#160;task&#160;capabilities&#160;to&#160;Fiasco&#160;and&#160;a&#160;user-level&#160;server&#160;<br/>called&#160;</p>
+<p style="position:absolute;top:1070px;left:139px;white-space:nowrap" class="ft623">ipcmon</p>
+<p style="position:absolute;top:1072px;left:199px;white-space:nowrap" class="ft64">&#160;that&#160;manages&#160;simple&#160;access&#160;policies&#160;and&#160;handles&#160;capability&#160;faults.</p>
+<p style="position:absolute;top:1114px;left:85px;white-space:nowrap" class="ft64">IPCMon&#160;was&#160;developed&#160;within&#160;the&#160;partner&#160;project&#160;EMSCB and&#160;will&#160;be&#160;used&#160;as&#160;the&#160;basis&#160;</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft610">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft610">6/13</p>
+</div>
+<!-- Page 7 -->
+<a name="7"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft725{font-size:17px;font-family:HAAAAA+BitstreamVeraSans;color:#000000;}
+	.ft726{font-size:17px;line-height:22px;font-family:DAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page7-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system007.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft79">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft70">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft710">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft710">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft74">to&#160;implement&#160;access&#160;control&#160;in&#160;the&#160;BMI.</p>
+<p style="position:absolute;top:207px;left:85px;white-space:nowrap" class="ft73"><b>2.8&#160;OSLO</b></p>
+<p style="position:absolute;top:236px;left:85px;white-space:nowrap" class="ft726">The&#160;Open&#160;Secure&#160;LOader&#160;(OSLO)&#160;is&#160;the&#160;first&#160;publicly&#160;available&#160;boot&#160;loader&#160;that&#160;<br/>leverages&#160;AMDs&#160;</p>
+<p style="position:absolute;top:256px;left:223px;white-space:nowrap" class="ft723">skinit</p>
+<p style="position:absolute;top:258px;left:267px;white-space:nowrap" class="ft74">&#160;instruction&#160;to&#160;create&#160;a&#160;dynamic root&#160;of&#160;trust&#160;as&#160;detailed&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:280px;left:85px;white-space:nowrap" class="ft726">TCG&#160;Specification. An&#160;important&#160;advantage&#160;over&#160;a&#160;static root&#160;of&#160;trust&#160;is&#160;that&#160;the&#160;size&#160;<br/>and&#160;complexity&#160;of&#160;the&#160;trusted&#160;computing&#160;base&#160;(TCB)&#160;can&#160;be&#160;reduced. As&#160;this&#160;<br/>instruction&#160;can&#160;be&#160;executed&#160;after&#160;the&#160;initial&#160;boot-up&#160;phase&#160;performed&#160;by&#160;the&#160;BIOS, it&#160;is&#160;<br/>possible&#160;to&#160;keep&#160;the&#160;BIOS&#160;and&#160;the&#160;actual&#160;boot&#160;loader&#160;(e.g, GRUB)&#160;out&#160;of&#160;the&#160;TCB. OSLO&#160;<br/>and&#160;all&#160;trusted&#160;L4 components&#160;are&#160;loaded&#160;using&#160;an&#160;untrusted&#160;boot&#160;loader&#160;that&#160;starts&#160;<br/>OSLO, which&#160;in&#160;turn&#160;puts&#160;the&#160;system&#160;into&#160;a&#160;trusted&#160;state&#160;using&#160;</p>
+<p style="position:absolute;top:377px;left:607px;white-space:nowrap" class="ft723">skinit</p>
+<p style="position:absolute;top:379px;left:651px;white-space:nowrap" class="ft74">&#160;and&#160;then&#160;passes&#160;</p>
+<p style="position:absolute;top:402px;left:85px;white-space:nowrap" class="ft74">control&#160;to&#160;the&#160;L4/Fiasco&#160;boot&#160;strapper.</p>
+<p style="position:absolute;top:440px;left:85px;white-space:nowrap" class="ft77">OSLO&#160;was&#160;developed&#160;by&#160;TUD&#160;within&#160;OpenTC&#160;specifically&#160;to&#160;use&#160;the&#160;new hardware&#160;<br/>features&#160;of&#160;the&#160;AMD&#160;Athlon64 X2 processors. Due&#160;to&#160;its&#160;small&#160;size&#160;(approximately&#160;<br/>1,000 lines&#160;of&#160;code&#160;resulting&#160;in&#160;a&#160;4 kB of&#160;binary&#160;code), it&#160;should&#160;be&#160;feasible&#160;to&#160;review&#160;<br/>and&#160;verify&#160;the&#160;correctness&#160;of&#160;OSLO.</p>
+<p style="position:absolute;top:536px;left:85px;white-space:nowrap" class="ft77">The&#160;latest&#160;version&#160;of&#160;OSLO&#160;is&#160;part&#160;of&#160;the&#160;contrib/&#160;directory&#160;in&#160;the&#160;STPM&#160;package,&#160;<br/>however&#160;it&#160;can&#160;also&#160;be&#160;found&#160;at&#160;[7].</p>
+<p style="position:absolute;top:592px;left:85px;white-space:nowrap" class="ft73"><b>2.9&#160;Summary&#160;of&#160;Work&#160;Done&#160;Within&#160;OpenTC</b></p>
+<p style="position:absolute;top:621px;left:85px;white-space:nowrap" class="ft77">In&#160;the&#160;remainder&#160;of&#160;this&#160;chapter, we&#160;summarize&#160;the&#160;work&#160;that&#160;we&#160;did&#160;within&#160;WP4 of&#160;the&#160;<br/>OpenTC&#160;project. First&#160;of&#160;all, TUD&#160;invested&#160;considerable&#160;resources&#160;into&#160;maintenance&#160;of&#160;<br/>all&#160;the&#160;software&#160;components&#160;that&#160;we&#160;provide&#160;as&#160;part&#160;of&#160;our&#160;regular&#160;OpenTC&#160;snapshots.&#160;<br/>This&#160;work&#160;involved&#160;various&#160;of&#160;bug&#160;fixes&#160;and&#160;improvements&#160;of&#160;documentation.</p>
+<p style="position:absolute;top:717px;left:85px;white-space:nowrap" class="ft77">Furthermore, the&#160;prototype&#160;of&#160;the&#160;L4-based&#160;trusted&#160;OS&#160;layer&#160;contains&#160;newly&#160;added&#160;<br/>components&#160;and&#160;modifications&#160;to&#160;L4/Fiasco, L4Env, and&#160;L</p>
+<p style="position:absolute;top:736px;left:561px;white-space:nowrap" class="ft75">4</p>
+<p style="position:absolute;top:736px;left:567px;white-space:nowrap" class="ft74">Linux&#160;that&#160;we&#160;did&#160;based&#160;on&#160;</p>
+<p style="position:absolute;top:755px;left:85px;white-space:nowrap" class="ft74">requirements&#160;and&#160;on&#160;feedback&#160;from&#160;other&#160;OpenTC&#160;partners:</p>
+<p style="position:absolute;top:798px;left:89px;white-space:nowrap" class="ft725"><i><b>Source&#160;directory</b></i></p>
+<p style="position:absolute;top:798px;left:302px;white-space:nowrap" class="ft725"><i><b>Description&#160;of&#160;new&#160;functionality&#160;and&#160;modifications</b></i></p>
+<p style="position:absolute;top:825px;left:89px;white-space:nowrap" class="ft74">l4linux-2.6/arch/l4/</p>
+<p style="position:absolute;top:828px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:825px;left:356px;white-space:nowrap" class="ft77">implementation&#160;of&#160;software&#160;suspend&#160;in&#160;L4Linux&#160;as&#160;<br/>required&#160;for&#160;future&#160;OpenTC&#160;demonstrators</p>
+<p style="position:absolute;top:867px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:864px;left:356px;white-space:nowrap" class="ft77">improved&#160;support&#160;for&#160;multiple&#160;L4Linux&#160;instances&#160;<br/>running&#160;concurrently&#160;(ability&#160;to&#160;transfer&#160;FPU states,&#160;<br/>control&#160;assignment&#160;of&#160;ISA&#160;DMA&#160;memory)</p>
+<p style="position:absolute;top:925px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:922px;left:356px;white-space:nowrap" class="ft74">several&#160;bug&#160;fixes&#160;and&#160;minor&#160;improvements</p>
+<p style="position:absolute;top:949px;left:89px;white-space:nowrap" class="ft74">kernel/fiasco/</p>
+<p style="position:absolute;top:952px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:949px;left:356px;white-space:nowrap" class="ft74">faster&#160;IPC&#160;path, more&#160;efficient&#160;use&#160;of&#160;kernel&#160;memory</p>
+<p style="position:absolute;top:972px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:969px;left:356px;white-space:nowrap" class="ft74">support&#160;to&#160;transfer&#160;FPU states</p>
+<p style="position:absolute;top:991px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:988px;left:356px;white-space:nowrap" class="ft74">support&#160;for&#160;KIP&#160;memory&#160;descriptors</p>
+<p style="position:absolute;top:1011px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:1008px;left:356px;white-space:nowrap" class="ft74">several&#160;bug&#160;fixes</p>
+<p style="position:absolute;top:1036px;left:89px;white-space:nowrap" class="ft77">l4/pkg/ore/<br/>l4linux-2.6/drivers/net/<br/>&#160; l4ore.c</p>
+<p style="position:absolute;top:1039px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:1036px;left:356px;white-space:nowrap" class="ft77">major&#160;functional&#160;improvements:&#160;support&#160;for&#160;loopback-<br/>only&#160;networking, multiple&#160;ORe&#160;instances&#160;providing&#160;<br/>isolated&#160;virtual&#160;LANs</p>
+<p style="position:absolute;top:1097px;left:329px;white-space:nowrap" class="ft722">●</p>
+<p style="position:absolute;top:1094px;left:356px;white-space:nowrap" class="ft74">several&#160;bug&#160;fixes&#160;</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft710">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft710">7/13</p>
+</div>
+<!-- Page 8 -->
+<a name="8"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page8-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system008.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft89">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft80">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft810">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft810">FINAL|1.0</p>
+<p style="position:absolute;top:155px;left:89px;white-space:nowrap" class="ft84">l4/pkg/cbbmi/</p>
+<p style="position:absolute;top:158px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:155px;left:356px;white-space:nowrap" class="ft84">newly&#160;implemented</p>
+<p style="position:absolute;top:183px;left:89px;white-space:nowrap" class="ft87">l4/pkg/libsigma0/<br/>l4/pkg/sigma0/</p>
+<p style="position:absolute;top:186px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:183px;left:356px;white-space:nowrap" class="ft84">MTRR&#160;support&#160;(cacheable&#160;memory-mapped&#160;I/O)</p>
+<p style="position:absolute;top:206px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:203px;left:356px;white-space:nowrap" class="ft87">use&#160;of&#160;KIP&#160;memory&#160;descriptors&#160;for&#160;improved&#160;<br/>robustness</p>
+<p style="position:absolute;top:250px;left:89px;white-space:nowrap" class="ft84">l4/pkg/stpm/</p>
+<p style="position:absolute;top:253px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:250px;left:356px;white-space:nowrap" class="ft87">major&#160;functional&#160;improvements:&#160;OSLO-based&#160;TIS&#160;<br/>driver, Linux&#160;wrapper&#160;for&#160;TIS&#160;driver</p>
+<p style="position:absolute;top:297px;left:89px;white-space:nowrap" class="ft87">l4/pkg/stpm/contrib/oslo<br/>/</p>
+<p style="position:absolute;top:300px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:297px;left:356px;white-space:nowrap" class="ft84">newly&#160;implemented</p>
+<p style="position:absolute;top:343px;left:89px;white-space:nowrap" class="ft84">l4/pkg/l4io/</p>
+<p style="position:absolute;top:346px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:343px;left:356px;white-space:nowrap" class="ft84">support&#160;for&#160;mapping&#160;TPM&#160;TIS&#160;area</p>
+<p style="position:absolute;top:371px;left:89px;white-space:nowrap" class="ft84">l4/pkg/ipreg/</p>
+<p style="position:absolute;top:374px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:371px;left:356px;white-space:nowrap" class="ft84">newly&#160;implemented</p>
+<p style="position:absolute;top:399px;left:89px;white-space:nowrap" class="ft84">l4/doc/dev-overview/</p>
+<p style="position:absolute;top:402px;left:329px;white-space:nowrap" class="ft822">●</p>
+<p style="position:absolute;top:399px;left:356px;white-space:nowrap" class="ft87">new document&#160;on&#160;how to&#160;get&#160;started&#160;with&#160;L4&#160;<br/>development</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft810">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft810">8/13</p>
+</div>
+<!-- Page 9 -->
+<a name="9"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft927{font-size:15px;font-family:GAAAAA+LucidaSansUnicode;color:#000000;}
+	.ft928{font-size:15px;line-height:22px;font-family:GAAAAA+LucidaSansUnicode;color:#000000;}
+	.ft929{font-size:15px;line-height:23px;font-family:GAAAAA+LucidaSansUnicode;color:#000000;}
+-->
+</style>
+<div id="page9-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system009.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft99">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft90">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft910">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft910">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft913"><b>3&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft914"><b>Demo</b></p>
+<p style="position:absolute;top:217px;left:85px;white-space:nowrap" class="ft93"><b>3.1&#160;General&#160;Remarks</b></p>
+<p style="position:absolute;top:245px;left:85px;white-space:nowrap" class="ft97">The&#160;provided&#160;bootable&#160;CD&#160;image&#160;can&#160;be&#160;run&#160;on&#160;real&#160;hardware&#160;or&#160;within&#160;a&#160;virtualization&#160;<br/>software&#160;such&#160;as&#160;QEmu&#160;[8]&#160;or&#160;VMware&#160;[9]. Booting&#160;is&#160;done&#160;with&#160;GRUB 0.97 [10,11].&#160;<br/>The&#160;serial&#160;port&#160;can&#160;be&#160;used&#160;for&#160;debugging&#160;purposes, see&#160;[12]&#160;for&#160;details.</p>
+<p style="position:absolute;top:322px;left:85px;white-space:nowrap" class="ft97">Note&#160;however&#160;that&#160;the&#160;delivered&#160;software&#160;does&#160;not&#160;have&#160;product&#160;quality, but&#160;is&#160;rather&#160;<br/>a&#160;proof&#160;of&#160;concept&#160;that&#160;shows&#160;the&#160;current&#160;status&#160;of&#160;the&#160;implementation&#160;as&#160;well&#160;as&#160;<br/>future&#160;directions&#160;of&#160;development.</p>
+<p style="position:absolute;top:399px;left:85px;white-space:nowrap" class="ft97">In&#160;the&#160;following&#160;sections, we&#160;describe&#160;the&#160;different&#160;choices&#160;the&#160;user&#160;is&#160;presented&#160;in&#160;the&#160;<br/>GRUB boot&#160;loader's&#160;menu&#160;when&#160;booting&#160;from&#160;the&#160;demo&#160;CD.</p>
+<p style="position:absolute;top:455px;left:85px;white-space:nowrap" class="ft93"><b>3.2&#160;Booting&#160;IPCMon&#160;Test</b></p>
+<p style="position:absolute;top:483px;left:85px;white-space:nowrap" class="ft926">The&#160;IPCMon&#160;test&#160;shows&#160;that&#160;IPC&#160;in&#160;L4 can&#160;be&#160;restricted&#160;by&#160;using&#160;IPCMon. This&#160;test&#160;<br/>loads, beside&#160;the&#160;</p>
+<p style="position:absolute;top:503px;left:231px;white-space:nowrap" class="ft923">ipcmon</p>
+<p style="position:absolute;top:505px;left:291px;white-space:nowrap" class="ft94">&#160;server, two&#160;applications:&#160;</p>
+<p style="position:absolute;top:503px;left:505px;white-space:nowrap" class="ft923">ipctest1</p>
+<p style="position:absolute;top:505px;left:569px;white-space:nowrap" class="ft94">&#160;and&#160;</p>
+<p style="position:absolute;top:503px;left:610px;white-space:nowrap" class="ft923">ipctest2</p>
+<p style="position:absolute;top:505px;left:674px;white-space:nowrap" class="ft94">. The&#160;former&#160;</p>
+<p style="position:absolute;top:531px;left:85px;white-space:nowrap" class="ft94">periodically&#160;outputs&#160;log&#160;messages. The&#160;latter&#160;revokes&#160;the&#160;rights&#160;of&#160;</p>
+<p style="position:absolute;top:529px;left:640px;white-space:nowrap" class="ft923">ipctest1</p>
+<p style="position:absolute;top:531px;left:704px;white-space:nowrap" class="ft94">&#160;to&#160;</p>
+<p style="position:absolute;top:553px;left:85px;white-space:nowrap" class="ft97">communicate&#160;with&#160;the&#160;log&#160;server&#160;after&#160;a&#160;few seconds. The&#160;log&#160;output&#160;after&#160;revokation&#160;<br/>is&#160;something&#160;like:</p>
+<p style="position:absolute;top:612px;left:170px;white-space:nowrap" class="ft928">ipcmon&#160;&#160;|&#160;ipcmon_pagefault():&#160;ipc&#160;D&#160;-&gt;&#160;7&#160;DENIED!<br/>*ipctest1|&#160;main():&#160;I'm&#160;still&#160;printing&#160;stuff&#160;to&#160;LOG.</p>
+<p style="position:absolute;top:683px;left:85px;white-space:nowrap" class="ft94">In&#160;the&#160;first&#160;line&#160;IPCMon&#160;reports&#160;that&#160;it&#160;denied&#160;the&#160;communication&#160;from&#160;</p>
+<p style="position:absolute;top:681px;left:668px;white-space:nowrap" class="ft923">ipctest1</p>
+<p style="position:absolute;top:683px;left:731px;white-space:nowrap" class="ft94">&#160;to&#160;the&#160;</p>
+<p style="position:absolute;top:705px;left:85px;white-space:nowrap" class="ft97">log&#160;server, which&#160;has&#160;task&#160;ID&#160;7. The&#160;star&#160;at&#160;the&#160;beginning&#160;of&#160;the&#160;second&#160;line&#160;indicates&#160;<br/>that&#160;the&#160;log&#160;output&#160;is&#160;not&#160;printed&#160;via&#160;the&#160;now unreachable&#160;log&#160;server, but&#160;the&#160;kernel&#160;<br/>debugger&#160;instead.</p>
+<p style="position:absolute;top:800px;left:85px;white-space:nowrap" class="ft93"><b>3.3&#160;Booting&#160;STPM&#160;Test</b></p>
+<p style="position:absolute;top:828px;left:85px;white-space:nowrap" class="ft924">The&#160;STPM&#160;test&#160;demonstrates&#160;that&#160;a&#160;TPM&#160;can&#160;be&#160;accessed&#160;by&#160;L4 programs. It&#160;runs&#160;the&#160;<br/>STPM&#160;server&#160;together&#160;with&#160;a&#160;program&#160;called&#160;</p>
+<p style="position:absolute;top:848px;left:455px;white-space:nowrap" class="ft923">tpmdemo</p>
+<p style="position:absolute;top:850px;left:532px;white-space:nowrap" class="ft94">. The&#160;interesting&#160;lines&#160;of&#160;the&#160;</p>
+<p style="position:absolute;top:873px;left:85px;white-space:nowrap" class="ft94">output&#160;look&#160;similar&#160;to&#160;those&#160;below:</p>
+<p style="position:absolute;top:912px;left:170px;white-space:nowrap" class="ft929">stpm&#160;&#160;&#160;&#160;|&#160;tis_oslo:&#160;Atmel&#160;rev:&#160;2<br/>tpmdemo&#160;|&#160;TPM&#160;version&#160;1.1.0.0<br/>tpmdemo&#160;|&#160;24&#160;PCR&#160;registers&#160;are&#160;available<br/>tpmdemo&#160;|&#160;PCR-00:&#160;99&#160;37&#160;C4&#160;68&#160;E2&#160;12&#160;7D&#160;16&#160;BF&#160;CB&#160;D8&#160;14&#160;AC&#160;FC&#160;F0</p>
+<p style="position:absolute;top:1029px;left:85px;white-space:nowrap" class="ft94">The&#160;first&#160;line&#160;shows&#160;that&#160;the&#160;</p>
+<p style="position:absolute;top:1027px;left:321px;white-space:nowrap" class="ft923">tis_oslo</p>
+<p style="position:absolute;top:1029px;left:382px;white-space:nowrap" class="ft94">&#160;driver&#160;has&#160;found&#160;an&#160;Atmel&#160;TPM. After&#160;that, the&#160;</p>
+<p style="position:absolute;top:1052px;left:85px;white-space:nowrap" class="ft97">number&#160;of&#160;the&#160;PCRs&#160;is&#160;shown&#160;and&#160;their&#160;values&#160;are&#160;dumped. &#160;Other&#160;output, such&#160;as&#160;the&#160;<br/>key&#160;handles&#160;or&#160;information&#160;about&#160;the&#160;endorsement&#160;key&#160;is&#160;also&#160;displayed.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft910">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:774px;white-space:nowrap" class="ft910">9/13</p>
+</div>
+<!-- Page 10 -->
+<a name="10"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft1030{font-size:15px;font-family:CAAAAA+BitstreamVeraSans;color:#000000;}
+-->
+</style>
+<div id="page10-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system010.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft109">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft100">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft1010">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft1010">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft103"><b>3.4&#160;Booting&#160;BMI&#160;Test</b></p>
+<p style="position:absolute;top:182px;left:85px;white-space:nowrap" class="ft104">The&#160;BMI&#160;test&#160;starts&#160;the&#160;same&#160;applications&#160;as&#160;before, but&#160;uses&#160;the&#160;</p>
+<p style="position:absolute;top:180px;left:629px;white-space:nowrap" class="ft1023">cbbmi&#160;</p>
+<p style="position:absolute;top:182px;left:684px;white-space:nowrap" class="ft104">server&#160;and&#160;</p>
+<p style="position:absolute;top:205px;left:85px;white-space:nowrap" class="ft1023">bmic</p>
+<p style="position:absolute;top:207px;left:124px;white-space:nowrap" class="ft104">&#160;tool&#160;to&#160;start&#160;them. It&#160;tests&#160;the&#160;ability&#160;to&#160;start&#160;new applications&#160;with&#160;the&#160;BMI&#160;</p>
+<p style="position:absolute;top:230px;left:85px;white-space:nowrap" class="ft104">interface.</p>
+<p style="position:absolute;top:269px;left:170px;white-space:nowrap" class="ft1029">bmic&#160;&#160;&#160;&#160;|&#160;(bmilib)&#160;get_data(stpm$)<br/>cbbmi&#160;&#160;&#160;|&#160;bmi_setImage_component():&#160;(bmi)############data:(stpm$)<br/>cbbmi&#160;&#160;&#160;|&#160;startPD_intern():&#160;(bmi)&#160;INIT&#160;DATANEW(stpm)</p>
+<p style="position:absolute;top:363px;left:85px;white-space:nowrap" class="ft104">The&#160;first&#160;line&#160;shows&#160;the&#160;command&#160;line&#160;to&#160;start&#160;with&#160;the&#160;bmic tool&#160;“</p>
+<p style="position:absolute;top:361px;left:634px;white-space:nowrap" class="ft1023">stpm</p>
+<p style="position:absolute;top:363px;left:674px;white-space:nowrap" class="ft104">”, the&#160;second&#160;</p>
+<p style="position:absolute;top:389px;left:85px;white-space:nowrap" class="ft104">line&#160;shows&#160;that&#160;the&#160;</p>
+<p style="position:absolute;top:387px;left:248px;white-space:nowrap" class="ft1023">cbbmi&#160;</p>
+<p style="position:absolute;top:389px;left:302px;white-space:nowrap" class="ft104">server&#160;received&#160;the&#160;BMI&#160;</p>
+<p style="position:absolute;top:387px;left:504px;white-space:nowrap" class="ft1023">setImage()</p>
+<p style="position:absolute;top:389px;left:588px;white-space:nowrap" class="ft104">&#160;call&#160;and&#160;the&#160;last&#160;line&#160;is&#160;</p>
+<p style="position:absolute;top:414px;left:85px;white-space:nowrap" class="ft104">from&#160;the&#160;</p>
+<p style="position:absolute;top:412px;left:161px;white-space:nowrap" class="ft1023">startPD()</p>
+<p style="position:absolute;top:414px;left:230px;white-space:nowrap" class="ft104">&#160;function&#160;of&#160;the&#160;BMI.</p>
+<p style="position:absolute;top:474px;left:85px;white-space:nowrap" class="ft103"><b>3.5&#160;Booting&#160;OSLO&#160;Test</b></p>
+<p style="position:absolute;top:502px;left:85px;white-space:nowrap" class="ft107">This&#160;test&#160;just&#160;boots&#160;OSLO&#160;alone. It&#160;can&#160;be&#160;used&#160;to&#160;check&#160;whether&#160;OSLO&#160;supports&#160;a&#160;<br/>particular&#160;machine. The&#160;interesting&#160;lines&#160;on&#160;a&#160;machine&#160;not&#160;being&#160;an&#160;SVM&#160;platform&#160;are:</p>
+<p style="position:absolute;top:560px;left:170px;white-space:nowrap" class="ft1029">OSLO:&#160;&#160;&#160;No&#160;SVM&#160;platform<br/>PAMPLONA:&#160;no&#160;ext&#160;cpuid<br/>PAMPLONA:&#160;no&#160;module&#160;to&#160;start</p>
+<p style="position:absolute;top:652px;left:85px;white-space:nowrap" class="ft104">The&#160;last&#160;line&#160;is&#160;always&#160;present&#160;in&#160;this&#160;test, as&#160;there&#160;is&#160;nothing&#160;started&#160;afterwards.</p>
+<p style="position:absolute;top:708px;left:85px;white-space:nowrap" class="ft103"><b>3.6&#160;Booting&#160;Integrated&#160;Demo&#160;of&#160;the&#160;Complete&#160;Prototype</b></p>
+<p style="position:absolute;top:736px;left:85px;white-space:nowrap" class="ft107">The&#160;full&#160;demo&#160;resembles&#160;all&#160;the&#160;aforementioned&#160;single&#160;tests&#160;into&#160;an&#160;integrated&#160;<br/>scenario.</p>
+<p style="position:absolute;top:793px;left:85px;white-space:nowrap" class="ft1030"><b>3.6.1&#160;L4Con&#160;and&#160;Run</b></p>
+<p style="position:absolute;top:819px;left:85px;white-space:nowrap" class="ft107">The&#160;demo&#160;is&#160;booted&#160;into&#160;L4con, a&#160;graphical&#160;console&#160;that&#160;can&#160;be&#160;used&#160;to&#160;multiplex&#160;the&#160;<br/>framebuffer&#160;output&#160;of&#160;multiple&#160;applications. Please&#160;note&#160;that&#160;L4con&#160;is&#160;not&#160;supported&#160; in&#160;<br/>OpenTC&#160;and&#160;used&#160;here&#160;only&#160;to&#160;ease&#160;the&#160;visualization&#160;of&#160;various&#160;running&#160;L4Linux&#160;<br/>instances.</p>
+<p style="position:absolute;top:918px;left:85px;white-space:nowrap" class="ft104">Two&#160;applications&#160;are&#160;running:</p>
+<p style="position:absolute;top:916px;left:330px;white-space:nowrap" class="ft1023">&#160;logcon</p>
+<p style="position:absolute;top:918px;left:390px;white-space:nowrap" class="ft104">&#160;and&#160;</p>
+<p style="position:absolute;top:916px;left:431px;white-space:nowrap" class="ft1023">run</p>
+<p style="position:absolute;top:918px;left:459px;white-space:nowrap" class="ft104">. The&#160;former&#160;is&#160;showing&#160;the&#160;log&#160;output,&#160;</p>
+<p style="position:absolute;top:940px;left:85px;white-space:nowrap" class="ft1024">also&#160;visible&#160;on&#160;the&#160;serial&#160;line. The&#160;latter&#160;can&#160;be&#160;used&#160;to&#160;start&#160;new applications.&#160;<br/>Switching&#160; between&#160;the&#160;L4con&#160;consoles&#160;is&#160;done&#160;by&#160;using&#160;the&#160;shift&#160;and&#160;the&#160;<br/>function_keys&#160;e.g. Shift+F1 to&#160;switch&#160;to&#160;</p>
+<p style="position:absolute;top:980px;left:419px;white-space:nowrap" class="ft1023">logcon</p>
+<p style="position:absolute;top:982px;left:473px;white-space:nowrap" class="ft104">.</p>
+<p style="position:absolute;top:1026px;left:85px;white-space:nowrap" class="ft104">The&#160;help&#160;of&#160;&#160;</p>
+<p style="position:absolute;top:1024px;left:188px;white-space:nowrap" class="ft1023">run&#160;</p>
+<p style="position:absolute;top:1026px;left:221px;white-space:nowrap" class="ft104">can&#160;be&#160;invoked&#160;by&#160;typing&#160;the&#160;single&#160;key&#160;</p>
+<p style="position:absolute;top:1024px;left:556px;white-space:nowrap" class="ft1023">h.&#160;</p>
+<p style="position:absolute;top:1026px;left:577px;white-space:nowrap" class="ft104">New applications&#160;can&#160;be&#160;</p>
+<p style="position:absolute;top:1051px;left:85px;white-space:nowrap" class="ft104">loaded&#160;by&#160;typing&#160;</p>
+<p style="position:absolute;top:1049px;left:229px;white-space:nowrap" class="ft1023">l.</p>
+<p style="position:absolute;top:1051px;left:239px;white-space:nowrap" class="ft104">&#160;An&#160;L4Linux&#160;can&#160;be&#160;started&#160;by&#160;loading&#160;</p>
+<p style="position:absolute;top:1049px;left:558px;white-space:nowrap" class="ft1023">lx.conf</p>
+<p style="position:absolute;top:1051px;left:613px;white-space:nowrap" class="ft104">.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft1010">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:765px;white-space:nowrap" class="ft1010">10/13</p>
+</div>
+<!-- Page 11 -->
+<a name="11"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page11-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system011.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft119">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft110">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft1110">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft1110">FINAL|1.0</p>
+<p style="position:absolute;top:151px;left:85px;white-space:nowrap" class="ft1130"><b>3.6.2&#160;STPM,&#160;BMI&#160;and&#160;IPCMon&#160;test</b></p>
+<p style="position:absolute;top:178px;left:85px;white-space:nowrap" class="ft114">The&#160;STPM&#160;test&#160;can&#160;be&#160;performed&#160;here&#160;by&#160;executing:</p>
+<p style="position:absolute;top:217px;left:170px;white-space:nowrap" class="ft1129">bmic&#160;--start&#160;stpm<br/>bmic&#160;--start&#160;tpmdemo</p>
+<p style="position:absolute;top:284px;left:85px;white-space:nowrap" class="ft114">The&#160;output&#160;is&#160;shown&#160;on&#160;the&#160;serial&#160;port&#160;or&#160;on&#160;logcon. The&#160;</p>
+<p style="position:absolute;top:282px;left:554px;white-space:nowrap" class="ft1123">bmic</p>
+<p style="position:absolute;top:284px;left:593px;white-space:nowrap" class="ft114">&#160;tool&#160;can&#160;be&#160;used&#160;either&#160;</p>
+<p style="position:absolute;top:309px;left:85px;white-space:nowrap" class="ft114">via&#160;</p>
+<p style="position:absolute;top:307px;left:115px;white-space:nowrap" class="ft1123">RUN</p>
+<p style="position:absolute;top:309px;left:149px;white-space:nowrap" class="ft114">&#160;or&#160;within&#160;an&#160;L</p>
+<p style="position:absolute;top:309px;left:267px;white-space:nowrap" class="ft1120">4</p>
+<p style="position:absolute;top:309px;left:275px;white-space:nowrap" class="ft114">Linux&#160;shell.</p>
+<p style="position:absolute;top:351px;left:85px;white-space:nowrap" class="ft114">The&#160;IPCMon&#160;test&#160;runs&#160;similarly&#160;by&#160;executing:</p>
+<p style="position:absolute;top:390px;left:170px;white-space:nowrap" class="ft1129">bmic&#160;--start&#160;ipcmon<br/>bmic&#160;--start&#160;ipcmon_test.cfg</p>
+<p style="position:absolute;top:454px;left:85px;white-space:nowrap" class="ft1130"><b>3.6.3&#160;L</b></p>
+<p style="position:absolute;top:454px;left:154px;white-space:nowrap" class="ft1118"><b>4</b></p>
+<p style="position:absolute;top:454px;left:162px;white-space:nowrap" class="ft1130"><b>Linux&#160;and&#160;Networking</b></p>
+<p style="position:absolute;top:480px;left:85px;white-space:nowrap" class="ft114">Multiple&#160; L</p>
+<p style="position:absolute;top:480px;left:170px;white-space:nowrap" class="ft1120">4</p>
+<p style="position:absolute;top:480px;left:179px;white-space:nowrap" class="ft114">Linux&#160;instances&#160;could&#160;be&#160;started&#160;via</p>
+<p style="position:absolute;top:518px;left:170px;white-space:nowrap" class="ft114">bmic --start-linux&#160;vmlinux&#160;15</p>
+<p style="position:absolute;top:557px;left:85px;white-space:nowrap" class="ft117">The&#160;last&#160;parameter&#160;gives&#160;the&#160;amount&#160;of&#160;memory&#160;they&#160;can&#160;use&#160;in&#160;megabytes. The&#160;one&#160;<br/>before&#160;the&#160;name&#160;of&#160;the&#160;kernel.</p>
+<p style="position:absolute;top:614px;left:85px;white-space:nowrap" class="ft114">The&#160;started&#160;L</p>
+<p style="position:absolute;top:614px;left:195px;white-space:nowrap" class="ft1120">4</p>
+<p style="position:absolute;top:614px;left:203px;white-space:nowrap" class="ft114">Linux&#160;instances&#160;are&#160;connected&#160;via&#160;our&#160;virtual&#160;network&#160;switch&#160;(ORe). A&#160;</p>
+<p style="position:absolute;top:634px;left:85px;white-space:nowrap" class="ft114">broadcast&#160;ping&#160;such&#160;as</p>
+<p style="position:absolute;top:673px;left:170px;white-space:nowrap" class="ft1127">ping&#160;192.168.0.255</p>
+<p style="position:absolute;top:718px;left:85px;white-space:nowrap" class="ft114">can&#160;be&#160;used&#160;to&#160;show which&#160;L4Linuxes&#160;are&#160;started.&#160;</p>
+<p style="position:absolute;top:756px;left:85px;white-space:nowrap" class="ft117">It&#160;is&#160;also&#160;possible&#160;to&#160;log&#160;into&#160;these&#160;virtual&#160;machines&#160;via&#160;a&#160;simple&#160;remote&#160;shell&#160;on&#160;port&#160;<br/>22. Use&#160;for&#160;instance</p>
+<p style="position:absolute;top:815px;left:170px;white-space:nowrap" class="ft1127">echo&#160;cat&#160;/proc/cmdline&#160;|&#160;nc&#160;192.168.0.11&#160;22</p>
+<p style="position:absolute;top:856px;left:85px;white-space:nowrap" class="ft114">to&#160;get&#160;the&#160;commandline&#160;of&#160;a&#160;remote&#160;kernel.</p>
+<p style="position:absolute;top:895px;left:85px;white-space:nowrap" class="ft117">There&#160;is&#160;currently&#160;no&#160;easy&#160;policy&#160;enforcement&#160;possible&#160;to&#160;restrict&#160;that&#160;a&#160;L4Linux&#160;<br/>instance&#160;can&#160;connect&#160;to&#160;ORe. A&#160;device&#160;abstraction&#160;layer&#160;in&#160;the&#160;BMI&#160;could&#160;be&#160;<br/>implemented&#160;to&#160;simplify&#160;the&#160;management&#160;of&#160;the&#160;virtual&#160;devices. This&#160;part&#160;of&#160;the&#160;BMI&#160;<br/>could&#160;use&#160;IPCMon&#160;as&#160;underlying&#160;service.</p>
+<p style="position:absolute;top:1011px;left:85px;white-space:nowrap" class="ft1113"><b>4&#160;</b></p>
+<p style="position:absolute;top:1009px;left:117px;white-space:nowrap" class="ft1114"><b>Development</b></p>
+<p style="position:absolute;top:1039px;left:85px;white-space:nowrap" class="ft117">For&#160;developing&#160;software&#160;in&#160;the&#160;L4 environment&#160;the&#160;development&#160;overview [12]&#160;can&#160;be&#160;<br/>used&#160;as&#160;a&#160;starting&#160;point. The&#160;document&#160;briefly&#160;describes&#160;and&#160;gives&#160;pointers&#160;to&#160;the&#160;<br/>needed&#160;tools, the&#160;test&#160;environment&#160;and&#160;the&#160;way&#160;to&#160;write&#160;new components&#160;or&#160;to&#160;build&#160;<br/>existing&#160;ones.</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft1110">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:765px;white-space:nowrap" class="ft1110">11/13</p>
+</div>
+<!-- Page 12 -->
+<a name="12"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}-->
+</style>
+<div id="page12-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system012.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft129">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft120">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft1210">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft1210">FINAL|1.0</p>
+<p style="position:absolute;top:154px;left:85px;white-space:nowrap" class="ft1213"><b>5&#160;</b></p>
+<p style="position:absolute;top:151px;left:117px;white-space:nowrap" class="ft1214"><b>Outline&#160;–&#160;further&#160;steps</b></p>
+<p style="position:absolute;top:181px;left:85px;white-space:nowrap" class="ft127">The&#160;next&#160;steps&#160;are&#160;to&#160;complete&#160;the&#160;BMI&#160;implementation, so&#160;that&#160;it&#160;meets&#160;the&#160;final&#160;<br/>version&#160;of&#160;the&#160;BMI&#160;specification, which&#160;is&#160;still&#160;under&#160;development. We&#160;will&#160;further&#160;test&#160;<br/>and&#160;stabilize&#160;our&#160;software. Other&#160;possible&#160;orientations&#160;for&#160;future&#160;research&#160;are&#160;the&#160;field&#160;<br/>of&#160;dynamic root&#160;of&#160;trust&#160;and&#160;new hardware&#160;features&#160;such&#160;as&#160;IO-MMUs.&#160;</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft1210">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:765px;white-space:nowrap" class="ft1210">12/13</p>
+</div>
+<!-- Page 13 -->
+<a name="13"></a>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft1331{font-size:17px;font-family:IAAAAA+BitstreamVeraSans;color:#000080;}
+	.ft1332{font-size:13px;font-family:DAAAAA+BitstreamVeraSans;color:#000080;}
+-->
+</style>
+<div id="page13-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="Open_TC_D04.4_Initial_prototype_L4-based_TC_system013.png" alt="background image"/>
+<p style="position:absolute;top:128px;left:98px;white-space:nowrap" class="ft139">&#160;</p>
+<p style="position:absolute;top:85px;left:98px;white-space:nowrap" class="ft130">&#160;</p>
+<p style="position:absolute;top:92px;left:260px;white-space:nowrap" class="ft1310">D04.4:&#160;Initial&#160;prototype&#160;L4-based&#160;TC&#160;system</p>
+<p style="position:absolute;top:92px;left:694px;white-space:nowrap" class="ft1310">FINAL|1.0</p>
+<p style="position:absolute;top:172px;left:85px;white-space:nowrap" class="ft1313"><b>6&#160;</b></p>
+<p style="position:absolute;top:169px;left:117px;white-space:nowrap" class="ft1314"><b>List&#160;of&#160;Abbreviations&#160;</b></p>
+<p style="position:absolute;top:199px;left:91px;white-space:nowrap" class="ft134">TPM</p>
+<p style="position:absolute;top:199px;left:220px;white-space:nowrap" class="ft134">Trusted&#160;Platform&#160;Module</p>
+<p style="position:absolute;top:218px;left:91px;white-space:nowrap" class="ft134">BMI</p>
+<p style="position:absolute;top:218px;left:220px;white-space:nowrap" class="ft134">Basic Management&#160;Interface</p>
+<p style="position:absolute;top:237px;left:91px;white-space:nowrap" class="ft134">DICE</p>
+<p style="position:absolute;top:237px;left:220px;white-space:nowrap" class="ft134">IDL&#160;Compiler</p>
+<p style="position:absolute;top:257px;left:91px;white-space:nowrap" class="ft134">IPC</p>
+<p style="position:absolute;top:257px;left:220px;white-space:nowrap" class="ft134">Inter&#160;Process&#160;Communication</p>
+<p style="position:absolute;top:276px;left:91px;white-space:nowrap" class="ft134">L4</p>
+<p style="position:absolute;top:276px;left:220px;white-space:nowrap" class="ft134">A&#160;second&#160;generation&#160;microkernel&#160;interface</p>
+<p style="position:absolute;top:295px;left:91px;white-space:nowrap" class="ft134">Fiasco</p>
+<p style="position:absolute;top:295px;left:220px;white-space:nowrap" class="ft134">An&#160;implementation&#160;of&#160;L4 by&#160;TUD</p>
+<p style="position:absolute;top:314px;left:91px;white-space:nowrap" class="ft134">PD</p>
+<p style="position:absolute;top:314px;left:220px;white-space:nowrap" class="ft134">Protection&#160;domain</p>
+<p style="position:absolute;top:333px;left:91px;white-space:nowrap" class="ft134">L4 ABI</p>
+<p style="position:absolute;top:333px;left:220px;white-space:nowrap" class="ft134">L4 application&#160;binary&#160;interface</p>
+<p style="position:absolute;top:393px;left:85px;white-space:nowrap" class="ft1313"><b>7&#160;</b></p>
+<p style="position:absolute;top:390px;left:117px;white-space:nowrap" class="ft1314"><b>References</b></p>
+<p style="position:absolute;top:448px;left:112px;white-space:nowrap" class="ft134">[1]&#160;Christian&#160;Helmuth:<a href="http://os.inf.tu-dresden.de/papers_ps/helmuth-diplom.pdf">&#160;</a></p>
+<p style="position:absolute;top:448px;left:299px;white-space:nowrap" class="ft1331"><a href="http://os.inf.tu-dresden.de/papers_ps/helmuth-diplom.pdf"><i>&#34;Generische&#160;Portierung&#160;von&#160;Linux-Gerätetreibern&#160;auf&#160;die&#160;</i></a></p>
+<p style="position:absolute;top:467px;left:139px;white-space:nowrap" class="ft1331"><a href="http://os.inf.tu-dresden.de/papers_ps/helmuth-diplom.pdf"><i>DROPS-Architektur&#34;</i></a></p>
+<p style="position:absolute;top:467px;left:302px;white-space:nowrap" class="ft134">&#160;-&#160;http://os.inf.tu-dresden.de/papers_ps/helmuth-diplom.pdf</p>
+<p style="position:absolute;top:486px;left:112px;white-space:nowrap" class="ft134">[2]&#160;Thomas&#160;Friebel:&#160;</p>
+<p style="position:absolute;top:486px;left:277px;white-space:nowrap" class="ft1331"><a href="http://os.inf.tu-dresden.de/papers_ps/friebel-diplom.pdf"><i>Übertragung&#160;des&#160;Device-Driver-Environment-Ansatzes&#160;auf&#160;</i></a></p>
+<p style="position:absolute;top:506px;left:139px;white-space:nowrap" class="ft1331"><a href="http://os.inf.tu-dresden.de/papers_ps/friebel-diplom.pdf"><i>Subsysteme&#160;des&#160;BSD-Betriebssystemkerns</i></a></p>
+<p style="position:absolute;top:506px;left:494px;white-space:nowrap" class="ft134">&#160;-&#160;</p>
+<p style="position:absolute;top:506px;left:511px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/papers_ps/friebel-diplom.pdf">http://os.inf.tu-</a></p>
+<p style="position:absolute;top:525px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/papers_ps/friebel-diplom.pdf">dresden.de/papers_ps/friebel-diplom.pdf</a></p>
+<p style="position:absolute;top:553px;left:112px;white-space:nowrap" class="ft134">[3]</p>
+<p style="position:absolute;top:553px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/opentc/">TUD&#160;OpenTC&#160;Snapshot</a></p>
+<p style="position:absolute;top:553px;left:327px;white-space:nowrap" class="ft134">&#160;http://os.inf.tu-dresden.de/opentc/</p>
+<p style="position:absolute;top:581px;left:112px;white-space:nowrap" class="ft1317">[4]&#160;Basic Management&#160;User&#160;Manual&#160;/src/l4/pkg/cbbmi/doc/bmimanual.pdf<br/>[5]</p>
+<p style="position:absolute;top:609px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/l4env/docu.xml">L4Env&#160;– Documentation</a></p>
+<p style="position:absolute;top:609px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/l4env/docu.xml">&#160;&#160;</a></p>
+<p style="position:absolute;top:609px;left:335px;white-space:nowrap" class="ft134"><a href="http://os.inf.tu-dresden.de/l4env/docu.xml">&#160;h</a>ttp://os.inf.tu-dresden.de/l4env/docu.xml</p>
+<p style="position:absolute;top:638px;left:112px;white-space:nowrap" class="ft134">[6]</p>
+<p style="position:absolute;top:638px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/opentc/download/l4env-core.pdf">L4Env-core&#160;Interface</a></p>
+<p style="position:absolute;top:638px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/opentc/download/l4env-core.pdf">&#160;&#160;</a></p>
+<p style="position:absolute;top:638px;left:311px;white-space:nowrap" class="ft134"><a href="http://os.inf.tu-dresden.de/opentc/download/l4env-core.pdf">&#160;</a>http://os.inf.tu-dresden.de/opentc/download/l4env-core.pdf</p>
+<p style="position:absolute;top:666px;left:112px;white-space:nowrap" class="ft134">[7]</p>
+<p style="position:absolute;top:666px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/~kauer/oslo/">OSLO&#160;– The&#160;Open&#160;Secure&#160;LOader</a></p>
+<p style="position:absolute;top:666px;left:139px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/~kauer/oslo/">&#160;&#160;</a></p>
+<p style="position:absolute;top:666px;left:411px;white-space:nowrap" class="ft134"><a href="http://os.inf.tu-dresden.de/~kauer/oslo/">&#160;h</a>ttp://os.inf.tu-dresden.de/~kauer/oslo/</p>
+<p style="position:absolute;top:694px;left:112px;white-space:nowrap" class="ft134">[8]</p>
+<p style="position:absolute;top:694px;left:139px;white-space:nowrap" class="ft1311"><a href="http://www.qemu.org/">Qemu</a></p>
+<p style="position:absolute;top:694px;left:139px;white-space:nowrap" class="ft1311"><a href="http://www.qemu.org/">&#160;&#160;</a></p>
+<p style="position:absolute;top:694px;left:189px;white-space:nowrap" class="ft134"><a href="http://www.qemu.org/">&#160;h</a>ttp://www.qemu.org/</p>
+<p style="position:absolute;top:722px;left:112px;white-space:nowrap" class="ft134">[9]</p>
+<p style="position:absolute;top:722px;left:139px;white-space:nowrap" class="ft1311"><a href="http://www.vmware.com/">Vmware</a></p>
+<p style="position:absolute;top:722px;left:139px;white-space:nowrap" class="ft1311"><a href="http://www.vmware.com/">&#160;&#160;</a></p>
+<p style="position:absolute;top:722px;left:207px;white-space:nowrap" class="ft134">&#160;http://www.vmware.com</p>
+<p style="position:absolute;top:750px;left:112px;white-space:nowrap" class="ft134">[10]<a href="ftp://alpha.gnu.org/gnu/grub/">&#160;</a></p>
+<p style="position:absolute;top:750px;left:151px;white-space:nowrap" class="ft1311"><a href="ftp://alpha.gnu.org/gnu/grub/">GRUB -&#160;The&#160;GRand&#160;Unified&#160;Bootloader</a></p>
+<p style="position:absolute;top:750px;left:465px;white-space:nowrap" class="ft134">&#160;ftp://alpha.gnu.org/gnu/grub/</p>
+<p style="position:absolute;top:779px;left:112px;white-space:nowrap" class="ft134">[11]<a href="http://os.inf.tu-dresden.de/~adam/grub/">&#160;</a></p>
+<p style="position:absolute;top:779px;left:151px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/~adam/grub/">GRUB patches</a></p>
+<p style="position:absolute;top:779px;left:270px;white-space:nowrap" class="ft134"><a href="http://os.inf.tu-dresden.de/~adam/grub/">&#160;h</a>ttp://os.inf.tu-dresden.de/~adam/grub/</p>
+<p style="position:absolute;top:807px;left:112px;white-space:nowrap" class="ft134">[12]<a href="http://os.inf.tu-dresden.de/l4env/doc/html/dev-overview/">&#160;</a></p>
+<p style="position:absolute;top:807px;left:151px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/l4env/doc/html/dev-overview/">Developing&#160;with&#160;L4</a></p>
+<p style="position:absolute;top:807px;left:310px;white-space:nowrap" class="ft134"><a href="http://os.inf.tu-dresden.de/l4env/doc/html/dev-overview/">&#160;h</a>ttp://os.inf.tu-dresden.de/l4env/doc/html/dev-overview/&#160;</p>
+<p style="position:absolute;top:835px;left:112px;white-space:nowrap" class="ft134">[13]<a href="http://os.inf.tu-dresden.de/L4/LinuxOnL4/">&#160;</a></p>
+<p style="position:absolute;top:835px;left:151px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/L4/LinuxOnL4/">L&#160;&#160;</a></p>
+<p style="position:absolute;top:835px;left:161px;white-space:nowrap" class="ft1332"><a href="http://os.inf.tu-dresden.de/L4/LinuxOnL4/">4</a></p>
+<p style="position:absolute;top:835px;left:161px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/L4/LinuxOnL4/">&#160;&#160;Linux</a></p>
+<p style="position:absolute;top:835px;left:169px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/L4/LinuxOnL4/">&#160;&#160;</a></p>
+<p style="position:absolute;top:835px;left:213px;white-space:nowrap" class="ft134">&#160;http://os.inf.tu-dresden.de/L4/LinuxOnL4/</p>
+<p style="position:absolute;top:863px;left:112px;white-space:nowrap" class="ft134">[14]<a href="http://os.inf.tu-dresden.de/dice/">&#160;</a></p>
+<p style="position:absolute;top:863px;left:151px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/dice/">DICE</a></p>
+<p style="position:absolute;top:863px;left:191px;white-space:nowrap" class="ft134"><a href="http://os.inf.tu-dresden.de/dice/">&#160; h</a>ttp://os.inf.tu-dresden.de/dice/</p>
+<p style="position:absolute;top:891px;left:112px;white-space:nowrap" class="ft134">[15]<a href="http://os.inf.tu-dresden.de/papers_ps/nizza.pdf">&#160;</a></p>
+<p style="position:absolute;top:891px;left:151px;white-space:nowrap" class="ft1311"><a href="http://os.inf.tu-dresden.de/papers_ps/nizza.pdf">Nizza&#160;Secure-System&#160;Architecture</a></p>
+<p style="position:absolute;top:891px;left:432px;white-space:nowrap" class="ft134"><a href="http://os.inf.tu-dresden.de/papers_ps/nizza.pdf">&#160;h</a>ttp://os.inf.tu-</p>
+<p style="position:absolute;top:911px;left:139px;white-space:nowrap" class="ft134">dresden.de/papers_ps/nizza.pdf</p>
+<p style="position:absolute;top:1160px;left:85px;white-space:nowrap" class="ft1310">Open_TC&#160;Deliverable&#160;D04.4</p>
+<p style="position:absolute;top:1160px;left:765px;white-space:nowrap" class="ft1310">13/13</p>
+</div>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#4">1 Introduction&#160;</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#4">2 The Software</a>
+<ul>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#4">2.1L4/Fiasco Microkernel</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#5">2.2Architectures based on L4/Fiasco</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#5">2.3L4Env</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#5">2.4L4Linux</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#5">2.5BMI – The Basic Management Interface</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#6">2.6STPM</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#6">2.7IPCMon</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#7">2.8OSLO</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#7">2.9Summary of Work Done Within OpenTC</a></li>
+</ul>
+</li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#9">3 Demo</a>
+<ul>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#9">3.1General Remarks</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#9">3.2Booting IPCMon Test</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#9">3.3Booting STPM Test</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#10">3.4Booting BMI Test</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#10">3.5Booting OSLO Test</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#10">3.6Booting Integrated Demo of the Complete Prototype</a>
+<ul>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#10">3.6.1L4Con and Run</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#11">3.6.2STPM, BMI and IPCMon test</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#11">3.6.3L4Linux and Networking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#11">4 Development</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#12">5 Outline – further steps</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#13">6 List of Abbreviations&#160;</a></li>
+<li><a href="Open_TC_D04.4_Initial_prototype_L4-based_TC_system.html#13">7 References</a></li>
+</ul>
+</body>
+</html>
